@@ -32,7 +32,7 @@ export default function DailyDrillPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("random");
   const [history, setHistory] = useState<HistoryRow[]>([]);
-  const [sessionId] = useState(() => crypto.randomUUID());
+  const [sessionId] = useState(() => Date.now().toString(36) + Math.random().toString(36).slice(2));
   const [grammarMatches, setGrammarMatches] = useState<GrammarMatch[]>([]);
   const [grammarLoading, setGrammarLoading] = useState(false);
   const grammarTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
