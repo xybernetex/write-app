@@ -2720,8 +2720,8 @@ export const tracks: Track[] = [
   // ── NONFICTION: PERSONAL ESSAY ───────────────────────────────────────────
 
   {
-    id: "nut-graf",
-    title: "The Nut Graf",
+    id: "nut-graf-fundamentals",
+    title: "Nut Graf Fundamentals",
     genre: "nonfiction",
     difficulty: "intermediate",
     description:
@@ -3122,8 +3122,8 @@ export const tracks: Track[] = [
   },
 
   {
-    id: "writing-arguments",
-    title: "Writing Arguments",
+    id: "argument-fundamentals",
+    title: "Argument Fundamentals",
     genre: "nonfiction",
     difficulty: "intermediate",
     description:
@@ -6257,6 +6257,504 @@ export const tracks: Track[] = [
               { prompt: "Write a polished closing paragraph for an essay about how we use busyness to avoid the question of what we actually want. Every sentence has a reason to be there. The last sentence is the only possible last sentence. 100–170 words." },
               { prompt: "Write a polished closing paragraph for an essay about why people who are very funny in person are often disappointing in writing — and vice versa. One technique, executed well. No wasted words. 100–170 words." },
               { prompt: "Write a polished closing paragraph for an essay about how we've collectively decided that being busy is the same as being important. Deliberate technique, earned ending, nothing wasted. 100–170 words." },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+
+  {
+    id: "the-paragraph",
+    title: "The Paragraph",
+    genre: "nonfiction",
+    difficulty: "beginner",
+    description:
+      "A paragraph is a unit of thought, not a unit of length. This track drills the four moves that make nonfiction paragraphs work: an arguable topic sentence, a concrete example that makes the claim real, an implication that says what it means, and a turn that connects to what follows. Master each move separately, then put them together.",
+    exercises: [
+      {
+        id: "para-1",
+        title: "The Topic Sentence",
+        lesson:
+          "An arguable topic sentence commits to a position. It doesn't name a topic — 'This paragraph is about productivity' — it makes a claim about one: 'Productivity culture is mostly a way to avoid the work that scares you.' The test is simple: could a thoughtful person disagree? If not, you haven't written a topic sentence — you've written a heading. The goal is one sentence that a reader could push back on.",
+        prompt:
+          "Write one sentence that makes an arguable claim about a topic. The sentence should be contestable — a thoughtful person could disagree. Not 'Social media has changed communication' but 'Social media has made people worse at sitting with their own thoughts.' One sentence, 10–25 words.",
+        wordCountMin: 8,
+        wordCountMax: 30,
+        criteria: [
+          { name: "Arguable claim", description: "The sentence makes a position a thoughtful reader could contest — not a fact, not a category label.", weight: 0.6 },
+          { name: "Specific enough to matter", description: "Not 'X is complicated' or 'X has changed' — a claim specific enough to be interesting.", weight: 0.4 },
+        ],
+        stages: [
+          {
+            label: "Get arguable",
+            passThreshold: 50,
+            wordCountMin: 8,
+            wordCountMax: 30,
+            criteria: [
+              { name: "Position, not topic", description: "The sentence commits to a view — not just 'this paragraph is about X' but 'X does/means/causes Y.'", weight: 0.6 },
+              { name: "Someone could disagree", description: "A reasonable person could push back on this sentence — it's not a fact or a tautology.", weight: 0.4 },
+            ],
+            variants: [
+              { prompt: "Write a topic sentence about remote work. Not 'remote work has become common' — that's a heading. Take a position: something about remote work that you could argue either way. 10–25 words." },
+              { prompt: "Write a topic sentence about social media. Something arguable — not 'social media has changed how we communicate' (too vague). A claim a thoughtful person could contest. 10–25 words." },
+              { prompt: "Write a topic sentence about advice. Not 'people give a lot of advice' — a position: something about why advice works or doesn't, who it serves, or what's wrong with it. 10–25 words." },
+              { prompt: "Write a topic sentence about ambition. Take a position — something about ambition that isn't just 'ambition is important' or 'ambition can go too far.' A specific, arguable claim. 10–25 words." },
+              { prompt: "Write a topic sentence about reading. Not 'reading is good for you' — that's a bumper sticker. A specific, contestable claim about what reading does or doesn't do. 10–25 words." },
+            ],
+          },
+          {
+            label: "Commit harder",
+            passThreshold: 65,
+            wordCountMin: 8,
+            wordCountMax: 25,
+            criteria: [
+              { name: "No hedging", description: "No 'often,' 'sometimes,' 'can,' 'may,' 'tends to' — the sentence stakes a clean position without weasel words.", weight: 0.45 },
+              { name: "Specific target", description: "The sentence is about something specific, not 'people in general' or 'modern society' — a named thing, behavior, or institution.", weight: 0.35 },
+              { name: "Arguable and interesting", description: "The claim is debatable and interesting enough that a reader would want to know more.", weight: 0.2 },
+            ],
+            variants: [
+              { prompt: "Write an unhedged topic sentence about meetings. No 'meetings can sometimes be' or 'many meetings tend to.' Commit. 10–22 words." },
+              { prompt: "Write an unhedged topic sentence about expertise. Pick a specific claim about experts, expertise, or credentials — no hedging. 10–22 words." },
+              { prompt: "Write an unhedged topic sentence about parenting advice. Take a clear position — not 'parenting advice is complicated' but something a parent could agree or disagree with. No qualifiers. 10–22 words." },
+              { prompt: "Write an unhedged topic sentence about productivity. Not 'productivity culture can be harmful.' Commit to the sharpest version of your position. 10–22 words." },
+              { prompt: "Write an unhedged topic sentence about friendship. Something specific about how adult friendships work, fade, or fail — no hedging. 10–22 words." },
+            ],
+          },
+          {
+            label: "One sentence, full commitment",
+            passThreshold: 75,
+            wordCountMin: 8,
+            wordCountMax: 22,
+            criteria: [
+              { name: "One clean sentence", description: "No compound clauses that hedge in the second half — one idea, clean and fully committed.", weight: 0.35 },
+              { name: "Specific and contestable", description: "Names something specific and takes a position that a real person would want to argue with.", weight: 0.45 },
+              { name: "Implies the paragraph to follow", description: "The reader can predict what the next sentence might need to do — the claim creates an obligation.", weight: 0.2 },
+            ],
+            variants: [
+              { prompt: "Write one tight, fully committed topic sentence about status — social status, professional status, or perceived status. Under 22 words, no hedging, specific enough to argue with." },
+              { prompt: "Write one tight, fully committed topic sentence about feedback — giving it, receiving it, or avoiding it. Under 22 words, clean single claim." },
+              { prompt: "Write one tight, fully committed topic sentence about attention — how we spend it, how we lose it, or what it means to pay it. Under 22 words." },
+              { prompt: "Write one tight, fully committed topic sentence about education — formal education, self-education, or credentials specifically. Under 22 words, fully committed." },
+              { prompt: "Write one tight, fully committed topic sentence about failure — how we talk about it, respond to it, or use it. One sentence, no qualifiers, under 22 words." },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "para-2",
+        title: "The Concrete Example",
+        lesson:
+          "After you stake a position, you have to make it real. Not with another abstract claim — with something specific: a named person, a single incident, a number with human scale, an image the reader can picture. Abstract claims can be nodded at and forgotten. Specific examples have to be answered. The example doesn't prove your claim — it earns the reader's patience while you make the case.",
+        prompt:
+          "Given a topic sentence, write the next sentence (or two) that grounds the claim in something concrete. A specific person, place, incident, or detail — something pictureable. 20–60 words total.",
+        wordCountMin: 15,
+        wordCountMax: 65,
+        criteria: [
+          { name: "Specific and pictureable", description: "The example is concrete enough to visualize — not 'many people' or 'some situations' but a named thing or incident.", weight: 0.5 },
+          { name: "Connects to the claim", description: "The example grounds the topic sentence — it's evidence for that position, not just an adjacent thought.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Give an example",
+            passThreshold: 50,
+            wordCountMin: 15,
+            wordCountMax: 65,
+            criteria: [
+              { name: "Something concrete added", description: "At least one specific detail, person, place, or incident — not another abstract claim.", weight: 0.5 },
+              { name: "Related to the topic sentence", description: "The example is clearly connected to the claim — not a tangent.", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Most productivity advice skips the part where the work is hard.",
+                prompt: "Write the next sentence that gives a concrete example — a specific product, author, technique, or piece of advice that illustrates this. Not another generalization. 15–50 words.",
+              },
+              {
+                given: "We've made 'be yourself' into advice without asking who that self is supposed to be.",
+                prompt: "Write the next sentence with a concrete example — a specific moment, product, platitude, or cultural artifact that shows this in action. 15–50 words.",
+              },
+              {
+                given: "Social media doesn't make people narcissists; it rewards a specific kind of performance.",
+                prompt: "Write the next sentence giving a concrete example of that performance — a specific format, behavior, or convention that illustrates what 'performance' means here. 15–50 words.",
+              },
+              {
+                given: "Job descriptions have become documents that describe the job no one actually does.",
+                prompt: "Write the next sentence with a concrete example — a specific kind of requirement, title, or phrasing that makes this visible. 15–50 words.",
+              },
+              {
+                given: "The genre of 'founder story' has converged on a single narrative shape regardless of what actually happened.",
+                prompt: "Write the next sentence giving a concrete example — a specific story, moment, or element that every founder story includes. 15–50 words.",
+              },
+            ],
+          },
+          {
+            label: "Make it specific",
+            passThreshold: 65,
+            wordCountMin: 20,
+            wordCountMax: 60,
+            criteria: [
+              { name: "Named or pictureable", description: "The example is specific enough to picture — a named book/person/event/place, not 'someone once' or 'there are cases.'", weight: 0.45 },
+              { name: "Does not repeat the claim", description: "The example adds something new — it doesn't just restate the topic sentence in different words.", weight: 0.35 },
+              { name: "Right scale", description: "The example is specific enough to be concrete but not so micro it feels arbitrary.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Advice scales to the person giving it, not the person receiving it.",
+                prompt: "Write 1–2 sentences with a specific example — name a real type of advice, a real context, or a real dynamic that makes this claim visible. Don't restate the claim. 20–55 words.",
+              },
+              {
+                given: "Every new technology gets described in the language of the thing it's replacing.",
+                prompt: "Write 1–2 sentences with a specific example — name an actual technology and what older thing it was described as. Specific enough that a reader could picture the moment. 20–55 words.",
+              },
+              {
+                given: "The open-plan office was designed to encourage collaboration and achieved the opposite.",
+                prompt: "Write 1–2 sentences grounding this in something specific — a study, a type of behavior, or a particular consequence. Named or pictureable. 20–55 words.",
+              },
+              {
+                given: "Most professional development doesn't transfer — people learn the vocabulary, not the skill.",
+                prompt: "Write 1–2 sentences with a specific example — a type of training, a familiar situation, or a particular kind of knowledge that illustrates this transfer gap. 20–55 words.",
+              },
+              {
+                given: "We've turned 'setting boundaries' into the solution to every interpersonal problem.",
+                prompt: "Write 1–2 sentences giving a specific example — a situation, a kind of conversation, or a particular use of the phrase that makes this visible. Named or concrete. 20–55 words.",
+              },
+            ],
+          },
+          {
+            label: "Right example, right weight",
+            passThreshold: 75,
+            wordCountMin: 20,
+            wordCountMax: 55,
+            criteria: [
+              { name: "Example illuminates the claim", description: "Not just any concrete detail — the example makes the topic sentence more credible or revealing, not just decorated.", weight: 0.5 },
+              { name: "Efficient — no wasted words", description: "The example is specific without being padded — it uses the minimum detail to make the claim real.", weight: 0.3 },
+              { name: "Creates forward momentum", description: "After the example, the reader wants to know what it means — not done yet, but not lost.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "The most influential books in any field are rarely the best ones — they're the ones that arrived at the right moment.",
+                prompt: "Write 1–2 sentences with the single best example of this — a book, a moment, a field — efficient and illuminating. No padding. 20–50 words.",
+              },
+              {
+                given: "Status anxiety in professional life doesn't disappear as you climb — the goalposts move with you.",
+                prompt: "Write 1–2 sentences with a specific, efficient example — one that makes the 'moving goalpost' visible without explaining it. 20–50 words.",
+              },
+              {
+                given: "The language we use to talk about mental health has expanded the category so far it's become hard to distinguish distress from disorder.",
+                prompt: "Write 1–2 sentences with the most illuminating example — a specific term, diagnostic category, or common usage that shows this expansion. Efficient. 20–50 words.",
+              },
+              {
+                given: "Platforms don't just host creators — they train them, gradually, toward what performs.",
+                prompt: "Write 1–2 sentences with a specific example — a format, a behavior, or a platform dynamic that makes 'training toward performance' visible. Illuminating, not just decorative. 20–50 words.",
+              },
+              {
+                given: "Every generation thinks the one after it doesn't know how to do the hard things.",
+                prompt: "Write 1–2 sentences with one efficient, well-chosen example — specific enough to be concrete, general enough to be recognizable. No padding. 20–50 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "para-3",
+        title: "The Implication",
+        lesson:
+          "After the example, you have to say what it means. Not summarize it — interpret it. This is the 'so what' sentence: it draws out what the example reveals and says why the reader should care. Without it, your paragraph is observation without argument. The implication is what separates a paragraph from a list of facts. It's the move that earns your claim.",
+        prompt:
+          "Given a topic sentence and an example, write the sentence that says what the example means — the implication, the 'so what.' Not a summary. An interpretation that connects back to the claim. 15–40 words.",
+        wordCountMin: 10,
+        wordCountMax: 45,
+        criteria: [
+          { name: "Interpretation, not summary", description: "The sentence says what the example means — it doesn't just restate what happened.", weight: 0.5 },
+          { name: "Connects to the claim", description: "The implication draws a line between the example and the original position.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Say what it means",
+            passThreshold: 50,
+            wordCountMin: 10,
+            wordCountMax: 45,
+            criteria: [
+              { name: "Some interpretation present", description: "The sentence adds meaning — it doesn't just repeat or describe the example.", weight: 0.55 },
+              { name: "Related to the argument", description: "The interpretation points back toward the topic sentence, not in a new direction.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "Topic sentence: 'Most feedback is really self-expression dressed up as advice.' Example: 'When a manager tells a writer to cut the fluff, they often mean cut what doesn't sound like how I would write this.'",
+                prompt: "Write one sentence that says what this example means — the 'so what.' Not a summary. What does this reveal? 10–40 words.",
+              },
+              {
+                given: "Topic sentence: 'The résumé is a form that teaches applicants to lie in a specific, socially acceptable way.' Example: 'Responsibilities become led, attendance at meetings becomes collaborated cross-functionally, and being assigned to a project becomes drove initiative.'",
+                prompt: "Write one sentence of interpretation — what does this linguistic inflation reveal about the form itself? 10–40 words.",
+              },
+              {
+                given: "Topic sentence: 'We've confused being heard with being agreed with.' Example: 'In workplace conflict mediation, employees often report feeling unheard immediately after a manager restates their concern verbatim and then proceeds to the same conclusion.'",
+                prompt: "Write one sentence that says what this reveals — the implication of that gap between being heard and feeling heard. 10–40 words.",
+              },
+              {
+                given: "Topic sentence: 'Wellness culture has made self-improvement feel like a moral category.' Example: 'A person who takes cold showers and journals every morning is described — and describes themselves — as disciplined, as doing the work, in terms once reserved for spiritual practice.'",
+                prompt: "Write one sentence of interpretation — what does this language reveal about what wellness culture is actually doing? 10–40 words.",
+              },
+              {
+                given: "Topic sentence: 'Professional networking has made a social obligation out of what used to be opportunistic.' Example: 'Conferences now include scheduled connection time, apps send prompts to check in with your network, and LinkedIn has a weekly reconnect feature that suggests people you haven't talked to in years.'",
+                prompt: "Write one sentence saying what this systematization of networking means — the implication of turning connection into a scheduled task. 10–40 words.",
+              },
+            ],
+          },
+          {
+            label: "Connect precisely",
+            passThreshold: 65,
+            wordCountMin: 12,
+            wordCountMax: 40,
+            criteria: [
+              { name: "Connects example to topic sentence", description: "The implication draws a direct line between what was shown and the original claim — not a tangent.", weight: 0.45 },
+              { name: "Adds meaning, not decoration", description: "The sentence says something that couldn't be omitted — it adds an insight the example alone doesn't deliver.", weight: 0.4 },
+              { name: "Doesn't overreach", description: "The implication is earned by the example — it doesn't make a claim larger than the evidence supports.", weight: 0.15 },
+            ],
+            variants: [
+              {
+                given: "Topic sentence: 'Nostalgia is rarely about the past — it's about a self we've stopped believing in.' Example: 'People rarely feel nostalgic about the difficult parts of the periods they idealize. The nostalgia isn't for the place or time but for the feeling of possibility that accompanied it.'",
+                prompt: "Write one sentence of implication that connects this observation precisely back to the claim — what does it reveal about the function of nostalgia? 12–38 words.",
+              },
+              {
+                given: "Topic sentence: 'Expertise doesn't make people more uncertain — it makes them certain about a narrower set of things.' Example: 'Ask a cardiologist about the dietary causes of heart disease and you'll get specificity and hedging. Ask them what their patient should do about a neck ache and they'll have an opinion immediately.'",
+                prompt: "Write one implication sentence that draws the line between this observation and the original claim. Precise, not overstated. 12–38 words.",
+              },
+              {
+                given: "Topic sentence: 'The language of self-improvement has shifted the responsibility for structural problems onto individuals.' Example: 'Books about thriving in a toxic workplace outsell books about why workplaces become toxic.'",
+                prompt: "Write one sentence of precise implication — what does this book market tell us about how we're being told to think about structural problems? 12–38 words.",
+              },
+              {
+                given: "Topic sentence: 'High-status hobbies have migrated from what you collect to what you've done.' Example: 'Marathon finisher medals displayed in home offices. Instagram accounts dedicated to peak summits. The experience itself becomes the credential.'",
+                prompt: "Write one sentence of implication that connects these examples precisely to the claim about status. 12–38 words.",
+              },
+              {
+                given: "Topic sentence: 'Transparency in organizations often means the appearance of openness rather than the fact of it.' Example: 'Town halls where leaders take questions typically feature pre-submitted questions, filtered by HR, answered with prepared talking points.'",
+                prompt: "Write one implication sentence — what does this theater of transparency reveal? Connect it precisely to the original claim. 12–38 words.",
+              },
+            ],
+          },
+          {
+            label: "Stakes are clear",
+            passThreshold: 75,
+            wordCountMin: 12,
+            wordCountMax: 38,
+            criteria: [
+              { name: "Reader knows why it matters", description: "The implication makes clear what's at stake — not just what the example shows, but why anyone should care.", weight: 0.45 },
+              { name: "Sharp and unpadded", description: "The sentence is tight — no 'this shows us that' or 'we can see from this that' windup.", weight: 0.35 },
+              { name: "Earns the argument", description: "The paragraph would be weaker without this sentence — it does irreplaceable work.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Topic sentence: 'Hustle culture doesn't produce high performers — it produces people who are very busy.' Example: 'Research on creative output consistently shows that the most productive periods for writers, scientists, and artists average four to five focused hours, not twelve-hour grinds. The rest is either shallow work or recovery from overexertion.'",
+                prompt: "Write one sharp implication sentence — stakes clear, no windup, does irreplaceable work. What does this reveal that matters? 12–35 words.",
+              },
+              {
+                given: "Topic sentence: 'The way we teach writing produces writers who can answer prompts but not writers who have anything to say.' Example: 'The five-paragraph essay, which most American students internalize between grades five and twelve, is a form that rewards structure over argument. A student who masters it has learned to fill boxes, not to think on paper.'",
+                prompt: "Write one sharp implication sentence — clear stakes, no hedging, nothing that could be omitted. 12–35 words.",
+              },
+              {
+                given: "Topic sentence: 'We've made following the data into an ethical position, when it's often a way to avoid making a judgment call.' Example: 'Every content recommendation algorithm optimizes for engagement because engagement is measurable — not because the people building it believe engagement is the same as value.'",
+                prompt: "Write one sharp implication sentence. What's actually at stake here? No windup, clean, earns the paragraph. 12–35 words.",
+              },
+              {
+                given: "Topic sentence: 'The celebrity interview has become a negotiation between access and honesty, and access always wins.' Example: 'Profile subjects approve quotes. They negotiate what topics are off-limits before sitting down. The journalist's job shifts from interrogating a subject to flattering them into revealing something mildly interesting.'",
+                prompt: "Write one sharp implication sentence — what does this journalism-by-negotiation reveal that matters? Stakes clear, no padding. 12–35 words.",
+              },
+              {
+                given: "Topic sentence: 'Mentorship has become a word that means free consulting for people who can't reciprocate.' Example: 'The mentor-mentee relationship, as it actually exists in professional life, is almost always initiated by the person seeking advice, scheduled on their terms, and benefits them exclusively. The mentor gets the moral credit of generosity.'",
+                prompt: "Write one tight implication sentence — what does this dynamic reveal, and why does it matter? No windup. 12–35 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "para-4",
+        title: "The Complete Paragraph",
+        lesson:
+          "A working paragraph has three moves: a claim, something concrete that makes it real, and a sentence that says what it means. You've practiced each in isolation. Now they go together — and the challenge is different. Each part has to earn its place. The example can't be generic. The implication can't be a restatement. And the whole thing should feel like one idea, not three sentences that happen to be adjacent.",
+        prompt:
+          "Write a complete paragraph with three moves: an arguable topic sentence, a specific concrete example, and an implication that says what the example means. 60–120 words.",
+        wordCountMin: 50,
+        wordCountMax: 130,
+        criteria: [
+          { name: "Arguable topic sentence", description: "Opens with a position, not a topic — someone could contest it.", weight: 0.35 },
+          { name: "Specific example", description: "Something concrete and pictureable after the claim — not another abstraction.", weight: 0.35 },
+          { name: "Implication is present", description: "A sentence that says what the example means — not a summary, an interpretation.", weight: 0.3 },
+        ],
+        stages: [
+          {
+            label: "All three parts present",
+            passThreshold: 50,
+            wordCountMin: 50,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Claim is present", description: "The paragraph opens with an arguable position — something, not nothing.", weight: 0.35 },
+              { name: "Something concrete is present", description: "At least one specific detail or example appears after the claim.", weight: 0.35 },
+              { name: "Implication is present", description: "A sentence that adds interpretation — says what the example reveals.", weight: 0.3 },
+            ],
+            variants: [
+              { prompt: "Write a complete paragraph about how people talk about money. Three moves: claim, example, implication. 60–120 words." },
+              { prompt: "Write a complete paragraph about how workplaces handle disagreement. Three moves: arguable opening, specific example, what it means. 60–120 words." },
+              { prompt: "Write a complete paragraph about the way cities are changing. Three moves: position, concrete detail, interpretation. 60–120 words." },
+              { prompt: "Write a complete paragraph about what success has come to mean. Three moves: claim, example, implication. 60–120 words." },
+              { prompt: "Write a complete paragraph about how the internet has changed expertise. Three moves: arguable opening, specific example, so what. 60–120 words." },
+            ],
+          },
+          {
+            label: "Parts connect",
+            passThreshold: 65,
+            wordCountMin: 60,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Example earns its place", description: "The example doesn't just follow the claim — it makes the claim more credible or visible.", weight: 0.4 },
+              { name: "Implication interprets, not restates", description: "The final sentence adds meaning — doesn't just repeat the topic sentence or describe the example.", weight: 0.4 },
+              { name: "Three sentences feel like one thought", description: "The paragraph moves forward — it doesn't feel like three separate facts that happen to be near each other.", weight: 0.2 },
+            ],
+            variants: [
+              { prompt: "Write a connected paragraph about how we talk about failure. Claim → example that earns it → implication that interprets, not restates. 60–115 words." },
+              { prompt: "Write a connected paragraph about the relationship between education and class. Each sentence earns its place — the example makes the claim visible, the implication adds meaning. 60–115 words." },
+              { prompt: "Write a connected paragraph about how social media has changed political argument. Three moves that connect — not three sentences that are each just okay. 60–115 words." },
+              { prompt: "Write a connected paragraph about parenting in public. Arguable claim → specific example → interpretation that adds something the example alone doesn't. 60–115 words." },
+              { prompt: "Write a connected paragraph about how ambition changes as people age. Claim → example → implication that doesn't just restate. 60–115 words." },
+            ],
+          },
+          {
+            label: "One unit of thought",
+            passThreshold: 75,
+            wordCountMin: 70,
+            wordCountMax: 115,
+            criteria: [
+              { name: "Paragraph is one idea, fully developed", description: "Feels like a unit — beginning, middle, and end — not three sentences that happen to share a topic.", weight: 0.4 },
+              { name: "No wasted sentence", description: "Every sentence does something the others can't — no doubling, no padding, no throat-clearing.", weight: 0.35 },
+              { name: "Implication earns the paragraph", description: "The final sentence makes the whole paragraph worth reading — it's the payoff.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a tight, complete paragraph about the way professional networks actually work. One idea, fully developed, no wasted sentence, implication that earns it. 70–110 words." },
+              { prompt: "Write a tight, complete paragraph about how we've medicalized ordinary unhappiness. Every sentence does something the others don't. Final sentence is the payoff. 70–110 words." },
+              { prompt: "Write a tight, complete paragraph about the gap between how leaders talk and how organizations function. One unit of thought, no padding, earned ending. 70–110 words." },
+              { prompt: "Write a tight, complete paragraph about what authenticity means in a professional context. Every sentence earns its place. The final sentence says something the earlier ones couldn't. 70–110 words." },
+              { prompt: "Write a tight, complete paragraph about how cities use the language of culture to justify development. One idea, three moves, no wasted words. 70–110 words." },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "para-5",
+        title: "The Turn Sentence",
+        lesson:
+          "The last sentence of a paragraph is the bridge. It can reframe what came before, complicate the claim, zoom out to the larger stakes, or raise the question the next paragraph will answer. A good turn makes what follows feel inevitable. It tells the reader: we're not done, we're going somewhere. Without it, every paragraph feels like a complete stop — and the reader has no reason to keep going.",
+        prompt:
+          "Write the last sentence of a paragraph — the turn. It should either reframe what came before, complicate the claim, or raise the question that comes next. The reader should feel: there's more, and I want it. 15–35 words.",
+        wordCountMin: 10,
+        wordCountMax: 40,
+        criteria: [
+          { name: "Creates forward movement", description: "The sentence implies there is more — the reader doesn't feel finished.", weight: 0.5 },
+          { name: "Earns its position", description: "The sentence couldn't go anywhere else in the paragraph — it belongs at the end.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Bridge to what follows",
+            passThreshold: 50,
+            wordCountMin: 10,
+            wordCountMax: 40,
+            criteria: [
+              { name: "Something continues", description: "The sentence implies the argument isn't finished — it points toward a next move.", weight: 0.55 },
+              { name: "Not a summary", description: "The last sentence doesn't just recap — it pivots or gestures forward.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "Most productivity advice is really advice about how to feel productive — to tick boxes, complete sprints, track habits — rather than how to produce work that matters. The system becomes the point. The work it was supposed to enable gets deferred.",
+                prompt: "Write the turn sentence — the last sentence that bridges to what comes next. Don't summarize. Pivot or point forward. 10–35 words.",
+              },
+              {
+                given: "The mentor-mentee relationship, as it actually exists in most industries, almost always benefits the mentee exclusively. The mentor gives time, judgment, and access; the mentee takes them. The transaction is dressed up as generosity.",
+                prompt: "Write the turn sentence. Not a summary of what was said — a sentence that implies the next move. 10–35 words.",
+              },
+              {
+                given: "We've made soft skills into the name for everything that resists being measured — empathy, communication, judgment, trust. The name does a quiet job: it ranks these skills below hard ones before anyone has to argue for that ranking.",
+                prompt: "Write the last sentence — a turn that doesn't just sum up but opens a door. 10–35 words.",
+              },
+              {
+                given: "Open offices were designed to maximize collaboration and have instead maximized noise management. Workers wear headphones to recreate the isolation the open office removed. The headphones have become the office.",
+                prompt: "Write the turn sentence. The paragraph has made its point — the last sentence should take us somewhere. 10–35 words.",
+              },
+              {
+                given: "The phrase 'I don't have time' is almost never about time. Time exists; priorities exist; the phrase is a way of assigning blame to a neutral resource rather than owning the choice.",
+                prompt: "Write a turn sentence that doesn't summarize this but pushes through it — complicates, zooms out, or raises the question that follows. 10–35 words.",
+              },
+            ],
+          },
+          {
+            label: "Clear direction",
+            passThreshold: 65,
+            wordCountMin: 12,
+            wordCountMax: 38,
+            criteria: [
+              { name: "Reader knows where we're going", description: "The turn gives the reader a direction — a question, a tension, a category — without spelling out the next paragraph.", weight: 0.45 },
+              { name: "Complicates or reframes", description: "The sentence doesn't just extend the current thought — it introduces a new angle on it.", weight: 0.35 },
+              { name: "Proportionate to the paragraph", description: "The turn's scope matches the paragraph — not too small (a detail), not too large (a thesis).", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Status anxiety doesn't disappear as you become more successful — the frame shifts. Early in a career, the question is will I make it? Later, the question is did I make it enough? The goalposts always recede by roughly the distance you've traveled.",
+                prompt: "Write a turn sentence that gives the reader a clear direction without spelling out the next paragraph. It should reframe or complicate. 12–35 words.",
+              },
+              {
+                given: "The genre of the apology letter has become formalized to the point of meaninglessness. Each element has a standard slot: the acknowledgment, the I take full responsibility, the commitment to do better. The form has been so thoroughly learned that following it signals nothing.",
+                prompt: "Write a turn sentence — reader gets a clear direction, the sentence complicates or reframes, doesn't just add more to the list. 12–35 words.",
+              },
+              {
+                given: "Efficiency in the workplace is never neutral. When a process is made faster, someone's judgment gets automated away. The question is never whether to be efficient but whose expertise the efficiency is built on.",
+                prompt: "Write the turn sentence with a clear direction forward — not a summary, not just an extension. Complicates or reframes. 12–35 words.",
+              },
+              {
+                given: "Books about habits consistently treat habit formation as the solution to problems that are actually about will, attention, or values. You can have excellent habits and still not do the work that matters. The behavior is easier to engineer than the motivation.",
+                prompt: "Write a turn sentence that gives the reader direction — complicates or reframes what was just said. Not a summary. 12–35 words.",
+              },
+              {
+                given: "Startup pitching has developed its own formal register — a vocabulary of disruption, scalability, runway, and moats that signals insider status while often obscuring what the company actually does. The language is designed to be recognized by investors, not understood by users.",
+                prompt: "Write the turn sentence. Clear direction, something reframed or complicated, proportionate to the paragraph. 12–35 words.",
+              },
+            ],
+          },
+          {
+            label: "Next paragraph feels inevitable",
+            passThreshold: 75,
+            wordCountMin: 12,
+            wordCountMax: 35,
+            criteria: [
+              { name: "Creates a specific obligation", description: "The turn creates an expectation specific enough that a reader knows what the next paragraph has to deliver.", weight: 0.45 },
+              { name: "Clean and precise", description: "No loose language — the sentence is exact and earns its effect with precise word choice.", weight: 0.35 },
+              { name: "Feels necessary, not tacked on", description: "The sentence couldn't be cut — the paragraph would feel unfinished without it.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "The feedback sandwich — criticism between two compliments — is one of the most widely taught management techniques and one of the least effective. People remember the meat, not the bread. Sandwiching criticism doesn't soften it; it makes the praise feel like a preamble to the real point.",
+                prompt: "Write a turn sentence that makes the next paragraph feel inevitable — creates a specific obligation, clean and precise. 12–32 words.",
+              },
+              {
+                given: "We've reframed laziness as burnout so thoroughly that it's become difficult to distinguish between the two. Both involve not wanting to do the work. Both feel like exhaustion. But their causes, and their remedies, are different.",
+                prompt: "Write the turn sentence that makes the next paragraph feel inevitable. The reader should know exactly what has to come next, without being told explicitly. 12–32 words.",
+              },
+              {
+                given: "The advice to find your passion collapses the difference between what you enjoy and what you're willing to do badly for years. Most people don't discover what they love — they stumble into it and then work until they're good enough that it starts loving them back.",
+                prompt: "Write a precise turn sentence — creates a specific obligation for what follows, feels necessary, clean word choice. 12–32 words.",
+              },
+              {
+                given: "Busyness has become the primary status signal of the professional class — not wealth, not achievement, not taste, but the performance of having too much to do. The person who says I'm slammed is claiming a kind of importance.",
+                prompt: "Write the turn sentence that makes the next paragraph feel inevitable. Specific obligation, precise, necessary. 12–32 words.",
+              },
+              {
+                given: "The best writing advice is almost always about reading — read widely, read in your genre, read what you want to write. But the actual transfer from reading to writing is not automatic. Most readers, even voracious ones, have not figured out how to read like a writer.",
+                prompt: "Write a turn sentence that creates a specific, precise obligation for the next paragraph. The reader should know what's coming — and want it. 12–32 words.",
+              },
             ],
           },
         ],
