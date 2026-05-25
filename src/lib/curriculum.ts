@@ -6762,6 +6762,516 @@ export const tracks: Track[] = [
     ],
   },
 
+  {
+    id: "the-turn",
+    title: "The Turn",
+    genre: "nonfiction",
+    difficulty: "intermediate",
+    description:
+      "Every essay that moves has a turn — a moment where the direction shifts and the piece becomes more than it seemed. This track drills five types of essay-level pivot: the reframe (it's actually about something else), the complication (yes, and also this), the zoom-out (here's what the small thing means), the personal turn (here's where it becomes about me), and the implication (here's where the argument actually leads). Learn to recognize them. Then learn to pull them off.",
+    exercises: [
+      {
+        id: "turn-1",
+        title: "The Reframe",
+        lesson:
+          "The reframe is the most disorienting — and most powerful — turn in opinion writing. You present a situation as everyone sees it, then show it's actually about something else entirely. Not a counterargument. A re-interpretation. The reader was seeing X; now they see Y, and they can't unsee it. 'We thought this was about productivity. It's actually about the fear of finding out you're not capable.' The test: does the reader finish the turn differently than they entered it?",
+        prompt:
+          "Given a setup that frames a situation one way, write the turn that reframes it — shows it's actually about something else. The reframe should be specific: name what it's really about. 50–100 words.",
+        wordCountMin: 40,
+        wordCountMax: 110,
+        criteria: [
+          { name: "Reframe is present", description: "The turn shifts the interpretation — the reader understands the situation differently after the pivot.", weight: 0.55 },
+          { name: "Names what it's actually about", description: "The turn is specific — it doesn't just say there's more here but names the deeper thing.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Reframe present",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Interpretation shifts", description: "The reader understands the situation differently after the turn — some reframing is present.", weight: 0.55 },
+              { name: "Something deeper named", description: "The turn gestures at what the situation is really about, even if vaguely.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "We talk about the loneliness epidemic as if it were a technology problem — too much screen time, not enough face time. The evidence is taken seriously, the concern is genuine, the proposed solutions all involve spending less time on phones.",
+                prompt: "Write the turn: what is the loneliness epidemic actually about, underneath the technology framing? Reframe it. 40–100 words.",
+              },
+              {
+                given: "The obsession with productivity tools — apps, systems, methods, planners — gets diagnosed as a time management problem. Not enough hours, too many distractions, poor prioritization. The market for solutions is enormous.",
+                prompt: "Write the turn: what is the productivity tool obsession actually about, beyond time management? Reframe it specifically. 40–100 words.",
+              },
+              {
+                given: "The discourse around toxic positivity treats it as a communication problem — telling someone to look on the bright side when they need to be heard. Therapists flag it, HR departments warn against it, guides for better conversations address it.",
+                prompt: "Write the turn: what is toxic positivity actually about, beneath the communication framing? Name the deeper thing. 40–100 words.",
+              },
+              {
+                given: "The personal finance internet presents debt as a discipline problem. You spent too much, saved too little, didn't budget correctly. The solution is always behavioral: track expenses, build habits, cut the daily coffee.",
+                prompt: "Write the turn: what is the framing of debt-as-discipline actually about? What is it really? Reframe with specificity. 40–100 words.",
+              },
+              {
+                given: "The conversation around work-life balance treats exhaustion as a scheduling problem. Too many meetings, unclear boundaries, inadequate vacation. Fix the calendar and the overwork resolves.",
+                prompt: "Write the turn: what is the work-life balance conversation actually about, beyond scheduling? Name the deeper thing it won't say directly. 40–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Specific reframe",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 100,
+            criteria: [
+              { name: "Reframe is specific", description: "The turn names exactly what the situation is really about — not there's more here but the specific underlying thing.", weight: 0.5 },
+              { name: "Reframe follows from the setup", description: "The reframe is earned by the setup — not a non-sequitur, a re-reading of the same material.", weight: 0.3 },
+              { name: "Reader sees the setup differently", description: "After the turn, the setup feels like evidence for the new interpretation, not just a preamble.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "The genre of the book about extraordinary productivity — the four-hour workweek, the morning routine of billionaires, the one habit that changes everything — keeps producing new entries because none of the previous ones worked. The reader buys the new one anyway.",
+                prompt: "Write a specific reframe: what is this genre actually about? Name the specific psychological or social function it's performing. The reframe should make the setup feel like evidence. 50–95 words.",
+              },
+              {
+                given: "Every few years the conversation turns to why there aren't more women in tech leadership. The diagnoses rotate: pipeline problem, bias in hiring, lack of mentors, confidence gap. New programs are launched. The numbers shift incrementally.",
+                prompt: "Write a specific reframe: what is this recurring conversation actually about? Name the specific thing it's doing, or not doing. Make the setup feel like evidence for the reframe. 50–95 words.",
+              },
+              {
+                given: "True crime has become one of the dominant entertainment genres — podcasts, documentaries, books, subreddits. The audience is overwhelmingly women. The commentary on this fact tends to be either appreciative or vaguely uncomfortable.",
+                prompt: "Write a specific reframe: what is the true crime phenomenon actually about? Name the specific thing the genre is doing for its audience. Make the setup feel like evidence. 50–95 words.",
+              },
+              {
+                given: "The annual ritual of New Year's resolutions is widely acknowledged to fail. People know this. Studies confirm this. The jokes about failed resolutions circulate in January. And then January comes again and the resolutions are made.",
+                prompt: "Write a specific reframe: what are New Year's resolutions actually about? Not self-improvement — the specific psychological or social function they serve regardless of whether they work. 50–95 words.",
+              },
+              {
+                given: "Hustle culture discourse now runs in both directions simultaneously: people performing busyness and celebrating it on one side, people performing self-care and rejecting hustle on the other. Both groups are posting about it constantly.",
+                prompt: "Write a specific reframe: what is this dual discourse — both the hustle and the anti-hustle — actually about? Name the single thing both sides are doing. 50–95 words.",
+              },
+            ],
+          },
+          {
+            label: "Reframe changes the piece",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Setup earned the reframe", description: "The setup earns the pivot — the reframe feels inevitable once it lands, not surprising in a cheap way.", weight: 0.4 },
+              { name: "Reframe is the real argument", description: "The reframe isn't decoration — it's the essay's actual claim. Everything before it was setup.", weight: 0.35 },
+              { name: "Reader finishes the turn different", description: "The turn changes what the reader thinks they're reading about — the piece is now about something more true.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a short passage (setup + reframe) about the self-help industry. Set up how it appears to work, then turn to what it's actually about. The reframe should be the essay's real argument. 80–180 words." },
+              { prompt: "Write a short passage (setup + reframe) about the way we talk about passion in the context of work. Set up the conventional framing, then turn to what the passion discourse is really doing. 80–180 words." },
+              { prompt: "Write a short passage (setup + reframe) about the modern performance of being overwhelmed. Set up how it presents, then turn to what the overwhelm is actually about. Reframe is the real argument. 80–180 words." },
+              { prompt: "Write a short passage (setup + reframe) about the way American culture treats therapy. Set up the conventional framing, then turn to reveal what the therapy conversation is actually doing. 80–180 words." },
+              { prompt: "Write a short passage (setup + reframe) about the founder apology — the public statement after a company does something bad. Set up how it works, then turn to what it's really about. 80–180 words." },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "turn-2",
+        title: "The Complication",
+        lesson:
+          "The complication turn builds a case — then introduces the thing that makes it harder. Not 'actually I'm wrong' and not a full counterargument. More like: yes, and also this. The complication doesn't undo what came before; it makes it more true and more difficult. The case you made was right. The complication is also right. The reader finishes the turn thinking: this is messier than I thought — and that's exactly why it matters.",
+        prompt:
+          "Given a clean argument, write the complication turn — the thing that makes the argument harder without undoing it. The complication should be specific, not vague. 50–100 words.",
+        wordCountMin: 40,
+        wordCountMax: 110,
+        criteria: [
+          { name: "Complication is present", description: "The turn introduces something that makes the argument harder — doesn't undo it, but doesn't let it off easy.", weight: 0.5 },
+          { name: "Doesn't collapse the original claim", description: "The complication adds difficulty without capitulating — the original position still stands.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Complication present",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Something complicates the case", description: "The turn introduces a real difficulty — not just 'but some people disagree.'", weight: 0.55 },
+              { name: "Case is not abandoned", description: "The original argument still stands — the complication doesn't concede the point.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "The best thing a manager can do for a struggling employee is give direct, honest feedback. Vague encouragement delays the reckoning, trains learned helplessness, and ultimately wastes everyone's time. Most employees, when surveyed, say they want more honesty from their managers, not less.",
+                prompt: "Write the complication turn — the thing that makes direct feedback harder without abandoning the case for it. Something specific. 40–100 words.",
+              },
+              {
+                given: "Cities should make it dramatically easier to build housing. Restrictive zoning inflates rents, limits density, and concentrates opportunity in places that can only expand by excluding people. The evidence on this is not subtle.",
+                prompt: "Write the complication turn — something that makes the pro-housing case harder without giving it up. Not just NIMBYs will resist. Something specific. 40–100 words.",
+              },
+              {
+                given: "Remote work has been good for most knowledge workers. Commutes were a tax on attention and health. Flexibility has redistributed power toward employees. Productivity metrics, where they can be measured, are flat to positive.",
+                prompt: "Write the complication turn — something real and specific that makes the pro-remote case harder, without abandoning it. 40–100 words.",
+              },
+              {
+                given: "Telling people to follow their passion is bad advice for most people. Passion is often discovered through competence, not before it. The people who appear to be following their passion have usually gotten good at something first and named the feeling later.",
+                prompt: "Write the complication — something that makes the anti-passion argument harder without conceding that follow your passion is right. Specific. 40–100 words.",
+              },
+              {
+                given: "Social media platforms have made political polarization worse. The algorithmic amplification of outrage, the collapse of local media, the shift from broadcast to peer-to-peer are well-documented. The research on this is substantial.",
+                prompt: "Write the complication turn — something that makes the polarization argument harder without abandoning it. Not just it's complicated. Something specific. 40–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Complication earns its place",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 100,
+            criteria: [
+              { name: "Complication is specific", description: "Not 'but it's more complex than that' — a precise, named thing that genuinely complicates the case.", weight: 0.45 },
+              { name: "Complication is honest", description: "The writer doesn't minimize it — the difficulty is real, not hedged away.", weight: 0.35 },
+              { name: "Original claim survives", description: "The argument is harder, not abandoned — the complication enriches rather than collapses.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "The argument for eating less meat on environmental grounds is solid. Animal agriculture accounts for significant greenhouse emissions. Land use, water use, and biodiversity loss all point the same direction. The arithmetic is not ambiguous.",
+                prompt: "Write a specific, honest complication — something that genuinely makes this argument harder to act on or advocate for, without conceding that the underlying case is wrong. The complication must earn its place. 50–95 words.",
+              },
+              {
+                given: "Diversity and inclusion initiatives in corporate America have largely failed to move the needle on representation at senior levels. Twenty years of programs, training, and stated commitments have produced marginal change. The gap between rhetoric and outcome is large.",
+                prompt: "Write a specific, honest complication — something that makes this failure harder to characterize as pure corporate hypocrisy. Name the specific thing that complicates the easy conclusion. 50–95 words.",
+              },
+              {
+                given: "The rise of AI writing tools will change what writing means as a skill. Work that relied on a fluency advantage — emails, reports, first drafts — is increasingly automatable. The market value of writing is already shifting.",
+                prompt: "Write a specific, honest complication — something that makes this argument about AI and writing harder, without pretending the disruption isn't real. Must be precise, not vague. 50–95 words.",
+              },
+              {
+                given: "Affirmative action in college admissions has been an imperfect but meaningful tool for increasing representation at elite universities. Students who benefited from these programs have gone on to positions that shape institutions. The downstream effects are real.",
+                prompt: "Write a specific complication — something that makes the case for affirmative action harder without conceding the opposition's main argument. Honest and precise. 50–95 words.",
+              },
+              {
+                given: "The gig economy has given certain workers — drivers, freelancers, delivery workers — a degree of scheduling flexibility they didn't have before. The ability to choose hours is real. For workers with caregiving responsibilities, this has genuine value.",
+                prompt: "Write a specific complication — something that makes the flexibility argument for gig work harder, without simply restating the critique of precarity. What is specifically difficult here? 50–95 words.",
+              },
+            ],
+          },
+          {
+            label: "Complication makes it more true",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Argument is harder and more interesting", description: "The complication doesn't weaken the piece — it makes the argument feel more honest and therefore more credible.", weight: 0.4 },
+              { name: "Complication is fully developed", description: "Not a one-line caveat — the complication gets real space and is treated with the same seriousness as the main argument.", weight: 0.35 },
+              { name: "Piece is stronger for the turn", description: "A reader who finishes the passage trusts the writer more because they acknowledged the difficulty.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a passage that makes a clear argument about meritocracy — then complicates it in a way that makes the argument stronger, not weaker. The complication gets real space. 80–180 words." },
+              { prompt: "Write a passage that makes a clear argument about parenting advice culture — then complicates it honestly. The difficulty should make the piece more credible. The complication is fully developed. 80–180 words." },
+              { prompt: "Write a passage that makes a clear argument about the relationship between money and happiness — then complicates it in a way that makes the argument more honest. Complication treated seriously. 80–180 words." },
+              { prompt: "Write a passage that makes a clear argument about expertise and public trust — then complicates it. The complication makes the argument harder and more true. Fully developed. 80–180 words." },
+              { prompt: "Write a passage that makes a clear argument about how social media has changed friendship — then complicates it honestly. The piece should be stronger for acknowledging the difficulty. 80–180 words." },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "turn-3",
+        title: "The Zoom-Out",
+        lesson:
+          "The zoom-out turn starts small and specific — a scene, a detail, a single case — then widens to reveal what it represents. The specific thing earns the reader's attention. The zoom-out earns their time. The move: here's the small thing; here's what it means about the large thing. The danger is zooming too far. The generalization has to be earned by the specific — if the specific could have supported several different generalizations equally well, you haven't zoomed; you've leapt.",
+        prompt:
+          "Given a specific scene or detail, write the zoom-out — the sentence or paragraph that reveals what the small thing represents. The zoom must be earned: the specific thing should point toward this conclusion and not equally toward several others. 50–120 words.",
+        wordCountMin: 40,
+        wordCountMax: 130,
+        criteria: [
+          { name: "Zoom-out is present", description: "The turn moves from specific to general — the reader understands what the small thing represents.", weight: 0.5 },
+          { name: "Zoom is earned by the specific", description: "The general claim follows from the particular — the specific pointed here and not equally elsewhere.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Get wide",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Movement from specific to general", description: "The turn widens — the reader leaves the scene with something larger.", weight: 0.55 },
+              { name: "Connection is present", description: "The general claim is connected to the specific — not a non-sequitur.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "In 2007, when the first iPhone was announced, Steve Jobs described it as an iPod, a phone, and an internet communicator — three things. He said the word phone last. Within five years, the phone function was the least-used feature on the device for most people.",
+                prompt: "Write the zoom-out — what does this detail reveal about something larger? Move from this specific to the general. 40–110 words.",
+              },
+              {
+                given: "The term quiet quitting — doing the minimum required by a job without formally resigning — became a major discourse topic in 2022. The phrase went viral. Then journalists began pointing out that what it described had always existed and had previously been called having a job.",
+                prompt: "Write the zoom-out — what does the naming of quiet quitting reveal about something larger? Move from this specific to the general. 40–110 words.",
+              },
+              {
+                given: "LinkedIn's Top Voice badges, awarded to frequent contributors to the platform, have become a credential that people list on their actual résumés. A credential issued by the platform for using the platform, treated as evidence of professional distinction.",
+                prompt: "Write the zoom-out — what does this credential phenomenon reveal about something larger? The specific should point toward the generalization. 40–110 words.",
+              },
+              {
+                given: "When Borders Books closed in 2011, many longtime employees reported that the chain had spent its last years heavily investing in CD and DVD inventory as those markets collapsed, while underinvesting in its website and e-book capabilities.",
+                prompt: "Write the zoom-out — what does the Borders story reveal about something larger? Move from this specific case to the general thing it illustrates. 40–110 words.",
+              },
+              {
+                given: "The most-watched content on YouTube by total view hours is not produced by professional studios or major influencers. It is videos of someone playing a video game, or someone explaining something in a calm voice, or someone doing something quietly and repetitively for a long time.",
+                prompt: "Write the zoom-out — what does this viewing pattern reveal about something larger? The specific should earn the generalization. 40–110 words.",
+              },
+            ],
+          },
+          {
+            label: "Zoom is earned",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Generalization is specific", description: "The claim reached by zooming out is itself specific — not this tells us something about human nature but a named, arguable claim.", weight: 0.45 },
+              { name: "Specific earns this zoom and not another", description: "The particular detail pointed toward this generalization — another generalization would feel like a stretch from the same material.", weight: 0.35 },
+              { name: "Zoom doesn't overreach", description: "The claim is proportionate — the small thing supports this size of generalization, not something larger.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "In the early days of Twitter, the platform's most prominent use case was breaking news — eyewitness accounts, real-time updates, the raw first draft of events. That's still how it's described in media narratives. The actual dominant use case, by volume and engagement, has been people arguing about things that already happened.",
+                prompt: "Write the earned zoom-out — the generalization this specific points toward, not a different one equally available from the same material. Specific claim, proportionate. 50–110 words.",
+              },
+              {
+                given: "The section of bookstores labeled Business is now dominated by books about personal habits, routines, mindsets, and individual optimization. Books about how industries work, how organizations fail, or how economic structures shape outcomes are shelved elsewhere, if stocked at all.",
+                prompt: "Write the earned zoom-out — what does this shelf composition reveal? The specific should point toward this claim and not equally toward several others. Specific, proportionate. 50–110 words.",
+              },
+              {
+                given: "TED talks — originally short, idea-dense presentations by practitioners — are now predominantly delivered by authors, consultants, and professional speakers whose primary product is the talk itself. The credential of having given a TED talk is used to book more speaking engagements.",
+                prompt: "Write the earned zoom-out — what does this evolution of the TED talk reveal? The specific should point here and not equally elsewhere. Specific claim. 50–110 words.",
+              },
+              {
+                given: "College application essays — a genre in which 17-year-olds are asked to produce a polished personal narrative about formative experiences — are now widely assisted by consultants, coaches, and increasingly AI. The genre asks for authenticity and is optimized for performance.",
+                prompt: "Write the earned zoom-out — what does this genre and its optimization reveal about something larger? Specific, proportionate, earned by the particular. 50–110 words.",
+              },
+              {
+                given: "The most-followed accounts on professional networking platforms are rarely people doing the most interesting work in their fields. They're people who are good at describing work in ways that generate engagement — which is a different skill, optimized for a different audience.",
+                prompt: "Write the earned zoom-out — what does this follower dynamic reveal? The specific should point here, not equally to something else. Specific claim, not overreached. 50–110 words.",
+              },
+            ],
+          },
+          {
+            label: "Zoom changes the stakes",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Specific is fully rendered", description: "The scene or detail is given enough space that the reader is actually inside it before the zoom.", weight: 0.35 },
+              { name: "Zoom reveals what the specific alone couldn't", description: "The widening makes the specific more significant than it appeared on its own — not just description, revelation.", weight: 0.4 },
+              { name: "Stakes are clear after the zoom", description: "The reader finishes knowing why the small thing matters — not just that it represents something, but what that representation means.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a passage that starts with a specific, fully rendered scene about how people behave in open-plan offices — then zooms out to reveal what it means. The specific earns the zoom. Stakes are clear. 80–180 words." },
+              { prompt: "Write a passage that starts with a specific detail about how people talk about their jobs on LinkedIn — then zooms out to reveal what it represents. The zoom reveals something the specific alone couldn't. 80–180 words." },
+              { prompt: "Write a passage that starts with a specific, rendered scene about a performance review conversation — then zooms out to what this ritual reveals. Stakes clear after the zoom. 80–180 words." },
+              { prompt: "Write a passage that starts with a specific detail about how news organizations cover tech companies — then zooms out to what it means. Specific earns the zoom; the widening reveals something the particular couldn't alone. 80–180 words." },
+              { prompt: "Write a passage that starts with a specific scene about how people describe their career changes — then zooms out to what this narrative pattern reveals. Stakes are clear after the zoom. 80–180 words." },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "turn-4",
+        title: "The Personal Turn",
+        lesson:
+          "The personal turn moves from argument to confession — or from observation to implication for the writer's own life. It's the moment an essay stops being about people and becomes about the writer too. The personal turn works not because vulnerability is inherently interesting but because it makes the argument concrete in the one way the writer can be certain of: their own experience. Done right, it doesn't make the essay smaller — it makes the claim feel lived-in rather than theoretical.",
+        prompt:
+          "Given an argument about people or we, write the turn where it becomes about you specifically. Not vague admission — a specific moment, habit, or recognition. The personal turn should make the argument more credible, not just more emotional. 50–110 words.",
+        wordCountMin: 40,
+        wordCountMax: 120,
+        criteria: [
+          { name: "Writer enters the piece", description: "The turn moves from third person or we to a specific first-person recognition or admission.", weight: 0.5 },
+          { name: "Personal moment is specific", description: "Not I'm guilty of this too — a concrete moment, habit, or detail from the writer's own experience.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Writer enters",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 120,
+            criteria: [
+              { name: "First person appears", description: "The writer enters the piece — some specific self-implication, not just we all do this.", weight: 0.55 },
+              { name: "Connection to the argument", description: "The personal moment is connected to the argument — not a tangent about the writer.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "We outsource our judgment constantly — to algorithms, to reviews, to what people we respect are watching. The friction of deciding has become unpleasant enough that we've made entire industries out of removing it. The recommendation is the product.",
+                prompt: "Write the personal turn — where do you specifically outsource your judgment? A concrete moment or habit, not a vague admission. 40–100 words.",
+              },
+              {
+                given: "People consume enormous amounts of content about doing things they never do. Podcasts about exercise listened to while sitting still. Books about focused work read in five-minute phone checks. The gap between intake and output is consistent and rarely examined.",
+                prompt: "Write the personal turn — where specifically does this gap show up in your own life? Concrete, not vague. 40–100 words.",
+              },
+              {
+                given: "The habit of performing competence — answering quickly, hedging rarely, projecting certainty — is so thoroughly rewarded in professional environments that most people don't notice when they've stopped being honest about what they don't know.",
+                prompt: "Write the personal turn — where specifically do you perform competence rather than admit uncertainty? A concrete moment, not a general confession. 40–100 words.",
+              },
+              {
+                given: "We seek feedback from people we know will be gentle with us. We ask the question in a way that contains the answer we want. We share our work with people who will be enthusiastic and withhold it from people who might see its problems.",
+                prompt: "Write the personal turn — where specifically do you engineer feedback to get the answer you want? Concrete, specific to you. 40–100 words.",
+              },
+              {
+                given: "People use busyness to avoid decisions. A full schedule is a legitimate excuse for not doing the thing you're ambivalent about. The ambivalence never has to be examined because the calendar already answered the question.",
+                prompt: "Write the personal turn — where specifically do you use busyness to avoid something you're ambivalent about? Name the thing. 40–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Personal turn is specific",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Specific concrete detail", description: "Not I'm guilty of this too — a named behavior, moment, or pattern from the writer's actual life.", weight: 0.5 },
+              { name: "Not performative vulnerability", description: "The admission is honest, not performed — it doesn't feel designed to seem relatable.", weight: 0.3 },
+              { name: "Connects argument to lived experience", description: "The personal turn makes the argument feel inhabited — the writer knows this from the inside.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Most people who describe themselves as readers are describing an identity, not a practice. The books are bought, stacked, started, shelved. The identity persists regardless. Reading is the aspiration; having read is the brand.",
+                prompt: "Write a specific personal turn — not I identify with this but a concrete detail about your own reading behavior that demonstrates the gap between identity and practice. Not performative. 50–100 words.",
+              },
+              {
+                given: "The advice to just start — ship the imperfect thing, publish the rough draft, launch and iterate — is correct and still not followed by most of the people who give it. The advice is most popular among people who are, in some area of their life, also not following it.",
+                prompt: "Write a specific personal turn — name the specific thing you haven't shipped, the draft you haven't published, the thing you're iterating toward but not launching. Concrete, not general. 50–100 words.",
+              },
+              {
+                given: "People who write about productivity are often in a complicated relationship with their own productivity. The writing is, in part, working out the problem they haven't solved. The blog post about focus was written by someone struggling to focus.",
+                prompt: "Write a specific personal turn — where does your writing or any output you produce outpace your actual practice? Name the gap with specificity. 50–100 words.",
+              },
+              {
+                given: "Comparison is the mechanism by which ambition becomes either fuel or poison. The comparison that motivates you when you're behind the person you want to catch becomes the comparison that drains you when you've caught them and found someone further ahead.",
+                prompt: "Write a specific personal turn — name the specific comparison you make most often, or the specific person you measure against. Concrete detail, not a general pattern. 50–100 words.",
+              },
+              {
+                given: "We talk about finding your voice as if it were a discovery — uncovering something that was always there. But voice is closer to a construction: the accumulated choices about what to include, what to omit, what to say directly, and what to leave in the subtext.",
+                prompt: "Write a specific personal turn — what specific choices have constructed your voice? Name them. Not I'm still finding mine but what's actually in there. 50–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Personal turn earns the argument",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Personal moment is fully rendered", description: "The self-implication is given enough space to be real — not a line, an actual moment with detail.", weight: 0.35 },
+              { name: "Personal makes the argument more credible", description: "The essay is stronger for the turn — the writer's specific experience is evidence for the claim, not just atmosphere.", weight: 0.4 },
+              { name: "Turn doesn't become confession for its own sake", description: "The personal element serves the argument — it doesn't take the essay off-course into memoir.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a passage that makes an argument about how people relate to creative work they haven't finished — then turns personal. The personal moment should make the argument more credible. Fully rendered, serves the argument. 80–180 words." },
+              { prompt: "Write a passage that makes an argument about how ambition changes in your 30s or 40s — then turns personal with specificity. The self-implication is real, not performed, and strengthens the case. 80–180 words." },
+              { prompt: "Write a passage that makes an argument about how we consume information differently than we believe we do — then turns personal. The personal moment is evidence, not just confession. Fully rendered. 80–180 words." },
+              { prompt: "Write a passage about the gap between the writing life as imagined and as practiced — then turn it personal. The specific detail should be the most honest thing in the piece. Serves the argument. 80–180 words." },
+              { prompt: "Write a passage that makes an argument about how people respond to criticism — then turns to your own specific response. The personal turn makes the argument more true, not just more relatable. 80–180 words." },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "turn-5",
+        title: "The Implication Turn",
+        lesson:
+          "The implication turn is the move where you follow an argument to where it actually leads — somewhere the reader might not have expected, and might not entirely like. The surface argument was the entrance. The implication is the destination. Done well, it feels like revelation: of course that's where this was always going. Done poorly, it feels like a pivot to a different argument. The key is that the implication must be earned by the argument — it follows, it doesn't just follow on from.",
+        prompt:
+          "Given a well-made argument, write the implication turn — where this argument actually leads, which is somewhere more uncomfortable or larger than the surface claim. The implication must follow from the argument, not just follow it. 50–100 words.",
+        wordCountMin: 40,
+        wordCountMax: 110,
+        criteria: [
+          { name: "Implication is present", description: "The turn follows the argument to a consequential conclusion — somewhere it hadn't yet gone.", weight: 0.5 },
+          { name: "Implication follows from the argument", description: "The conclusion is earned by the case that was made — it follows logically, not arbitrarily.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Follow the argument",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Argument is extended", description: "The turn takes the argument somewhere it hadn't been — a consequence, a follow-on, a larger claim.", weight: 0.55 },
+              { name: "Extension is connected", description: "The implication follows from the argument — it's not just a different topic.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "If the best predictor of academic achievement is parental income, and parental income is strongly correlated with zip code, then the quality of a school matters less than where it's located — and where it's located is determined by who can afford to live there.",
+                prompt: "Write the implication turn — follow this argument to where it actually leads. What does it mean if this is true? 40–100 words.",
+              },
+              {
+                given: "Most knowledge work is not measurable in real time. The outputs are long-cycle, collaborative, and contextual. Which means most management of knowledge workers is the management of inputs — hours, presence, activity — as a proxy for outputs that can't be directly observed.",
+                prompt: "Write the implication turn — follow this argument to its conclusion. What does it actually mean if this is right? 40–100 words.",
+              },
+              {
+                given: "If social media platforms are designed to maximize time-on-platform, and time-on-platform is maximized by emotional arousal, and emotional arousal is generated most efficiently by content that provokes fear, anger, or outrage, then the platforms are not accidentally serving more outrage — they are fulfilling their design function.",
+                prompt: "Write the implication turn — follow this to where it leads. If this is the design function, what does that mean? 40–100 words.",
+              },
+              {
+                given: "Writing that gets shared is not the same as writing that's read carefully. Shareable writing performs its argument in the headline or the first paragraph — the share happens before the reading is complete. Which means the incentives for viral writing are orthogonal to the incentives for writing that changes minds.",
+                prompt: "Write the implication turn — follow this to its conclusion. What does this mean for writing, for media, for argument? 40–100 words.",
+              },
+              {
+                given: "If expertise is increasingly available on demand — through AI, through search, through specialists you can access by the hour — then the value of having expertise is declining relative to the value of knowing what to do with it. The generalist who can integrate isn't obsolete; the narrow specialist might be.",
+                prompt: "Write the implication turn — follow the argument to where it leads. What does this mean for education, for careers, for how people should be spending their time? 40–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Implication is specific",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 100,
+            criteria: [
+              { name: "Implication names something specific", description: "Not this has implications — the implication itself is named: a specific consequence, obligation, or uncomfortable conclusion.", weight: 0.5 },
+              { name: "Implication is uncomfortable or surprising", description: "The conclusion goes somewhere the reader didn't quite expect — not shocking, but somewhere the argument hadn't been taken yet.", weight: 0.3 },
+              { name: "Follows the argument's own logic", description: "The implication is earned — it follows the argument's logic rather than borrowing its energy for a different destination.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "If the advice economy — the market for books, newsletters, courses, and coaching — profits from people remaining in need of advice, then the incentive is not to help people stop needing advice but to generate new categories of need. The successful advice business is not the one that produces the most capable people; it's the one that produces the most engaged students.",
+                prompt: "Write a specific implication — name precisely what this means. Something the argument leads to that is uncomfortable or hasn't been said yet. Follows from the logic. 50–95 words.",
+              },
+              {
+                given: "If the stories we tell about successful companies are almost always written after the fact — when success makes the early decisions look prescient — then business strategy as a field is largely the study of post-hoc rationalization. The framework was constructed after the outcome was known.",
+                prompt: "Write a specific implication — where does this lead? Name the uncomfortable conclusion for the business book industry, for strategy, for how people make decisions. 50–95 words.",
+              },
+              {
+                given: "If most people's political opinions are formed by their social group membership first and their reasoning second — if the reasoning is mostly post-hoc justification of the group position — then persuasion by argument is less effective than it appears. People who seem to be convinced by arguments may have simply moved groups.",
+                prompt: "Write a specific implication — follow this to its conclusion. What does this mean for political writing, for public debate, for anyone trying to change minds? Name the specific thing. 50–95 words.",
+              },
+              {
+                given: "If attention is a finite resource and every digital product is designed to maximize its capture, then the neutral choice — the choice to use a phone without strategic awareness — is not a free choice. It's a choice made in a context designed to produce a particular outcome.",
+                prompt: "Write a specific implication — follow this to where it leads. What does the design of attention capture mean for how we think about agency, behavior, and responsibility? Specific. 50–95 words.",
+              },
+              {
+                given: "If the most important factor in a writer getting better is the volume of feedback on their work, and most writers receive very little feedback after school, then the primary determinant of adult writing development is whether you happen to be in a context that provides feedback — which is largely a matter of luck and social capital.",
+                prompt: "Write a specific implication — follow this argument to its conclusion. What does it mean for how writing is taught, for how writers develop, for advice about getting better? 50–95 words.",
+              },
+            ],
+          },
+          {
+            label: "Implication is the real argument",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Surface argument was the setup", description: "Looking back, the argument was leading here all along — the implication reveals the essay's actual destination.", weight: 0.4 },
+              { name: "Implication is fully stated", description: "The conclusion gets space — it's not a one-line gesture but a fully articulated consequence.", weight: 0.35 },
+              { name: "Reader finishes differently than they started", description: "The implication turn changes the reader's understanding of what the essay was about.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a passage that builds an argument about credentialism — the use of degrees, certifications, and titles as proxies for competence — then reveals the implication that was the real argument all along. The implication fully stated, the reader finishes differently. 80–180 words." },
+              { prompt: "Write a passage that builds an argument about the attention economy — then turns to the implication that makes it the real argument. The surface was the entrance; the implication is the destination. Fully stated. 80–180 words." },
+              { prompt: "Write a passage that builds an argument about the way people choose careers — then reveals the implication the argument was leading to. Reader finishes with a different understanding of what the piece was about. 80–180 words." },
+              { prompt: "Write a passage that builds an argument about feedback culture in professional environments — then follows it to the implication that is the real argument. The implication is uncomfortable and fully stated. 80–180 words." },
+              { prompt: "Write a passage that builds an argument about the relationship between writing and thinking — then reveals the implication. The surface argument was setup; the implication is where the essay actually lives. Reader finishes differently. 80–180 words." },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
 ];
 
 export function getTrack(id: string): Track | undefined {
