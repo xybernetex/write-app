@@ -62,13 +62,16 @@ export async function POST(req: NextRequest) {
     }
 
     const [userRow] = await db.select().from(users).where(eq(users.id, userId)).limit(1);
-    const tone = (userRow?.feedbackTone ?? "coach") as FeedbackTone;
+    // Daily drill always uses the warm "drill" tone regardless of user preference
+    const tone = trackId === "daily-drill"
+      ? "drill"
+      : (userRow?.feedbackTone ?? "coach") as FeedbackTone;
 
     const rawResult = await evaluateSubmission(promptText, content, criteria, tone);
 
-    // Daily drill is a warm-up rep, not a test — pass threshold is 50, not 70
-    const passThreshold = trackId === "daily-drill" ? 50 : 70;
-    const result = { ...rawResult, passed: rawResult.overallScore >= passThreshold };
+    // Daily drill: if you showed up and wrote, the rep is done — no pass/fail
+    const passed = trackId === "daily-drill" ? true : rawResult.overallScore >= 70;
+    const result = { ...rawResult, passed };
 
     const nowSec = Math.floor(Date.now() / 1000);
 

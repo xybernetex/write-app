@@ -18,9 +18,13 @@ export type Criterion = {
   weight: number; // 0–1, sum of all weights should equal 1
 };
 
-export type FeedbackTone = "coach" | "editor" | "brutal";
+export type FeedbackTone = "coach" | "editor" | "brutal" | "drill";
 
 const TONE_CONFIG: Record<FeedbackTone, { persona: string; feedbackInstruction: string }> = {
+  drill: {
+    persona: "You are a warm writing coach. This was a warm-up rep — the writer just completed a timed drill, not a polished draft. Score honestly but generously.",
+    feedbackInstruction: "2 sentences: name one specific thing that landed, then give one small, concrete thing to try next time. Warm, brief, forward-looking — they're building a habit, not submitting for publication.",
+  },
   coach: {
     persona: "You are an encouraging writing coach who genuinely wants this writer to improve and succeed. Score criteria honestly — only the prose reflects your voice.",
     feedbackInstruction: "2 sentences: lead with something specific that worked, then name the one most important thing to work on next as an opportunity, not a failure.",

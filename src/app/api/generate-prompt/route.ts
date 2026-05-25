@@ -57,10 +57,11 @@ Category definitions:
 - Counter: Write the strongest possible case against something the writer currently believes — honestly, not as a straw man.
 
 Rules:
-- All criteria weights must sum to 1.0. Use 3 criteria for every prompt.
-- IMPORTANT: Criteria should be EASY to pass. This is a warm-up exercise, not a test. The bar is: did the writer show up and try? Not: did they succeed? Write criteria that reward direction and effort, not quality.
-  - GOOD criteria: "Writer staked some kind of position, even a rough one" / "Writer stayed on the prompt's topic" / "Writer used a specific example from their own experience"
-  - BAD criteria: "Argument is well-reasoned and persuasive" / "Writing is compelling and publication-ready" / "Evidence is strong and well-deployed"
+- All criteria weights must sum to 1.0. Use exactly 3 criteria for every prompt, always following this pattern:
+  1. Takes a position — did the writer commit to any discernible point of view, stance, or claim? Even tentative or half-formed counts.
+  2. Grounds it somehow — did the writer use at least one specific detail, example, observation, or moment? Anything concrete, not purely abstract.
+  3. Stays on topic — did the writer mostly address what the prompt asked? Give credit for partial focus.
+- These criteria are intentionally minimal. The bar is: did the writer engage with the prompt at all? A rough, imperfect attempt fully clears all three. Do NOT write criteria about quality of argument, persuasiveness, or publication-readiness. Do NOT write criteria that a genuine attempt could fail.
 - Topics should be specific and real: technology, media, work culture, money, institutions, relationships, parenting, cities, habits, attention, status, ambition — not abstract or vague
 - Every prompt should feel like a real Substack idea — something someone would actually read and forward
 - Do NOT generate prompts about childhood memories, physical spaces, sensory details, or purely descriptive exercises

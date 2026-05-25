@@ -292,48 +292,24 @@ export default function DailyDrillPage() {
         )}
 
         {/* Feedback panel */}
-        {status === "done" && feedback && (() => {
-          const tier = scoreTier(feedback.overallScore);
-          const ts = TIER_STYLE[tier];
-          return (
+        {status === "done" && feedback && (
           <section className="mt-2 border border-zinc-800 rounded-lg overflow-hidden">
-            <div className={`px-5 py-4 ${ts.headerBg} border-b ${ts.headerBorder}`}>
-              <div className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-2">Result</div>
-              <div className={`text-3xl font-black tracking-tight ${ts.labelColor}`}>
-                {ts.dot} {TIER_LABEL[tier]}
-              </div>
-              {tier === "exceptional" && (
-                <p className="text-xs text-yellow-400/60 mt-1">Outstanding work.</p>
-              )}
+            <div className="px-5 py-4 bg-zinc-900 border-b border-zinc-800">
+              <div className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-0.5">Rep logged ✓</div>
+              <p className="text-xs text-zinc-600">That's the work. Notes below.</p>
             </div>
 
-            <div className="px-5 py-4 space-y-4">
-              <div>
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-2">
-                  Criteria breakdown
-                </h3>
-                <div className="space-y-3">
-                  {feedback.criteriaResults.map((cr) => (
-                    <div key={cr.name}>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${
-                          cr.passed ? "bg-emerald-900 text-emerald-300" : "bg-red-950 text-red-400"
-                        }`}>
-                          {cr.passed ? "✓" : "✗"}
-                        </span>
-                        <span className="text-sm font-medium text-zinc-200">{cr.name}</span>
-                        <span className="ml-auto text-xs text-zinc-500">{Math.round(cr.score * 100)}/100</span>
-                      </div>
-                      <p className="text-sm text-zinc-400 ml-6 leading-relaxed">{cr.feedback}</p>
-                    </div>
-                  ))}
-                </div>
+            <div className="px-5 py-4 space-y-5">
+              <div className="space-y-3">
+                {feedback.criteriaResults.map((cr) => (
+                  <div key={cr.name}>
+                    <p className="text-xs font-semibold text-zinc-400 mb-0.5">{cr.name}</p>
+                    <p className="text-sm text-zinc-500 leading-relaxed">{cr.feedback}</p>
+                  </div>
+                ))}
               </div>
 
-              <div>
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-2">
-                  Coach feedback
-                </h3>
+              <div className="border-t border-zinc-800/60 pt-4">
                 <p className="text-zinc-300 leading-relaxed text-sm">{feedback.coachFeedback}</p>
               </div>
             </div>
@@ -353,8 +329,7 @@ export default function DailyDrillPage() {
               </button>
             </div>
           </section>
-          );
-        })()}
+        )}
 
         {/* History */}
         {history.length > 0 && (
