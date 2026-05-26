@@ -6763,6 +6763,581 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "chapter-architecture",
+    title: "Chapter Architecture",
+    genre: "nonfiction",
+    difficulty: "advanced",
+    description: "A chapter is not a long essay. It's a unit in a sequence — it has a job, it has an arc, and it exists in relationship to every chapter before and after it. The exercises here drill book-scale thinking: what each chapter is for, how chapters sequence, how one chapter ends and the next begins, and how a chapter title does argumentative work. The goal is to think at the scale of a book without losing the sentence.",
+    exercises: [
+      {
+        id: "chap-1",
+        title: "The Chapter's Job",
+        lesson: "Every chapter in a book is doing a job for the book's argument — not just covering a topic, but doing something the book needs. Chapter 3 might be the one where the reader finally understands what the problem is. Chapter 7 might be the turn that makes the solution possible. If you can't name a chapter's job in one sentence, the chapter might not know what it is. The drill: name the job.",
+        prompt: "For the given book scenario, name the job of each chapter listed. Not what it covers — what it does for the book's argument. One sentence per chapter.",
+        wordCountMin: 100,
+        wordCountMax: 250,
+        criteria: [
+          { name: "Jobs named, not topics", description: "Did the writer name what each chapter does for the argument — not what it's about?", weight: 0.4 },
+          { name: "Jobs are distinct", description: "Is each chapter's job different from the others — are the chapters doing different things for the book?", weight: 0.35 },
+          { name: "Jobs serve the whole", description: "Do the chapter jobs, taken together, tell a coherent story about how the book is building its argument?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Name what each chapter does",
+            passThreshold: 50,
+            wordCountMin: 90,
+            wordCountMax: 210,
+            criteria: [
+              { name: "Job named for each chapter", description: "Did the writer give a job statement for every chapter listed?", weight: 0.5 },
+              { name: "Jobs name function not content", description: "Do the job statements name what the chapter does, not what it covers?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book about: why most organizations are structurally resistant to good ideas.\nChapters: 1. How ideas actually spread in organizations. 2. The manager's incentive problem. 3. Why good ideas look like bad ideas at first. 4. The organizations that figured it out. 5. What to do if you're not in one of them.",
+                prompt: "Name the job of each chapter in one sentence. Not what it covers — what it does for the book's argument.",
+              },
+              {
+                given: "Book about: why creative work gets harder after you achieve early success.\nChapters: 1. The sophomore slump is real and universal. 2. What early success actually measures. 3. The identity trap: when your work becomes who you are. 4. How the best creative people navigate this. 5. The work that comes after you stop trying to repeat yourself.",
+                prompt: "For each chapter, name its job in the book's argument. One sentence per chapter. What does this chapter need to accomplish for the reader?",
+              },
+              {
+                given: "Book about: how to read more and actually understand what you read.\nChapters: 1. You're not reading wrong — you're reading for the wrong thing. 2. What reading for understanding actually requires. 3. The notebook as a thinking tool. 4. How to choose what to read. 5. Building a reading life that compounds.",
+                prompt: "Name the job of each chapter — what it does for the reader's understanding, not what it discusses. One sentence each.",
+              },
+              {
+                given: "Book about: the hidden costs of optimization culture.\nChapters: 1. The optimization trap. 2. What gets measured and what gets lost. 3. The body as a machine that isn't. 4. Relationships you can't A/B test. 5. What efficiency misses about meaning.",
+                prompt: "Name each chapter's job in one sentence. What does this chapter do for the book — what state does it leave the reader in that the next chapter depends on?",
+              },
+              {
+                given: "Book about: why most parenting advice is wrong for most parents.\nChapters: 1. The advice industrial complex. 2. What child development research actually shows. 3. The context problem: advice travels without its conditions. 4. The things that actually matter across contexts. 5. Making decisions without a manual.",
+                prompt: "Name the job of each chapter — what it accomplishes for the reader and for the book's argument. One sentence per chapter.",
+              },
+            ],
+          },
+          {
+            label: "Name jobs that make the sequence necessary",
+            passThreshold: 65,
+            wordCountMin: 110,
+            wordCountMax: 230,
+            criteria: [
+              { name: "Jobs create a sequence", description: "Do the chapter jobs build on each other — does Chapter 2's job depend on what Chapter 1 did?", weight: 0.4 },
+              { name: "Each job is unique", description: "Could you move any chapter to a different position without losing something — if yes, the jobs aren't tight enough?", weight: 0.35 },
+              { name: "Jobs serve the argument", description: "Do the chapter jobs, collectively, describe a book that is making an argument — not just covering a topic?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book about: how writing changes thinking, and why this matters for how we educate.\nYour chapters so far: 1. The writing crisis in schools. 2. What writing is really for. 3. How writing develops the kind of thinking schools say they want. 4. Why schools teach writing the wrong way. 5. What good writing education looks like.",
+                prompt: "Name each chapter's job such that each one depends on the previous. Why must Chapter 2 come after Chapter 1? Why must Chapter 4 come where it does? The jobs should make the sequence feel necessary.",
+              },
+              {
+                given: "Book about: the loneliness epidemic and why connection is harder than it looks.\nChapters: 1. Loneliness is not what you think. 2. The structural causes of disconnection. 3. Why individual solutions mostly fail. 4. What actually works. 5. The conditions for connection.",
+                prompt: "Name each chapter's job and explain why the sequence is necessary — why must each chapter do its job before the next can do its job?",
+              },
+              {
+                given: "Book about: why people stay in careers they hate and what it costs them.\nChapters: 1. The sunk cost career. 2. The identity investment. 3. What leaving actually risks. 4. The people who left and what happened. 5. The decision you're not making.",
+                prompt: "Name the job of each chapter such that removing or reordering any chapter would break the sequence. Why is each job in this position?",
+              },
+              {
+                given: "Book about: how cities shape the people who live in them.\nChapters: 1. The city is not neutral. 2. What density does to people. 3. Infrastructure as values. 4. The cities that got it right. 5. What you inherit when you move.",
+                prompt: "Name each chapter's job and explain why the sequence is necessary — what does each chapter need from the one before it, and what does it set up for the one after?",
+              },
+              {
+                given: "Book about: what happens to creativity as a practice matures.\nChapters: 1. The problem with loving what you do. 2. The craft vs. inspiration split. 3. What mastery costs. 4. The long game. 5. Making work that surprises you.",
+                prompt: "Name the job of each chapter with enough precision that the sequence feels inevitable. Each chapter's job should depend on the previous and set up the next.",
+              },
+            ],
+          },
+          {
+            label: "Name jobs and redesign if they're wrong",
+            passThreshold: 75,
+            wordCountMin: 130,
+            wordCountMax: 250,
+            criteria: [
+              { name: "Jobs named precisely", description: "Are the job statements specific enough to reveal if any chapter is redundant, out of place, or missing?", weight: 0.35 },
+              { name: "Problems identified", description: "Did the writer identify any chapters with overlapping jobs, missing jobs, or jobs in the wrong position?", weight: 0.4 },
+              { name: "Redesign offered", description: "If there's a problem, did the writer propose a fix — a reorder, a cut, a new chapter?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book about: attention and what we've lost by fragmenting it.\nChapters: 1. The attention economy explained. 2. What deep attention feels like. 3. How phones changed our relationship with boredom. 4. The research on focused thinking. 5. What attention is for. 6. Reclaiming attention in practice. 7. Why this matters for democracy.",
+                prompt: "Name the job of each chapter. Then identify: are any chapter jobs redundant? Is any job in the wrong position? Is any chapter missing? Propose a fix if you find a problem.",
+              },
+              {
+                given: "Book about: why people don't change even when they want to.\nChapters: 1. The intention-action gap. 2. Willpower is not the answer. 3. What actually drives behavior change. 4. Why you've failed before. 5. The role of identity. 6. The role of environment. 7. Making change stick.",
+                prompt: "Name each chapter's job precisely. Find the problems — overlapping jobs, jobs in the wrong place, missing steps. Propose at least one structural change and explain why.",
+              },
+              {
+                given: "Book about: what good work actually requires.\nChapters: 1. The myth of the genius. 2. What craft means. 3. The role of community. 4. Constraint as a creative force. 5. Working without feedback. 6. The long projects. 7. Why most people stop.",
+                prompt: "Name every chapter's job with precision. Identify any chapter whose job overlaps with another, whose position is wrong, or whose job is too vague to be useful. Redesign the sequence if needed.",
+              },
+              {
+                given: "Book about: the relationship between money and happiness.\nChapters: 1. Money doesn't buy happiness (but poverty does buy misery). 2. What the research actually shows. 3. The adaptation problem. 4. What money is actually good for. 5. The social dimensions of money. 6. Enough. 7. Making decisions about money when happiness is the goal.",
+                prompt: "Name each chapter's job. Find any jobs that are redundant, out of position, or too weak to earn the chapter. Propose a fix with reasoning.",
+              },
+              {
+                given: "Book about: learning as an adult and why it's different from learning as a child.\nChapters: 1. The learning myth. 2. What children do that adults don't. 3. Why adults stop learning. 4. The role of identity in adult learning. 5. What deliberate practice actually means for adults. 6. The communities that support adult learning. 7. How to learn something hard.",
+                prompt: "Name every chapter's job with enough precision to identify the weak points. Are any chapters redundant? Is any chapter doing two jobs that should be split? Is the sequence right? Propose changes.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "chap-2",
+        title: "The Chapter Arc",
+        lesson: "A chapter has its own arc — a beginning, a development, and an ending — that exists within the book's arc. The chapter has to be a unit that works on its own and serves the whole. Most writers think about one or the other: they write chapters that are complete units but don't build the book, or chapters that serve the book but don't work as units. The discipline: a chapter should begin somewhere and end somewhere else, and that movement should serve the book.",
+        prompt: "For the given chapter scenario, write the chapter's arc: what it opens on, what it develops, and where it lands — and explain how each element serves both the chapter and the book.",
+        wordCountMin: 110,
+        wordCountMax: 260,
+        criteria: [
+          { name: "Arc is complete", description: "Does the chapter have a genuine arc — does it begin somewhere and end somewhere else?", weight: 0.35 },
+          { name: "Arc serves the chapter", description: "Does the arc give the chapter its own shape — does it work as a unit?", weight: 0.35 },
+          { name: "Arc serves the book", description: "Does where the chapter ends set up what comes next in the book?", weight: 0.3 },
+        ],
+        stages: [
+          {
+            label: "Write the chapter's opening and landing",
+            passThreshold: 50,
+            wordCountMin: 100,
+            wordCountMax: 220,
+            criteria: [
+              { name: "Opening named", description: "Did the writer name where the chapter begins — the problem, question, or tension it opens on?", weight: 0.5 },
+              { name: "Landing named", description: "Did the writer name where the chapter ends — what the reader knows or believes that they didn't at the start?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book about: why experts are often bad at explaining their expertise. Chapter 3: The Forgetting Curve — about how expertise makes the basic invisible to the expert.",
+                prompt: "Name where this chapter opens and where it lands. What does the reader encounter at the start? What do they know or believe by the end that they didn't at the start?",
+              },
+              {
+                given: "Book about: what it takes to change a long-held belief. Chapter 4: The Identity Investment — about how beliefs become part of who we are and why that makes them hard to change.",
+                prompt: "Name this chapter's opening and landing. Where does the reader start? Where do they end up? What has changed in their understanding?",
+              },
+              {
+                given: "Book about: the hidden costs of efficiency. Chapter 2: What Gets Measured — about how the act of measuring something changes the thing being measured.",
+                prompt: "Write the chapter's arc: where it opens, what it develops, where it lands. Opening, development, landing — three elements.",
+              },
+              {
+                given: "Book about: how community shapes ambition. Chapter 5: The Comparison Set — about how the people around you determine what counts as success.",
+                prompt: "Name where this chapter opens and where it lands. What tension does it open on? What does the reader understand by the end that reframes the book's argument?",
+              },
+              {
+                given: "Book about: why most career advice fails most people. Chapter 1: The Advice Industrial Complex — about who creates career advice and who it's actually written for.",
+                prompt: "Name this chapter's opening and landing. Where does the reader begin? What has shifted by the last page? How does the landing set up the rest of the book?",
+              },
+            ],
+          },
+          {
+            label: "Write the arc that serves both the chapter and the book",
+            passThreshold: 65,
+            wordCountMin: 120,
+            wordCountMax: 240,
+            criteria: [
+              { name: "Chapter works as a unit", description: "Does the arc give the chapter its own coherence — does it begin on a tension and resolve it?", weight: 0.35 },
+              { name: "Landing sets up the next chapter", description: "Does where the chapter lands make the next chapter necessary — does it leave something open?", weight: 0.4 },
+              { name: "Opening earns the development", description: "Does the opening create the question the development needs to answer?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book about: the relationship between routine and creativity. Chapter 3 (of 6): The Constraint Paradox — about how restrictions often produce more creative work than total freedom. The chapter before established that most creative people have routines. The chapter after will argue that constraints should be chosen deliberately.",
+                prompt: "Write the arc for this chapter — where it opens, what it develops, where it lands — such that it works as its own unit AND sets up the chapter that follows.",
+              },
+              {
+                given: "Book about: how institutions resist change. Chapter 4 (of 7): The Incentive Trap — about how individual incentives systematically work against institutional improvement. The previous chapter explained how good ideas die in organizations. The next chapter will look at the rare organizations that changed.",
+                prompt: "Write the chapter arc. The opening should pick up from where the previous chapter left off. The landing should leave a gap that the next chapter fills.",
+              },
+              {
+                given: "Book about: reading and thinking. Chapter 2 (of 5): What You're Actually Looking For — about the difference between reading for information and reading for understanding. The previous chapter established that most people read wrong. The next chapter will show the technique.",
+                prompt: "Write the arc: opening, development, landing. The chapter should work on its own and serve as the pivot that makes the technique chapter necessary.",
+              },
+              {
+                given: "Book about: the attention economy and its effects on cognition. Chapter 4 (of 6): The Boredom Deficit — about what happens to the mind when boredom is permanently eliminated. The chapter before explained how platforms are designed. The next chapter will argue for deliberate boredom practice.",
+                prompt: "Write the chapter arc such that it works as a complete unit and lands in a place that makes the 'deliberate boredom' chapter feel necessary rather than arbitrary.",
+              },
+              {
+                given: "Book about: ambition and its costs. Chapter 3 (of 5): The Identity Merger — about what happens when your work becomes your identity. The chapter before established that ambition is culturally encouraged. The next chapter will look at what happens when the work goes away.",
+                prompt: "Write the arc — opening, development, landing — where the landing makes the reader understand something about themselves and sets up the chapter that follows.",
+              },
+            ],
+          },
+          {
+            label: "Write the arc and name what would break it",
+            passThreshold: 75,
+            wordCountMin: 140,
+            wordCountMax: 260,
+            criteria: [
+              { name: "Arc is complete and tight", description: "Does the chapter arc have a genuine beginning, development, and landing — no missing pieces?", weight: 0.3 },
+              { name: "Arc serves both chapter and book", description: "Is the arc complete as a unit AND positioned correctly in the book — does it set up what follows?", weight: 0.4 },
+              { name: "Break points identified", description: "Did the writer name what would happen if the opening changed, the landing changed, or the chapter were removed?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Book about: expertise and teaching. Chapter 4 (of 6): The Explanation Problem — about why experts explain things in a way that works for other experts and fails for novices. Previous chapter: The Forgetting Curve (expertise makes the basic invisible). Next chapter: What Actually Works (techniques for teaching across expertise gaps).",
+                prompt: "Write the full chapter arc. Then name: what would break if the opening changed? What would break if the landing changed? What would break if the chapter were removed from the book?",
+              },
+              {
+                given: "Book about: the relationship between money and happiness. Chapter 5 (of 7): The Enough Problem — about why 'enough' is so hard to identify and what happens when you can't. Previous chapter: What Money Is Good For. Next chapter: The Social Dimensions of Money.",
+                prompt: "Write the chapter arc. Then name what would break if: the opening were different, the landing were different, or this chapter were cut. Be specific about what each break would cost.",
+              },
+              {
+                given: "Book about: adult learning. Chapter 3 (of 7): The Identity Barrier — about how the need to seem competent prevents adults from learning. Previous: Why Adults Stop Learning. Next: What Deliberate Practice Actually Means.",
+                prompt: "Write the full arc. Then name the break points — what would fail in the book if the opening were wrong, the landing were different, or the chapter were removed?",
+              },
+              {
+                given: "Book about: why most people don't finish creative projects. Chapter 4 (of 6): The Critic Inside — about the inner critic that activates once a project is underway and its relationship to taste. Previous: The Starting Problem. Next: The Long Middle.",
+                prompt: "Write the chapter arc. Name the break points: what would break in the chapter if the opening changed, what would break in the book if the landing changed, what would be missing if the chapter were cut?",
+              },
+              {
+                given: "Book about: community and belonging. Chapter 5 (of 6): What Belonging Costs — about the concessions, compromises, and performances that belonging requires. Previous: What Belonging Does for People. Next: Chosen Communities vs. Inherited Ones.",
+                prompt: "Write the full arc. Name precisely what would break — in the chapter, in the surrounding sequence, and in the book's argument — if the opening, landing, or chapter itself were changed or removed.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "chap-3",
+        title: "Chapter to Chapter",
+        lesson: "The transitions between chapters are where books lose readers. The ending of a chapter and the opening of the next either carry the reader across or let them stop. Most chapter endings summarize. Most chapter openings reset. The best chapter endings leave a thread loose — not unresolved, but pointed. The best chapter openings don't recap; they pull on the loose thread. The discipline: the seam between chapters should be invisible.",
+        prompt: "Write the ending of the given chapter and the opening of the next. The ending should leave a thread that the opening picks up. The reader shouldn't be able to stop between them.",
+        wordCountMin: 100,
+        wordCountMax: 240,
+        criteria: [
+          { name: "Ending leaves a thread", description: "Does the chapter ending end without summarizing — does it point forward without arriving?", weight: 0.35 },
+          { name: "Opening picks up the thread", description: "Does the chapter opening pick up exactly where the ending left off — without recap, without reset?", weight: 0.4 },
+          { name: "Seam is invisible", description: "Would a reader notice the chapter break — or would they have to check to know one happened?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Write the ending and the opening",
+            passThreshold: 50,
+            wordCountMin: 90,
+            wordCountMax: 210,
+            criteria: [
+              { name: "Ending present", description: "Did the writer write a chapter ending?", weight: 0.5 },
+              { name: "Opening present and connected", description: "Did the writer write an opening for the next chapter that connects to the ending?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Chapter ending for: a chapter about how expertise makes the basic invisible to the expert. Next chapter: about techniques for teaching across expertise gaps.",
+                prompt: "Write the last 3-4 sentences of the chapter and the first 3-4 sentences of the next. The reader should carry forward, not stop.",
+              },
+              {
+                given: "Chapter ending for: a chapter about how individual incentives systematically work against institutional improvement. Next chapter: about the rare organizations that changed.",
+                prompt: "Write the chapter ending and the opening of the next chapter. The ending should point toward the next chapter without summarizing. The opening should not recap.",
+              },
+              {
+                given: "Chapter ending for: a chapter establishing that most people procrastinate because of fear of evaluation, not lack of discipline. Next chapter: about what actually helps.",
+                prompt: "Write the last 3-4 sentences of the chapter and the first 3-4 sentences of the next. Make the transition carry the reader.",
+              },
+              {
+                given: "Chapter ending for: a chapter about how the comparison set you're in determines what counts as success. Next chapter: about how to choose your comparison set deliberately.",
+                prompt: "Write the chapter ending and the next chapter's opening. End on a thread. Open on that thread.",
+              },
+              {
+                given: "Chapter ending for: a chapter about how the inner critic gets louder as taste improves. Next chapter: about how to work through the long middle of a project.",
+                prompt: "Write the ending and the opening of the next chapter. The seam should be invisible — the reader should not be able to stop.",
+              },
+            ],
+          },
+          {
+            label: "Ending that points, opening that pulls",
+            passThreshold: 65,
+            wordCountMin: 110,
+            wordCountMax: 225,
+            criteria: [
+              { name: "Ending points forward", description: "Does the ending name or imply the question the next chapter will answer — without naming it explicitly?", weight: 0.4 },
+              { name: "Opening pulls without recapping", description: "Does the opening pull on the thread the ending left — without restating what just happened?", weight: 0.35 },
+              { name: "Transition earns the chapter break", description: "Does the chapter break feel like a breath between sections of an argument, not a full stop?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Ending for: a chapter arguing that willpower is the wrong model for behavior change — it's finite, unevenly distributed, and fails under stress. Opening of: a chapter arguing that environment design is the alternative.",
+                prompt: "Write the ending and opening so that the ending plants the question ('if not willpower, then what?') and the opening answers it without stating the question. The seam should be invisible.",
+              },
+              {
+                given: "Ending for: a chapter establishing that most creative people have periods of terrible output before breakthroughs. Opening of: a chapter arguing that managing through those periods is the core skill.",
+                prompt: "Write the transition. The ending should leave the reader with the feeling that something is about to be explained. The opening should begin explaining without recap.",
+              },
+              {
+                given: "Ending for: a chapter about how belonging to a community changes what you think is possible. Opening of: a chapter about the costs and compromises that belonging requires.",
+                prompt: "Write the ending and opening. The ending should close the argument of the chapter while pointing toward the complication. The opening should begin the complication without restating the argument.",
+              },
+              {
+                given: "Ending for: a chapter establishing that most parenting advice was written for a specific kind of family that is not the majority. Opening of: a chapter about what actually matters across family contexts.",
+                prompt: "Write the transition. The ending should point toward 'so what actually matters?' The opening should begin answering without announcing it's answering.",
+              },
+              {
+                given: "Ending for: a chapter about how cities concentrate opportunity in ways that systematically advantage those already inside them. Opening of: a chapter about the cities that have resisted this pattern.",
+                prompt: "Write the ending and opening so the reader cannot stop between them. The ending should close on a tension; the opening should open on its resolution.",
+              },
+            ],
+          },
+          {
+            label: "The invisible seam",
+            passThreshold: 75,
+            wordCountMin: 130,
+            wordCountMax: 240,
+            criteria: [
+              { name: "Seam is genuinely invisible", description: "Would a reader need to check to know a chapter break happened — does the transition feel like one movement?", weight: 0.4 },
+              { name: "No recap, no reset", description: "Is there any sentence in the opening that recaps the previous chapter or re-establishes context?", weight: 0.35 },
+              { name: "Thread is specific", description: "Is the thread connecting the chapters specific — a particular question, tension, or image — not a vague 'and so...'?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Ending for: a chapter arguing that the feedback loops built into social media reward outrage because outrage is engaging, regardless of whether it's accurate. Opening of: a chapter about what this does to the reader's model of the world.",
+                prompt: "Write a transition so smooth that the reader won't know a chapter ended. The thread should be specific — a particular image, question, or tension — not a summary of the argument. No recap in the opening.",
+              },
+              {
+                given: "Ending for: a chapter establishing that most people in creative fields fear that their best work is behind them. Opening of: a chapter about what the data actually shows about creative longevity.",
+                prompt: "Write the ending and opening as a single continuous movement. The seam should be invisible. The thread should be specific. No recap.",
+              },
+              {
+                given: "Ending for: a chapter about how the way we frame failure affects how quickly we recover from it. Opening of: a chapter about the specific reframes that work.",
+                prompt: "Write the transition so the reader passes through the chapter break without noticing. The ending plants a specific thread. The opening picks it up without naming it.",
+              },
+              {
+                given: "Ending for: a chapter about how trust is built through small, consistent behaviors rather than grand gestures. Opening of: a chapter about what happens when the small behaviors stop.",
+                prompt: "Write the ending and opening as a single flowing movement. Invisible seam. Specific thread. Zero recap.",
+              },
+              {
+                given: "Ending for: a chapter arguing that most people choose their careers by a process of elimination rather than a process of discovery, and this produces mediocre fit. Opening of: a chapter about what a process of discovery would actually look like.",
+                prompt: "Write the transition. The seam should be invisible — the reader passes through without knowing. The thread should be specific and earned. The opening should begin answering without announcing itself.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "chap-4",
+        title: "Sequencing",
+        lesson: "The order of chapters is an argument. Every sequencing decision — why Chapter 3 comes before Chapter 4, why this chapter is the opener and that one is the close — reflects a theory of how the reader needs to be prepared for each next idea. Most writers sequence chapters topically. The better approach is to sequence them argumentatively: what does the reader need to understand before they're ready for this?",
+        prompt: "For the given chapter list, propose the best sequence and explain the logic: why each chapter comes where it does, what the reader needs to understand before each chapter, and what would break if any two chapters were swapped.",
+        wordCountMin: 120,
+        wordCountMax: 270,
+        criteria: [
+          { name: "Sequence is argued", description: "Did the writer explain the argumentative logic of the sequence — not just an order, but why this order?", weight: 0.4 },
+          { name: "Dependencies named", description: "Did the writer name what each chapter needs from the previous one — what the reader must understand before this chapter can work?", weight: 0.35 },
+          { name: "Swaps tested", description: "Did the writer identify what would break if any chapters were reordered?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Propose a sequence and explain it",
+            passThreshold: 50,
+            wordCountMin: 110,
+            wordCountMax: 230,
+            criteria: [
+              { name: "Sequence proposed", description: "Did the writer propose a specific order for the chapters?", weight: 0.5 },
+              { name: "Reasoning given", description: "Did the writer explain why this order, at least broadly?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Unordered chapters for a book about why people leave jobs:\nA. The straw that broke it — what the final incident was and why it mattered\nB. The alternative — what leaving looked like in practice\nC. The slow burn — how dissatisfaction accumulates before people admit it\nD. The identity cost — what leaving requires you to give up about your self-concept\nE. What the research shows about why people actually leave (vs. what they say)",
+                prompt: "Propose the sequence. For each chapter's position, give the reason: what must the reader understand before this chapter can land?",
+              },
+              {
+                given: "Unordered chapters for a book about how we learn new skills as adults:\nA. The role of fear in stopping adult learners\nB. What deliberate practice actually means\nC. The myth that adults can't learn as well as children\nD. Finding the right teacher or community\nE. The first 30 days — what to expect and what not to",
+                prompt: "Propose a sequence and explain the argumentative logic. Why does each chapter come where you put it?",
+              },
+              {
+                given: "Unordered chapters for a book about the reading life:\nA. How to choose what to read\nB. Reading as thinking, not consuming\nC. The notebook as extension of reading\nD. Why most people say they don't read enough and what's actually going on\nE. Building a reading practice that survives a busy life",
+                prompt: "Sequence these chapters. For each position, name what the reader needs to understand before this chapter will work.",
+              },
+              {
+                given: "Unordered chapters for a book about creative blocks:\nA. What actually causes blocks (not what writers say causes them)\nB. The inner critic and where it comes from\nC. The role of unfinished work in blocking new work\nD. Practical interventions that work\nE. Why advice about blocks usually fails",
+                prompt: "Propose the sequence and explain the logic. Why this order? What would break if two chapters were swapped?",
+              },
+              {
+                given: "Unordered chapters for a book about ambition:\nA. What ambition costs at the relationship level\nB. The ambition trap — wanting more even after you get what you wanted\nC. Where ambition comes from (family, culture, competition)\nD. Ambition vs. aspiration — the difference and why it matters\nE. How to want things without being defined by the wanting",
+                prompt: "Sequence these chapters and explain the argumentative logic. What does the reader need to understand before each chapter can do its job?",
+              },
+            ],
+          },
+          {
+            label: "Name the dependencies",
+            passThreshold: 65,
+            wordCountMin: 130,
+            wordCountMax: 250,
+            criteria: [
+              { name: "Dependencies explicit", description: "Did the writer name, for each chapter, what specific understanding the reader must have before this chapter can work?", weight: 0.4 },
+              { name: "Dependencies are real", description: "Are the dependencies genuine — would the chapters actually fail without them, or are they incidental?", weight: 0.35 },
+              { name: "Sequence is improved by dependencies", description: "Is the sequence the writer proposed better than the obvious topical order because of the dependencies?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Chapters for a book about institutional dysfunction:\nA. How bureaucracies select for people who maintain them\nB. Why good ideas look like bad ideas to organizations\nC. The information problem — leaders don't get accurate information\nD. The incentive structure — what people are actually rewarded for\nE. Case studies: organizations that changed and how",
+                prompt: "Sequence these chapters and name the dependency for each: what specific understanding must the reader have before this chapter works? The dependencies should determine the sequence.",
+              },
+              {
+                given: "Chapters for a book about creativity and constraint:\nA. Why total freedom often produces worse creative work\nB. How to choose constraints deliberately\nC. The neuroscience of creative problem-solving under constraint\nD. Case studies from architecture, music, and writing\nE. Building a practice of deliberate constraint",
+                prompt: "Sequence with explicit dependencies. For each chapter, name the specific conceptual prerequisite — what the reader must understand before this chapter can land. Let the dependencies drive the sequence.",
+              },
+              {
+                given: "Chapters for a book about friendship in adulthood:\nA. Why adult friendships require infrastructure\nB. The drift — how friendships end without ending\nC. What childhood friendship is and why it doesn't scale\nD. How to build friendship infrastructure intentionally\nE. The friendships worth fighting for",
+                prompt: "Sequence and name every dependency. What must be true in the reader's mind before each chapter can do its job? Use the dependencies to argue for your sequence.",
+              },
+              {
+                given: "Chapters for a book about expertise:\nA. The curse of knowledge — why experts can't explain what they know\nB. What expertise actually is (and isn't)\nC. How expertise develops\nD. Communicating across expertise gaps\nE. The limits of expertise — what it blinds you to",
+                prompt: "Name the dependency for each chapter in your proposed sequence. What understanding does each chapter need from the previous? Are there any chapters that require two predecessors?",
+              },
+              {
+                given: "Chapters for a book about rest and recovery:\nA. Why rest feels like failure\nB. What recovery actually does physiologically and cognitively\nC. The different kinds of rest and what each does\nD. Building a recovery practice\nE. The culture change required to take rest seriously",
+                prompt: "Sequence with explicit dependencies. For each chapter, name what the reader must understand and believe before this chapter can work. Then explain whether any chapter in the obvious topical order would fail because the dependency isn't met.",
+              },
+            ],
+          },
+          {
+            label: "Test the sequence by breaking it",
+            passThreshold: 75,
+            wordCountMin: 140,
+            wordCountMax: 270,
+            criteria: [
+              { name: "Sequence proposed with clear logic", description: "Is the proposed sequence argued — not just an order but a reasoned theory of how the reader must be prepared?", weight: 0.3 },
+              { name: "Break tests are meaningful", description: "Did the writer test specific swaps and identify what actually breaks — not just 'it would be worse' but what specifically would fail?", weight: 0.4 },
+              { name: "Best sequence identified", description: "Is the proposed sequence demonstrably better than alternatives — can the writer show why alternative sequences break?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Chapters for a book about procrastination:\nA. What procrastination actually is (not laziness — fear)\nB. The perfectionism connection\nC. Why advice about procrastination mostly doesn't work\nD. What the research shows about what does work\nE. Building a practice that accounts for your fear, not just your tasks",
+                prompt: "Propose your sequence. Test it by considering two specific swaps — what breaks if you move Chapter A to position 3? What breaks if you swap D and E? Identify the sequence that survives all tests.",
+              },
+              {
+                given: "Chapters for a book about writing and thinking:\nA. Writing is not transcription — it's the thinking itself\nB. Why people avoid writing (and call it 'not being a writer')\nC. The notebook as a thinking tool\nD. Writing for clarity vs. writing for an audience\nE. Building a writing practice",
+                prompt: "Sequence and test. Propose your order. Then test two swaps: what breaks? Use the tests to show why your sequence is the right one.",
+              },
+              {
+                given: "Chapters for a book about attention and deep work:\nA. What deep attention actually is and what it enables\nB. Why the conditions for deep attention have degraded\nC. The cost of shallow work — what we're trading away\nD. Creating conditions for attention\nE. The argument for attention as a civic value, not just a personal one",
+                prompt: "Propose and test. Your sequence should survive swaps — test at least two. Explain what breaks in each test and why your sequence is the one that doesn't.",
+              },
+              {
+                given: "Chapters for a book about career transitions:\nA. Why most people wait too long\nB. What 'readiness' actually means\nC. The financial runway — what you actually need before you can move\nD. How to test a direction before committing\nE. The identity transition — who you are while you're in between",
+                prompt: "Propose your sequence. Test it against at least two specific alternative orderings. Show what breaks in the alternatives and what your sequence preserves. Arrive at the sequence you'd defend.",
+              },
+              {
+                given: "Chapters for a book about parenting and values:\nA. What values are and where they actually come from\nB. The modeling problem — children learn what you do, not what you say\nC. What explicit values teaching actually does (and doesn't do)\nD. The environment you create\nE. What to do when your values conflict with your child's",
+                prompt: "Propose your sequence. Test two swaps rigorously — show exactly what breaks. Arrive at a sequence you can defend against any reordering.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "chap-5",
+        title: "The Chapter Title",
+        lesson: "A chapter title is not a label. It's a promise and an argument. 'Chapter 3: Work-Life Balance' is a label — it tells the reader what the chapter covers. 'The Balance Myth' is an argument — it tells the reader what the chapter believes. The best chapter titles create a reader who is already slightly oriented before the first sentence. The discipline: the title should be doing work that the first sentence doesn't have to do.",
+        prompt: "Write chapter titles for the given book scenario. Each title should do argumentative work — it should tell the reader not just what the chapter covers but what the chapter claims.",
+        wordCountMin: 90,
+        wordCountMax: 220,
+        criteria: [
+          { name: "Titles argue, not label", description: "Do the titles claim something — are they positions, not topics?", weight: 0.4 },
+          { name: "Titles are distinct", description: "Does each title feel different — do the titles, as a set, suggest a book with a developing argument?", weight: 0.35 },
+          { name: "Titles create a reader", description: "Does each title orient the reader — do they arrive at the first sentence already leaning in a direction?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Write titles that argue",
+            passThreshold: 50,
+            wordCountMin: 80,
+            wordCountMax: 190,
+            criteria: [
+              { name: "Titles are not labels", description: "Do the titles claim something rather than just naming a topic?", weight: 0.5 },
+              { name: "Titles are memorable", description: "Are the titles distinct and specific enough to be remembered?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book about: why people stay in bad situations longer than they should. Chapters: 1. (about how hope delays action) 2. (about the sunk cost fallacy in relationships) 3. (about how identity makes leaving feel like self-destruction) 4. (about the window for leaving and why it closes) 5. (about what actually helps people leave).",
+                prompt: "Write titles for all five chapters. Each should argue something, not just name the topic. The set should feel like a book with a developing argument.",
+              },
+              {
+                given: "Book about: what makes some feedback useful and most feedback noise. Chapters: 1. (about how feedback is usually given from the wrong position) 2. (about what useful feedback requires from the giver) 3. (about what useful feedback requires from the receiver) 4. (about the organizational conditions that enable honest feedback) 5. (about what to do with feedback that contradicts each other).",
+                prompt: "Write chapter titles that argue. Each title should stake a claim about the chapter's content, not just name its topic.",
+              },
+              {
+                given: "Book about: the hidden costs of being good at your job. Chapters: 1. (about how competence becomes a trap) 2. (about what you stop learning once you're the expert) 3. (about the identity investment in being the person who knows) 4. (about what happens when the field changes around you) 5. (about how to stay a beginner in a field you've mastered).",
+                prompt: "Write titles that do argumentative work. Each title should tell the reader what the chapter claims, not just what it covers.",
+              },
+              {
+                given: "Book about: creative community and how it shapes work. Chapters: 1. (about how your peer group sets the standard you work to) 2. (about what you stop attempting when you stop being surrounded by people attempting it) 3. (about finding community deliberately rather than accidentally) 4. (about the communities that are actually bad for your work) 5. (about what to do in the absence of community).",
+                prompt: "Write chapter titles that argue and that, as a set, suggest the arc of the book's argument.",
+              },
+              {
+                given: "Book about: rest and its relationship to creative work. Chapters: 1. (about why rest feels like failure to most creative people) 2. (about what rest actually does cognitively) 3. (about the different kinds of rest and what each enables) 4. (about how to build rest into a creative practice) 5. (about the culture change required).",
+                prompt: "Write titles that stake positions. The titles should do the work of orienting the reader before the chapter begins.",
+              },
+            ],
+          },
+          {
+            label: "Write titles that create the reader",
+            passThreshold: 65,
+            wordCountMin: 90,
+            wordCountMax: 205,
+            criteria: [
+              { name: "Titles orient the reader", description: "Does each title give the reader a direction — do they arrive at the first sentence already leaning somewhere?", weight: 0.4 },
+              { name: "Titles form a sequence", description: "Do the titles, as a set, tell a story — does the book's argument develop across the titles?", weight: 0.35 },
+              { name: "Titles are sharp", description: "Are the titles memorable and specific — not just 'The X Problem' but something with an edge?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book about: ambition, achievement, and what comes after. Chapters: 1. (establishing that most people's ambition is borrowed from their environment rather than chosen) 2. (about what achieving the goal feels like when you actually get there) 3. (about the identity crisis that often follows achievement) 4. (about what people do after the original goal is gone) 5. (about choosing ambitions deliberately rather than inheriting them).",
+                prompt: "Write titles that orient the reader and form a sequence. A reader who sees only the table of contents should understand what kind of argument this book is making.",
+              },
+              {
+                given: "Book about: why the most important conversations don't happen. Chapters: 1. (about the conversations that are avoided and why) 2. (about what avoidance costs — in relationships, organizations, families) 3. (about why the fear of difficult conversations is usually worse than the conversation) 4. (about how to have the conversation you've been avoiding) 5. (about what happens after).",
+                prompt: "Write titles that create a reader who is oriented before the first sentence. The titles should form a sequence that describes the book's developing argument.",
+              },
+              {
+                given: "Book about: reading and understanding. Chapters: 1. (establishing that most people read without understanding and why this is the goal they're missing) 2. (about what reading for understanding actually requires) 3. (about the notebook as a tool for understanding) 4. (about choosing what to read when the goal is understanding) 5. (about what a life of reading for understanding produces).",
+                prompt: "Write titles that argue and orient. Each title should tell the reader what the chapter claims. As a set, they should describe a book that's going somewhere.",
+              },
+              {
+                given: "Book about: what expertise actually means and what it blinds you to. Chapters: 1. (about the common misconception of expertise as knowing) 2. (about how expertise actually develops and what it creates in the mind) 3. (about what expertise makes impossible to see) 4. (about how to stay porous to challenge as an expert) 5. (about the value of beginner's mind in expert fields).",
+                prompt: "Write titles that stake claims and orient readers. The set should form a table of contents that describes an argument, not just a list of topics.",
+              },
+              {
+                given: "Book about: how we make decisions and what we don't know about how we make decisions. Chapters: 1. (establishing that most decision-making is post-hoc rationalization) 2. (about the actual drivers of most decisions — emotion, habit, environment) 3. (about what the research shows and doesn't show) 4. (about how to make better decisions given all this) 5. (about the decisions that can't be made better and what to do with them).",
+                prompt: "Write titles that argue and orient. A reader who sees the table of contents should understand the book's stance before reading a single page.",
+              },
+            ],
+          },
+          {
+            label: "Write the title that becomes the book",
+            passThreshold: 75,
+            wordCountMin: 110,
+            wordCountMax: 220,
+            criteria: [
+              { name: "Best title is best", description: "Is the title the writer chose actually the strongest — not the safest, the most accurate, the sharpest?", weight: 0.35 },
+              { name: "Title does work the first sentence doesn't", description: "Does the title orient the reader in a way that means the first sentence can start in the argument rather than in setup?", weight: 0.4 },
+              { name: "Alternatives show the thinking", description: "Do the alternative titles show genuine consideration — different angles, not just different words?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Chapter about: how people avoid the decision to leave a bad situation by staying in a state of 'deciding' indefinitely — where the act of considering leaving becomes a substitute for the discomfort of either leaving or committing to stay.",
+                prompt: "Write five title options for this chapter. For each, say what work it does — what the reader understands from the title alone. Choose the best one and explain why it does more work than the others.",
+              },
+              {
+                given: "Chapter about: why the expertise that gets you promoted often makes you worse at the job you're promoted into — the skills that made you excellent at execution work against you when you need to be excellent at direction.",
+                prompt: "Write five chapter title options. For each, name what it does for the reader before the first sentence. Choose the one that does the most work and explain why.",
+              },
+              {
+                given: "Chapter about: how the most important thing you learn in a creative practice is how to tolerate the gap between your taste and your ability — the gap that closes over time if you keep working but that most people mistake for a sign they should stop.",
+                prompt: "Write five titles. For each, explain what it tells the reader before they read a word of the chapter. Choose the sharpest one and defend it against the alternatives.",
+              },
+              {
+                given: "Chapter about: why the communities we're born into shape our sense of what's normal, what's possible, and what counts as success — and how rarely people notice this happening even as they're shaped by it.",
+                prompt: "Write five title options. For each, say what the reader understands from the title alone. Choose the one that creates the best reader for this chapter.",
+              },
+              {
+                given: "Chapter about: how the feedback loop between what we write and who reads it gradually narrows what we're willing to write — and how to notice and resist this narrowing while remaining a writer who is genuinely in conversation with readers.",
+                prompt: "Write five titles. For each, explain what work it does before the first sentence. Choose the one that does the most argumentative work and explain why it's better than the alternatives.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "substack-format",
     title: "Substack Format",
     genre: "nonfiction",
