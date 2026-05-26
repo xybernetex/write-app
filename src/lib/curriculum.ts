@@ -6763,6 +6763,581 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "voice-work",
+    title: "Voice Work",
+    genre: "nonfiction",
+    difficulty: "intermediate",
+    description: "Voice isn't personality sprinkled on top — it's precision at the sentence level. The choices that make prose yours: the concrete word instead of the vague one, the short sentence that lands like a punch, the detail that proves and reveals at the same time, the register you choose and hold. These exercises drill the micro-decisions most writers make unconsciously until they become tools.",
+    exercises: [
+      {
+        id: "voice-1",
+        title: "The Concrete Word",
+        lesson: "Vague writing fails not because it's wrong but because it's not there yet. 'People are struggling' tells a reader nothing. 'The single mother skipping lunch so her kid can eat' puts them in the room. The drill: find the vague word or phrase and replace it with the specific one that does real work.",
+        prompt: "Take the given passage and identify its vaguest phrase. Rewrite that sentence — and only that sentence — replacing the vague language with something specific and concrete. Don't add context; replace the abstraction with a detail that earns the same space.",
+        wordCountMin: 40,
+        wordCountMax: 120,
+        criteria: [
+          { name: "Vagueness identified", description: "Did the writer correctly identify and target the vague language?", weight: 0.33 },
+          { name: "Concrete replacement", description: "Is the replacement specific enough to picture — a person, a number, a moment, a thing?", weight: 0.34 },
+          { name: "Sentence still works", description: "Does the rewritten sentence hold up on its own — no new vagueness, no awkward patch?", weight: 0.33 },
+        ],
+        stages: [
+          {
+            label: "Find and replace one vague word",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 100,
+            criteria: [
+              { name: "Correct target", description: "Did the writer find the vaguest word or phrase in the passage?", weight: 0.5 },
+              { name: "Something concrete", description: "Is the replacement specific — a thing, a number, a name, an action — rather than another abstraction?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Society is changing in ways that affect everyone, especially the most vulnerable people in our communities.",
+                prompt: "Identify the vaguest phrase in this sentence. Rewrite just that phrase — replace the abstraction with something specific.",
+              },
+              {
+                given: "Many workers are struggling to make ends meet in today's economy.",
+                prompt: "This sentence has a vague subject and a vague situation. Fix one of them — replace either 'many workers' or 'struggling to make ends meet' with something concrete.",
+              },
+              {
+                given: "Young people today are dealing with a lot of pressure from different directions.",
+                prompt: "Identify the vaguest phrase. Rewrite just that phrase with something concrete. Don't rewrite the whole sentence.",
+              },
+              {
+                given: "The situation in cities has gotten worse over the years for certain populations.",
+                prompt: "Find the phrase doing the least work in this sentence. Replace it with a specific detail that gives a reader something to see.",
+              },
+              {
+                given: "Technology is changing how people connect, which has both positive and negative effects.",
+                prompt: "This sentence is all abstraction. Pick the vaguest phrase and replace it with something a reader could hold in their mind.",
+              },
+            ],
+          },
+          {
+            label: "Replace the vague phrase with the right specific",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Right specific", description: "Does the concrete detail actually fit the claim — not just any specific, but the right one?", weight: 0.4 },
+              { name: "Does more work", description: "Does the rewritten sentence communicate more than the original did?", weight: 0.35 },
+              { name: "Clean replacement", description: "Is the sentence still grammatically sound and readable after the substitution?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Parenting has gotten harder because parents face a lot of competing demands on their attention.",
+                prompt: "Replace 'competing demands on their attention' with a specific that captures what you actually mean. The specific should do more work than the phrase it replaces.",
+              },
+              {
+                given: "The news cycle moves fast and it's hard for people to keep up with what matters.",
+                prompt: "Replace 'what matters' with the most precise version of what you mean. Don't use another abstraction — name the thing.",
+              },
+              {
+                given: "Remote work has changed the relationship between employees and their employers in significant ways.",
+                prompt: "Replace 'significant ways' with one specific way that is actually significant. The replacement should make a reader nod.",
+              },
+              {
+                given: "Social media has made it harder for people to have genuine conversations.",
+                prompt: "'Genuine conversations' is doing too much work. Replace it with a specific kind of exchange that social media has degraded.",
+              },
+              {
+                given: "The cost of living has gone up while wages have stayed flat for most people.",
+                prompt: "'Most people' is vague. Replace it with a specific group — name them by job, city, income bracket, or situation — without losing the sentence.",
+              },
+            ],
+          },
+          {
+            label: "The concrete word carries the argument",
+            passThreshold: 75,
+            wordCountMin: 60,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Specific and exact", description: "Is the replacement specific enough that a different detail would change the meaning?", weight: 0.35 },
+              { name: "Earns its place", description: "Does the concrete detail do argumentative work — not just decorate, but prove or reveal?", weight: 0.4 },
+              { name: "Sentence is tight", description: "Is the rewritten sentence leaner or equal to the original — no padding to accommodate the specific?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The gig economy has created a class of workers who lack basic protections that most employees take for granted.",
+                prompt: "Replace 'basic protections' with the one protection that, if named, makes the argument land hardest. The specific should do the work of a whole clause.",
+              },
+              {
+                given: "Many people feel disconnected from institutions they used to trust.",
+                prompt: "Replace both 'many people' and 'institutions they used to trust' with specifics that turn this into a claim about something real.",
+              },
+              {
+                given: "The pandemic changed how people think about work, family, and what they actually want.",
+                prompt: "Replace 'what they actually want' with the most precise version of the want you mean. The replacement should make the rest of the sentence unnecessary.",
+              },
+              {
+                given: "Mental health is a growing concern for young people, and not enough is being done to address it.",
+                prompt: "This sentence is entirely abstraction. Replace 'a growing concern' with a specific — a number, a behavior, a moment — that makes the claim undeniable.",
+              },
+              {
+                given: "There's a growing sense that meritocracy doesn't work the way people thought it did.",
+                prompt: "Replace 'doesn't work the way people thought it did' with a specific failure that demonstrates the claim without needing more words to explain it.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "voice-2",
+        title: "Sentence Length for Effect",
+        lesson: "Most amateur prose is written in the same sentence length throughout. That sameness is the problem. A short sentence after a long one lands like a period at the end of an argument. A long sentence with multiple clauses can build tension, accumulate evidence, layer meaning until the final phrase releases it. The drill: use sentence length deliberately, not accidentally.",
+        prompt: "Rewrite the given passage using deliberate sentence-length variation. At least one sentence should be dramatically shorter than the others. At least one should be longer. Each length should be doing something — the short one for emphasis, the long one for accumulation.",
+        wordCountMin: 60,
+        wordCountMax: 160,
+        criteria: [
+          { name: "Variation is present", description: "Is there a clear contrast in sentence length — not subtle variation but genuine contrast?", weight: 0.33 },
+          { name: "Length is purposeful", description: "Does the short sentence land on something that deserves emphasis? Does the long sentence build toward something?", weight: 0.34 },
+          { name: "Still says the thing", description: "Does the rewrite preserve the original argument, or did chasing rhythm lose the content?", weight: 0.33 },
+        ],
+        stages: [
+          {
+            label: "Add one short sentence for emphasis",
+            passThreshold: 50,
+            wordCountMin: 60,
+            wordCountMax: 140,
+            criteria: [
+              { name: "Short sentence exists", description: "Is there at least one sentence of 10 words or fewer in the rewrite?", weight: 0.5 },
+              { name: "Short sentence lands on something", description: "Does the short sentence carry a point worth emphasizing, not a transition or setup?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "People who work in creative fields often find themselves struggling to explain what they do to family members who have more conventional careers, which creates a kind of persistent anxiety about whether the work is real or legitimate.",
+                prompt: "Rewrite this passage. Keep the argument. Add at least one sentence of 10 words or fewer — place it where it will land hardest.",
+              },
+              {
+                given: "The pressure to be productive all the time, to fill every hour with something that can be counted and measured and pointed to, is one of the defining anxieties of contemporary professional life, and it shows no sign of letting up.",
+                prompt: "This sentence is exhausting to read in a bad way. Break it up. Add at least one short sentence — it should feel like a rest that makes you see the whole thing differently.",
+              },
+              {
+                given: "When you've been in a relationship long enough, you start to understand that most arguments aren't about the thing they seem to be about but are instead about something older and harder to name, a grievance that never got resolved and so comes back wearing whatever costume is available.",
+                prompt: "Rewrite this. Keep the idea. Add one short sentence somewhere — use it as a blade, cutting into the argument at its center.",
+              },
+              {
+                given: "Expertise in almost every field has become suspect in a way that would have seemed bizarre to earlier generations, and the reasons for this are complicated and don't reduce to a simple story about distrust of institutions or the internet.",
+                prompt: "Rewrite this passage with at least one very short sentence. The short sentence should do the work of an argument, not just punctuate.",
+              },
+              {
+                given: "Ambition is supposed to be a good thing, a drive that pushes people toward their best work and their most meaningful contributions, but somewhere along the way it became entangled with anxiety and status-seeking in ways that make it hard to know when you're actually following something real.",
+                prompt: "Rewrite this. Add a short sentence — it should be the thing the whole long sentence was building toward.",
+              },
+            ],
+          },
+          {
+            label: "Vary length consciously throughout",
+            passThreshold: 65,
+            wordCountMin: 70,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Real contrast", description: "Is there a genuine swing in sentence length — not just slightly different, but short versus long?", weight: 0.35 },
+              { name: "Each length earns its place", description: "Can you explain why each sentence is the length it is — what is short doing, what is long doing?", weight: 0.4 },
+              { name: "Argument intact", description: "Is the original idea still present and legible in the rewrite?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Success looks different to everyone. There are people who define it by income, and others who define it by autonomy, or by the quality of their relationships, or by how they feel when they wake up in the morning, which makes it almost impossible to compare across lives or to say whether you have enough of it.",
+                prompt: "Rewrite this passage. Make the sentence lengths serve the argument — where do you want speed? Where do you want weight?",
+              },
+              {
+                given: "Cities are expensive. That's been true for decades. But something shifted around 2020, and the people who used to be able to afford to stay — artists, teachers, the service workers who make a city run — are now being priced out at a rate that feels less like a market trend and more like a deliberate clearing.",
+                prompt: "This already has some variation. Sharpen it. Make the short sentences shorter and the long sentences earn their length.",
+              },
+              {
+                given: "Confidence is a practice, not a trait. This is easier to say than to believe, because most people who seem confident were simply given more chances to practice — more opportunities to fail without consequences, more environments where their bets were backed by someone else's money or reputation.",
+                prompt: "Rewrite this passage. Use sentence length as a rhythm instrument — speed up, slow down, and land on something.",
+              },
+              {
+                given: "Reading has become an act of resistance in an attention economy that would prefer you scroll. Not reading great literature specifically — just reading anything for longer than a few minutes, following a single thread of thought to its end, resisting the urge to open another tab.",
+                prompt: "Rewrite this with deliberate length variation. The short sentences should feel like decisions, not accidents.",
+              },
+              {
+                given: "The thing about good advice is that it's usually too late. By the time you know what you needed to hear, you've already made the decision, already set the course, and the advice becomes a way of understanding what happened rather than a tool for changing it.",
+                prompt: "Rewrite this passage. Make the first sentence even shorter and starker. Then let the second sentence do what it needs to do.",
+              },
+            ],
+          },
+          {
+            label: "Sentence length serves the argument",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Length is argument", description: "Does the sentence structure reinforce what the sentences are saying — form and content aligned?", weight: 0.4 },
+              { name: "The short sentence is a blade", description: "Does the shortest sentence carry the argument's sharpest point?", weight: 0.35 },
+              { name: "The long sentence earns its length", description: "Does the longest sentence earn its length by accumulating something — evidence, clauses, weight?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Busyness is the modern version of status signaling. People who used to demonstrate importance by having a big office or a fancy car now demonstrate it by not having time — by being so in demand that rest is something they have to apologize for or explain.",
+                prompt: "Rewrite this so the sentence lengths reinforce the argument. The short sentence should deliver the claim with finality. The long sentence should demonstrate, by its length, the exhaustion it's describing.",
+              },
+              {
+                given: "Writers who wait for the right mood are not writers. They're aspiring writers, and that's a different thing entirely, because aspiring writers believe that the work happens when conditions are perfect, while actual writers know that conditions are never perfect and write anyway.",
+                prompt: "Rewrite this with sentence lengths that do argumentative work. Where should it be fast? Where should it accumulate?",
+              },
+              {
+                given: "The most honest thing you can do as a writer is admit what you don't know. This is harder than it sounds, because most writing is performed certainty — the confident claim, the authoritative voice, the clean argument that conceals all the doubt and revision and changed-my-mind that actually went into it.",
+                prompt: "Rewrite this. Make the first sentence shorter and sharper. Let the second sentence build in a way that demonstrates, through its length, the accumulation it's describing.",
+              },
+              {
+                given: "Nobody tells you that expertise mostly means knowing the limits of your expertise. Every year of genuine learning in a field produces not more certainty but less — a finer-grained picture of what you don't know, what the field has gotten wrong, what the confident assertions of five years ago have turned out to miss.",
+                prompt: "Rewrite this passage so that sentence structure reinforces the argument about expertise. Use length to do what punctuation can't.",
+              },
+              {
+                given: "Grief doesn't move in stages. That model was always more prescriptive than descriptive — a map drawn for the grievers who fit a certain profile, which turns out not to include most people, who find themselves cycling back, skipping steps, feeling nothing for weeks and then feeling everything at once.",
+                prompt: "Rewrite this. Make the first sentence even more declarative. Let the second build toward the final clause with sentences that enact the cycling they're describing.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "voice-3",
+        title: "The Telling Detail",
+        lesson: "A telling detail does two things at once: it proves the claim and it reveals something beyond the claim. 'He checked his phone during the eulogy' proves distraction and reveals character simultaneously. That's the standard. Most writers use details that only do one job — they illustrate but don't reveal, or they're vivid but don't prove. The drill: find the detail that does both.",
+        prompt: "For the given claim or observation, find and deploy the one specific detail that proves it and reveals something beyond it. The detail should do more work than any explanation you could offer.",
+        wordCountMin: 60,
+        wordCountMax: 150,
+        criteria: [
+          { name: "Detail is specific", description: "Is the detail a particular thing — a number, a behavior, a name, a moment — rather than a category or type?", weight: 0.33 },
+          { name: "Detail proves the claim", description: "Does the detail serve as evidence for the claim being made?", weight: 0.34 },
+          { name: "Detail reveals something more", description: "Does the detail tell us something beyond what it literally shows — about character, culture, system, or stakes?", weight: 0.33 },
+        ],
+        stages: [
+          {
+            label: "Find a specific detail",
+            passThreshold: 50,
+            wordCountMin: 60,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Specific thing", description: "Is the detail a concrete particular — something you could photograph or quote?", weight: 0.5 },
+              { name: "Connected to the claim", description: "Is there a visible link between the detail and the claim?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Claim: People will tolerate almost any indignity if it comes with a job title.",
+                prompt: "Write 2-3 sentences deploying a specific detail that proves this claim. The detail should be something real — a behavior, a policy, a moment you've witnessed or read about.",
+              },
+              {
+                given: "Claim: Social media makes people perform their lives rather than live them.",
+                prompt: "Write 2-3 sentences using one specific detail to prove this claim. Not a category of behavior — a single, particular behavior.",
+              },
+              {
+                given: "Claim: Most corporate values statements are written to reassure rather than to commit.",
+                prompt: "Write 2-3 sentences deploying a specific detail that proves this. The detail should be something you could point to.",
+              },
+              {
+                given: "Claim: Parents often prepare children for the world they grew up in rather than the one children will actually face.",
+                prompt: "Write 2-3 sentences using a specific detail to prove this. The detail should be a real behavior, policy, or moment — not a general pattern.",
+              },
+              {
+                given: "Claim: Busyness has become the default excuse for not thinking.",
+                prompt: "Write 2-3 sentences deploying a specific detail that proves this. Not a description of busyness — a moment where busyness replaced thought.",
+              },
+            ],
+          },
+          {
+            label: "The detail proves and reveals",
+            passThreshold: 65,
+            wordCountMin: 70,
+            wordCountMax: 140,
+            criteria: [
+              { name: "Proves the claim", description: "Does the detail function as evidence — could a skeptic use it to verify the claim?", weight: 0.35 },
+              { name: "Reveals something more", description: "Does the detail show something beyond itself — about character, culture, power, or stakes?", weight: 0.4 },
+              { name: "Detail is exact", description: "Is the detail specific enough that a different detail would make a different argument?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Claim: The way a company treats its lowest-paid employees tells you everything about its culture.",
+                prompt: "Write 3-4 sentences using one detail that both proves this claim and reveals something about the company it comes from. The detail should do double duty.",
+              },
+              {
+                given: "Claim: Most self-improvement advice is really status advice in disguise.",
+                prompt: "Write 3-4 sentences deploying one detail that proves this claim and reveals what the advice is actually about. The detail should expose the real game being played.",
+              },
+              {
+                given: "Claim: People's relationship with money reveals more about their values than they usually intend.",
+                prompt: "Write 3-4 sentences using one specific detail to prove this and reveal something specific about values. Not money in general — one particular behavior with money.",
+              },
+              {
+                given: "Claim: The way we talk about 'passion' in career advice sets most people up to fail.",
+                prompt: "Write 3-4 sentences with one detail that proves this claim and reveals why the advice is harmful. The detail should show the mechanism of harm.",
+              },
+              {
+                given: "Claim: Institutions protect themselves first and their stated mission second.",
+                prompt: "Write 3-4 sentences deploying one detail that proves this and reveals something about how institutions actually work. The detail should be specific enough to sting.",
+              },
+            ],
+          },
+          {
+            label: "The detail that does everything",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Detail is irreplaceable", description: "Would swapping this detail for another equally specific one change the argument — i.e., is this the right detail?", weight: 0.4 },
+              { name: "Proves and reveals", description: "Does the detail simultaneously function as evidence and as a window into something larger?", weight: 0.35 },
+              { name: "No explanation needed", description: "Does the detail do its work without the writer having to explain what it means?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Claim: The metrics we use to measure success end up changing what we mean by success.",
+                prompt: "Write 4-5 sentences with one telling detail that proves this claim and reveals the mechanism — how the metric corrupts the thing it was supposed to measure. The detail should make the explanation unnecessary.",
+              },
+              {
+                given: "Claim: The way we treat expertise has changed — not just trust in experts, but what we mean by expertise itself.",
+                prompt: "Write 4-5 sentences deploying one detail that proves this and reveals what has changed. The detail should do the work that a paragraph of explanation would do.",
+              },
+              {
+                given: "Claim: Ambition and anxiety have become so tangled that most people can't tell which one is driving them.",
+                prompt: "Write 4-5 sentences with one telling detail that proves this claim. The detail should reveal the entanglement — show a moment where ambition and anxiety are indistinguishable.",
+              },
+              {
+                given: "Claim: The most important decisions in people's lives are often made by not deciding.",
+                prompt: "Write 4-5 sentences with one detail that proves this claim and reveals what the non-decision actually is. The detail should be the argument.",
+              },
+              {
+                given: "Claim: Most criticism of social media is really nostalgia for a time that wasn't as good as people remember.",
+                prompt: "Write 4-5 sentences using one detail that proves this claim and reveals what the nostalgia is actually about. The detail should complicate as it proves.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "voice-4",
+        title: "Register",
+        lesson: "Register is the level of formality your prose operates at — and most writers don't choose it, they drift into it. The problem isn't choosing casual or formal; it's choosing and then losing it, mixing registers in a single paragraph without knowing why. An academic clause next to a Twitter joke isn't voice — it's noise. The drill: choose a register and hold it.",
+        prompt: "Identify the register clash in the given passage and rewrite it in a consistent register. Name the register you chose before you rewrite.",
+        wordCountMin: 60,
+        wordCountMax: 150,
+        criteria: [
+          { name: "Clash identified", description: "Did the writer correctly identify where the register breaks down?", weight: 0.33 },
+          { name: "Register named and chosen", description: "Did the writer explicitly name the register they chose and stick to it?", weight: 0.34 },
+          { name: "Consistent throughout", description: "Is the rewritten passage in a consistent register from first word to last?", weight: 0.33 },
+        ],
+        stages: [
+          {
+            label: "Name the register clash",
+            passThreshold: 50,
+            wordCountMin: 60,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Clash named", description: "Did the writer identify which words or phrases are in different registers?", weight: 0.5 },
+              { name: "One register chosen", description: "Did the writer pick a register and at least attempt to write in it?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "The contemporary discourse around wellness has become a vector for conspicuous consumption, wherein individuals signal their socioeconomic status through the purchase of premium self-care products, and honestly it's a bit much.",
+                prompt: "Name the register clash in this sentence. Then rewrite it in one consistent register. State which register you chose at the top.",
+              },
+              {
+                given: "We must interrogate the ideological assumptions undergirding our approach to work-life balance, because, like, at the end of the day, hustle culture is just not it.",
+                prompt: "Identify where the registers clash. Rewrite in one register — academic or casual, your choice. Name it first.",
+              },
+              {
+                given: "The political economy of social media platforms incentivizes content that maximizes engagement metrics, which is why your uncle is posting unhinged stuff about vaccines.",
+                prompt: "Name the two registers at work here. Pick one and rewrite the whole sentence in it. State your choice at the start.",
+              },
+              {
+                given: "Research demonstrates that sleep deprivation significantly impairs cognitive function and decision-making capacity, and people who brag about only sleeping four hours are basically just telling you they're bad at their jobs.",
+                prompt: "Identify the register shift. Rewrite the passage in a single consistent register. Name it before you write.",
+              },
+              {
+                given: "The epistemological crisis facing contemporary journalism — wherein the very foundations of factual consensus have been destabilized — means fake news is kind of everywhere now.",
+                prompt: "Name the clash. Rewrite in one register — the one that serves the argument better. Explain your choice in a sentence.",
+              },
+            ],
+          },
+          {
+            label: "Choose the right register for the argument",
+            passThreshold: 65,
+            wordCountMin: 70,
+            wordCountMax: 140,
+            criteria: [
+              { name: "Right register chosen", description: "Does the chosen register serve the argument — is it the right level of formality for the claim being made?", weight: 0.4 },
+              { name: "Consistent execution", description: "Does the rewrite stay in the chosen register without slipping back?", weight: 0.35 },
+              { name: "Argument still clear", description: "Is the original argument still legible in the rewrite — not softened or obscured by register?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The notion that any individual can transcend systemic barriers through sheer force of will represents a fundamentally ahistorical understanding of social mobility, and also bootstraps thinking is just cope.",
+                prompt: "This register clash undermines the argument. Choose the register that makes the argument strongest. Rewrite. Explain your choice in one sentence before you start.",
+              },
+              {
+                given: "Parenting is arguably the most consequential act of social reproduction in any given cultural moment, and also parents are just winging it, every single one of them.",
+                prompt: "Pick the register that serves the real point of this sentence. Rewrite. Name it and defend the choice briefly.",
+              },
+              {
+                given: "The labor market increasingly demands that workers commodify their personalities and interpersonal skills in addition to their technical competencies, which is exhausting and kind of dehumanizing, honestly.",
+                prompt: "Choose the register that makes this argument land. Rewrite in that register. State your choice and why you made it.",
+              },
+              {
+                given: "Urban planning decisions over the past seventy years reflect an ideological commitment to automobile infrastructure that has materially disadvantaged non-drivers, especially low-income residents — basically, they built everything for cars and screwed everyone who couldn't afford one.",
+                prompt: "This has two registers fighting for the same space. Choose the one that earns the argument. Rewrite. Name your register.",
+              },
+              {
+                given: "The proliferation of personal branding discourse in professional contexts reflects the neoliberal imperative to treat the self as an entrepreneurial asset, and it's kind of exhausting to be expected to market yourself constantly.",
+                prompt: "Decide which register serves the argument better. Rewrite in that register only. Name it and give one reason for choosing it.",
+              },
+            ],
+          },
+          {
+            label: "Hold the register completely",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 150,
+            criteria: [
+              { name: "No register breaks", description: "Is there a single word or phrase in the rewrite that belongs to a different register?", weight: 0.4 },
+              { name: "Register serves the argument", description: "Does the chosen register make the argument more persuasive, not just consistent?", weight: 0.35 },
+              { name: "Argument at full strength", description: "Is the argument as strong in the chosen register as it could be in any register?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The contemporary obsession with optimization — the quantification of sleep, exercise, nutrition, relationships — represents a category error wherein humans treat themselves as systems to be debugged rather than lives to be lived, and the sad thing is it doesn't even work, because you can't A/B test your way to meaning.",
+                prompt: "Rewrite this in a single, held register. Make it fully consistent from start to finish. The argument should be at full strength.",
+              },
+              {
+                given: "Friendship in adulthood requires infrastructure — shared institutions, recurring events, physical proximity — in a way that adolescent friendship does not, because adults are too busy and too proud to admit they need to be scheduled, which is why everyone says 'we should catch up' and never does.",
+                prompt: "Choose your register and hold it completely. No slipping. The rewrite should feel like a single voice from first word to last.",
+              },
+              {
+                given: "The attention economy has fundamentally restructured the relationship between information and attention by making attention itself a commodity to be extracted, monetized, and sold back to us in the form of content we chose but didn't really choose, and honestly after a while it just feels like being farmed.",
+                prompt: "Rewrite this in a consistent register you can hold completely. No register breaks. The final sentence should feel like it comes from the same writer as the first.",
+              },
+              {
+                given: "Meritocracy as ideology performs a crucial legitimating function in societies with significant economic inequality by attributing outcomes to individual virtue rather than structural conditions — basically, it tells rich people they deserve it and poor people they brought it on themselves, which is convenient for rich people.",
+                prompt: "Rewrite in one held register. The argument should be at full strength, not weakened by the need to stay consistent.",
+              },
+              {
+                given: "The discourse around 'authenticity' in personal branding has reached a point of self-parody wherein the performance of authenticity has become as scripted and strategic as any other form of self-presentation, which is to say: influencers are very authentically full of it.",
+                prompt: "Hold a single register completely. Make the argument land without the register changing. This should feel like one writer, one voice, one level.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "voice-5",
+        title: "The Own-Voice Sentence",
+        lesson: "Most writers produce sentences that could have been written by anyone — the generic claim, the predictable observation, the safe conclusion. A real voice is not a style or a set of quirks; it's a perspective. The drill: take a fact or observation and write the sentence that only you would write about it — the one that reflects your specific angle, your specific history of thinking, your specific way of seeing.",
+        prompt: "Take the given fact or observation and write 3-5 sentences about it. Then identify which sentence is most generic — most likely to have been written by anyone. Rewrite that sentence so it could only come from you: your angle, your conclusion, your specific way of seeing this.",
+        wordCountMin: 70,
+        wordCountMax: 160,
+        criteria: [
+          { name: "Generic sentence identified", description: "Did the writer correctly identify the sentence most likely to have been written by anyone?", weight: 0.33 },
+          { name: "Rewrite is specific to a point of view", description: "Does the rewritten sentence reflect a perspective — an angle that implies a history of thinking about this?", weight: 0.34 },
+          { name: "Not just style — perspective", description: "Is the specificity about what the writer sees, not just how they write — is there an opinion in the sentence?", weight: 0.33 },
+        ],
+        stages: [
+          {
+            label: "Find the generic sentence",
+            passThreshold: 50,
+            wordCountMin: 70,
+            wordCountMax: 140,
+            criteria: [
+              { name: "Generic identified", description: "Did the writer find and name a sentence that could have been written by anyone?", weight: 0.5 },
+              { name: "Something more specific offered", description: "Did the writer attempt a rewrite that moves toward a specific point of view?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Fact: The average American spends over 7 hours per day looking at screens.",
+                prompt: "Write 3-4 sentences responding to this fact. Then identify your most generic sentence. Rewrite it so it reflects your specific take — not a fact about screens, but your conclusion about what this means.",
+              },
+              {
+                given: "Observation: Most people have more opinions about politics than about their own neighborhoods.",
+                prompt: "Write 3-4 sentences developing this observation. Find your most generic sentence. Rewrite it so only you could have written it.",
+              },
+              {
+                given: "Fact: The majority of bestselling nonfiction books are read fewer than 30 pages in.",
+                prompt: "Write 3-4 sentences about this fact. Find the most generic one. Rewrite it from your specific perspective — what does this fact mean to you, with your specific history of reading or writing?",
+              },
+              {
+                given: "Observation: People give advice about problems they haven't solved.",
+                prompt: "Write 3-4 sentences developing this. Find the sentence that sounds most like something anyone would say. Rewrite it so it sounds like something only you would say.",
+              },
+              {
+                given: "Fact: Most people report being busier than they were five years ago while accomplishing less of what they say matters.",
+                prompt: "Write 3-4 sentences about this. Identify your most generic sentence. Rewrite it with a point of view that implies something specific about why this happens — your theory, not the consensus one.",
+              },
+            ],
+          },
+          {
+            label: "Write from your angle, not the default one",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Angle is clear", description: "Is there a specific perspective implied by the rewritten sentence — not just a more interesting phrasing but a different way of seeing?", weight: 0.4 },
+              { name: "Implies a history of thinking", description: "Does the sentence feel like it comes from someone who has thought about this specifically, not someone encountering it for the first time?", weight: 0.35 },
+              { name: "Couldn't be swapped out", description: "Would removing this sentence and replacing it with a generic version change the argument — not just the style?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Observation: The smartest people in any field often have the hardest time explaining what they know.",
+                prompt: "Write from your angle on this — not the expected 'curse of knowledge' explanation, but whatever you actually think when you sit with this observation. Write the sentence that comes from your specific experience with expertise.",
+              },
+              {
+                given: "Fact: The majority of people who start therapy stop within three sessions.",
+                prompt: "Write your actual take on this fact — not what a therapist would say, not what a researcher would say. What does this tell you specifically, given what you know and believe about people and change?",
+              },
+              {
+                given: "Observation: Most disagreements between people who are basically aligned end up being about words, not ideas.",
+                prompt: "Write from your specific angle on this. What does this mean to you, given your history with arguments, writing, or conversation? The sentence should imply a conclusion only you would reach.",
+              },
+              {
+                given: "Fact: Reading rates have declined while the self-help industry has grown.",
+                prompt: "Write your take on this — not the obvious conclusion, but the one you actually reach when you sit with both facts together. What do you see that the correlation suggests to you specifically?",
+              },
+              {
+                given: "Observation: People are much more forgiving of flaws they share than flaws they don't.",
+                prompt: "Write from your angle. Not the psychological explanation — your conclusion about what this means for how people think, argue, or relate. The sentence should feel like it comes from your specific history of watching this happen.",
+              },
+            ],
+          },
+          {
+            label: "The sentence only you would write",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Irreducibly specific", description: "Is the sentence specific enough that it could not have been written by a writer with a different history of thinking?", weight: 0.4 },
+              { name: "Opinion embedded in form", description: "Is the perspective not just stated but embedded in the choice of words, the angle of approach, the conclusion reached?", weight: 0.35 },
+              { name: "Implies the essay", description: "Does the sentence make the reader want to know more — not because it's mysterious but because it implies a whole way of seeing?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Observation: Most of what gets called 'strategy' in organizations is just deciding what not to do after the fact.",
+                prompt: "Write the 4-5 sentences about this that only you would write. The final sentence should be the one that comes from your specific conclusion — not the obvious takeaway but yours. It should imply the essay you would actually write.",
+              },
+              {
+                given: "Fact: The people who talk most about living intentionally are often living the least examined lives.",
+                prompt: "Write your sentences about this. Make the key sentence irreplaceable — it should come from your specific angle on the gap between discourse and practice, wherever that angle comes from.",
+              },
+              {
+                given: "Observation: The advice 'follow your passion' has made a generation of people feel like failures for having jobs.",
+                prompt: "Write 4-5 sentences from your specific perspective. The central sentence should be the one that could only come from your particular experience with ambition, work, or advice. Not the critique everyone makes — yours.",
+              },
+              {
+                given: "Fact: People who leave cities often report being happier but less intellectually stimulated within a year.",
+                prompt: "Write your take on this. Make the core sentence irreducibly yours — it should reflect your specific conclusion about what this trade-off reveals, not the default urban-rural debate.",
+              },
+              {
+                given: "Observation: The better someone is at their craft, the harder they are to teach — because the knowledge has become invisible to them.",
+                prompt: "Write 4-5 sentences about this. The key sentence should come from your specific angle on expertise, teaching, or craft — wherever you've watched this happen. It should imply a whole essay that only you would write.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "evidence-and-warrant",
     title: "Evidence & Warrant",
     genre: "nonfiction",
