@@ -744,7 +744,10 @@ export default function ExercisePage() {
         {feedback && (() => {
           const tier = scoreTier(feedback.overallScore);
           const ts = TIER_STYLE[tier];
-          const variantPassed = feedback.overallScore >= activePassThreshold;
+          // Variant passes if all criteria have passed:true (genuine engagement)
+          // OR if the quality score clears the stage threshold.
+          const allVariantCriteriaPassed = feedback.criteriaResults.every((r) => r.passed);
+          const variantPassed = allVariantCriteriaPassed || feedback.overallScore >= activePassThreshold;
           const alreadyMarked = passedVariants[variantIdx] ?? false;
           const passedCount = passedVariants.filter(Boolean).length;
           const newPassCount = alreadyMarked ? passedCount : passedCount + (variantPassed ? 1 : 0);

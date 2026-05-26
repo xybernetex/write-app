@@ -69,8 +69,15 @@ export async function POST(req: NextRequest) {
 
     const rawResult = await evaluateSubmission(promptText, content, criteria, tone);
 
-    // Submission-level pass — used for the submissions table and returned to the client
-    const submissionPassed = trackId === "daily-drill" ? true : rawResult.overallScore >= 70;
+    // Submission-level pass — used for the submissions table and returned to the client.
+    // Passes if: (a) daily drill (always passes), (b) all criteria have passed:true —
+    // meaning the student genuinely engaged with every criterion regardless of quality score,
+    // or (c) overall quality score is 70+. This prevents the situation where all criteria
+    // show ✓ but the exercise still blocks advancement due to a low weighted score.
+    const allCriteriaPassed = rawResult.criteriaResults.every((r) => r.passed);
+    const submissionPassed = trackId === "daily-drill"
+      ? true
+      : allCriteriaPassed || rawResult.overallScore >= 70;
     const result = { ...rawResult, passed: submissionPassed };
 
     // Exercise-level completion — staged exercises must be completed explicitly via
