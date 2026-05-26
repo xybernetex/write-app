@@ -6763,6 +6763,581 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "substack-format",
+    title: "Substack Format",
+    genre: "nonfiction",
+    difficulty: "intermediate",
+    description: "A Substack post lives in an inbox. The reader decides in three seconds whether to keep going. The subject line is a bet. The opening is a promise. The relationship register — writing to a person, not at an audience — is what makes someone feel like a subscriber rather than a reader. These exercises drill the format elements that are specific to newsletter writing: the things an essay doesn't need but a Substack post does.",
+    exercises: [
+      {
+        id: "sub-1",
+        title: "The Subject Line",
+        lesson: "The subject line is the door. It either gets opened or it doesn't, and once the reader decides, the rest of the post is irrelevant. Most writers write subject lines that describe the essay. The best writers write subject lines that create a reason to open. The difference: description tells the reader what they'll get; the pull creates a feeling of incompleteness that only opening resolves.",
+        prompt: "Write five different subject lines for the given post topic. Each should use a different technique — question, provocation, specificity, reframe, personal signal. Then identify which one you'd actually send and why.",
+        wordCountMin: 80,
+        wordCountMax: 180,
+        criteria: [
+          { name: "Five distinct approaches", description: "Are the five subject lines genuinely different techniques — not the same approach rephrased?", weight: 0.35 },
+          { name: "Each creates a pull", description: "Does each subject line give a reason to open — not just describe the content?", weight: 0.4 },
+          { name: "Best one identified and defended", description: "Did the writer choose one and explain why it would outperform the others?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Write five subject lines",
+            passThreshold: 50,
+            wordCountMin: 70,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Five attempts", description: "Did the writer write five distinct subject lines for the topic?", weight: 0.5 },
+              { name: "Each is different", description: "Are the five subject lines noticeably different from each other — different angles, different techniques?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Post topic: Why most people never find out what they're good at.",
+                prompt: "Write five different subject lines for this post. Each should use a different technique. List them. Pick one and say why.",
+              },
+              {
+                given: "Post topic: The thing that makes some advice useful and most advice noise.",
+                prompt: "Write five subject lines for this post. Each uses a different approach. Identify which one you'd actually send and why.",
+              },
+              {
+                given: "Post topic: Why you keep procrastinating on the thing you say you want most.",
+                prompt: "Write five distinct subject lines. Different techniques — question, provocative claim, counterintuitive framing, specific detail, personal address. Pick one and defend it.",
+              },
+              {
+                given: "Post topic: What the most productive people you know do differently.",
+                prompt: "Write five subject lines using five different techniques. Note which one you'd send and why it would outperform the others.",
+              },
+              {
+                given: "Post topic: The mistake people make when they try to build a writing habit.",
+                prompt: "Write five different subject lines. Each should approach the pull differently. Choose one and explain why.",
+              },
+            ],
+          },
+          {
+            label: "Write subject lines that create the pull",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 165,
+            criteria: [
+              { name: "Pull is created", description: "Does each subject line create a feeling of incompleteness — something that can only be resolved by opening?", weight: 0.4 },
+              { name: "No generic lines", description: "Are all five subject lines specific to this topic — not generic templates that could apply to anything?", weight: 0.35 },
+              { name: "Best one justified", description: "Is the selection of the best one justified with a reason that goes beyond personal preference?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Post topic: Why reading about strategy is different from thinking strategically.",
+                prompt: "Write five subject lines that create a pull — each one should make the reader feel like they're missing something they need. Five distinct techniques. Pick the best one and say why it would perform better than the others.",
+              },
+              {
+                given: "Post topic: The difference between being disciplined and being afraid to rest.",
+                prompt: "Write five subject lines. Each should create a specific kind of pull — a question you need answered, a claim you need to argue with, something you need to check. Pick the strongest and defend it.",
+              },
+              {
+                given: "Post topic: What happens to your thinking when you stop writing regularly.",
+                prompt: "Write five different subject lines, each with a different mechanism for pulling the reader in. Which one earns the open? Why?",
+              },
+              {
+                given: "Post topic: The reason ambition and anxiety are so hard to tell apart.",
+                prompt: "Write five subject lines. Each should be distinct in technique and in how it creates the pull. Choose one and explain why this one would get opened when the others would scroll past.",
+              },
+              {
+                given: "Post topic: Why some expertise makes you worse at explaining what you know.",
+                prompt: "Five subject lines, five techniques, each creating a specific pull. Which one sends? Why does it outperform the rest?",
+              },
+            ],
+          },
+          {
+            label: "Write and test three subject lines against each other",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Three genuinely different techniques", description: "Are the three subject lines using fundamentally different approaches to create the open?", weight: 0.35 },
+              { name: "Comparison is analytical", description: "Did the writer analyze what each one does well and where it would fail — not just pick a favorite?", weight: 0.4 },
+              { name: "Winner is correctly chosen", description: "Does the winning subject line actually have the strongest pull for the specific audience of this post?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Post topic: The thing people misunderstand about imposter syndrome.",
+                prompt: "Write three subject lines using three completely different techniques. Analyze each one: what does it do well, where does it risk failing? Then choose the winner and explain why it works best for this specific post and its likely readers.",
+              },
+              {
+                given: "Post topic: Why the writers people describe as 'authentic' are usually the most strategic.",
+                prompt: "Write three subject lines. Analyze each — what pull does it create, what reader does it speak to, what's the risk? Choose one and explain why it's the right bet for this post.",
+              },
+              {
+                given: "Post topic: The decision you're avoiding that isn't as hard as you're making it.",
+                prompt: "Three subject lines, three techniques. Analyze each rigorously — pull mechanism, target reader, failure mode. Choose one and defend it.",
+              },
+              {
+                given: "Post topic: What most writers get wrong about finding their niche.",
+                prompt: "Write three subject lines with different mechanisms. Analyze each one analytically — not 'I like this one' but 'this one creates X pull for Y reader with Z risk.' Choose the best one.",
+              },
+              {
+                given: "Post topic: Why taking a break from writing made you a better writer.",
+                prompt: "Three subject lines, three techniques. Analyze each: pull mechanism, intended reader, risk of failure. Choose the strongest one and explain the reasoning.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "sub-2",
+        title: "The Opening Without Context",
+        lesson: "A newsletter opening is read by someone who just opened an email. They have no setup, no context, no reason yet to care. The first paragraph has to do everything: signal what kind of thing this is, create a reason to continue, and do it without warm-up. Most writers open with context. The best writers open with a pull — a claim, a scene, a question that makes context feel necessary.",
+        prompt: "Write an opening paragraph for the given topic. The reader is reading their email with one hand. You have three sentences. Give them a reason to keep going.",
+        wordCountMin: 60,
+        wordCountMax: 150,
+        criteria: [
+          { name: "No warm-up", description: "Does the opening start in the thing — no preamble, no 'today I want to talk about,' no context-setting that could be cut?", weight: 0.35 },
+          { name: "Creates a reason to continue", description: "Does the first paragraph give the reader a specific reason to keep reading — tension, a surprising claim, an unanswered question?", weight: 0.4 },
+          { name: "Signals the register", description: "Does the opening feel like it's from a person to a person — not a publication, not a brand?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Open without warm-up",
+            passThreshold: 50,
+            wordCountMin: 50,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Starts in the thing", description: "Does the first sentence do work — is it the opening of an argument, a scene, a claim?", weight: 0.5 },
+              { name: "No preamble", description: "Is there any warm-up or context-setting that could be the first thing cut?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: Why taking notes is different from taking the right notes.",
+                prompt: "Write a 3-4 sentence newsletter opening for this topic. No warm-up. Start in the thing. Give the reader a reason to keep going.",
+              },
+              {
+                given: "Topic: The mistake you're making when you optimize your morning routine.",
+                prompt: "Write a newsletter opening — 3-4 sentences. Your reader is in their inbox. No context, no preamble. Start with something that earns the read.",
+              },
+              {
+                given: "Topic: What getting rejected taught you about what you actually wanted.",
+                prompt: "Write a 3-4 sentence newsletter opening. Start in the middle of something — a claim, a scene, a contradiction. No setup.",
+              },
+              {
+                given: "Topic: The reason most people stop learning after they get good at something.",
+                prompt: "Write a newsletter opening — 3-4 sentences. No warm-up, no 'in this post,' no context. Start with the thing that earns the reader's attention.",
+              },
+              {
+                given: "Topic: What your relationship with your email inbox reveals about your relationship with work.",
+                prompt: "Write 3-4 sentences that could open this newsletter. No preamble. Give the reader a reason to read the next sentence.",
+              },
+            ],
+          },
+          {
+            label: "Create a pull in three sentences",
+            passThreshold: 65,
+            wordCountMin: 55,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Pull is created", description: "Does the opening create a feeling of incompleteness — something the reader needs the rest of the post to resolve?", weight: 0.4 },
+              { name: "Three sentences do the work", description: "Are all three (or fewer) sentences earning their place — nothing that could be cut without loss?", weight: 0.35 },
+              { name: "Personal register", description: "Does the opening sound like a person writing to a person — not a publication voice?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: Why the people who say they hate social media are often the most dependent on it.",
+                prompt: "Write a 3-sentence newsletter opening that creates a pull — something that leaves the reader with an unresolved feeling that only reading on will resolve. Every sentence earns its place.",
+              },
+              {
+                given: "Topic: The moment you realized you were optimizing for the wrong metric.",
+                prompt: "Write 3 sentences that open this newsletter with a pull. The reader should finish the third sentence wanting the fourth. No warm-up, no throat-clearing.",
+              },
+              {
+                given: "Topic: Why reading biographies of successful people is often the least useful thing you can do.",
+                prompt: "Write a 3-sentence opening with a pull. A claim that creates productive tension. The reader should feel like they need to keep reading to find out if you're right.",
+              },
+              {
+                given: "Topic: The invisible skill that separates good writers from great ones.",
+                prompt: "Write 3 sentences that pull. Create an unresolved tension — name the thing without naming the thing, or make a claim that requires the rest of the post to fully land. Personal, specific, direct.",
+              },
+              {
+                given: "Topic: What you've stopped believing about how creativity works.",
+                prompt: "Write a 3-sentence newsletter opening that creates a pull. The reader should feel like they're in the middle of a conversation that started before they arrived.",
+              },
+            ],
+          },
+          {
+            label: "Opening that earns the read in three seconds",
+            passThreshold: 75,
+            wordCountMin: 60,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Three-second test", description: "Would a reader skimming their inbox stop and read the rest — does the opening earn that in its first sentence?", weight: 0.4 },
+              { name: "Pull is specific to this post", description: "Is the pull specific to this topic — not a generic 'hook' technique but a pull that only works for this particular argument?", weight: 0.35 },
+              { name: "Person-to-person register", description: "Does the opening feel like it was written by someone to someone specific — not a content piece, a letter?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: Why the advice you give to others is always the advice you need most.",
+                prompt: "Write a newsletter opening that passes the three-second test — someone in their inbox would stop and read. First sentence earns the second. Every sentence earns the next. Four sentences max.",
+              },
+              {
+                given: "Topic: The thing about doing hard things that no one tells you until you've done one.",
+                prompt: "Write an opening that earns the read in three seconds. Specific, direct, person-to-person. The pull should be specific to this topic — not a generic hook.",
+              },
+              {
+                given: "Topic: Why you're not as bad at writing as you think you are.",
+                prompt: "Write an opening that stops a reader mid-scroll. The first sentence should be the thing — not an approach to the thing. Three or four sentences. Everything earns its place.",
+              },
+              {
+                given: "Topic: What following through on a commitment you nearly abandoned taught you.",
+                prompt: "Write a newsletter opening that earns the read. Three to four sentences. The pull should be specific to this content — the person reading it should feel like this post was written for them.",
+              },
+              {
+                given: "Topic: The gap between the writer you think you are and the writer on the page.",
+                prompt: "Write four sentences max. The opening should pass the three-second test — someone in their inbox would stop. Specific pull, personal register, no warm-up.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "sub-3",
+        title: "The Relationship Register",
+        lesson: "The difference between a newsletter and an essay is who you're talking to. An essay is for readers. A newsletter is for subscribers — people who chose you, who expect to hear from you, who have a relationship with you even if you've never met. Writing in the newsletter register means writing to that person: direct, personal, as if they're sitting across from you. The drill: find the passage that sounds like a publication and rewrite it so it sounds like a person.",
+        prompt: "Rewrite the given passage so it sounds like it was written by a specific person to a specific reader — not a publication voice, not a content voice. Warmer, more direct, as if the writer knows who they're talking to.",
+        wordCountMin: 80,
+        wordCountMax: 200,
+        criteria: [
+          { name: "Register shift is real", description: "Does the rewrite feel noticeably different from the original — less institutional, more personal?", weight: 0.4 },
+          { name: "Warmth without casualness", description: "Is the rewrite warm and direct without losing substance — the argument is still there, just differently voiced?", weight: 0.35 },
+          { name: "Sounds like a person", description: "Could you hear this being read aloud by a specific person — is there a voice behind it?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Shift from publication voice to person voice",
+            passThreshold: 50,
+            wordCountMin: 70,
+            wordCountMax: 170,
+            criteria: [
+              { name: "Voice shift attempted", description: "Did the rewrite move away from institutional language toward something more personal?", weight: 0.5 },
+              { name: "Argument preserved", description: "Is the substance of the original still present in the rewrite?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "The phenomenon of creative procrastination is well-documented in the psychological literature on productivity and self-regulation. Research indicates that individuals frequently engage in delay behaviors as a mechanism for managing performance anxiety, particularly in contexts where outcomes are visible and evaluable.",
+                prompt: "Rewrite this so it sounds like a newsletter — written by a person to their readers. Same substance. Different register.",
+              },
+              {
+                given: "Consistency in content production has been identified as a key driver of audience growth across digital media platforms. Analysis of high-performing creators across Substack, YouTube, and podcast formats reveals a strong correlation between publication frequency and subscriber retention.",
+                prompt: "Rewrite in the newsletter register — a person talking to their readers about something they've noticed or thought about. Keep the substance, change the voice.",
+              },
+              {
+                given: "Contemporary approaches to habit formation often fail to account for the role of environmental design in behavioral change. Rather than focusing exclusively on motivation and willpower, evidence-based interventions emphasize the importance of modifying contextual cues and friction patterns.",
+                prompt: "Rewrite this as newsletter prose — personal, direct, as if you're explaining something you've figured out to someone you know. Substance intact, voice transformed.",
+              },
+              {
+                given: "The integration of artificial intelligence tools into creative workflows presents both opportunities and challenges for practitioners across disciplines. Questions of authorship, authenticity, and professional identity are central to ongoing debates within creative communities.",
+                prompt: "Rewrite in the register of a person writing to their readers about something they've been thinking about. Same ideas. Person-to-person voice.",
+              },
+              {
+                given: "Effective communication in professional settings requires the ability to calibrate message complexity to audience knowledge levels, maintain appropriate formality while establishing rapport, and deliver difficult information in ways that preserve the recipient's psychological safety.",
+                prompt: "Rewrite this as something a real person would say in a newsletter to their readers. The substance is worth keeping. The voice needs to become human.",
+              },
+            ],
+          },
+          {
+            label: "Write to a specific reader",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 185,
+            criteria: [
+              { name: "Specific reader implied", description: "Does the rewrite feel like it was written to a specific type of person — does it know who it's talking to?", weight: 0.4 },
+              { name: "Personal without being self-indulgent", description: "Is the personal element in service of the reader — does it make them feel seen rather than making the writer feel heard?", weight: 0.35 },
+              { name: "Voice is consistent", description: "Is the same register held throughout — no slipping back into publication voice?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "This newsletter explores topics relevant to individuals engaged in knowledge work, creative professions, and entrepreneurship. The focus is on practical insights and evidence-based frameworks that can be applied to real-world challenges in professional development and personal productivity.",
+                prompt: "Rewrite this as if you're writing to the specific person who subscribes to your newsletter — someone you know something about, whose challenges you understand. Make it feel like they're the only reader.",
+              },
+              {
+                given: "The topic of this issue is the relationship between reading and thinking. Recent studies suggest that the decline in long-form reading among adults may be contributing to decreased capacity for sustained analytical reasoning. This newsletter addresses potential strategies for maintaining cognitive health in an attention-fragmented environment.",
+                prompt: "Rewrite so it's addressed to a specific reader. You know this person: they care about their thinking, they're worried about their attention, they've noticed something slipping. Write to them.",
+              },
+              {
+                given: "Today's piece will examine the tension between ambition and contentment — a topic that has generated significant discussion among readers and across social media. We will explore philosophical frameworks for thinking about this tension and practical approaches for navigating it.",
+                prompt: "Rewrite as if you're writing to a specific reader — someone who has felt this tension and is looking for more than a framework. Write to them. You know them.",
+              },
+              {
+                given: "The subject of creative blocks is addressed in this issue, with particular attention to the psychological mechanisms that underlie creative inhibition. We will review common patterns and suggest evidence-informed approaches that readers may find applicable to their own creative practices.",
+                prompt: "Rewrite as a person writing to their readers about something they've been through. The reader isn't looking for a review — they're looking for a person who understands what it feels like.",
+              },
+              {
+                given: "In this newsletter, we examine the phenomenon of writer's block — its causes, its manifestations, and evidence-based strategies for overcoming it. Drawing on research in cognitive psychology and interviews with practicing writers, we present a practical framework for understanding and navigating creative stalls.",
+                prompt: "Rewrite so it sounds like it's from you to a specific reader who is stuck right now. You know what they're going through. Write to that person.",
+              },
+            ],
+          },
+          {
+            label: "Write in a voice that could only be yours",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Specific voice", description: "Does the rewrite have a specific voice — not just 'warm and personal' but a voice with a particular perspective and register?", weight: 0.4 },
+              { name: "Reader feels addressed", description: "Would a subscriber reading this feel like the writer knows them — that this was written for someone like them specifically?", weight: 0.35 },
+              { name: "Substance at full strength", description: "Is the argument or insight as strong in the newsletter voice as it would be in the academic version?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Research on expertise acquisition demonstrates that deliberate practice — characterized by focused repetition, immediate feedback, and progressive difficulty — is a more reliable predictor of skill development than innate ability across most cognitive domains. However, the emotional and motivational dimensions of this process are often underemphasized in popular discourse.",
+                prompt: "Rewrite this in a voice that could only come from you — your perspective, your register, your way of seeing this. The substance should be at full strength. The reader should feel like they're reading a letter from a specific person who thought hard about this and is telling them something real.",
+              },
+              {
+                given: "Contemporary productivity culture has generated a proliferation of frameworks, systems, and tools that promise to optimize human performance. Critical analysis suggests that many of these solutions address surface-level symptoms while leaving structural causes of unproductivity largely unaddressed. A more fundamental reframing of the relationship between work and output may be required.",
+                prompt: "Rewrite in a voice that is specifically yours — your take, your register, your relationship with this idea. The reader should finish knowing what you think, not just what researchers found.",
+              },
+              {
+                given: "The growing body of research on adult learning challenges traditional assumptions about cognitive plasticity across the lifespan. Evidence suggests that the capacity for significant skill acquisition remains robust well into middle age, provided that appropriate conditions for learning are established and sustained over time.",
+                prompt: "Rewrite in a voice that is yours — with your relationship to this information, your specific take, your sense of what this means for a person like your reader. Full strength, full voice.",
+              },
+              {
+                given: "Interpersonal communication research identifies active listening as a foundational competency in high-quality relationships across both professional and personal contexts. Despite widespread recognition of its importance, the specific behaviors and cognitive processes that constitute effective listening are rarely made explicit in either educational or professional development contexts.",
+                prompt: "Rewrite in your voice — specific, warm, direct, a person talking to people who trust you. The substance should be intact. The register should feel like it came from a particular human being.",
+              },
+              {
+                given: "The relationship between rest and cognitive performance is increasingly well-documented in the scientific literature. Studies consistently show that adequate sleep, strategic recovery periods, and regular disengagement from cognitively demanding tasks are associated with improved creative output, better decision-making, and enhanced emotional regulation.",
+                prompt: "Rewrite this so it's unmistakably from you — your perspective on what this means, your register, your relationship with your reader. Not a better version of the same voice. A different voice.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "sub-4",
+        title: "The Ending Beat",
+        lesson: "Newsletter endings are different from essay endings. An essay kicker should leave the reader with something to think about. A newsletter ending should do that too — but it should also leave the reader with a sense of what comes next: a question for them to sit with, something to try, a way to continue the conversation. Not a CTA in the marketing sense. More like: what do you do with this now? The discipline: end in a way that opens something rather than closing it.",
+        prompt: "Write an ending for the given post. It should land the argument without summarizing it. It should leave the reader with something — a question, a next move, an implication they'll carry. Not a call to action. A call to thought.",
+        wordCountMin: 60,
+        wordCountMax: 160,
+        criteria: [
+          { name: "Doesn't summarize", description: "Does the ending add something — rather than recapping what just happened?", weight: 0.35 },
+          { name: "Leaves something with the reader", description: "Does the ending give the reader something to carry — a question, an implication, something that continues to work?", weight: 0.4 },
+          { name: "Feels complete", description: "Does the ending feel like the right ending for this post — does it close the arc?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "End without summarizing",
+            passThreshold: 50,
+            wordCountMin: 50,
+            wordCountMax: 130,
+            criteria: [
+              { name: "No summary", description: "Does the ending avoid restating what the post already said?", weight: 0.5 },
+              { name: "Something to carry", description: "Does the ending give the reader something beyond the argument — a question, an implication, a next step of their own?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Post about: how the tools we use end up shaping the thinking we do with them.",
+                prompt: "Write an ending for this newsletter post. Don't summarize the argument. Give the reader something to carry — a question to sit with, something to notice, a next move. 3-4 sentences.",
+              },
+              {
+                given: "Post about: why doing the work you care about requires periods of doing work you don't.",
+                prompt: "Write a newsletter ending. Not a summary. Not a list of takeaways. Something that opens rather than closes — a question or implication the reader takes with them. 3-4 sentences.",
+              },
+              {
+                given: "Post about: the difference between being productive and doing the work that matters.",
+                prompt: "Write the ending for this post. It should feel like the last thing a person says in a good conversation — not a recap, but something you'll be thinking about later. 3-4 sentences.",
+              },
+              {
+                given: "Post about: why the most useful mentors are often the ones who tell you the thing you didn't want to hear.",
+                prompt: "Write an ending that doesn't summarize. Give the reader something to do with the argument — a question, a next step, an implication they can test. 3-4 sentences.",
+              },
+              {
+                given: "Post about: how the metric you use to measure success ends up changing what you're trying to do.",
+                prompt: "Write a newsletter ending. End in a way that opens something — a question, a challenge, an implication. Not a kicker that wraps it up. Something that continues to work after the post is over. 3-4 sentences.",
+              },
+            ],
+          },
+          {
+            label: "Leave the reader with a next move",
+            passThreshold: 65,
+            wordCountMin: 60,
+            wordCountMax: 145,
+            criteria: [
+              { name: "Next move is implied", description: "Does the ending leave the reader with something to do — not literally 'now go do X' but an implied direction for their own thinking?", weight: 0.4 },
+              { name: "Ending earns its length", description: "Is every sentence in the ending doing something — no wrap-up filler?", weight: 0.35 },
+              { name: "Specific to this post", description: "Is this ending specific to the argument of this post — not a generic inspirational close?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Post about: why most people are better writers than they think, and what's actually holding them back.",
+                prompt: "Write an ending that leaves the reader with a specific next move for their own writing. Not instructions — an implication. The reader should finish reading and feel like they know what to try. 3-5 sentences.",
+              },
+              {
+                given: "Post about: the invisible work that happens between the idea and the finished thing.",
+                prompt: "Write a newsletter ending that gives the reader something specific to do with this insight. The next move should follow naturally from the argument — not added on, but implied. 3-5 sentences.",
+              },
+              {
+                given: "Post about: why the feedback that helps you most is usually the feedback you resist first.",
+                prompt: "Write an ending that implies a next move for the reader — something they can do with this insight in the next week. Not a listicle. An implication that lands and stays. 3-5 sentences.",
+              },
+              {
+                given: "Post about: how your past self was right about some things you've since talked yourself out of.",
+                prompt: "Write an ending that gives the reader something to do — a question to ask themselves, something to revisit. Specific to this argument. Not generic. 3-5 sentences.",
+              },
+              {
+                given: "Post about: the thing that separates writers who improve from writers who plateau.",
+                prompt: "Write a newsletter ending with an implied next move. The reader should finish with a sense of where to go next — not told, but shown. 3-5 sentences.",
+              },
+            ],
+          },
+          {
+            label: "The ending that opens rather than closes",
+            passThreshold: 75,
+            wordCountMin: 70,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Opens, not closes", description: "Does the ending open something for the reader — a question, a tension, a space — rather than resolving and closing?", weight: 0.4 },
+              { name: "Specific and earned", description: "Is the ending specific to this argument — something only this post could end with?", weight: 0.35 },
+              { name: "Works as the last thing", description: "Does the ending feel like the only possible last thing — not one of several possible endings but the right one?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Post about: why the version of you that doesn't start is protecting the version of you that can't fail.",
+                prompt: "Write an ending that opens something for the reader — a question they'll be sitting with, an implication they'll be testing. The ending should feel like the beginning of something the reader does after they close the email. 4-5 sentences.",
+              },
+              {
+                given: "Post about: the relationship between writing and thinking — whether writing is how you record thoughts or how you have them.",
+                prompt: "Write an ending that opens rather than closes. The reader should finish with a question they want to answer — about their own writing, their own thinking. Not imposed, earned. 4-5 sentences.",
+              },
+              {
+                given: "Post about: how the communities you join change what you think is possible.",
+                prompt: "Write an ending that opens. The reader should leave the post wanting to examine something in their own life — a membership, a peer group, a comparison set. Implied, not instructed. 4-5 sentences.",
+              },
+              {
+                given: "Post about: the difference between the things you say you value and the things your decisions reveal you value.",
+                prompt: "Write an ending that opens the question the post has been building toward — the one the reader has to answer for themselves. Not summarized. Not resolved. Opened. 4-5 sentences.",
+              },
+              {
+                given: "Post about: why writing for an audience changes you, and whether that's a problem.",
+                prompt: "Write the ending that is the only possible ending — specific to this argument, opening something the reader needs to sit with, feeling complete without being resolved. 4-5 sentences.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "sub-5",
+        title: "The Full Newsletter",
+        lesson: "A complete Substack post has its own rhythm: the subject line bets the open, the first paragraph earns the read, the argument pays off what the hook promised, and the ending opens rather than closes. These exercises put the format together as a complete unit. The discipline: every element serves every other element. A subject line that doesn't connect to the opening is a broken promise. An opening that doesn't connect to the argument is a misdirection.",
+        prompt: "Write a complete newsletter post for the given topic. Every element — from subject line to ending beat — should serve the whole. The subject line promises what the opening delivers. The opening delivers what the argument needs. The ending opens what the argument made possible.",
+        wordCountMin: 280,
+        wordCountMax: 500,
+        criteria: [
+          { name: "All elements present", description: "Does the post have a subject line, an opening that earns the read, a developed argument, and an ending that opens?", weight: 0.35 },
+          { name: "Elements serve each other", description: "Does the subject line connect to the opening? Does the opening connect to the argument? Is there a coherent through-line?", weight: 0.4 },
+          { name: "Newsletter register throughout", description: "Does the post feel like a person writing to their readers throughout — consistent register, personal voice?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Full post with all elements",
+            passThreshold: 50,
+            wordCountMin: 250,
+            wordCountMax: 450,
+            criteria: [
+              { name: "All elements present", description: "Is there a subject line, an opening, an argument, and an ending?", weight: 0.5 },
+              { name: "Post holds together", description: "Does the post feel like a coherent whole — not four separate pieces stuck together?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: The thing you do when you're procrastinating that is actually part of the work.",
+                prompt: "Write a complete newsletter post. Include the subject line at the top. Opening, argument, ending beat. 250–450 words. All elements should serve the whole.",
+              },
+              {
+                given: "Topic: Why the advice to 'find your voice' keeps people from writing.",
+                prompt: "Write a complete newsletter post. Start with your subject line. Then the opening that earns the read. Then the argument. Then an ending that opens. 250–450 words.",
+              },
+              {
+                given: "Topic: What you've changed your mind about in the last year.",
+                prompt: "Write a complete newsletter post — subject line first, then the post. Opening, argument, ending. Everything serving everything. 250–450 words.",
+              },
+              {
+                given: "Topic: The skill that matters most in your work that almost nobody talks about.",
+                prompt: "Write a complete newsletter post. Subject line at the top. All four elements present and connected. 250–450 words.",
+              },
+              {
+                given: "Topic: Why getting better at something sometimes means getting worse at it first.",
+                prompt: "Write a complete newsletter post. Subject line. Opening that earns the read. Argument. Ending that opens. 250–450 words.",
+              },
+            ],
+          },
+          {
+            label: "Elements serve each other",
+            passThreshold: 65,
+            wordCountMin: 280,
+            wordCountMax: 470,
+            criteria: [
+              { name: "Subject-to-opening connection", description: "Does the opening deliver what the subject line promised — is the connection clear?", weight: 0.35 },
+              { name: "Opening-to-argument connection", description: "Does the argument pay off what the opening set up — no misdirection?", weight: 0.35 },
+              { name: "Ending-to-argument connection", description: "Does the ending open something specific to this argument — not a generic close?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Topic: Why reading books by people you disagree with is more useful than reading books you agree with.",
+                prompt: "Write a complete newsletter post where every element serves every other. The subject line should promise what the opening delivers. The opening should earn what the argument needs. The ending should open what the argument made possible. 280–470 words.",
+              },
+              {
+                given: "Topic: The moment you stopped trying to be consistent and started trying to be honest.",
+                prompt: "Write a complete newsletter post. Focus on the connections between elements — subject to opening, opening to argument, argument to ending. Every element should serve the whole. 280–470 words.",
+              },
+              {
+                given: "Topic: What the last time you were genuinely surprised by an idea tells you about your reading habits.",
+                prompt: "Write a complete newsletter post where the four elements form a chain — each one depends on and serves the one before and after. Subject line, opening, argument, ending. 280–470 words.",
+              },
+              {
+                given: "Topic: The reason most people who want to write more don't, and it has nothing to do with time.",
+                prompt: "Write a complete post where everything connects. Subject line promises. Opening delivers. Argument pays off. Ending opens. No element should be able to be dropped without the others noticing. 280–470 words.",
+              },
+              {
+                given: "Topic: Why the most important writing you'll do this year might be something you never publish.",
+                prompt: "Write a complete newsletter post. Every element should serve every other element — not just present but connected. 280–470 words.",
+              },
+            ],
+          },
+          {
+            label: "The complete newsletter — every element earns its place",
+            passThreshold: 75,
+            wordCountMin: 300,
+            wordCountMax: 500,
+            criteria: [
+              { name: "Every element earns its place", description: "Is every element — subject line, opening, every paragraph, ending — necessary? Would removing any one of them make the post worse?", weight: 0.35 },
+              { name: "Format serves the argument", description: "Does the newsletter format — the register, the structure, the ending beat — make the argument stronger than it would be as a plain essay?", weight: 0.4 },
+              { name: "Post would earn a forward", description: "Would a reader send this to someone? Does it have the qualities — specific, surprising, useful — that make people want to share?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: The thing about writing that they can't teach in a workshop.",
+                prompt: "Write a complete newsletter post where every element earns its place. Nothing could be removed without loss. The format should make the argument stronger than it would be as an essay. Would your readers forward this? 300–500 words.",
+              },
+              {
+                given: "Topic: What you would tell yourself about writing if you could go back five years.",
+                prompt: "Write a complete newsletter — subject line through ending — where every element is necessary and everything connects. The post should be something worth sending. 300–500 words.",
+              },
+              {
+                given: "Topic: Why showing up when you don't want to is different from grinding.",
+                prompt: "Write a complete newsletter post. Every element earns its place. The format serves the argument. The post would earn a forward from a reader who cares about writing or work. 300–500 words.",
+              },
+              {
+                given: "Topic: The reason the best advice you've received came from someone who had no reason to care.",
+                prompt: "Write a complete newsletter — all elements, all connections, all earning their place. The post should be specific enough to feel personal and general enough to forward. 300–500 words.",
+              },
+              {
+                given: "Topic: What separates the writing you're proud of from the writing you're not, and what you've learned from the difference.",
+                prompt: "Write a complete newsletter post where everything earns its place, everything serves everything, and the reader would finish wanting to share it. 300–500 words.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "reading-like-a-writer",
     title: "Reading Like a Writer",
     genre: "nonfiction",
