@@ -2607,7 +2607,7 @@ export const tracks: Track[] = [
         wordCountMax: 270,
         criteria: [
           { name: "Contains both modes", description: "There is identifiable scene (specific, sensory, present-tense feeling) and summary (compressed, contextual) in the piece.", weight: 0.4 },
-          { name: "Transitions work", description: "The shifts between modes feel deliberate, not accidental. The reader can follow the zooming.", weight: 0.35 },
+          { name: "Transitions work", description: "The shift between scene and summary is marked — by a sentence that explicitly zooms out or in, a change in verb tense, or a clear change in temporal distance. The reader is not dropped without signal.", weight: 0.35 },
           { name: "Scene earns the summary", description: "The zoomed-in moments justify the existence of the zoomed-out context — one informs the other.", weight: 0.25 },
         ],
       },
@@ -2840,7 +2840,7 @@ export const tracks: Track[] = [
         wordCountMax: 270,
         criteria: [
           { name: "Turn is present and identifiable", description: "There is a clear moment where the direction of the piece shifts — not just a new paragraph, but a new angle.", weight: 0.45 },
-          { name: "Turn feels earned", description: "The pivot follows logically or emotionally from what preceded it — the reader could go back and see the setup.", weight: 0.4 },
+          { name: "Turn feels earned", description: "The turn connects to something already established in the piece — a word, detail, or observation introduced before the pivot that makes the new direction feel prepared rather than dropped in.", weight: 0.4 },
           { name: "Piece is different at the end than at the start", description: "We arrive at a different understanding than we had in the opening lines.", weight: 0.15 },
         ],
       },
@@ -3259,8 +3259,8 @@ export const tracks: Track[] = [
         wordCountMax: 110,
         criteria: [
           { name: "Specificity", description: "Each introduction names a specific credential or circumstance — not just a job title.", weight: 0.35 },
-          { name: "Forward lean", description: "Each introduction makes the reader want to hear what this person says next.", weight: 0.35 },
-          { name: "Momentum", description: "None of the introductions interrupt the flow — they feel like prose, not résumé entries.", weight: 0.30 },
+          { name: "Forward lean", description: "Each introduction includes at least one specific detail — a role, context, or circumstance — that tells the reader why this particular person's perspective matters here, not just who they are.", weight: 0.35 },
+          { name: "Momentum", description: "Each introduction is woven into a sentence rather than set off as a parenthetical credential block — it reads as part of the paragraph, not a pause in it.", weight: 0.30 },
         ],
       },
       {
@@ -3904,7 +3904,7 @@ export const tracks: Track[] = [
             wordCountMin: 40,
             wordCountMax: 80,
             criteria: [
-              { name: "Honest reaction expressed", description: "The writing conveys a genuine response to the book — not hedged or generic.", weight: 0.5 },
+              { name: "Honest reaction expressed", description: "The response takes a specific position on the book — liked it, disliked it, or had a mixed reaction — rather than only summarizing or remaining entirely neutral.", weight: 0.5 },
               { name: "Specific to this book", description: "The reaction is about this particular book, not a generic sentiment that could apply to anything.", weight: 0.3 },
               { name: "Clear to a reader", description: "Someone who has read the book understands what you're reacting to.", weight: 0.2 },
             ],
@@ -4117,9 +4117,9 @@ export const tracks: Track[] = [
             wordCountMin: 50,
             wordCountMax: 90,
             criteria: [
-              { name: "Describes experience, not plot", description: "The writing captures the feeling of reading, not what happens in the book.", weight: 0.5 },
+              { name: "Describes experience, not plot", description: "The response focuses on what it was like to read the book — pace, difficulty, emotional pull, or surprise — rather than summarizing what happens or what the book argues.", weight: 0.5 },
               { name: "Specific over generic", description: "The description is particular — it isn't just 'it was a fast read' but something more precise.", weight: 0.3 },
-              { name: "Honest", description: "The reaction feels genuine, not like a promotional blurb.", weight: 0.2 },
+              { name: "Honest", description: "The response is not uniformly positive — it notes at least one thing that didn't fully work, surprised the reader, or complicated their reaction.", weight: 0.2 },
             ],
             variants: [
               { prompt: "Think of a book you've read recently. Write 50–90 words describing what it felt like to read it — not what it's about, but the experience of turning the pages. Fast or slow? Dense or light? Compulsive or meditative?" },
@@ -4361,7 +4361,7 @@ export const tracks: Track[] = [
             wordCountMin: 50,
             wordCountMax: 110,
             criteria: [
-              { name: "Stakes are felt, not just named", description: "The reader feels why this matters — not just understands it abstractly.", weight: 0.5 },
+              { name: "Stakes are felt, not just named", description: "The nut graf specifies a concrete consequence, affected person, or at-risk thing — not just 'this matters' but a particular something that changes, is lost, or is at stake.", weight: 0.5 },
               { name: "Specific enough to be real", description: "The stakes are concrete — a particular consequence, a particular person, a particular moment.", weight: 0.3 },
               { name: "No generic importance language", description: "No 'this is increasingly important' or 'we must pay attention' — the stakes are shown, not announced.", weight: 0.2 },
             ],
@@ -13169,7 +13169,7 @@ export const tracks: Track[] = [
         wordCountMax: 140,
         criteria: [
           { name: "Connects the two sections", description: "The reader could follow from the opening through the bridge to the closing without feeling dropped.", weight: 0.5 },
-          { name: "Earns the transition", description: "The bridge makes the jump feel inevitable — not just an announcement that we're moving on.", weight: 0.5 },
+          { name: "Earns the transition", description: "The bridge contains at least one element that ties the two sections together — an echoed word or phrase, a concrete example that spans both, or a shift in abstraction level that makes the closing section follow logically.", weight: 0.5 },
         ],
         stages: [
           {
