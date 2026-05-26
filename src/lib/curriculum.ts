@@ -2535,7 +2535,7 @@ export const tracks: Track[] = [
         criteria: [
           { name: "None of the original sentences survive", description: "The rewrite doesn't contain 'I've been thinking,' 'there are many,' or anything from the original.", weight: 0.3 },
           { name: "Starts with the real thing", description: "The new opening is in the middle of an idea, a scene, or a specific claim — not setup for the actual piece.", weight: 0.4 },
-          { name: "Has energy immediately", description: "A reader would want to keep reading after the first sentence.", weight: 0.3 },
+          { name: "First sentence is in the middle of a thought", description: "The first sentence makes a specific claim, names a concrete thing, or places the reader in a specific moment — it does not announce a topic, explain what the piece will discuss, or tell the reader what is coming.", weight: 0.3 },
         ],
       },
       {
@@ -2549,8 +2549,8 @@ export const tracks: Track[] = [
         wordCountMax: 270,
         criteria: [
           { name: "Visible sentence length variation", description: "Contains at least one very short sentence (under 8 words) and at least one long one (over 30 words) — not just medium-length throughout.", weight: 0.4 },
-          { name: "Variation serves the meaning", description: "Short sentences land on important moments. Long sentences carry accumulation or complexity. The rhythm isn't random.", weight: 0.4 },
-          { name: "Reads naturally aloud", description: "The transitions between long and short feel organic, not lurching.", weight: 0.2 },
+          { name: "Short sentences are complete thoughts", description: "Each short sentence (≤8 words) is a complete syntactic unit — not a clause cut mid-thought. It could stand alone as a full statement.", weight: 0.4 },
+          { name: "No three consecutive long sentences", description: "There is no run of three or more consecutive sentences all over 20 words — the length variation is distributed through the piece, not all bunched at one end.", weight: 0.2 },
         ],
       },
     ],
@@ -3383,7 +3383,7 @@ export const tracks: Track[] = [
         criteria: [
           { name: "Short sentences present", description: "At least two sentences of 7 words or fewer appear in the paragraph.", weight: 0.3 },
           { name: "Long sentences present", description: "At least two sentences of 25 words or more appear in the paragraph.", weight: 0.3 },
-          { name: "Variation serves the meaning", description: "Short sentences land on important moments; long ones carry complexity. The rhythm feels intentional, not random.", weight: 0.4 },
+          { name: "Short sentences are complete thoughts", description: "Each short sentence (≤7 words) is a syntactically complete statement — not a fragment of a longer idea that was cut off mid-clause.", weight: 0.4 },
         ],
       },
       {
