@@ -2103,7 +2103,7 @@ export const tracks: Track[] = [
           },
           {
             name: "Sounds like a person, not a performance",
-            description: "The response contains at least one colloquial phrase, personal aside, informal word choice, or direct observation — any sign the writer is speaking rather than composing for an audience.",
+            description: "Look for any ONE of these: a sentence fragment, a rhetorical question, an em-dash interruption, a casual or slangy word, a parenthetical aside, or a direct personal opinion stated bluntly. If any single one of these appears anywhere in the response, this criterion passes. One instance is enough.",
             weight: 0.5,
           },
         ],
@@ -2490,7 +2490,7 @@ export const tracks: Track[] = [
         wordCountMin: 90,
         wordCountMax: 220,
         criteria: [
-          { name: "Sounds like a person, not a writer", description: "The response avoids essay-opener patterns — no formal thesis setup, no 'it is important to note,' no 'in today's world.' It starts mid-thought or mid-explanation.", weight: 0.5 },
+          { name: "Sounds like a person, not a writer", description: "Check for any ONE of: a sentence fragment, a rhetorical question, a casual or slangy word, a mid-thought start (no formal introduction), a direct aside, or a blunt personal opinion. If any single one exists anywhere in the response, this criterion passes. One is enough.", weight: 0.5 },
           { name: "No performance", description: "The response contains no filler throat-clearing ('As we know,' 'It goes without saying,' 'In conclusion') — it gets to the point directly.", weight: 0.5 },
         ],
       },
