@@ -2103,7 +2103,7 @@ export const tracks: Track[] = [
           },
           {
             name: "Sounds like a person, not a performance",
-            description: "The writing sounds like someone thinking out loud, not trying to impress. Authentic > polished here.",
+            description: "The response contains at least one colloquial phrase, personal aside, informal word choice, or direct observation — any sign the writer is speaking rather than composing for an audience.",
             weight: 0.5,
           },
         ],
@@ -2490,8 +2490,8 @@ export const tracks: Track[] = [
         wordCountMin: 90,
         wordCountMax: 220,
         criteria: [
-          { name: "Sounds like a person, not a writer", description: "The prose sounds like someone explaining something they care about — not like an essay introduction.", weight: 0.5 },
-          { name: "No performance", description: "No unnecessary formal phrases, no 'in conclusion,' no 'it is important to note.' Just thought.", weight: 0.5 },
+          { name: "Sounds like a person, not a writer", description: "The response avoids essay-opener patterns — no formal thesis setup, no 'it is important to note,' no 'in today's world.' It starts mid-thought or mid-explanation.", weight: 0.5 },
+          { name: "No performance", description: "The response contains no filler throat-clearing ('As we know,' 'It goes without saying,' 'In conclusion') — it gets to the point directly.", weight: 0.5 },
         ],
       },
       {
@@ -2826,7 +2826,7 @@ export const tracks: Track[] = [
         criteria: [
           { name: "Genuinely complicates the claim", description: "Identifies a real tension, exception, or limitation in the original argument — not a straw man.", weight: 0.55 },
           { name: "Doesn't abandon the argument", description: "The complication adds nuance — it doesn't conclude 'so I was wrong about everything.'", weight: 0.3 },
-          { name: "Honest voice", description: "Sounds like someone genuinely wrestling with the question, not performing intellectual humility.", weight: 0.15 },
+          { name: "Honest voice", description: "The response takes at least one specific position or expresses a genuine uncertainty — not just 'it depends' or a both-sides survey with no actual stance.", weight: 0.15 },
         ],
       },
       {
@@ -2929,7 +2929,7 @@ export const tracks: Track[] = [
         criteria: [
           { name: "Concession is genuinely strong", description: "The opposing view is presented at its best — not as a weak version easily dismissed.", weight: 0.5 },
           { name: "Concession is answered", description: "After conceding, the argument continues — explains why the concession doesn't defeat the main claim.", weight: 0.35 },
-          { name: "Reads as honest engagement", description: "The piece sounds like someone thinking through a real tension, not performing fairness.", weight: 0.15 },
+          { name: "Reads as honest engagement", description: "The response identifies at least one specific tension or trade-off rather than staying entirely abstract — something concrete is actually at stake.", weight: 0.15 },
         ],
       },
       {
@@ -8153,9 +8153,9 @@ export const tracks: Track[] = [
         wordCountMin: 80,
         wordCountMax: 200,
         criteria: [
-          { name: "Register shift is real", description: "Does the rewrite feel noticeably different from the original — less institutional, more personal?", weight: 0.4 },
+          { name: "Register shift is real", description: "The rewrite removes or replaces at least one institutional or passive construction from the original — a 'we believe,' a 'it has been shown,' or a similarly impersonal phrase is gone.", weight: 0.4 },
           { name: "Warmth without casualness", description: "Is the rewrite warm and direct without losing substance — the argument is still there, just differently voiced?", weight: 0.35 },
-          { name: "Sounds like a person", description: "Could you hear this being read aloud by a specific person — is there a voice behind it?", weight: 0.25 },
+          { name: "Sounds like a person", description: "The rewrite contains at least one direct address, personal observation, or informal construction that would not appear in a publication byline — something that belongs to a specific sender.", weight: 0.25 },
         ],
         stages: [
           {

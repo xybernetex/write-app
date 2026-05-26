@@ -66,6 +66,12 @@ ${submission}
 EVALUATION CRITERIA:
 ${criteriaList}
 
+PASS/FAIL RULES — apply these strictly:
+- Set "passed": true when the submission makes any genuine attempt at the criterion, even if the execution is rough, imperfect, or could be better. Partial counts. Clunky counts. Uncertain counts.
+- Set "passed": false ONLY when the criterion is completely absent — ignored entirely, or the submission does the opposite of what is asked.
+- "score" (0.0–1.0) reflects execution quality independently of pass/fail. A passing criterion can still score 0.5 if there is obvious room to improve.
+- This is deliberate practice, not publication review. If the writer made a real attempt, it passes. Grade for honest engagement, not mastery.
+
 Return this exact JSON structure:
 {"criteriaResults":[{"name":"<exact criterion name>","passed":<true|false>,"score":<0.0-1.0>,"feedback":"<one sentence>"}],"coachFeedback":"<${feedbackInstruction}>"}`;
 
