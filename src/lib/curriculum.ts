@@ -6763,6 +6763,546 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "the-single-idea",
+    title: "The Single Idea",
+    genre: "nonfiction",
+    difficulty: "intermediate",
+    description:
+      "Most essays fail not because they lack ideas but because they have too many. The writer starts with one idea, adds a related one, qualifies it, branches into a tangent, and arrives at a piece that covers ground without landing anything. This track drills the constraint: finding the one thing the essay is actually about, writing precisely to it, and cutting everything that isn't it — including the good stuff that belongs in a different essay.",
+    exercises: [
+      {
+        id: "idea-1",
+        title: "Name the One Thing",
+        lesson:
+          "Every essay that works is about one thing. Not one topic — one idea. The topic might be productivity, but the idea is 'productivity culture is a way of avoiding the question of what you actually want.' The topic is the category. The idea is the claim. Most essays have the topic but bury the idea under other ideas. Before you can cut to the single idea, you have to be able to name it — in one sentence, as a claim.",
+        prompt:
+          "Given a passage that has too many ideas, write one sentence that names the single idea it should be about — the claim that everything else should serve. Not a summary of what the passage says. The idea it's trying to get to. 15–40 words.",
+        wordCountMin: 10,
+        wordCountMax: 50,
+        criteria: [
+          { name: "Names one idea, not several", description: "The sentence commits to one claim — not a list of themes or a multi-part summary.", weight: 0.55 },
+          { name: "Claim, not topic", description: "The sentence makes an arguable point, not just a category label.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Find the buried idea",
+            passThreshold: 50,
+            wordCountMin: 10,
+            wordCountMax: 50,
+            criteria: [
+              { name: "One thing named", description: "The response identifies a single idea, not a list of what the passage covers.", weight: 0.55 },
+              { name: "Something more than the topic", description: "The named idea is more specific than just restating the subject matter.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "Passage: 'We've built a culture around productivity, and the tools keep multiplying — apps, systems, planners, frameworks. People are busier than ever, and yet most of them feel behind. There's also a real question about what all this productivity is for, and whether the things that matter most are even measurable. Creativity, for instance, doesn't fit neatly into a task management system. Neither does rest, or deep thinking, or the kind of aimless wandering that often precedes insight.'",
+                prompt: "Write one sentence naming the single idea this passage is trying to get to. Not a summary — the claim it should be about. 15–40 words.",
+              },
+              {
+                given: "Passage: 'Remote work has changed a lot of things. People are commuting less, which is good for the environment and for stress levels. But it's also harder to collaborate across time zones, and the informal conversations that used to happen in hallways don't happen anymore. Junior employees are probably losing the most — they can't absorb company culture the way they used to. And managers have had to rethink how they evaluate performance when they can't see people working.'",
+                prompt: "Write one sentence naming the single idea buried in this passage. One claim, not a list of what the passage touches. 15–40 words.",
+              },
+              {
+                given: "Passage: 'The advice economy has grown enormously — books, podcasts, newsletters, coaches, courses. Everyone seems to be in the business of telling someone else how to live. Most of it contradicts itself. Wake up early, or listen to your body. Build a routine, or embrace spontaneity. The advice is abundant and the outcomes are unclear. It's also interesting that the people giving advice are often still working out the same problems themselves.'",
+                prompt: "Write one sentence naming the single idea this passage is trying to get to. The claim, not the catalog. 15–40 words.",
+              },
+              {
+                given: "Passage: 'Cities have become less affordable, which has pushed people further out. But longer commutes have made it harder to build local communities. The third places that used to anchor neighborhoods — the bars, the diners, the barbershops — have mostly been replaced by chains or closed. Social media was supposed to fill the gap but seems to have made things worse. There's also a lot of research suggesting that incidental contact — running into people you know — is more important to wellbeing than we used to think.'",
+                prompt: "Write one sentence naming the single idea this passage is reaching for. One claim. Not a list of what it mentions. 15–40 words.",
+              },
+              {
+                given: "Passage: 'Expertise has become harder to trust, partly because experts disagree publicly, partly because misinformation spreads faster than corrections, and partly because the formats experts use — the op-ed, the tweet, the interview — reward confident assertion over careful qualification. But there's also a problem with how expertise is credentialed. Degrees don't always reflect competence, and the people who have the most credentials often have the least contact with the actual problems. Meanwhile, the people closest to the problems often lack the credentials to be taken seriously.'",
+                prompt: "Write one sentence naming the single idea this passage is actually about. One claim, not two. 15–40 words.",
+              },
+            ],
+          },
+          {
+            label: "Name it precisely",
+            passThreshold: 65,
+            wordCountMin: 12,
+            wordCountMax: 45,
+            criteria: [
+              { name: "Specific and arguable", description: "The named idea is a real claim — specific enough that someone could disagree with it.", weight: 0.5 },
+              { name: "Implies what to cut", description: "The named idea is clear enough that a writer could identify which parts of the passage don't serve it.", weight: 0.35 },
+              { name: "One sentence, no hedging", description: "One clean sentence — not a compound clause that smuggles in a second idea.", weight: 0.15 },
+            ],
+            variants: [
+              {
+                given: "Passage: 'The feedback culture in professional environments has gotten more elaborate — 360 reviews, structured frameworks, regular check-ins — without getting more honest. People still don't say the hard thing. There's also a question of whether feedback even works the way we think it does. Some research suggests that people don't actually improve from feedback alone; they improve from deliberate practice, and feedback just tells them what to practice. The other issue is that the person giving feedback is always filtering it through their own preferences and blind spots, so the feedback is never purely about the recipient.'",
+                prompt: "Write one precise, arguable sentence naming the single idea this passage is reaching for. Specific enough to imply what gets cut. 12–40 words.",
+              },
+              {
+                given: "Passage: 'Self-help books have a structural problem: they're written by people who succeeded, which means they're systematically biased toward what worked for one person in one context. The advice doesn't transfer well. But there's also something going on with how readers use the books — they consume them without implementing anything, which suggests the book isn't really the product. And the industry keeps producing new entries even though no previous book has solved the underlying problem, which suggests the problem is serving some other function.'",
+                prompt: "Write one precise, arguable sentence naming the single idea here. Specific, implies what stays and what goes. 12–40 words.",
+              },
+              {
+                given: "Passage: 'The open office was supposed to encourage collaboration, but most of the research suggests it did the opposite — increasing noise, reducing concentration, and making people retreat into headphones. The interesting question is why companies kept building them anyway, long after the evidence was clear. Part of the answer is cost — open offices are cheaper. But part of it seems to be about visibility and control: the open office is a surveillance architecture dressed up as a collaboration one.'",
+                prompt: "Write one precise sentence naming the single idea this passage is about. Arguable, implies what to cut. 12–40 words.",
+              },
+              {
+                given: "Passage: 'The way we talk about burnout has changed — it used to mean something specific, a depletion from overwork, and now it seems to mean any form of exhaustion or dissatisfaction with work. The expansion of the category might be a recognition that work has become more demanding. But it also might be doing something else: converting structural problems — bad management, inadequate pay, lack of autonomy — into personal medical conditions, which puts the burden of remedy on the individual rather than the institution.'",
+                prompt: "Write one precise, arguable sentence naming the single idea this passage is reaching for. Clear enough to imply what stays. 12–40 words.",
+              },
+              {
+                given: "Passage: 'Networking has become something people feel obligated to do rather than something they do naturally. The events, the follow-ups, the LinkedIn messages — all of it has a managed quality that makes it feel less like connection and more like prospecting. There's also a fairness issue: the people who are naturally good at networking tend to already have social capital, so the activity reinforces existing advantages. And the advice about how to network well almost always comes from extroverts.'",
+                prompt: "Write one precise sentence naming the single idea buried here. Arguable, implies what gets cut. 12–40 words.",
+              },
+            ],
+          },
+          {
+            label: "The idea implies the essay",
+            passThreshold: 75,
+            wordCountMin: 15,
+            wordCountMax: 40,
+            criteria: [
+              { name: "Idea is sharp and complete", description: "One clean, fully committed sentence — no compound ideas, no hedging.", weight: 0.35 },
+              { name: "Specific enough to be interesting", description: "The named idea is worth writing an essay about — not obvious, not vague.", weight: 0.4 },
+              { name: "Creates a clear obligation", description: "A writer who held this idea would know exactly what they need to show — the sentence implies the argument.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Passage: 'Most writing advice is about process — when to write, how to outline, whether to edit as you go. Very little of it is about what to write about, or how to develop an idea worth writing about. The process advice assumes you have something to say and just need to say it more efficiently. But for a lot of writers, the process isn't the problem. The problem is that they haven't done enough thinking, reading, or living to have something worth saying, and no process can substitute for that.'",
+                prompt: "Write one sharp, complete sentence naming the single idea — specific, interesting, creates a clear obligation for the essay. 15–38 words.",
+              },
+              {
+                given: "Passage: 'The professionalization of creative fields — the MFA, the workshop, the pitch process — has produced a class of writers who are technically skilled and often uncertain about what they have to say. The skills are real. The uncertainty is also real. There's something about the process of professionalization that can strip out the idiosyncratic, difficult-to-teach quality that made the work interesting in the first place, and replace it with a competence that impresses other professionals.'",
+                prompt: "Write one sharp sentence naming the single idea this passage is reaching for. Complete, specific, creates an obligation. 15–38 words.",
+              },
+              {
+                given: "Passage: 'Companies say they want employees who take initiative, but the organizational structures they build punish it. The person who takes initiative is taking on risk that the organization hasn't sanctioned, and when it doesn't work, they absorb the consequences. When it does work, the credit often diffuses upward. The culture says one thing; the incentive structure says another. And people respond to incentives, not culture.'",
+                prompt: "Write one sharp, complete sentence naming the single idea. Specific, interesting, implies the essay. 15–38 words.",
+              },
+              {
+                given: "Passage: 'The market for books about how to think clearly — about logic, cognitive bias, decision-making — has never been larger. And yet the evidence that reading these books produces clearer thinking is weak. People learn the names of biases without becoming less biased. They learn the vocabulary of good reasoning without applying it to their own beliefs. The gap between knowing about rationality and being rational appears to be nearly uncrossable by reading alone.'",
+                prompt: "Write one sharp, complete sentence naming the single idea. Creates a clear obligation for the essay. Specific. 15–38 words.",
+              },
+              {
+                given: "Passage: 'The interview has become the primary way we evaluate job candidates, and there's substantial evidence that it doesn't work — that interviews predict performance poorly and that interviewers are more confident in their ability to read people than they should be. Structured interviews with consistent questions work better than unstructured ones, but most interviews are unstructured. The format persists anyway, probably because it feels like information even when it isn't, and because the alternative — trusting test scores or work samples — requires trusting something other than your own judgment.'",
+                prompt: "Write one sharp sentence naming the single idea this passage is about. Complete, specific, implies the argument. 15–38 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "idea-2",
+        title: "The One-Sentence Version",
+        lesson:
+          "If you can't say it in one sentence, you don't know what it is. Not a summary — a sentence that captures the single idea. Not 'this essay is about productivity and its relationship to creativity and also how modern work culture has changed expectations.' One thing. The one-sentence version is the diagnostic: if it takes two sentences to say the idea, you have two ideas. Pick one. The other one belongs in a different essay.",
+        prompt:
+          "Given a topic with multiple possible angles, write one sentence that commits to the single most interesting idea — the one you'd most want to develop. Not a summary of the topic. One arguable claim. 10–30 words.",
+        wordCountMin: 8,
+        wordCountMax: 35,
+        criteria: [
+          { name: "One sentence, one idea", description: "A single sentence with a single claim — not two ideas joined by 'and' or 'but.'", weight: 0.5 },
+          { name: "Commits to something interesting", description: "The sentence takes a position worth developing — not obvious, not a truism.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Pick one",
+            passThreshold: 50,
+            wordCountMin: 8,
+            wordCountMax: 35,
+            criteria: [
+              { name: "One sentence", description: "Not a compound sentence with two ideas — one claim.", weight: 0.5 },
+              { name: "Commits to something", description: "The sentence takes a position — not a question, not a statement of complexity.", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: feedback culture in professional environments — how it's given, how it's received, whether it works, who benefits, what it signals, how it's changed.",
+                prompt: "Write one sentence committing to the single most interesting idea about feedback in professional life. One claim, not several angles. 10–28 words.",
+              },
+              {
+                given: "Topic: the advice to follow your passion — where it comes from, who gives it, who it helps, who it hurts, whether passion is discovered or developed, how it relates to money and status.",
+                prompt: "Write one sentence committing to the single most interesting idea about follow your passion advice. One claim. 10–28 words.",
+              },
+              {
+                given: "Topic: remote work — its effects on productivity, collaboration, career development, company culture, real estate, cities, work-life balance, management, and junior employees.",
+                prompt: "Write one sentence about remote work that commits to one specific idea — the most interesting one. Not a balance of perspectives. One claim. 10–28 words.",
+              },
+              {
+                given: "Topic: expertise and trust — how credentials work, why experts disagree, how misinformation spreads, who gets trusted, why expertise is hard to verify, how format shapes perceived authority.",
+                prompt: "Write one sentence committing to the single most interesting idea about expertise and public trust. One claim. 10–28 words.",
+              },
+              {
+                given: "Topic: the self-improvement industry — its size, its failure rate, its products, its audience, the psychology of self-help consumption, the role of identity, the difference between feeling improved and being improved.",
+                prompt: "Write one sentence committing to the most interesting single idea about the self-improvement industry. One claim, nothing else. 10–28 words.",
+              },
+            ],
+          },
+          {
+            label: "Specific and arguable",
+            passThreshold: 65,
+            wordCountMin: 10,
+            wordCountMax: 30,
+            criteria: [
+              { name: "Specific enough to argue with", description: "Not 'feedback is complicated' or 'passion advice has pros and cons' — a specific claim a thoughtful person could contest.", weight: 0.5 },
+              { name: "One idea only", description: "The sentence doesn't smuggle in a second claim through a dependent clause.", weight: 0.3 },
+              { name: "Worth developing", description: "The claim is interesting enough that a reader would want the essay.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Topic: the way cities design public space — what's been lost, what's been gained, how car-centric design shaped daily life, what makes streets walkable, how commercial development changes neighborhoods, what third places do for communities.",
+                prompt: "Write one specific, arguable sentence about cities and public space. Something a thoughtful person would push back on. One idea only. 10–28 words.",
+              },
+              {
+                given: "Topic: ambition — where it comes from, how it changes over time, how it relates to satisfaction, what happens when you get what you want, how it's gendered, how it differs across generations.",
+                prompt: "Write one specific, arguable sentence about ambition. Not a balance, not a question — a claim. One idea, arguable. 10–28 words.",
+              },
+              {
+                given: "Topic: writing and thinking — whether writing produces thinking or requires it, how the relationship between them works, what bad writing reveals about unclear thinking, how writing changes what you believe.",
+                prompt: "Write one specific, arguable sentence about writing and thinking. Something specific enough to argue with. One idea. 10–28 words.",
+              },
+              {
+                given: "Topic: credentials and competence — whether degrees predict performance, how hiring uses credentials, what credentialism costs, who benefits from it, how it relates to class, what alternatives exist.",
+                prompt: "Write one specific, arguable sentence about credentials and competence. One claim, arguable, specific. 10–28 words.",
+              },
+              {
+                given: "Topic: social media and public discourse — how it's changed argument, what it's done to political opinion, how it affects who gets heard, whether it's made people more or less informed, what it rewards.",
+                prompt: "Write one specific, arguable sentence about social media and public discourse. Specific enough to argue with. One idea only. 10–28 words.",
+              },
+            ],
+          },
+          {
+            label: "The sentence implies the essay",
+            passThreshold: 75,
+            wordCountMin: 12,
+            wordCountMax: 28,
+            criteria: [
+              { name: "Fully committed, no hedging", description: "The sentence stakes the claim cleanly — no 'often,' 'sometimes,' 'can,' or compound hedges.", weight: 0.35 },
+              { name: "Interesting enough to be worth the essay", description: "A reader who encountered this sentence would want to read what comes next.", weight: 0.4 },
+              { name: "Creates a clear obligation", description: "The sentence implies what the essay needs to show — a writer could start from here.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: the relationship between reading and writing — whether reading improves writing, how they're different skills, what reading like a writer actually means, whether writers read differently from non-writers.",
+                prompt: "Write one sentence so committed and specific that it implies the essay — fully committed, interesting, creates a clear obligation. 12–26 words.",
+              },
+              {
+                given: "Topic: mentorship — how it actually works, who benefits, what the mentor gets, whether formal mentorship programs work, how it differs from sponsorship, what makes it useful or useless.",
+                prompt: "Write one fully committed sentence about mentorship that implies the essay. No hedging, interesting, creates an obligation. 12–26 words.",
+              },
+              {
+                given: "Topic: how organizations handle disagreement — whether they want it, what happens to people who raise hard questions, the difference between stated and actual tolerance for dissent, what happens to decision quality.",
+                prompt: "Write one sentence, fully committed, that implies the essay on organizational disagreement. Specific, interesting, creates the obligation. 12–26 words.",
+              },
+              {
+                given: "Topic: the gap between knowing and doing — why people don't act on what they know, how information changes behavior (or doesn't), what the advice industry gets wrong about knowledge and action.",
+                prompt: "Write one fully committed sentence about knowing and doing that implies the essay. No hedging. Interesting. Creates the obligation. 12–26 words.",
+              },
+              {
+                given: "Topic: what makes writing advice good or bad — why most writing advice doesn't transfer, what separates useful advice from useless advice, who writing advice actually helps, what it systematically ignores.",
+                prompt: "Write one sentence, fully committed, specific, interesting, that implies the essay on writing advice. 12–26 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "idea-3",
+        title: "Write to One Thing",
+        lesson:
+          "Knowing the single idea is necessary but not sufficient. The harder skill is writing to it — developing only that idea, resisting the urge to bring in the related idea, the interesting tangent, the useful qualification. Every sentence should push the one idea forward. The moment you start a sentence with 'there's also' or 'it's worth noting' or 'of course,' you're probably leaving the single idea for something that belongs in a different essay. The constraint isn't a limitation — it's what makes the essay land.",
+        prompt:
+          "Given a topic with multiple angles, pick one and write a passage that is entirely about that one thing. Every sentence pushes the single idea forward. Nothing sneaks in from the other angles. 80–150 words.",
+        wordCountMin: 70,
+        wordCountMax: 160,
+        criteria: [
+          { name: "One idea throughout", description: "The passage develops a single claim — no tangents, no second ideas that sneak in.", weight: 0.55 },
+          { name: "Each sentence advances it", description: "Every sentence does something for the single idea — nothing is adjacent, nothing is just related.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Mostly one thing",
+            passThreshold: 50,
+            wordCountMin: 70,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Primarily about one idea", description: "The passage is mostly about a single claim — even if a second idea sneaks in briefly.", weight: 0.6 },
+              { name: "Resists the obvious tangent", description: "The most obvious second idea is at least mostly avoided.", weight: 0.4 },
+            ],
+            variants: [
+              {
+                given: "Topic with multiple angles: the job interview — whether it predicts performance, how interviewers are overconfident, the structure problem, what formats work better, how it differs across industries, how it advantages certain personalities.",
+                prompt: "Pick one angle and write a passage that is mostly about that one thing. Resist bringing in the others. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: the advice to write every day — whether it works, what it optimizes for, how it relates to having something to say, what kind of writing it produces, who it helps and who it doesn't.",
+                prompt: "Pick one angle and write a passage mostly about that one thing. Resist the pull of the others. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: open offices — the collaboration claim, the surveillance reality, the cost factor, the headphones culture, what the research says, why companies kept building them after the evidence was in.",
+                prompt: "Pick one angle and write mostly to that one thing. The others stay out. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: the personal brand — where the advice came from, who it benefits, what it does to how people think, how it affects public discourse, how it interacts with career risk.",
+                prompt: "Pick one angle and write a passage mostly about that. One idea doing the work. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: how expertise is communicated — the formats that reward confidence, how hedging is perceived, what happens when experts disagree publicly, how social media changed this, what the audience wants.",
+                prompt: "Pick one angle and write a passage mostly about that single thing. Resist the others. 80–140 words.",
+              },
+            ],
+          },
+          {
+            label: "Strictly one thing",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Nothing sneaks in", description: "No second idea, no tangent, no interesting aside — every sentence is about the one thing.", weight: 0.5 },
+              { name: "Single idea is developed", description: "The passage doesn't just assert the one idea — it develops it, advances it, earns it.", weight: 0.35 },
+              { name: "Constraint produces focus", description: "The passage feels focused rather than thin — the single idea got enough development.", weight: 0.15 },
+            ],
+            variants: [
+              {
+                given: "Topic with multiple angles: feedback and honesty — why people don't give honest feedback, what fear of conflict does, how the recipient's reaction shapes the feedback, whether feedback culture makes things more or less honest, what honest feedback actually requires.",
+                prompt: "Pick one angle. Write a passage that is strictly about that one thing — nothing sneaks in, nothing is adjacent, every sentence advances the single idea. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: ambition and satisfaction — whether ambition makes people happy, how it changes when you achieve things, the moving goalpost problem, how ambition interacts with identity, what happens to ambition that goes unfulfilled.",
+                prompt: "Pick one angle. Write strictly to that one thing — nothing sneaks in. Every sentence advances the single idea. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: credentials and hiring — whether degrees predict performance, how interviews work, what structured hiring looks like, who credentials advantage, how the credential system self-perpetuates, what alternatives exist.",
+                prompt: "Pick one angle. Write strictly about that one thing — nothing else. Every sentence advances the single idea. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: the self-help reading habit — whether reading self-help produces change, what the reader is actually buying, how the genre structures expectation, why the same readers buy new books after the old ones didn't work.",
+                prompt: "Pick one angle. Write strictly to that single thing. Nothing sneaks in. Every sentence advances it. 80–140 words.",
+              },
+              {
+                given: "Topic with multiple angles: remote work and junior employees — what they lose without proximity, how informal learning worked in offices, what relationship-building looks like remotely, whether companies have adapted, who bears the cost.",
+                prompt: "Pick one angle. Write strictly about that one thing — no adjacent ideas. Every sentence advances the single claim. 80–140 words.",
+              },
+            ],
+          },
+          {
+            label: "Constraint produces depth",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 150,
+            criteria: [
+              { name: "One idea, fully developed", description: "The passage stays on one thing and goes deep — the constraint produced depth, not thinness.", weight: 0.4 },
+              { name: "No sentence is optional", description: "Every sentence does necessary work — no filler, no restatement, no hedging asides.", weight: 0.35 },
+              { name: "Single idea feels complete", description: "The reader finishes the passage feeling the idea was developed, not just asserted.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic with multiple angles: busyness as status — how busyness became a signal, what it replaced, how it's performed, what it costs, who performs it most, how it's changed over time.",
+                prompt: "Pick the most interesting angle. Write a passage where the constraint produces depth — one idea fully developed, no sentence optional, the idea feels complete. 90–145 words.",
+              },
+              {
+                given: "Topic with multiple angles: the gap between knowing and doing — why knowledge doesn't produce behavior change, how the advice industry ignores this, what actually changes behavior, what this means for self-improvement.",
+                prompt: "Pick one angle. Write to it with depth — one idea fully developed, every sentence necessary, the idea complete at the end. 90–145 words.",
+              },
+              {
+                given: "Topic with multiple angles: writing and thinking — whether writing is thinking or records thought, what editing does to ideas, how the constraint of form shapes what gets said, whether you can think clearly without writing.",
+                prompt: "Pick the most interesting angle. One idea, fully developed, no optional sentences. Depth from constraint. 90–145 words.",
+              },
+              {
+                given: "Topic with multiple angles: the performance review — what it was supposed to do, what it actually does, who it serves, how it displaced other forms of management, what it measures and doesn't, why it persists.",
+                prompt: "Pick one angle. Write it deep — one idea, fully developed, every sentence earning its place. 90–145 words.",
+              },
+              {
+                given: "Topic with multiple angles: reading like a writer — what it means to read with a writer's attention, what you notice that you didn't before, how it changes the reading experience, whether it can be taught, what it produces.",
+                prompt: "Pick one angle. Develop it fully — one idea, no optional sentences, constraint produces depth. 90–145 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "idea-4",
+        title: "The Cut",
+        lesson:
+          "The enemy of the single idea isn't bad writing — it's interesting writing that belongs in a different essay. Most writers know they should cut. The exercise is doing it when what you're cutting is good. The test isn't 'is this sentence well written?' It's 'does this sentence serve the one idea?' Good sentences that serve a different idea are the hardest cuts. They're also the necessary ones. Cut them, save them somewhere else, and let the remaining idea breathe.",
+        prompt:
+          "Given a passage with one strong idea and one interesting tangent that belongs elsewhere, write the version with only the strong idea remaining. Don't just delete — revise so the passage feels complete without the tangent. 60–120 words.",
+        wordCountMin: 50,
+        wordCountMax: 130,
+        criteria: [
+          { name: "Tangent is gone", description: "The second idea has been removed — the passage is about one thing.", weight: 0.5 },
+          { name: "Passage feels complete", description: "The cut didn't leave a hole — the remaining idea stands on its own.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Make the cut",
+            passThreshold: 50,
+            wordCountMin: 50,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Tangent removed", description: "The second idea is gone — the passage is primarily about one thing.", weight: 0.6 },
+              { name: "Something remains", description: "The passage is still a passage — it wasn't gutted entirely.", weight: 0.4 },
+            ],
+            variants: [
+              {
+                given: "Passage: 'The feedback sandwich — criticism between two compliments — persists in management training despite evidence that it doesn't work. People remember the criticism and discount the compliments, which defeats the purpose. There's also a gender dimension worth noting: studies suggest women receive feedback that is more likely to be vague and focused on personality rather than performance, which is a different problem from the sandwich structure but equally worth addressing. The sandwich format endures not because it helps the recipient but because it makes the person giving feedback feel more comfortable — it's a tool for managing the giver's discomfort, not improving the receiver's performance.'",
+                prompt: "The gender dimension tangent belongs in a different essay. Write the version with only the feedback sandwich idea — complete without it. 60–110 words.",
+              },
+              {
+                given: "Passage: 'Open offices were sold as collaboration spaces but function as surveillance spaces — they make workers visible to management in a way that traditional offices didn't. The headphones that workers wear to recreate privacy are the evidence: the office removed something people needed, and they found a workaround. Remote work has created its own surveillance problem, with some companies installing monitoring software that tracks keystrokes and takes periodic screenshots, which raises different but related questions about trust. The open office's surveillance function was rarely acknowledged because the collaboration framing was more comfortable for everyone involved.'",
+                prompt: "The remote work monitoring tangent belongs in a different essay. Write the version about only the open office — complete without the tangent. 60–110 words.",
+              },
+              {
+                given: "Passage: 'The advice to follow your passion is primarily given by people who succeeded — which creates a survivorship bias problem. The people who followed their passion and failed are not writing the books or giving the talks. This is related to a broader problem with success advice: it's almost always retrospective, reconstructed after the outcome is known, which makes causation look like intention. The passion advice also ignores the role of skill: most people who appear to have followed their passion got very good at something first, and the passion followed the competence.'",
+                prompt: "The broader success advice tangent belongs elsewhere. Write the version about only survivorship bias in passion advice — complete without the detour. 60–110 words.",
+              },
+              {
+                given: "Passage: 'Busyness signals importance in professional culture — the person who says they're slammed is claiming status, not just reporting a schedule. This makes capacity something to hide, which makes it nearly impossible for organizations to redistribute work even when the imbalance is obvious. There's a class dimension here too: the busyness performance is most elaborate among knowledge workers, while workers with less autonomy over their schedules can't perform busyness because their time isn't theirs to perform with. The signaling function of busyness has become so entrenched that admitting you have time feels like admitting low status.'",
+                prompt: "The class dimension tangent belongs in a different essay. Write the version about only busyness as status signal — complete without it. 60–110 words.",
+              },
+              {
+                given: "Passage: 'The self-help genre's product is the feeling of working on yourself, not the actual outcome. This is why readers buy new books after the old ones didn't produce change — the feeling was delivered, even if the change wasn't. The genre is optimized for engagement, not results. This dynamic appears in other advice markets too: the fitness industry profits more from gym memberships that go unused than from clients who achieve their goals and stop paying, which suggests that the incentive problem is structural across improvement industries. The self-help genre has found a sustainable business model precisely because it doesn't need to produce lasting change.'",
+                prompt: "The fitness industry comparison belongs elsewhere. Write the version about only the self-help genre — complete without the comparison. 60–110 words.",
+              },
+            ],
+          },
+          {
+            label: "Cut doesn't leave a hole",
+            passThreshold: 65,
+            wordCountMin: 55,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Passage is complete without the tangent", description: "The removed idea doesn't leave a gap — the remaining idea stands on its own.", weight: 0.45 },
+              { name: "Remaining idea is developed", description: "The cut created space that the remaining idea fills — the passage isn't thin.", weight: 0.35 },
+              { name: "No trace of the tangent", description: "The cut is clean — no half-sentences or orphaned references that point to what was removed.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Passage: 'Most professional development training doesn't transfer because it teaches vocabulary, not skill. Participants learn to describe the framework — they can name the stages, recite the principles, draw the diagram — but return to their jobs unable to do the thing the framework describes. This is related to a broader problem with how organizations measure training effectiveness: they survey participants immediately after the event, when enthusiasm is high and the content is fresh, rather than six months later when it would be possible to observe whether any behavioral change occurred. The vocabulary substitutes for the skill because vocabulary is immediately available and skill takes time to develop.'",
+                prompt: "The measurement critique belongs elsewhere. Write the version about only vocabulary-versus-skill transfer — no hole left, remaining idea developed. 55–110 words.",
+              },
+              {
+                given: "Passage: 'Cities have optimized for arrival and departure — for the car, for the commute, for getting from one place to another — and in doing so have made the in-between impossible. The third places where communities used to sustain themselves: the diner, the barbershop, the park bench where you ran into people — these require the kind of slow, unscheduled time that car-centric infrastructure removes. There's also a real estate economics story here, where rising land values have made low-margin gathering spaces unviable in the neighborhoods that used to have them. The absence of in-between space is not an accident; it's what you get when movement is optimized and dwelling is not.'",
+                prompt: "The real estate economics point belongs in a different essay. Write the version about only the in-between space argument — complete, no hole. 55–110 words.",
+              },
+              {
+                given: "Passage: 'Expertise is most trusted in the domains where it's hardest to verify — medicine, nutrition, economics — and least trusted in the domains where verification is easy. This has a perverse effect: the experts who are most confidently wrong face the least accountability, because there's no clear mechanism for the audience to know they were wrong. Relatedly, the formats experts use — the op-ed, the interview, the tweet — reward confident assertion over careful qualification, which selects for a kind of expert who is good at performing certainty rather than at being right. In the verifiable domains, being wrong is visible; in the unverifiable ones, it mostly isn't.'",
+                prompt: "The format critique belongs in a different essay. Write the version about only verifiable versus unverifiable domains — complete without the format point. 55–110 words.",
+              },
+              {
+                given: "Passage: 'The college application essay has become a genre of managed authenticity — a form that requires vulnerability but rewards the most skillfully produced version of it. Readers are selecting for polish, not honesty, because polish is what's legible at scale. This process has produced a consulting industry around application essays, with coaches who teach students how to perform authenticity effectively, which is exactly as strange as it sounds. The form itself is the problem: asking for a genuine narrative from a 17-year-old, evaluated by someone reading hundreds of them, is a system that will always select for performance over reality.'",
+                prompt: "The consulting industry observation belongs elsewhere. Write the version about only managed authenticity in the college essay — no hole, idea developed. 55–110 words.",
+              },
+              {
+                given: "Passage: 'The performance review was designed to improve performance but functions primarily as a compliance mechanism — something HR requires, conducted on a schedule, producing documentation that protects the organization more than it develops the employee. Managers know this, which is why most of them treat it as a box to check rather than a tool to use. The annual review cycle also has a timing problem: feedback about something that happened eleven months ago is of limited developmental value, which is why more companies have moved to continuous feedback models, though the evidence that continuous feedback works better is still mixed. The review persists because it satisfies a need for formal record-keeping, not because it improves anything.'",
+                prompt: "The timing problem and continuous feedback point belong elsewhere. Write the version about only the compliance-versus-development argument — complete, no hole. 55–110 words.",
+              },
+            ],
+          },
+          {
+            label: "Cut strengthens the passage",
+            passThreshold: 75,
+            wordCountMin: 60,
+            wordCountMax: 115,
+            criteria: [
+              { name: "Remaining idea is stronger for the cut", description: "The removed idea was taking space from the central claim — cutting it made the main idea more visible.", weight: 0.45 },
+              { name: "Passage is tighter and more complete", description: "The version with one idea is better than the version with two — not just different, better.", weight: 0.35 },
+              { name: "No wasted words in what remains", description: "The cut created an opportunity to tighten — the remaining passage is efficient.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Passage: 'The way we talk about creativity — as a talent you either have or don't — is one of the things that most reliably prevents people from developing it. The belief that creativity is innate means that the person who believes they aren't creative will avoid the uncomfortable early stages of creative work, which is exactly the stage where the skill develops. There's a related problem with how schools treat creativity: arts programs get cut when budgets tighten, which signals that creative skills are optional extras rather than core capacities, reinforcing the idea that some people are creative and most aren't. The fixed mindset about creativity functions as a self-fulfilling prophecy.'",
+                prompt: "The school funding point belongs in a different essay. Write the version where cutting it makes the creativity-mindset argument stronger — tighter, more complete, no wasted words. 60–110 words.",
+              },
+              {
+                given: "Passage: 'The market for books about how to think clearly — cognitive bias, rationality, decision-making — has never been larger, and the evidence that reading them changes how people think has never been weaker. People learn the names of biases without becoming less biased. They can identify the planning fallacy in others' projects while systematically underestimating the time their own will take. The self-help market has the same problem: people who consume the most content about productivity, exercise, or nutrition are not noticeably more productive, fit, or healthy than people who consume less. The gap between knowing and doing appears to be nearly uncrossable by reading alone.'",
+                prompt: "The self-help comparison belongs elsewhere. Write the version about only the rationality-book problem — stronger for the cut, tighter, no wasted words. 60–110 words.",
+              },
+              {
+                given: "Passage: 'Most networking advice is written by extroverts for extroverts. The strategies — approach strangers, work the room, collect cards, follow up promptly — are natural behaviors for some people and effortful performances for others. This creates a systematic disadvantage for introverts in environments where networking is expected, since they're being asked to compete using rules that favor a different temperament. There's also a fairness dimension that goes beyond personality: first-generation professionals often don't have family networks to draw on and have to build from scratch in environments where the implicit rules aren't taught, just expected. The advice doesn't acknowledge that the playing field isn't level.'",
+                prompt: "The first-generation professionals point belongs in a different essay. Write the version about only the extrovert bias in networking advice — stronger, tighter, no wasted words. 60–110 words.",
+              },
+              {
+                given: "Passage: 'Ambition is harder to maintain once you've gotten some of what you wanted, because ambition runs partly on the fuel of not having things. The person who wanted to make partner, and did, often finds that the satisfaction is shorter than expected and the goalpost has moved — now the question is which partner, or what kind of influence, or whether the firm was even the right destination. This pattern shows up in research on hedonic adaptation, which documents how quickly people return to their baseline happiness after positive events, including major achievements. Ambition seems to be structurally incompatible with satisfaction, which raises the question of what it's actually for.'",
+                prompt: "The hedonic adaptation research reference belongs in a different essay. Write the version about only the ambition-and-goalpost-moving argument — stronger for the cut. 60–110 words.",
+              },
+              {
+                given: "Passage: 'The reason most people don't write is not lack of time — it's the gap between what they can produce and what they admire. Taste develops faster than skill, which means the early work always falls short by the standard of the person producing it. This gap is the period when most writers quit, because the shortfall feels like evidence of inability rather than evidence of developing taste. A similar dynamic applies to other creative skills: the beginning musician who can hear that their playing is mediocre, the beginning painter who can see that their work is flat. The gap is universal, but most people experience it as personal failure.'",
+                prompt: "The other creative skills comparison belongs elsewhere. Write the version about only the writing taste-skill gap — stronger for the cut, tighter. 60–110 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "idea-5",
+        title: "Hold the Line",
+        lesson:
+          "The single idea discipline isn't just about cutting after the fact — it's about staying on one thing while you write. Three paragraphs. One idea. The test is whether you can develop the single idea fully enough that it doesn't feel thin, without reaching for the adjacent idea that would dilute it. Most writers feel the pull after the first paragraph: 'I should also mention...' Don't. Go deeper into the one thing instead. Depth is what the constraint is for.",
+        prompt:
+          "Write three paragraphs about the given topic, staying on a single idea throughout. Every paragraph should develop the same idea further — not introduce a new angle. No 'there's also.' No 'it's worth noting.' Just one idea, going deeper. 130–250 words.",
+        wordCountMin: 120,
+        wordCountMax: 270,
+        criteria: [
+          { name: "One idea throughout all three paragraphs", description: "The same idea is developed across all three paragraphs — each one deepens it, none introduces a new angle.", weight: 0.5 },
+          { name: "Goes deeper, not wider", description: "The passage develops the single idea rather than expanding the territory — depth, not breadth.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Stay on one thing",
+            passThreshold: 50,
+            wordCountMin: 120,
+            wordCountMax: 270,
+            criteria: [
+              { name: "Primarily one idea across three paragraphs", description: "The same idea is present throughout — even if a second idea briefly appears.", weight: 0.6 },
+              { name: "Paragraphs connect", description: "Each paragraph follows from the previous — they're not three separate observations on the same topic.", weight: 0.4 },
+            ],
+            variants: [
+              { prompt: "Write three paragraphs about why honest feedback is so rare in professional environments. One idea — pick which aspect of the problem — and stay on it across all three paragraphs. Each paragraph deepens the same idea. 130–240 words." },
+              { prompt: "Write three paragraphs about the gap between reading about doing something and actually doing it. Pick one angle — the psychology, the mechanism, the industry that profits from the gap — and stay on it. Three paragraphs, one idea, going deeper. 130–240 words." },
+              { prompt: "Write three paragraphs about how credentials have replaced competence in one specific domain — hiring, academia, medicine, journalism. One domain, one idea, three paragraphs that go deeper into the same thing. 130–240 words." },
+              { prompt: "Write three paragraphs about what busyness does to thinking — to quality of attention, to the kind of problems you can work on, to the conditions for insight. One angle, three paragraphs, going deeper. 130–240 words." },
+              { prompt: "Write three paragraphs about the way expertise gets communicated to non-experts — in one specific format (the op-ed, the podcast, the tweet, the book). Pick the format. Pick one thing it does to expertise. Three paragraphs, going deeper. 130–240 words." },
+            ],
+          },
+          {
+            label: "Each paragraph earns its place",
+            passThreshold: 65,
+            wordCountMin: 140,
+            wordCountMax: 260,
+            criteria: [
+              { name: "Each paragraph advances the idea", description: "Paragraph two develops further than paragraph one, and paragraph three further than two — not three restatements.", weight: 0.45 },
+              { name: "No tangents", description: "Nothing sneaks in — no 'there's also,' no interesting aside that belongs in a different essay.", weight: 0.35 },
+              { name: "Depth visible in the final paragraph", description: "By the third paragraph, the idea has been developed to a place the opening couldn't reach.", weight: 0.2 },
+            ],
+            variants: [
+              { prompt: "Write three paragraphs about the specific mechanism by which busyness became a status signal — not that it happened, but how. Pick the mechanism. Stay on it. Each paragraph advances further than the last. No tangents. 140–250 words." },
+              { prompt: "Write three paragraphs about what the self-help book actually delivers to its reader — not self-improvement, but something else. Pick the something else. Go deeper with each paragraph. No adjacent ideas. 140–250 words." },
+              { prompt: "Write three paragraphs about the specific way the college application process rewards performance over authenticity. One mechanism, three paragraphs, each going deeper than the last. Nothing else. 140–250 words." },
+              { prompt: "Write three paragraphs about the specific way open offices changed how people experience their own concentration. One thing — the experience, not the policy. Each paragraph deeper. No tangents. 140–250 words." },
+              { prompt: "Write three paragraphs about the specific function of the New Year's resolution — what it does for the person making it, regardless of whether it works. One function, three paragraphs, going deeper. 140–250 words." },
+            ],
+          },
+          {
+            label: "Depth from constraint",
+            passThreshold: 75,
+            wordCountMin: 155,
+            wordCountMax: 260,
+            criteria: [
+              { name: "Constraint produced depth, not thinness", description: "The single idea was developed fully enough that it didn't feel incomplete — the constraint was a tool, not a cage.", weight: 0.4 },
+              { name: "Three paragraphs feel inevitable", description: "Each paragraph had to exist — nothing could be cut, nothing is filler, the progression is necessary.", weight: 0.35 },
+              { name: "Final paragraph couldn't have been written first", description: "The third paragraph depends on what came before — the depth is cumulative.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write three paragraphs about the specific way taste develops faster than skill in early creative work — and what that gap feels like from inside it. One idea, three paragraphs that are each necessary, the third paragraph only possible after the first two. 155–255 words." },
+              { prompt: "Write three paragraphs about the specific thing that makes the bridge paragraph the hardest part of an essay to write — not that it's hard, but why. One answer to why. Three paragraphs, each necessary, depth cumulative. 155–255 words." },
+              { prompt: "Write three paragraphs about the specific mechanism by which ambition and satisfaction are structurally incompatible. One mechanism, three paragraphs where the third could only have been written after the first two. 155–255 words." },
+              { prompt: "Write three paragraphs about the specific way survivorship bias distorts success advice — not that it distorts it, but the specific distortion. Three paragraphs, each necessary, depth cumulative. 155–255 words." },
+              { prompt: "Write three paragraphs about why the single idea discipline is hard to maintain — the specific pull toward the second idea. One explanation, three paragraphs, each necessary, third only possible after first two. 155–255 words." },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "opinion-development",
     title: "Opinion Development",
     genre: "nonfiction",
