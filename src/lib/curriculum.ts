@@ -6763,6 +6763,581 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "revision",
+    title: "Revision",
+    genre: "nonfiction",
+    difficulty: "advanced",
+    description: "Most writers revise by re-reading what they meant to say. Revision is the opposite: reading what's actually there, as a stranger would, and finding what's weak, buried, or pretending to be something it's not. The exercises: cutting what doesn't earn its place, fixing the sentence that's doing the least work, surfacing the claim that got buried, and reading as an editor who owes you nothing.",
+    exercises: [
+      {
+        id: "rev-1",
+        title: "Reading as a Stranger",
+        lesson: "The first revision skill is the hardest: reading your own work as someone who doesn't share your assumptions, doesn't know what you meant to say, and has no reason to be generous. Most revision fails because writers re-read as themselves — they see the intended meaning, not the actual words. The drill: read the passage cold and name what a stranger encounters, not what the writer intended.",
+        prompt: "Read the given passage as a stranger. Name the first place where you lose confidence in the writer — where the claim is unsupported, where the logic skips a step, where the phrasing does less than it thinks it does. Then rewrite just that section.",
+        wordCountMin: 80,
+        wordCountMax: 200,
+        criteria: [
+          { name: "Problem correctly identified", description: "Did the writer find the actual weak point — where a stranger would lose confidence — not just a surface issue?", weight: 0.4 },
+          { name: "Diagnosis is specific", description: "Can the writer name what is wrong — not just 'this is weak' but what specifically it fails to do?", weight: 0.35 },
+          { name: "Rewrite improves it", description: "Does the rewritten section actually address the problem identified?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Find where a stranger would lose confidence",
+            passThreshold: 50,
+            wordCountMin: 60,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Weak point found", description: "Did the writer identify where the passage starts to lose a careful reader?", weight: 0.5 },
+              { name: "Rewrite attempted", description: "Did the writer try to fix the identified problem?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Nobody reads anymore. People scroll, skim, and move on. This is why long-form writing is dying — readers just don't have the patience. But the writers who know this and still write long pieces are the brave ones, because they're fighting the culture.",
+                prompt: "Name the first place a stranger would lose confidence in this argument. What assumption is it making? What evidence is it skipping? Rewrite that sentence or section.",
+              },
+              {
+                given: "The best leaders listen more than they talk. That's the secret everyone knows but nobody practices. If you look at any great company, the CEO is usually the quietest person in the room — they ask questions, take notes, and let other people come to the answer.",
+                prompt: "Find where this passage would stop a careful reader. What is it asserting without proving? Name the problem precisely and rewrite the section that has it.",
+              },
+              {
+                given: "Social media has made us all worse at connecting. When everything is performative, nothing is real. The solution is to log off, go for a walk, and have an actual conversation — the kind where you don't know what the other person will say.",
+                prompt: "Name where a stranger would lose confidence in this argument. Not where you disagree — where the argument itself breaks down or skips something. Rewrite that section.",
+              },
+              {
+                given: "Most productivity systems fail because they treat people like machines. A machine can run at the same speed all day. People can't. The best performers in any field know this — they work in bursts, rest deeply, and treat recovery as part of the job.",
+                prompt: "Find the weakest move in this argument — where it asserts something it hasn't earned. Name the problem specifically and rewrite that section.",
+              },
+              {
+                given: "Reading fiction makes you a better person. Study after study has shown that literary fiction increases empathy and emotional intelligence. This is why we should teach more novels in school and less nonfiction — the imagination is the muscle that matters.",
+                prompt: "Name where a careful reader would stop and ask 'wait, is that right?' Find the gap between the evidence and the claim. Rewrite that section.",
+              },
+            ],
+          },
+          {
+            label: "Name the problem precisely",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Problem named precisely", description: "Did the writer name the specific failure — unsupported claim, logic gap, vague language — not just mark it as 'weak'?", weight: 0.4 },
+              { name: "Diagnosis is accurate", description: "Is the diagnosis correct — is this actually the weakest point in the passage?", weight: 0.35 },
+              { name: "Rewrite fixes what was named", description: "Does the rewrite address the specific problem identified, not a different one?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Expertise is overrated. Everyone claims to be an expert now, and the word has lost its meaning. What we actually need is more people willing to say 'I don't know' — because that's the beginning of real knowledge. The experts who are most worth listening to are the ones who are most uncertain.",
+                prompt: "Name the precise problem with this argument — is it a logic gap, an unsupported assertion, a contradiction? Name it in one sentence. Then rewrite the passage fixing that problem.",
+              },
+              {
+                given: "Remote work is better for everyone. Employees save hours of commuting, companies save on real estate, and productivity — contrary to what managers fear — actually goes up. The resistance to remote work is purely about control and has nothing to do with results.",
+                prompt: "Name the precise problem — where is the argument doing something it hasn't earned? Name it specifically. Rewrite to fix it.",
+              },
+              {
+                given: "The reason people don't read books anymore is simple: the phone wins. Every app on your phone is designed by engineers whose full-time job is to make it irresistible. Books don't have that. Books are just ideas, sitting there, waiting for you to want them.",
+                prompt: "Find and name the precise weakness. Not 'it's not convincing' — what specific argumentative failure does this passage have? Rewrite the weakest section.",
+              },
+              {
+                given: "Journalism used to have standards. Facts were checked, sources were verified, and editors pushed back. Now anyone can publish anything and call it journalism, which is why trust in media has collapsed. We need to go back to the old standards.",
+                prompt: "Name the precise problem with the argument — where does it skip a step, make an unsupported claim, or assume what it needs to prove? Fix that section in your rewrite.",
+              },
+              {
+                given: "The reason most diets fail is that they're treating a behavioral problem like a knowledge problem. People don't fail because they don't know that vegetables are healthier than chips. They fail because change is hard and environments are sticky. The solution isn't more nutrition education.",
+                prompt: "This passage has one specific problem — find it and name it precisely. Then rewrite the section with the problem fixed.",
+              },
+            ],
+          },
+          {
+            label: "Read cold and revise like an editor",
+            passThreshold: 75,
+            wordCountMin: 100,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Cold read discipline", description: "Did the writer read the passage as a stranger — identifying what's actually there, not what the writer meant?", weight: 0.35 },
+              { name: "Diagnosis is editorial", description: "Is the diagnosis specific enough that an editor could use it — it names the problem the reader would actually have?", weight: 0.4 },
+              { name: "Rewrite is a clear improvement", description: "Is the rewritten section noticeably stronger — not just differently worded?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The most important thing a writer can do is be honest. Not just factually honest — emotionally honest. Say the thing that's actually true, even if it makes you look bad or makes the reader uncomfortable. This is what separates writers who are read from writers who are forgotten.",
+                prompt: "Read this as an editor who owes the writer nothing. Find the claim that sounds deep but doesn't hold up to scrutiny. Name the exact problem — what is this passage asserting that it hasn't earned? Rewrite to fix it.",
+              },
+              {
+                given: "We've stopped arguing and started performing. Online debates aren't about changing minds — they're about signaling to your audience that you're on the right side. This is why nothing gets resolved: because resolution isn't the goal. The goal is the performance.",
+                prompt: "Read cold. Find the assumption that does the most work in this argument without being examined. Name it. Rewrite the passage acknowledging or proving that assumption.",
+              },
+              {
+                given: "The best advice is always specific. General advice — 'work hard,' 'be persistent,' 'find your passion' — is so generic it means nothing. But specific advice only works for specific people in specific situations. The problem is that we give advice for the person we wish we were talking to, not the person in front of us.",
+                prompt: "Read this as an editor who will push back. Find the move that contradicts or undercuts the argument the writer is trying to make. Name it precisely. Rewrite to resolve the problem.",
+              },
+              {
+                given: "Confidence isn't a feeling — it's a decision. The most confident people aren't the ones who feel certain; they're the ones who act despite uncertainty. This is learnable. You don't have to wait until you feel ready. You act, and the feeling follows.",
+                prompt: "Cold read: find where this argument makes a claim that requires more than it's given. Name the gap precisely. Rewrite the section where the argument breaks.",
+              },
+              {
+                given: "The difference between writing that matters and writing that doesn't is whether it says something true that the reader didn't know they knew. Great writing isn't about information — it's about recognition. The reader finishes and thinks: that's exactly it. I've always known that but could never have said it.",
+                prompt: "Read as an editor. Find the sentence that sounds profound but doesn't survive scrutiny — where the argument is circular or relies on assertion rather than demonstration. Name it. Rewrite it.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "rev-2",
+        title: "The Cut",
+        lesson: "Most prose is 20% longer than it needs to be. Not because writers are lazy — because cutting feels like losing. The sentence you're most attached to is usually the one that should go, because attachment is often a sign the sentence is doing something for the writer rather than for the reader. The discipline: find what's not earning its place and remove it without replacing it.",
+        prompt: "Cut the given passage by at least 20% without replacing what you remove. Identify what you cut and why — what was it doing that wasn't useful to the reader?",
+        wordCountMin: 60,
+        wordCountMax: 160,
+        criteria: [
+          { name: "Cut is real", description: "Was something actually removed — not just reworded into a similar number of words?", weight: 0.4 },
+          { name: "Cut doesn't leave a hole", description: "Does the passage still make sense and hold up after the cut?", weight: 0.35 },
+          { name: "Cut is identified and explained", description: "Did the writer name what they cut and why — what function it was (not) serving?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Cut one sentence that isn't earning its place",
+            passThreshold: 50,
+            wordCountMin: 50,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Something was cut", description: "Is there a sentence or phrase in the original that is absent from the rewrite?", weight: 0.5 },
+              { name: "Cut identified", description: "Did the writer say what they removed?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "The best writing is clear. Clear means the reader understands what you mean without having to reread the sentence. Clarity is a virtue that is often underrated in literary circles, where obscurity is sometimes mistaken for depth. But clarity is actually very hard to achieve. It requires knowing exactly what you mean before you write it.",
+                prompt: "Cut one full sentence from this passage. Name the sentence you cut. Explain in one sentence why it wasn't earning its place.",
+              },
+              {
+                given: "People change. That's a fact of life. We are not the same at 40 as we were at 20. Our values shift, our relationships change, our sense of what matters gets recalibrated. This is sometimes painful and sometimes liberating, and usually a bit of both at the same time.",
+                prompt: "Cut at least one sentence that isn't adding to the argument. Name what you removed. Say what job it was supposedly doing.",
+              },
+              {
+                given: "The internet has changed everything about how we communicate. Email replaced letters. Social media replaced phone calls, in some ways. Video calls replaced in-person meetings during the pandemic. All of these changes happened faster than anyone anticipated, and we are still working out the implications.",
+                prompt: "Find the sentence doing the least work. Cut it. Name it and explain why it was expendable.",
+              },
+              {
+                given: "Ambition is a complicated thing. It drives people to achieve more than they would otherwise. But it also creates anxiety, comparison, and a feeling that what you have is never quite enough. Some people channel ambition well. Others are consumed by it.",
+                prompt: "Cut one sentence. Name it. In one sentence, say what it was doing that didn't serve the passage.",
+              },
+              {
+                given: "Reading is important. Books make you smarter. They expand your vocabulary, improve your focus, and expose you to ideas and worlds you wouldn't encounter otherwise. In an age of short-form content, reading books is an act of resistance. It signals that you're willing to invest time in something that won't pay off immediately.",
+                prompt: "Cut one sentence that is not pulling its weight. Name it. Explain why in one sentence.",
+              },
+            ],
+          },
+          {
+            label: "Cut for tightness — remove redundancy and throat-clearing",
+            passThreshold: 65,
+            wordCountMin: 60,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Redundancy removed", description: "Did the writer find and remove something that was being said twice — in different words or at different scales?", weight: 0.4 },
+              { name: "Passage is tighter", description: "Does the passage after the cut feel leaner — does it move faster?", weight: 0.35 },
+              { name: "Argument intact", description: "Is the core argument still present after the cut?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "In today's world, we are all constantly connected to technology. Our phones, laptops, and tablets keep us plugged in around the clock. This constant connectivity has both advantages and disadvantages. On the positive side, we can communicate instantly with anyone in the world. On the negative side, it can be hard to disconnect and get genuine rest.",
+                prompt: "This passage has redundancy and throat-clearing. Cut it by 30% or more. Name what you removed and why — specifically, what was being said more than once.",
+              },
+              {
+                given: "There are many reasons why people struggle with writing. Some people find it hard to get started. Others find it hard to finish. Still others find the middle the most difficult part — sustaining an argument across multiple paragraphs without losing the thread or repeating themselves.",
+                prompt: "Find and cut the redundancy. The passage should be shorter and say the same thing. Name what you removed.",
+              },
+              {
+                given: "Failure is an important part of learning. Nobody succeeds without failing first. Every successful person you can think of has failed many times before they got to where they are. Failure teaches you what doesn't work, which is often more useful than knowing what does. Without failure, there is no growth.",
+                prompt: "Cut the redundancy from this passage. It says the same thing several times in different ways. Cut to the version that says it once, clearly. Name what you removed.",
+              },
+              {
+                given: "Being a good listener is one of the most important skills in any relationship, whether professional or personal. Most people, when someone else is talking, are thinking about what they're going to say next rather than actually listening. This is very common. It means that most conversations are two people waiting to talk rather than actually exchanging ideas.",
+                prompt: "This passage has one idea being said multiple times. Cut it to the clearest version. Name what you removed and why it was redundant.",
+              },
+              {
+                given: "Cities are complicated places. They offer opportunity and anonymity in ways that smaller towns don't. They're also expensive, noisy, and often lonely, despite being full of people. The paradox of the city is that you can be surrounded by millions of people and still feel completely alone.",
+                prompt: "Find the sentence or phrase that's already been said in a better version earlier in the passage. Cut it. Name it. Explain why it added length without adding meaning.",
+              },
+            ],
+          },
+          {
+            label: "Cut the sentence you're most attached to",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Real cut made", description: "Did the writer make a cut that cost them something — not just remove an obviously weak sentence?", weight: 0.4 },
+              { name: "Passage is better", description: "Is the passage after the cut demonstrably better — tighter, faster, or clearer?", weight: 0.35 },
+              { name: "Honest accounting", description: "Did the writer explain why they were attached to what they cut — what the sentence was doing for them that it wasn't doing for the reader?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The loneliness of the modern city is a well-documented phenomenon. We are more connected than ever and yet more isolated. We have hundreds of contacts and no one to call when something goes wrong. We perform our lives on social media and wonder why we feel empty. The city gave us everything except community, which turns out to be the thing we needed most.",
+                prompt: "Find the sentence you would be most tempted to keep — the one that sounds best or feels most important. Cut it. Rewrite the passage without it. Explain what you cut and why you'd been keeping it.",
+              },
+              {
+                given: "Writing is thinking. Not a record of thinking — the act itself. You don't know what you think until you write it. The page forces clarity in a way that your head never will, because your head is too accommodating of ambiguity. Writing is where you find out if the idea actually holds up.",
+                prompt: "Identify the sentence that's doing the most work for the writer's ego rather than for the reader. Cut it. Rewrite around it. Explain why you chose that sentence.",
+              },
+              {
+                given: "Most organizations talk about culture but invest in structure. They write values, run off-sites, and hold all-hands meetings, and then wonder why the culture doesn't match the values. The reason is simple and uncomfortable: culture is what happens when no one's watching, and no one's watching because the incentives are all pointed somewhere else.",
+                prompt: "Find the sentence you would most want to keep because it sounds smart. Cut it. Rewrite the passage without it. Name what you cut and be honest about what it was doing for you.",
+              },
+              {
+                given: "The thing about good advice is that it's always personal. It works for the person who gave it and maybe for people in similar situations, but it doesn't scale. What scales is principles — not advice. Principles are the why behind the what, and once you understand the why, you can generate the what yourself.",
+                prompt: "Find the sentence that's most attached-to — the one that sounds like an insight. Cut it. Rewrite. Explain why you chose that one.",
+              },
+              {
+                given: "We remember stories better than facts. This is why every good argument has a narrative spine — because the story carries the argument into memory in a way that statistics never will. You can forget a percentage. You can't forget a person. Which is why the best writers have always understood that the particular is the path to the universal.",
+                prompt: "Find the most impressive-sounding sentence in this passage. Cut it. Rewrite without it. Explain honestly what it was doing that didn't serve the reader.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "rev-3",
+        title: "The Weak Sentence",
+        lesson: "Every passage has one sentence doing less than the others — and it's usually not the one you think it is. It's often the sentence that sounds the most confident, because over-confident phrasing is often covering for under-thought content. The drill: read carefully, find the sentence doing the least real work, and fix just that one.",
+        prompt: "Find the weakest sentence in the given passage — not the one you like least stylistically, but the one doing the least work for the argument. Name it. Fix it.",
+        wordCountMin: 70,
+        wordCountMax: 180,
+        criteria: [
+          { name: "Right sentence identified", description: "Is the sentence the writer identified actually the weakest — the one where the argument is thinnest or the phrasing is doing the least?", weight: 0.4 },
+          { name: "Why it's weak explained", description: "Can the writer name what specifically makes it weak — vague, over-claimed, unsupported, redundant?", weight: 0.35 },
+          { name: "Rewrite is stronger", description: "Is the rewritten sentence doing more real work than the original?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Find and name the weakest sentence",
+            passThreshold: 50,
+            wordCountMin: 60,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Sentence identified", description: "Did the writer name a specific sentence as the weakest?", weight: 0.5 },
+              { name: "Reason given", description: "Did the writer give a reason — even a basic one — for why this sentence is weaker than the others?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "The best managers create conditions where people can do their best work. They hire well, communicate clearly, and get out of the way. Management is a service role, not a power role. Bad managers make everything about themselves. Good ones make everything about the work.",
+                prompt: "Identify the weakest sentence — not stylistically, but argumentatively. The one doing the least real work. Name it and say why. Then rewrite it.",
+              },
+              {
+                given: "Learning to write is learning to think. You don't know what you believe until you try to explain it. The act of writing forces clarity. Most people avoid this kind of clarity because it's uncomfortable. Writing reveals that you don't know what you thought you knew.",
+                prompt: "Find the sentence in this passage that is working hardest to sound important while actually saying the least. Name it. Explain why. Rewrite it.",
+              },
+              {
+                given: "Great books don't tell you what to think — they give you better tools for thinking. This is why a novel can be more useful than a self-help book. The novel operates through experience; the self-help book operates through instruction. Experience sticks. Instruction fades.",
+                prompt: "Find the weakest argumentative sentence — the one whose removal would cost the argument the least. Name it. Rewrite it so it earns its place.",
+              },
+              {
+                given: "Trust is built slowly and lost quickly. Every interaction is either a deposit or a withdrawal. This is true in every relationship — professional, romantic, familial. People keep score, even when they say they don't. The math always catches up.",
+                prompt: "Identify the sentence that is asserting something rather than earning it — the one that sounds authoritative but hasn't been demonstrated. Name it and why. Fix it.",
+              },
+              {
+                given: "The problem with most feedback is that it addresses symptoms rather than causes. Someone tells you a sentence doesn't work without explaining why. Someone says the ending is weak without explaining what strong would look like. Good feedback is diagnostic — it names the disease, not just the symptoms.",
+                prompt: "Find the sentence doing the least work. The one that, removed, would cost the argument the least. Name it and say specifically what it's failing to do. Rewrite it.",
+              },
+            ],
+          },
+          {
+            label: "Diagnose what makes it weak",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 170,
+            criteria: [
+              { name: "Diagnosis is specific", description: "Did the writer name the type of failure — vague, over-claimed, circular, unsupported — not just say 'weak'?", weight: 0.4 },
+              { name: "Right sentence targeted", description: "Is the sentence identified actually the weakest argumentatively, not just the most stylistically awkward?", weight: 0.35 },
+              { name: "Rewrite fixes the diagnosis", description: "Does the rewrite address the specific problem named?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Creative people need space. They need room to experiment, fail, and follow their instincts without being second-guessed. This is why the most creative organizations in history have been the ones that gave their people the most freedom. Constraints kill creativity. Freedom produces it.",
+                prompt: "Find the sentence that is most over-claimed — asserting something as fact that is actually a contested position. Name it. Name the type of failure precisely. Rewrite it so it earns its claim.",
+              },
+              {
+                given: "You can tell a lot about someone by how they treat people who can't do anything for them. This is the real test of character — not how someone behaves when there's something at stake, but how they behave when there isn't. It reveals what's underneath the performance.",
+                prompt: "Find the sentence that is circular — where the argument is using itself as evidence. Name the sentence, name the failure type, and rewrite it.",
+              },
+              {
+                given: "The internet made it possible for anyone to have an audience. This democratized attention in ways that are still playing out. Some people have used this to build real things. Others have used it to build followings that are technically large but don't mean anything. The difference between these two groups is a question of intent.",
+                prompt: "Find the sentence that is vague enough to be unfalsifiable — something that sounds substantive but could mean almost anything. Name it. Name the failure. Rewrite it with something that can actually be evaluated.",
+              },
+              {
+                given: "The best interviews happen when the interviewer already knows the answer they're looking for. This sounds like a contradiction — shouldn't interviewers be open? But 'open' and 'prepared' aren't opposites. The best interviewers have done so much preparation that they know exactly which answers will reveal something real.",
+                prompt: "Find the sentence that sounds like a meaningful insight but doesn't survive scrutiny. Name it. Diagnose what specifically fails. Rewrite it.",
+              },
+              {
+                given: "Writers should write every day. This builds discipline and creates a habit that keeps you from waiting for inspiration. Inspiration is for amateurs. Professionals show up and do the work. The best writing in history was produced by people who treated writing like a job.",
+                prompt: "Find the sentence that is asserting something that contradicts or doesn't follow from the argument. Name the failure type precisely. Rewrite it.",
+              },
+            ],
+          },
+          {
+            label: "Fix it so it does real work",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Rewrite is genuinely stronger", description: "Does the rewritten sentence do noticeably more argumentative work than the original?", weight: 0.4 },
+              { name: "Fix addresses the actual problem", description: "Did the writer fix what they diagnosed — not just rephrase the original sentence?", weight: 0.35 },
+              { name: "Passage is better for the fix", description: "Is the passage as a whole stronger with the rewritten sentence in place?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The readers who matter most to a writer are not the ones who agree with everything you say. They're the ones who push back, who bring their own knowledge and experience to what you've written, and who find it interesting enough to argue with. Passive readers don't help you grow. Engaged readers do.",
+                prompt: "Find the sentence that is doing the work of two sentences but accomplishing neither well. Name it. Diagnose it precisely. Rewrite it so it does the specific job the passage needs from it.",
+              },
+              {
+                given: "Success in any creative field requires both talent and persistence. Talent without persistence produces people who could have done something but didn't. Persistence without talent produces people who work very hard without gaining traction. Both are necessary. Neither is sufficient.",
+                prompt: "Find the sentence that is the most hollow — the one that sounds like a conclusion but is actually just restating the premise. Name it, diagnose the failure, and rewrite it so it actually advances the argument.",
+              },
+              {
+                given: "Writing clearly about a complicated topic is one of the hardest things you can do. Most people who are experts in a field can explain it to other experts. Fewer can explain it to a non-expert. Fewer still can make a non-expert care. That last step is where writing becomes something more than communication.",
+                prompt: "Find the sentence that is vague where it needs to be precise — where it gestures at something without naming it. Name the sentence, name the failure, rewrite it so it says the thing precisely.",
+              },
+              {
+                given: "The way you start something determines a lot about how it ends. An essay that starts with the wrong assumption will be wrong by the time it reaches its conclusion, even if every step of the logic is valid. This is why revision has to start at the beginning — not with the prose but with the premise.",
+                prompt: "Find the sentence that is doing the work of three sentences but only actually doing the work of one. Name it. Diagnose it. Rewrite it to do what the passage actually needs from it.",
+              },
+              {
+                given: "Readers can tell when a writer is afraid. Not afraid in the dramatic sense — afraid of being wrong, afraid of being too specific, afraid of commitment. This fear shows up as hedging, as vagueness, as qualifications that accumulate until the original claim has been walked back to nothing. The cure is the same as the disease: commitment.",
+                prompt: "Find the sentence in this passage that is itself doing the thing the passage is warning against — hedging or vague where it should be specific. Name it. Diagnose it precisely. Rewrite it.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "rev-4",
+        title: "Clarify the Claim",
+        lesson: "The most common revision problem is not weak prose — it's a buried or hedged claim. The writer knows what they're arguing but has written around it, approaching the claim from every angle except the direct one. The reader finishes and thinks 'interesting' without knowing what to believe. The discipline: find the actual claim and put it where it can be seen.",
+        prompt: "Read the given passage and find where the real claim is buried or hedged. Surface it — rewrite the passage so the claim is explicit, direct, and in the front, not the back.",
+        wordCountMin: 80,
+        wordCountMax: 180,
+        criteria: [
+          { name: "Buried claim found", description: "Did the writer identify the actual claim — not the topic, but the specific arguable position?", weight: 0.4 },
+          { name: "Claim surfaced in rewrite", description: "Is the claim now explicit and early — not implied at the end but stated where a reader can find it?", weight: 0.35 },
+          { name: "Claim is the same claim", description: "Did the rewrite surface the claim the passage was actually making — not a different, clearer-sounding claim?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Find and state the claim",
+            passThreshold: 50,
+            wordCountMin: 70,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Claim identified", description: "Did the writer name the claim — not the topic but the specific arguable position?", weight: 0.5 },
+              { name: "Claim stated directly", description: "Did the rewrite put the claim somewhere a reader can find it?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "There are many ways to think about creativity. Some people believe it requires complete freedom. Others think constraints actually help. The history of art is full of examples where constraints produced interesting work — the sonnet, the three-act structure, the 140-character tweet. But freedom has also produced remarkable things. It's complicated.",
+                prompt: "Find the claim buried in this passage — what is it actually arguing? Write it as a single sentence. Then rewrite the passage so that claim is explicit and early.",
+              },
+              {
+                given: "Mentorship is something a lot of people talk about wanting. Companies have mentorship programs. Business schools teach networking. There are books about finding a mentor. And yet most people who have genuinely changed someone's career didn't set out to be a mentor. It just happened organically.",
+                prompt: "This passage is circling something. What is it actually arguing? Name the claim in one sentence. Rewrite the passage with the claim explicit.",
+              },
+              {
+                given: "The relationship between intelligence and success is more complicated than people think. Smart people fail. Less smart people succeed. Context matters. Luck matters. The specific kind of intelligence matters — social intelligence is different from analytical intelligence. Success in most fields requires a mix that's hard to define in advance.",
+                prompt: "Find the actual claim. This passage is hedging toward something — what is it? Name it. Rewrite the passage so the claim is in the front.",
+              },
+              {
+                given: "Networking is one of those things that some people are very good at and others find almost impossible. It depends on personality type, industry, geography, and a lot of other factors. Some people say it's the most important thing for career growth. Others have built careers without it at all. What works seems to vary.",
+                prompt: "Find the buried claim — or find where the passage is avoiding having one. Name what it would be arguing if it were arguing something. Rewrite it with a claim.",
+              },
+              {
+                given: "Sleep is important for performance. Most people know this but don't act on it. There are cultural factors — in some work cultures, needing sleep is seen as weakness. There are economic factors — people with two jobs don't have time to sleep eight hours. There are also individual differences. Some people really do seem to function on less.",
+                prompt: "This passage avoids its claim. Find what it would argue if it committed. Name that claim. Rewrite the passage with the claim explicit and early.",
+              },
+            ],
+          },
+          {
+            label: "Move the claim to where it can be seen",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 165,
+            criteria: [
+              { name: "Claim is now first, not last", description: "Is the claim in the first or second sentence of the rewrite — not saved for the end?", weight: 0.4 },
+              { name: "Hedges removed", description: "Are the qualifications that were hiding the claim gone — or turned into support rather than escape routes?", weight: 0.35 },
+              { name: "Rest of passage supports", description: "Does the rest of the passage support the now-explicit claim rather than circling it?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Many people find that as they get older, they care less about what other people think. This might be a function of accumulated confidence. It might be that they simply have less energy to maintain the performance. It might be that they've seen what actually matters and opinion isn't on that list. Whatever the cause, the effect is real.",
+                prompt: "Find the hedged claim. Remove the hedges. Put the claim first. Rewrite the passage so it argues something rather than observing it from all sides.",
+              },
+              {
+                given: "Curiosity is often described as a key trait of successful people. Studies link it to learning outcomes, career trajectory, and even relationship quality. But it's worth asking whether curiosity is a trait you have or a practice you cultivate. The answer probably has implications for how we approach education and professional development.",
+                prompt: "This passage circles a claim without making it. Find the claim. Put it first. Rewrite so the passage argues rather than hedges.",
+              },
+              {
+                given: "There's a lot of debate about whether working more hours actually produces more output. Research on knowledge workers suggests that productivity peaks somewhere around 50 hours a week and declines significantly after that. But this varies by type of work, individual differences, and how you define productivity. It's a complicated question.",
+                prompt: "Find the buried claim — the thing this passage would argue if it weren't hiding. Name it. Rewrite with the claim explicit and early, turning the hedges into support.",
+              },
+              {
+                given: "Feedback is most useful when it's specific. General feedback — 'this needs work,' 'not quite there yet' — doesn't give people enough information to improve. More specific feedback is better. Though of course there are cases where being too specific can be constraining, and sometimes people need space to find their own solutions.",
+                prompt: "This passage has a clear claim buried under qualifications. Surface it. Put it first. Rewrite without the escape-route hedges.",
+              },
+              {
+                given: "Reading widely is one of the pieces of advice almost every successful writer gives. But wide reading means different things to different people. Some writers only read in their genre. Others read across everything. The relationship between reading and writing is clearly there, but how direct it is probably varies.",
+                prompt: "Find what this passage is trying to say. Make it say it. Put the claim first. Rewrite so the rest of the passage is evidence, not hedging.",
+              },
+            ],
+          },
+          {
+            label: "Rewrite to argue, not observe",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Claim is arguable", description: "Is the surfaced claim something someone could disagree with — not a platitude or a tautology?", weight: 0.35 },
+              { name: "Passage argues, not observes", description: "Does the passage make a case rather than survey a topic?", weight: 0.4 },
+              { name: "Rewrite is more useful to the reader", description: "Does a reader finish the rewrite knowing what the writer thinks, not just what the writer is thinking about?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The question of whether talent or work ethic matters more has been debated for a long time. Gladwell's 10,000-hour rule suggested practice is paramount. Others have pushed back, arguing that deliberate practice only gets you so far without underlying talent. The truth is probably somewhere in the middle, and depends heavily on the domain and what you mean by success.",
+                prompt: "This passage refuses to argue. Find the position buried in 'the truth is probably somewhere in the middle.' Make it argue. Rewrite with a real claim and real support — not both-sides hedging.",
+              },
+              {
+                given: "There are different theories about what makes a leader effective. Some researchers emphasize vision and charisma. Others focus on operational competence. Still others argue that emotional intelligence is the key differentiator. Each framework has evidence supporting it, and each has been criticized. Leadership is a complicated and context-dependent phenomenon.",
+                prompt: "This passage is a survey, not an argument. Find what it would argue if it had to pick a side. Make it argue. Rewrite so it takes a position and defends it.",
+              },
+              {
+                given: "People process difficult emotions in different ways. Some people talk through their problems. Others need time alone. Some use exercise. Some create. Research suggests that different strategies work for different people and different types of difficulty. There's no one-size-fits-all approach to emotional regulation.",
+                prompt: "Find the hidden claim — what would this passage argue if it weren't hiding behind 'different people, different approaches'? Name it. Rewrite it as an argument, not a survey.",
+              },
+              {
+                given: "The rise of remote work has had mixed effects. For some workers, it has improved quality of life significantly. For others, the isolation and blurred boundaries have been difficult. Companies have seen mixed results too — some have thrived, others have struggled to maintain culture. The effects depend on the company, the role, and the individual.",
+                prompt: "Find the position buried under 'mixed effects' and 'it depends.' Name it. Rewrite so the passage argues something about remote work rather than cataloging its complexity.",
+              },
+              {
+                given: "Generational differences in the workplace are a popular topic, but the research on whether they're real or exaggerated is mixed. Some studies find significant differences in values and work styles. Others suggest that life stage and economic conditions explain most of what looks like generational difference. Both perspectives have merit.",
+                prompt: "This passage is stranded between two positions. Find the one it should be arguing. Rewrite so it argues something — not 'both perspectives have merit' but an actual position on what the evidence shows.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "rev-5",
+        title: "The Line Edit",
+        lesson: "Line editing is revision at the sentence level: read each sentence and ask whether it could be cleaner, sharper, or more exact. Not every sentence needs to be a masterpiece — most sentences just need to not slow down the reader. The discipline: go sentence by sentence, ask what each one is doing, and make the ones that are doing it badly do it better.",
+        prompt: "Line edit the given passage. Go sentence by sentence. Make at least three specific improvements — stronger word choices, cleaner construction, cut phrases that aren't carrying weight. Show your work: quote each sentence you changed and show the before and after.",
+        wordCountMin: 100,
+        wordCountMax: 220,
+        criteria: [
+          { name: "Three real changes", description: "Did the writer make at least three substantive changes — not just rewording, but improvements that make specific sentences do more work?", weight: 0.4 },
+          { name: "Changes improve clarity or force", description: "Are the changes genuinely better — cleaner, sharper, more exact — not just different?", weight: 0.35 },
+          { name: "Passage is better as a whole", description: "Does the edited passage flow better and argue more clearly than the original?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Make three specific improvements",
+            passThreshold: 50,
+            wordCountMin: 90,
+            wordCountMax: 190,
+            criteria: [
+              { name: "Three changes made", description: "Did the writer make at least three distinct changes from the original?", weight: 0.5 },
+              { name: "Changes are improvements", description: "Are the changes at least as good as the original — not regressions?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "There are a lot of reasons why people don't write more. Some people feel like they don't have anything interesting to say. Others feel like they don't have enough time. Still others start and then stop because they don't think it's any good. These are all understandable reasons, but they are also all excuses.",
+                prompt: "Line edit this passage. Make at least three improvements. Show before/after for each change. The passage should be tighter and more direct by the end.",
+              },
+              {
+                given: "In recent years, there has been a lot of discussion about the importance of mental health. People are more open about their struggles than they used to be. This is a positive development in many ways. At the same time, there are concerns about whether the increased focus on mental health has led to over-medicalization.",
+                prompt: "Line edit this passage. Find at least three sentences that need tightening or sharpening. Show before/after. The result should read like something that was written with intention.",
+              },
+              {
+                given: "When you are trying to build a new habit, it is very important to be consistent. Consistency over time is what turns a behavior into a habit. Starting is hard, but maintaining is harder. Most people give up in the first few weeks. The ones who succeed are the ones who manage to push through the early resistance.",
+                prompt: "Line edit. Three improvements minimum. Before/after for each. Make each sentence do its job without extra words.",
+              },
+              {
+                given: "Being honest with people you care about is one of the most important things in any relationship. It can be difficult because honesty sometimes means saying things that the other person doesn't want to hear. But in the long run, relationships built on honesty tend to be stronger and more durable than those built on avoidance.",
+                prompt: "Line edit this passage. Find three things to fix — vague words, weak constructions, unnecessary phrases. Show before/after. The result should be cleaner.",
+              },
+              {
+                given: "Good writing is clear writing. The best writers are the ones who can take a complicated idea and explain it in a way that is easy to understand. This requires a deep understanding of the subject matter. It also requires the ability to step into the mind of the reader and anticipate where they might get confused.",
+                prompt: "Line edit. Three improvements. Before/after for each. The passage should be tighter without losing any of its content.",
+              },
+            ],
+          },
+          {
+            label: "Cut first, then sharpen",
+            passThreshold: 65,
+            wordCountMin: 100,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Cut first", description: "Did the writer remove words or phrases before attempting to sharpen what remained?", weight: 0.35 },
+              { name: "What remains is sharper", description: "Are the surviving sentences cleaner and more exact than in the original?", weight: 0.4 },
+              { name: "Final passage is leaner", description: "Is the edited passage at least 15% shorter than the original while saying the same thing?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "In the world of modern work, it has become increasingly common for people to pursue multiple income streams rather than relying on a single employer for their financial security. This has been called the 'gig economy' or the 'portfolio career,' depending on who you're talking to. The trend is driven by both necessity and choice.",
+                prompt: "Cut first — remove everything that isn't pulling weight. Then sharpen what remains. Show your line-edit work. The result should be at least 15% shorter and noticeably stronger.",
+              },
+              {
+                given: "It is often said that the best way to learn something is to teach it to someone else. The reasoning behind this is that teaching requires you to organize your knowledge in a way that makes it communicable, which forces you to identify gaps in your own understanding. This is known in educational circles as the Protégé Effect.",
+                prompt: "Line edit: cut, then sharpen. Remove what isn't needed. Make what's left exact. Show before/after. Final version should be shorter and hit harder.",
+              },
+              {
+                given: "Leadership is not about having all the answers. The best leaders are not the ones who know the most, but the ones who are best at creating conditions where the right answers can emerge. This means being comfortable with uncertainty, open to changing your mind, and skilled at asking the questions that help others think clearly.",
+                prompt: "Cut everything that can be cut. Sharpen everything that remains. Show your work. Final version should be at least 20% shorter without losing the argument.",
+              },
+              {
+                given: "The way we tell stories about ourselves has a significant impact on how we experience our own lives. If you narrate your failures as learning experiences, you tend to recover from them more quickly. If you narrate them as evidence of your limitations, you tend to carry them longer. The narrative is not just descriptive — it is constitutive.",
+                prompt: "Line edit: cut, then sharpen. The last sentence is the best one — build toward it. Everything before it should be as tight as possible. Show before/after.",
+              },
+              {
+                given: "The difference between a professional and an amateur is not talent. It is the ability to produce work on demand, regardless of how you feel. Amateurs wait for inspiration. Professionals show up. This sounds simple, but it requires a fundamental shift in how you think about creativity — from something that happens to you to something you do.",
+                prompt: "Line edit. Cut the redundancy. Sharpen the remaining sentences. Show your changes. The final passage should be tighter and land harder.",
+              },
+            ],
+          },
+          {
+            label: "Line edit so every sentence earns its place",
+            passThreshold: 75,
+            wordCountMin: 110,
+            wordCountMax: 220,
+            criteria: [
+              { name: "Every sentence improved", description: "Did the writer touch and improve every sentence that needed it — not just the easiest ones?", weight: 0.35 },
+              { name: "Improvements are substantive", description: "Are the changes genuine improvements — sharper word choice, cleaner construction, more exact meaning?", weight: 0.4 },
+              { name: "Final passage is publishable", description: "Would the edited passage pass without further editing — does it read as intentional from start to finish?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The challenge of writing a book is not having enough ideas. Most writers who want to write a book have more than enough ideas. The challenge is sustaining focus over a long period of time, maintaining interest in a single subject across the many months it takes to write something book-length, and organizing a large amount of material into a coherent structure that serves the reader.",
+                prompt: "Line edit until every sentence earns its place. Show all your changes with before/after. The result should be something you'd be comfortable publishing — each sentence doing its job cleanly.",
+              },
+              {
+                given: "The thing about expertise is that it accumulates slowly and becomes invisible. The more you know about something, the harder it is to remember not knowing it. This is why experts are often poor teachers — not because they don't care, but because they can't see what's confusing about something they find obvious.",
+                prompt: "Line edit this passage to publication-ready. Every sentence should be exact. Show your changes. Nothing should be left that's vague, padded, or clumsy.",
+              },
+              {
+                given: "Most arguments online are not actually arguments. They are performances of disagreement designed to signal group membership to an audience. This is not because people are stupid or dishonest. It is because the platform rewards performance over persuasion, and people respond to incentives, even when they don't know they're doing it.",
+                prompt: "Line edit to make every sentence as exact as possible. Show before/after for every change you make. The result should be something an editor would send straight to print.",
+              },
+              {
+                given: "The hardest thing about having a creative practice is protecting it from your own ambition. The more seriously you take the work, the more pressure you put on each piece. And pressure, paradoxically, often produces worse work — tighter, more careful, less surprising than the things you made when you were less invested.",
+                prompt: "Line edit until every sentence is doing its maximum work in minimum space. Show all changes. The final passage should feel inevitable — each sentence the only sentence it could be.",
+              },
+              {
+                given: "Writing in public, for an audience, is different from writing in private, for yourself. Public writing forces clarity in a way that private writing doesn't. If you're confused, your reader will be confused. This pressure is useful. It makes you work harder to know what you mean. But it also creates a different kind of problem — you start writing for approval rather than understanding.",
+                prompt: "Full line edit. Every sentence gets attention. Show your changes. The result should be tighter, sharper, and cleaner — publication-ready from start to finish.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "full-essay",
     title: "Full Essay Exercises",
     genre: "nonfiction",
