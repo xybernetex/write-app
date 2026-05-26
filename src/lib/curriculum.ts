@@ -2235,7 +2235,7 @@ export const tracks: Track[] = [
           },
           {
             name: "Honest, not aspirational",
-            description: "Reads like a real account, not a motivational post. Acknowledges what's actually happening.",
+            description: "Mentions something that makes the habit hard in practice — a specific friction, temptation, bad day, or gap between intention and execution — rather than only describing the goal or desired outcome.",
             weight: 0.45,
           },
         ],
@@ -2300,8 +2300,8 @@ export const tracks: Track[] = [
             weight: 0.3,
           },
           {
-            name: "Explains the cognitive or workflow effect",
-            description: "Goes beyond listing features — describes what the experience of using it actually does to thinking or output.",
+            name: "Names a change to thinking or process",
+            description: "Names at least one specific way the software changes what the writer notices, decides, produces, or how long something takes — not only what the software can do, but what is different about the writer's process when using it.",
             weight: 0.7,
           },
         ],
@@ -2383,8 +2383,8 @@ export const tracks: Track[] = [
         wordCountMax: 320,
         criteria: [
           {
-            name: "Honest, not aspirational",
-            description: "Describes something that sounds like this specific person's actual desires — not a generic 'I want to read and think deeply.'",
+            name: "Specific, not generic",
+            description: "Names at least one specific domain, activity, format, or condition the writer is drawn to — not only vague aspirations like 'read more' or 'think deeply' without naming what, about what, or under what conditions.",
             weight: 0.5,
           },
           {
@@ -6630,7 +6630,7 @@ export const tracks: Track[] = [
             wordCountMin: 70,
             wordCountMax: 115,
             criteria: [
-              { name: "Paragraph is one idea, fully developed", description: "Feels like a unit — beginning, middle, and end — not three sentences that happen to share a topic.", weight: 0.4 },
+              { name: "All three parts address the same subject", description: "The opening claim, the example, and the closing implication all refer to the same specific subject — no sentence introduces a different topic or example that doesn't connect back to the opening claim.", weight: 0.4 },
               { name: "No wasted sentence", description: "Every sentence does something the others can't — no doubling, no padding, no throat-clearing.", weight: 0.35 },
               { name: "Implication earns the paragraph", description: "The final sentence makes the whole paragraph worth reading — it's the payoff.", weight: 0.25 },
             ],
@@ -6665,8 +6665,8 @@ export const tracks: Track[] = [
             wordCountMin: 10,
             wordCountMax: 40,
             criteria: [
-              { name: "Something continues", description: "The sentence implies the argument isn't finished — it points toward a next move.", weight: 0.55 },
-              { name: "Not a summary", description: "The last sentence doesn't just recap — it pivots or gestures forward.", weight: 0.45 },
+              { name: "Contains a forward signal", description: "The sentence contains at least one of: a question mark; a contrastive word ('but,' 'yet,' 'however,' 'still,' 'except,' 'unless'); or a phrase that opens a new angle ('which raises,' 'what this means,' 'the question is,' 'this doesn't explain,' 'what's less clear is').", weight: 0.55 },
+              { name: "Not a summary phrase", description: "The sentence does not begin with or contain a closing signal: 'In conclusion,' 'In summary,' 'This shows that,' 'As we can see,' 'Thus,' 'Therefore,' 'In other words,' 'To sum up,' or 'This demonstrates.'", weight: 0.45 },
             ],
             variants: [
               {
