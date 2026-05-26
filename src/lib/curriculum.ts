@@ -7857,6 +7857,504 @@ export const tracks: Track[] = [
     ],
   },
 
+
+  {
+    id: "essay-architecture",
+    title: "Essay Architecture",
+    genre: "nonfiction",
+    difficulty: "intermediate",
+    description:
+      "A paragraph is a unit of thought. An essay is a sequence of units that builds toward something. This track is about the structural decisions above the paragraph level: what job each section does, how to open with forward tension, how to write the bridge that makes the ending possible, and how to land a kicker that gives the reader something to carry. Master the architecture and the writing gets easier — you know what you're building before you build it.",
+    exercises: [
+      {
+        id: "arch-1",
+        title: "Paragraph Jobs",
+        lesson:
+          "Every paragraph in a working essay has a specific structural job — not just 'talks about the topic' but a precise function: stakes the claim, grounds it in evidence, handles the objection, deepens the stakes, introduces the complication, or sets up what follows. When you can name the job of each paragraph, you can see when one is missing, when two are doing the same job, and when the sequence is wrong. Write to the job description first. The prose follows.",
+        prompt:
+          "Given a job description, write the paragraph that does that job — and only that job. The paragraph should be readable as doing exactly what the description says. 60–130 words.",
+        wordCountMin: 50,
+        wordCountMax: 140,
+        criteria: [
+          { name: "Does the named job", description: "The paragraph clearly performs its structural function — a reader could identify the job from the paragraph alone.", weight: 0.55 },
+          { name: "Does only the named job", description: "The paragraph doesn't also try to introduce the topic, handle an objection it wasn't asked to handle, or land the essay.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Do the job",
+            passThreshold: 50,
+            wordCountMin: 50,
+            wordCountMax: 140,
+            criteria: [
+              { name: "Job is recognizable", description: "The paragraph does something approximating the named structural function.", weight: 0.6 },
+              { name: "On topic", description: "The paragraph is about the right subject for the essay described.", weight: 0.4 },
+            ],
+            variants: [
+              {
+                given: "Essay about: why the advice to just start is correct but incomplete. Job: Stake the claim — make the central argument of the essay in arguable terms.",
+                prompt: "Write the paragraph that stakes this claim. Just the claim — don't provide evidence or handle objections yet. 60–120 words.",
+              },
+              {
+                given: "Essay about: how open offices made collaboration worse, not better. Job: Ground the claim in something concrete — give the reader a specific example or detail that makes the argument visible.",
+                prompt: "Write the grounding paragraph — one specific example or detail that makes the claim real. Don't restate the argument. 60–120 words.",
+              },
+              {
+                given: "Essay about: why credentialism has replaced competence in hiring. Job: Handle the strongest objection — acknowledge what's true about the other side without abandoning the claim.",
+                prompt: "Write the objection-handling paragraph. Acknowledge the real difficulty, then hold the position. 60–120 words.",
+              },
+              {
+                given: "Essay about: how busyness has become a status symbol. Job: Deepen the stakes — show why this matters, what it costs, or what it reveals about something larger.",
+                prompt: "Write the stakes paragraph. Not more evidence — the implication. What does it mean that this is true? 60–120 words.",
+              },
+              {
+                given: "Essay about: how the language of self-care has been co-opted by consumer brands. Job: Introduce the complication — the thing that makes the argument harder without undoing it.",
+                prompt: "Write the complication paragraph. Not a counterargument — something real that makes the case more difficult. 60–120 words.",
+              },
+            ],
+          },
+          {
+            label: "Job is clear from the paragraph",
+            passThreshold: 65,
+            wordCountMin: 60,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Job is identifiable", description: "A reader who doesn't know the job description could still name the structural function this paragraph is performing.", weight: 0.5 },
+              { name: "Nothing extra", description: "The paragraph doesn't try to do other jobs — it's focused on the one function.", weight: 0.3 },
+              { name: "Does the job well", description: "The paragraph actually delivers on the function — not just gestures at it.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Essay about: how the feedback sandwich backfires. Job: Stake the claim — one arguable central position, no evidence yet.",
+                prompt: "Write the claim paragraph so clearly that someone who reads it can name its job without being told. Nothing extra. 60–120 words.",
+              },
+              {
+                given: "Essay about: why most networking advice is wrong for introverts. Job: Provide the concrete example — one specific, pictureable instance that makes the argument visible.",
+                prompt: "Write the grounding paragraph with a single specific example. Job should be identifiable from the paragraph. No extra work. 60–120 words.",
+              },
+              {
+                given: "Essay about: how the gig economy transferred risk from employers to workers. Job: Deepen the stakes — what does this mean, what does it cost, why does it matter beyond the surface claim.",
+                prompt: "Write the stakes paragraph. Job is identifiable, focused, delivers on the function. 60–120 words.",
+              },
+              {
+                given: "Essay about: why cities that invest in arts districts end up displacing the artists. Job: Handle the objection — someone will say the investments still create value; acknowledge that and hold the position.",
+                prompt: "Write the objection paragraph. Acknowledges the real challenge, holds the claim. Job identifiable without being told. 60–120 words.",
+              },
+              {
+                given: "Essay about: how remote work has changed what people expect from offices. Job: Introduce the complication — what makes this harder than the simple story suggests.",
+                prompt: "Write the complication paragraph. Job identifiable, nothing extra, delivers on the function. 60–120 words.",
+              },
+            ],
+          },
+          {
+            label: "Every paragraph earns its place",
+            passThreshold: 75,
+            wordCountMin: 65,
+            wordCountMax: 125,
+            criteria: [
+              { name: "Job is the only job", description: "No padding, no double-covering — the paragraph does exactly one structural thing.", weight: 0.35 },
+              { name: "Paragraph couldn't be cut", description: "The essay would be missing something without this paragraph — it's not redundant.", weight: 0.4 },
+              { name: "Sets up what follows", description: "The paragraph creates a need for the next move — the reader wants what comes after.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Essay about: how the phrase bringing your whole self to work has made emotional labor mandatory. Job: Stake the central claim — the one arguable thing the whole essay hangs on.",
+                prompt: "Write a claim paragraph that does exactly one job, can't be cut, and sets up what follows. 65–115 words.",
+              },
+              {
+                given: "Essay about: how success in school predicts something different from success in careers. Job: Provide the grounding — the specific concrete example that makes the argument visible and answerable.",
+                prompt: "Write a grounding paragraph that does only this job and creates forward need. 65–115 words.",
+              },
+              {
+                given: "Essay about: how platforms train creators toward what performs. Job: Deepen the stakes — the so what that earns the reader's continued attention.",
+                prompt: "Write a stakes paragraph — one job, irreplaceable, sets up what follows. 65–115 words.",
+              },
+              {
+                given: "Essay about: how modern parenting has become a performance of parenting. Job: Handle the objection — the strongest thing someone who disagrees would say.",
+                prompt: "Write an objection paragraph that does only this job, couldn't be cut, and creates forward need for the resolution. 65–115 words.",
+              },
+              {
+                given: "Essay about: why the most popular writing advice is wrong for nonfiction. Job: Introduce the complication that makes the essay harder and more honest.",
+                prompt: "Write a complication paragraph — exactly one job, irreplaceable, sets up what follows. 65–115 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "arch-2",
+        title: "The Opening",
+        lesson:
+          "The opening section of an essay has one job: make the reader want to keep reading. Not introduce the topic. Not provide context. Not ease the reader in gently. Create forward tension — establish what's at stake without giving away where the argument lands. The reader who finishes your opening should be asking a specific question. The rest of the essay answers it. If they're not asking a question, they have no reason to continue.",
+        prompt:
+          "Write an opening (1–3 paragraphs) for an essay on the given topic. Create forward tension — establish what's at stake, imply the question the essay will answer, and pull the reader forward. Don't give away the argument. 70–150 words.",
+        wordCountMin: 60,
+        wordCountMax: 160,
+        criteria: [
+          { name: "Creates forward tension", description: "The reader is pulled forward — there's a question implied or a tension established.", weight: 0.5 },
+          { name: "Doesn't give away the argument", description: "The opening creates the question; it doesn't answer it.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Create tension",
+            passThreshold: 50,
+            wordCountMin: 60,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Forward pull present", description: "Something in the opening creates a reason to continue — a question, a tension, an unresolved idea.", weight: 0.55 },
+              { name: "Doesn't immediately answer its own question", description: "The opening opens something rather than closing it.", weight: 0.45 },
+            ],
+            variants: [
+              { prompt: "Write the opening for an essay arguing that most productivity advice is advice about feeling productive, not being productive. Create tension — don't give away the argument. 70–140 words." },
+              { prompt: "Write the opening for an essay arguing that the way we hire is optimized for the wrong things. Create forward tension — establish what's at stake, don't give the argument yet. 70–140 words." },
+              { prompt: "Write the opening for an essay about why the advice to follow your passion has made more people miserable than it's helped. Pull the reader forward. Don't answer the question. 70–140 words." },
+              { prompt: "Write the opening for an essay about how cities have designed loneliness into daily life. Create tension — the reader should want to keep reading. Don't give away the argument. 70–140 words." },
+              { prompt: "Write the opening for an essay about how social media has changed what it means to have an opinion. Create forward tension, establish stakes, don't give the argument. 70–140 words." },
+            ],
+          },
+          {
+            label: "Stakes are established",
+            passThreshold: 65,
+            wordCountMin: 70,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Stakes are clear", description: "The reader knows why this matters — not just that the essay will be about X, but why X is worth caring about.", weight: 0.4 },
+              { name: "Specific question implied", description: "The opening implies a specific question — the reader knows what they're waiting to find out.", weight: 0.35 },
+              { name: "Doesn't front-load the answer", description: "The opening builds toward the argument, not away from it — the question is open.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write an opening for an essay about how the gig economy transferred risk from employers to workers without most workers noticing until it was too late. Stakes clear, specific question implied, argument not given away. 70–140 words." },
+              { prompt: "Write an opening for an essay about how the feedback culture in workplaces has made it impossible to know where you actually stand. Stakes established, specific question implied. 70–140 words." },
+              { prompt: "Write an opening for an essay about how the credentialing system has made competence secondary to signaling. Reader knows what's at stake and what they're waiting to find out. 70–140 words." },
+              { prompt: "Write an opening for an essay about how the language of wellness has been absorbed by the industries that caused the problems wellness is supposed to address. Stakes clear, specific question open. 70–140 words." },
+              { prompt: "Write an opening for an essay about how remote work surfaced a management problem that offices had been hiding. Stakes established, question implied, argument not given. 70–140 words." },
+            ],
+          },
+          {
+            label: "Opening creates the essay's contract",
+            passThreshold: 75,
+            wordCountMin: 80,
+            wordCountMax: 150,
+            criteria: [
+              { name: "Reader knows what they signed up for", description: "The opening establishes the essay's territory precisely — the reader knows what kind of piece this is and what question it will answer.", weight: 0.4 },
+              { name: "Tension is specific, not vague", description: "The question implied is a specific, answerable question — not just isn't this interesting.", weight: 0.35 },
+              { name: "Opening earns what follows", description: "An essay that delivered on this opening would feel complete — the contract is real.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write an opening for an essay about how the professionalization of writing — MFAs, workshops, pitch culture — has produced writers who are excellent at the form and uncertain about what they have to say. Contract is specific. Reader knows exactly what they signed up for. 80–145 words." },
+              { prompt: "Write an opening for an essay about how expertise has become a performance as much as a practice — and why that matters for who we trust and what we believe. Specific question, real contract. 80–145 words." },
+              { prompt: "Write an opening for an essay about how ambition has been rebranded as a personal virtue when it's mostly a structural product. Opening creates a specific, answerable question. 80–145 words." },
+              { prompt: "Write an opening for an essay about how the advice to build your network has converted a natural human activity into an obligation and made it worse at doing what it's supposed to do. Specific contract, real tension. 80–145 words." },
+              { prompt: "Write an opening for an essay about how the education system has optimized for testable outcomes in a way that has made the untestable things — judgment, curiosity, taste — systematically harder to develop. Opening creates the essay's contract. Specific. 80–145 words." },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "arch-3",
+        title: "The Bridge",
+        lesson:
+          "The bridge paragraph connects two things that couldn't otherwise be adjacent. It's the move in the middle of an essay that allows you to go somewhere new — to introduce a complication, shift the level of abstraction, or turn from argument to implication — without the reader feeling dropped. Without it, essays jump: here's the argument, here's the conclusion. The bridge is what makes the ending feel arrived at rather than declared.",
+        prompt:
+          "Given an opening section and a closing section, write the bridge paragraph that connects them — makes the transition feel earned and inevitable rather than abrupt. 60–130 words.",
+        wordCountMin: 50,
+        wordCountMax: 140,
+        criteria: [
+          { name: "Connects the two sections", description: "The reader could follow from the opening through the bridge to the closing without feeling dropped.", weight: 0.5 },
+          { name: "Earns the transition", description: "The bridge makes the jump feel inevitable — not just an announcement that we're moving on.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Make the connection",
+            passThreshold: 50,
+            wordCountMin: 50,
+            wordCountMax: 140,
+            criteria: [
+              { name: "Connects the two sections", description: "The bridge links the opening and closing — a reader could follow the thread.", weight: 0.6 },
+              { name: "Not just a transition announcement", description: "Not 'but there's another way to think about this' — actually does the connecting work.", weight: 0.4 },
+            ],
+            variants: [
+              {
+                given: "Opening: Makes the case that most management training teaches managers to talk about problems rather than fix them — citing the proliferation of frameworks, the language of alignment, the endless retrospectives that produce the same problems next quarter. Closing: Argues that this has created a professional class of people who are expert at describing dysfunction and helpless to change it.",
+                prompt: "Write the bridge paragraph that earns the move from the opening argument to the closing claim. 60–120 words.",
+              },
+              {
+                given: "Opening: Establishes that the advice to build your personal brand is everywhere and largely accepted. Closing: Argues that the personal brand has made it harder to change your mind publicly, which has made public thinkers more rigid and less interesting.",
+                prompt: "Write the bridge that earns the move from the opening observation to the closing consequence. 60–120 words.",
+              },
+              {
+                given: "Opening: Makes the case that credentialism has become more entrenched as actual competence becomes harder to verify. Closing: Argues that this creates a self-reinforcing cycle where the credential becomes more valuable the less it predicts.",
+                prompt: "Write the bridge that connects these two claims and earns the move from one to the other. 60–120 words.",
+              },
+              {
+                given: "Opening: Establishes that remote work surfaced a management problem offices had hidden — that most managers don't know how to evaluate knowledge work outputs, only inputs like presence and hours. Closing: Argues that the real crisis isn't remote work but the discovery that management as practiced doesn't actually manage the thing it's supposed to manage.",
+                prompt: "Write the bridge that earns the move from the surface problem to the deeper claim. 60–120 words.",
+              },
+              {
+                given: "Opening: Establishes that the self-help genre has produced no measurable improvement in the lives of its readers over decades, while growing larger every year. Closing: Argues that this is not a failure of the genre but a feature — the genre's product is the feeling of working on yourself, not the outcome.",
+                prompt: "Write the bridge that earns the reframe from failure to feature. 60–120 words.",
+              },
+            ],
+          },
+          {
+            label: "Bridge earns the distance",
+            passThreshold: 65,
+            wordCountMin: 60,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Distance is earned", description: "The jump from opening to closing feels like an arrival, not a leap — the bridge did the work.", weight: 0.45 },
+              { name: "Bridge introduces something new", description: "The bridge isn't just a restatement of the opening — it adds a move that makes the closing possible.", weight: 0.35 },
+              { name: "No announcement", description: "The bridge doesn't announce that it's a transition — it just is one.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Opening: Makes the case that the open office was designed to maximize visibility, not collaboration — the collaboration claim was post-hoc justification for a space that was cheaper to build and easier to monitor. Closing: Argues that the open office is the built form of a management philosophy that doesn't trust workers, and that the pandemic revealed this by making monitoring impossible.",
+                prompt: "Write a bridge that earns the distance — adds something new that makes the closing possible, no announcement. 60–120 words.",
+              },
+              {
+                given: "Opening: Establishes that doing your own research went from meaning intellectual independence to meaning its opposite — the selective assembly of evidence to confirm existing belief. Closing: Argues that this reflects a failure not of individuals but of the information environment, which removed the friction that made research hard and in doing so removed the thing that made it valuable.",
+                prompt: "Write a bridge that earns this distance. Introduces something new. No announcement. 60–120 words.",
+              },
+              {
+                given: "Opening: Makes the case that the advice to follow your passion is primarily given by people who got lucky and then reverse-engineered passion as the cause. Closing: Argues that the passion narrative persists not because it's true but because it's comforting to the people who followed their passion and succeeded — it makes luck feel like design.",
+                prompt: "Write a bridge that earns the move from the debunking to the explanation of why the myth persists. 60–120 words.",
+              },
+              {
+                given: "Opening: Establishes that most feedback in professional environments is filtered by fear before it reaches the recipient. Closing: Argues that the result is a professional culture where almost everyone is operating with systematically incomplete information about how they're perceived.",
+                prompt: "Write a bridge that earns the distance from filtered feedback to systematic epistemic problem. Adds something new, no announcement. 60–120 words.",
+              },
+              {
+                given: "Opening: Makes the case that the college application essay has become a genre of managed authenticity — a form that asks for vulnerability and rewards the most skillfully performed version of it. Closing: Argues that this is an early lesson in a skill set that professional life then reinforces: the performance of authenticity as a competitive advantage.",
+                prompt: "Write a bridge that earns the move from the college essay to the professional life argument. 60–120 words.",
+              },
+            ],
+          },
+          {
+            label: "Bridge is the turn",
+            passThreshold: 75,
+            wordCountMin: 65,
+            wordCountMax: 125,
+            criteria: [
+              { name: "Bridge is irreplaceable", description: "The essay would jump without this paragraph — it's doing structural work nothing else can do.", weight: 0.4 },
+              { name: "Bridge changes the reader's position", description: "After the bridge, the reader understands the argument differently — the bridge was the move.", weight: 0.35 },
+              { name: "Transition is invisible", description: "The reader arrives at the closing without feeling that they were pushed there — the bridge worked.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Opening: Establishes that busyness has become the primary professional status signal — the person who says they're slammed is claiming importance, not just reporting a schedule. Closing: Argues that this has made it impossible to admit you have capacity without signaling low status, which has made organizations structurally unable to redistribute work even when they want to.",
+                prompt: "Write a bridge paragraph that is the turn — irreplaceable, changes the reader's position, transition invisible. 65–115 words.",
+              },
+              {
+                given: "Opening: Makes the case that the advice to write every day is optimized for producing writers who write regularly, not writers who have anything to say. Closing: Argues that the real skill gap for most aspiring writers isn't output but input — not producing more but having more to produce from.",
+                prompt: "Write a bridge that is the turn — the move that makes the closing feel arrived at, not declared. Irreplaceable. 65–115 words.",
+              },
+              {
+                given: "Opening: Establishes that expertise is most trusted in the domains where it's hardest to verify — medicine, economics, nutrition — and least trusted in the domains where verification is easiest. Closing: Argues that this has produced a world where the experts who are most confidently wrong face the least accountability, and those who hedge appropriately are perceived as less expert.",
+                prompt: "Write a bridge that changes the reader's position and makes the closing feel inevitable. The turn. 65–115 words.",
+              },
+              {
+                given: "Opening: Makes the case that the performance review exists primarily to satisfy HR, not to improve performance — it's a compliance mechanism that has colonized a category that used to be called management. Closing: Argues that the displacement of actual management by review processes has produced a generation of managers who know how to conduct reviews and not much else.",
+                prompt: "Write a bridge that is irreplaceable, changes the reader's position, makes the transition invisible. 65–115 words.",
+              },
+              {
+                given: "Opening: Establishes that most people who say they want feedback mean they want validation — and that most people who give feedback know this and calibrate accordingly. Closing: Argues that the result is a feedback ecosystem where honest feedback is structurally selected against, and the people who give it are not rewarded for doing so.",
+                prompt: "Write a bridge that makes the closing feel arrived at — the turn, irreplaceable, invisible as a transition. 65–115 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "arch-4",
+        title: "The Kicker",
+        lesson:
+          "The last paragraph of an essay can't summarize — the reader just read it. It has to land: give the reader something to carry out of the piece. The kicker reframes what came before, zooms out to the larger stakes, or ends on a detail that crystallizes the argument. It doesn't introduce new information, but it sees what came before from a new angle. The test: if you cut the last paragraph, does the essay feel finished or unfinished? If finished, the kicker isn't working.",
+        prompt:
+          "Given the argument of an essay, write the kicker — the last paragraph that lands rather than summarizes. The reader should finish with something to carry. 50–110 words.",
+        wordCountMin: 40,
+        wordCountMax: 120,
+        criteria: [
+          { name: "Doesn't summarize", description: "The kicker doesn't restate the argument — it does something else with it.", weight: 0.5 },
+          { name: "Reader has something to carry", description: "The last paragraph gives the reader a thought, an image, or a reframe that stays with them.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Don't summarize",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Not a summary", description: "The kicker does something other than restate what the essay argued.", weight: 0.6 },
+              { name: "Connected to the essay", description: "The kicker follows from the argument — it's not a non-sequitur.", weight: 0.4 },
+            ],
+            variants: [
+              {
+                given: "Essay argument: Most productivity advice is really advice about feeling productive — completing tasks, ticking boxes, maintaining systems — rather than about doing the work that's hard to start and harder to evaluate. The advice market has optimized for the feeling because the feeling is deliverable. The work isn't.",
+                prompt: "Write the kicker — not a summary. Do something else with this argument at the end. 40–100 words.",
+              },
+              {
+                given: "Essay argument: The open office was not a collaboration tool but a surveillance tool that was sold as a collaboration tool. The workers knew this — the headphones they wore to recreate the privacy the office removed were the evidence — but the framing held because it was more comfortable for everyone.",
+                prompt: "Write the kicker. Not a restatement. Something to carry. 40–100 words.",
+              },
+              {
+                given: "Essay argument: The advice to follow your passion is primarily given by people who succeeded — which means it's systematically selected for survivors who can reverse-engineer passion as the cause. The people who followed their passion and failed don't write the books.",
+                prompt: "Write the kicker — not a summary of the survivorship bias point. Something else. 40–100 words.",
+              },
+              {
+                given: "Essay argument: Busyness has become the professional class's status signal — claiming to be slammed is claiming importance. The consequence is that capacity has become a thing to hide, redistribution of work has become impossible, and the signal has eaten the thing it was supposed to signal.",
+                prompt: "Write the kicker. Not a restatement of the argument. Something to carry out of the piece. 40–100 words.",
+              },
+              {
+                given: "Essay argument: The feedback sandwich — criticism between two compliments — doesn't soften the criticism; it makes the compliments untrustworthy. Recipients learn to discount the bread and wait for the meat. The form defeats its own purpose and persists anyway because it makes the giver feel kind.",
+                prompt: "Write a kicker that doesn't summarize this. Something else — a reframe, an image, a zoom-out. 40–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Something to carry",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Gives the reader something specific", description: "The kicker leaves a specific thought, image, or reframe — not just a vague sense of weight.", weight: 0.5 },
+              { name: "Earns its position", description: "The kicker couldn't go anywhere else in the essay — it belongs at the end.", weight: 0.3 },
+              { name: "Not a new argument", description: "The kicker sees the essay from a new angle — it doesn't introduce new claims.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Essay argument: Credentialism has become more entrenched as actual competence becomes harder to verify. The credential signals that someone survived a filtering process, which is valuable, but conflates it with competence, which is a different thing. The credential market has grown while the competence market has struggled to exist.",
+                prompt: "Write a kicker that gives the reader something specific to carry — a reframe, a detail, a zoom-out. Earns its position. 50–100 words.",
+              },
+              {
+                given: "Essay argument: The self-help genre's product is not self-improvement but the feeling of working on yourself — which is a different product that requires different maintenance. The reader who improves stops buying. The reader who feels like they're improving keeps buying. The genre has optimized for the second reader.",
+                prompt: "Write a kicker with something specific to carry — not a summary of this argument, a new angle on it. 50–100 words.",
+              },
+              {
+                given: "Essay argument: Social media has made public positions stickier — once you've taken a side, the network effect of your past statements makes it socially costly to update. The result is that the people with the largest audiences are the least likely to change their minds, because the audience was attracted to the positions.",
+                prompt: "Write a kicker that earns its position — leaves a specific thought, not a vague weight. Not a new argument. 50–100 words.",
+              },
+              {
+                given: "Essay argument: Most professional development doesn't transfer because it teaches vocabulary, not skill. Attendees return able to describe the framework and unable to do the thing. The measurement problem — that behavioral change is hard to observe and slower to manifest than the training — makes this invisible until it's too late.",
+                prompt: "Write a kicker that gives the reader something to carry. Earns its position at the end. Not a summary. 50–100 words.",
+              },
+              {
+                given: "Essay argument: The way cities design for cars has made it structurally difficult to run into people — which is where most relationships form and most communities maintain themselves. The city has been optimized for arrival and departure and has made the in-between impossible.",
+                prompt: "Write a kicker — specific to carry, earns the end, not a new argument, not a summary. 50–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Kicker is the only ending",
+            passThreshold: 75,
+            wordCountMin: 55,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Essay would feel unfinished without it", description: "If you cut this paragraph, the essay would feel like it stopped mid-thought — the kicker is load-bearing.", weight: 0.4 },
+              { name: "Last sentence is the only last sentence", description: "The kicker couldn't end a sentence earlier or later — it stops exactly where it must.", weight: 0.35 },
+              { name: "Carries the argument's full weight", description: "The kicker lands the essay — the reader feels the argument complete, not just concluded.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Essay argument: The advice to write what you know has narrowed the range of what literary writers feel permitted to imagine. The result has been a literature of interiority and autobiography at the expense of ambition and invention — a literature that does a few things very well and has stopped attempting others. The advice was meant to produce authenticity and has produced a genre.",
+                prompt: "Write a kicker that is the only ending — the essay would feel unfinished without it, last sentence is exact, argument lands fully. 55–100 words.",
+              },
+              {
+                given: "Essay argument: The transition from office to remote exposed that most office culture was a workaround for a trust deficit — the presence requirement was the signal, not the collaboration. When the signal was removed, the trust deficit became visible. Remote work didn't create the problem; it made the problem legible.",
+                prompt: "Write the only possible ending — load-bearing, last sentence exact, argument lands. 55–100 words.",
+              },
+              {
+                given: "Essay argument: The problem with expertise is not that experts are wrong — it's that the formats in which experts speak reward confidence and punish nuance, which selects for the wrong kind of expert. The expert who hedges is perceived as less expert. The one who is wrong with conviction is perceived as more.",
+                prompt: "Write a kicker that is the only ending. Load-bearing, exact final sentence, argument complete. 55–100 words.",
+              },
+              {
+                given: "Essay argument: The market for anxiety has expanded faster than anxiety itself — the awareness, the diagnosis, the treatment, the apps, the books — until it becomes unclear whether the expansion of the category is tracking a rise in the condition or producing one. The vocabulary of anxiety is now so available that it has become a primary way of making sense of ordinary discomfort.",
+                prompt: "Write the only possible ending to this essay. Essay feels unfinished without it. Last sentence is exact. 55–100 words.",
+              },
+              {
+                given: "Essay argument: The reason people don't write is not lack of time or talent — it's the gap between what they can produce and what they admire. Taste develops faster than skill, which means the early work always feels worse than it is by the standard of the person producing it. Most writers quit in this gap.",
+                prompt: "Write a kicker that is the only ending — load-bearing, argument lands fully, last sentence exact. 55–100 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "arch-5",
+        title: "The Full Arc",
+        lesson:
+          "The architecture exercises come together here. A complete essay has four structural moves: an opening that creates a question, a body that builds the case, a bridge that earns the turn, and a kicker that lands rather than summarizes. The challenge is not to do all four in sequence — any outline can do that — but to make them feel like one continuous thought. The seams should be invisible. The reader shouldn't notice the architecture any more than they notice gravity.",
+        prompt:
+          "Write a complete short essay with all four structural moves: opening that creates tension, body that builds the case, bridge that earns the turn, kicker that lands. The architecture should be invisible. 200–350 words.",
+        wordCountMin: 180,
+        wordCountMax: 370,
+        criteria: [
+          { name: "All four moves present", description: "Opening creates tension, body builds the case, there is a turn, kicker lands.", weight: 0.35 },
+          { name: "Architecture is invisible", description: "The essay feels like continuous thought, not four sections assembled — the seams don't show.", weight: 0.35 },
+          { name: "Essay lands", description: "The reader finishes with something — the kicker works and the argument feels complete.", weight: 0.3 },
+        ],
+        stages: [
+          {
+            label: "All four moves present",
+            passThreshold: 50,
+            wordCountMin: 180,
+            wordCountMax: 370,
+            criteria: [
+              { name: "Opening creates some tension", description: "The opening pulls the reader forward — there's a question or tension implied.", weight: 0.3 },
+              { name: "Case is built in the body", description: "The middle of the essay makes a case — argument, evidence, or complication.", weight: 0.4 },
+              { name: "Ending does something besides summarize", description: "The last paragraph doesn't just restate — it does something with the argument.", weight: 0.3 },
+            ],
+            variants: [
+              { prompt: "Write a complete short essay about why the most useful feedback is the feedback that's hardest to give. All four structural moves present. 200–340 words." },
+              { prompt: "Write a complete short essay about how ambition changes when you start to get what you wanted. All four structural moves present. 200–340 words." },
+              { prompt: "Write a complete short essay about the difference between being busy and doing the work that matters. All four moves present. 200–340 words." },
+              { prompt: "Write a complete short essay about why experts in a field often make worse predictions about it than informed outsiders. All four structural moves present. 200–340 words." },
+              { prompt: "Write a complete short essay about how the language we use to describe failure shapes how we respond to it. All four moves present. 200–340 words." },
+            ],
+          },
+          {
+            label: "Architecture serves the argument",
+            passThreshold: 65,
+            wordCountMin: 200,
+            wordCountMax: 360,
+            criteria: [
+              { name: "Opening creates a specific question", description: "The reader knows what they're waiting to find out — the tension is specific, not vague.", weight: 0.25 },
+              { name: "Body builds, not just covers", description: "Each paragraph advances the argument — not a list of related thoughts but a progression.", weight: 0.4 },
+              { name: "Kicker lands something specific", description: "The reader leaves with a specific thought or reframe, not just a sense of conclusion.", weight: 0.35 },
+            ],
+            variants: [
+              { prompt: "Write a short essay about how the way we talk about creativity has made it harder to develop. Architecture serves the argument: specific question, building body, landing kicker. 200–340 words." },
+              { prompt: "Write a short essay about why the people who most need to change their minds are the least likely to. Structure serves argument: specific tension, building case, kicker that lands something specific. 200–340 words." },
+              { prompt: "Write a short essay about what gets lost when organizations optimize for measurable outcomes. Opening creates a specific question, body builds, kicker lands. 200–340 words." },
+              { prompt: "Write a short essay about the gap between the writing life as imagined and as practiced. Architecture serves the argument throughout — not just present, functional. 200–340 words." },
+              { prompt: "Write a short essay about why the most popular advice in any field is rarely the most useful. Specific question, building body, landing kicker. 200–340 words." },
+            ],
+          },
+          {
+            label: "Seams are invisible",
+            passThreshold: 75,
+            wordCountMin: 220,
+            wordCountMax: 360,
+            criteria: [
+              { name: "Essay feels like continuous thought", description: "The structural moves are present but unobtrusive — the essay feels like one idea, not four sections.", weight: 0.4 },
+              { name: "Each section earns the next", description: "The opening earns the body, the body earns the turn, the turn earns the kicker — nothing is declared, everything is arrived at.", weight: 0.35 },
+              { name: "Reader wouldn't notice the architecture", description: "The essay works as an experience before it works as a structure — the argument lands, the form disappears.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a short essay about how the advice to be authentic has made authenticity a performance. Architecture invisible — continuous thought, seams don't show. 220–350 words." },
+              { prompt: "Write a short essay about what happens to ambition when there's no longer a clear path forward. Architecture invisible — the essay is an experience before it's a structure. 220–350 words." },
+              { prompt: "Write a short essay about why the things that make someone good at their job often make them bad at talking about their job. Continuous thought, invisible seams, argument lands. 220–350 words." },
+              { prompt: "Write a short essay about how social media has changed what a public intellectual is. Architecture invisible — the reader experiences the argument, not the structure. 220–350 words." },
+              { prompt: "Write a short essay about the thing most writing advice gets wrong. Architecture invisible, seams don't show, each section earns the next. 220–350 words." },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
 ];
 
 export function getTrack(id: string): Track | undefined {
