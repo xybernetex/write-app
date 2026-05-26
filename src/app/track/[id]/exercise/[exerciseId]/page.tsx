@@ -135,16 +135,40 @@ export default function ExercisePage() {
     return () => { if (grammarTimer.current) clearTimeout(grammarTimer.current); };
   }, [content, checkGrammar]);
 
-  // Reset on exercise change
+  // Reset on exercise change — then restore stage progress from localStorage
   useEffect(() => {
-    setStageIdx(0);
-    setVariantIdx(0);
-    setPassedVariants(new Array(exercise?.stages?.[0]?.variants.length ?? 0).fill(false));
+    // Always reset writing/UI state
     setContent(""); setFeedback(null); setStatus("idle"); setErrorMsg("");
     setGrammarMatches([]); setVisibleCriteria(0);
     setLessonStatus("collapsed"); setFullLesson(null);
     setChatMessages([]); setChatOpen(false); setChatInput("");
     setHint(null); setHintStatus("idle");
+
+    // Restore saved stage progress (staged exercises only)
+    const defaultVariantCount = exercise?.stages?.[0]?.variants.length ?? 0;
+    if (exercise?.stages?.length) {
+      try {
+        const saved = localStorage.getItem(`wg-prog-${exerciseId}`);
+        if (saved) {
+          const { stageIdx: s, passedVariants: p } = JSON.parse(saved) as {
+            stageIdx: number;
+            passedVariants: boolean[];
+          };
+          const validStage = Math.min(s, exercise.stages.length - 1);
+          const restoredPassed: boolean[] = Array.isArray(p) ? p : new Array(defaultVariantCount).fill(false);
+          setStageIdx(validStage);
+          setPassedVariants(restoredPassed);
+          // Jump to first unpassed variant in the restored stage
+          const firstUnpassed = restoredPassed.findIndex((v) => !v);
+          setVariantIdx(firstUnpassed !== -1 ? firstUnpassed : 0);
+          return;
+        }
+      } catch {}
+    }
+    // No saved progress — start fresh
+    setStageIdx(0);
+    setVariantIdx(0);
+    setPassedVariants(new Array(defaultVariantCount).fill(false));
   }, [exerciseId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Stagger criteria reveal
@@ -207,9 +231,20 @@ export default function ExercisePage() {
     setVariantIdx(idx);
     resetForPrompt();
   }
+  function saveStageProgress(newStageIdx: number, newPassed: boolean[]) {
+    if (!exercise?.stages?.length) return;
+    try {
+      localStorage.setItem(`wg-prog-${exerciseId}`, JSON.stringify({
+        stageIdx: newStageIdx,
+        passedVariants: newPassed,
+      }));
+    } catch {}
+  }
+
   function markPassedAndAdvance() {
     const newPassed = [...passedVariants];
     newPassed[variantIdx] = true;
+    saveStageProgress(stageIdx, newPassed);
     setPassedVariants(newPassed);
     // Find next unpassed, searching forward first then wrapping
     const nextForward = newPassed.findIndex((p, i) => !p && i > variantIdx);
@@ -222,12 +257,28 @@ export default function ExercisePage() {
       resetForPrompt();
     }
   }
+
   function advanceToNextStage() {
     const next = stageIdx + 1;
+    const newPassed = new Array(stages?.[next]?.variants.length ?? 0).fill(false);
+    saveStageProgress(next, newPassed);
     setStageIdx(next);
     setVariantIdx(0);
-    setPassedVariants(new Array(stages?.[next]?.variants.length ?? 0).fill(false));
+    setPassedVariants(newPassed);
     resetForPrompt();
+  }
+
+  async function markExerciseComplete() {
+    // Clear saved stage progress — exercise is done
+    try { localStorage.removeItem(`wg-prog-${exerciseId}`); } catch {}
+    // Mark completed in DB (staged exercises only reach here after all variants cleared)
+    try {
+      await fetch("/api/progress/complete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ trackId, exerciseId }),
+      });
+    } catch {}
   }
 
   async function expandLesson() {
@@ -839,7 +890,10 @@ export default function ExercisePage() {
               {/* Completed final round of final stage */}
               {variantPassed && !alreadyMarked && stageComplete && isLastStage && nextExercise && (
                 <button
-                  onClick={() => router.push(`/track/${trackId}/exercise/${nextExercise.id}`)}
+                  onClick={async () => {
+                    await markExerciseComplete();
+                    router.push(`/track/${trackId}/exercise/${nextExercise.id}`);
+                  }}
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-zinc-100 text-zinc-950 hover:bg-white transition-colors"
                 >
                   Next exercise →
@@ -847,7 +901,10 @@ export default function ExercisePage() {
               )}
               {variantPassed && !alreadyMarked && stageComplete && isLastStage && !nextExercise && (
                 <button
-                  onClick={() => router.push(`/track/${trackId}`)}
+                  onClick={async () => {
+                    await markExerciseComplete();
+                    router.push(`/track/${trackId}`);
+                  }}
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-emerald-500 text-white hover:bg-emerald-400 transition-colors"
                 >
                   Track complete! →

@@ -69,9 +69,18 @@ export async function POST(req: NextRequest) {
 
     const rawResult = await evaluateSubmission(promptText, content, criteria, tone);
 
-    // Daily drill: if you showed up and wrote, the rep is done — no pass/fail
-    const passed = trackId === "daily-drill" ? true : rawResult.overallScore >= 70;
-    const result = { ...rawResult, passed };
+    // Submission-level pass — used for the submissions table and returned to the client
+    const submissionPassed = trackId === "daily-drill" ? true : rawResult.overallScore >= 70;
+    const result = { ...rawResult, passed: submissionPassed };
+
+    // Exercise-level completion — staged exercises must be completed explicitly via
+    // /api/progress/complete (called by the client when all stage variants are cleared).
+    // Non-staged exercises and daily drill auto-complete here.
+    const exerciseData = getExercise(trackId, exerciseId);
+    const isStaged = !!(exerciseData?.stages?.length);
+    const autoComplete = trackId === "daily-drill"
+      ? true
+      : !isStaged && submissionPassed;
 
     const nowSec = Math.floor(Date.now() / 1000);
 
@@ -103,8 +112,8 @@ export async function POST(req: NextRequest) {
         .set({
           attempts: existing.attempts + 1,
           bestScore: Math.max(existing.bestScore ?? 0, result.overallScore),
-          completed: existing.completed || result.passed,
-          completedAt: existing.completed ? existing.completedAt : result.passed ? nowSec : null,
+          completed: existing.completed || autoComplete,
+          completedAt: existing.completed ? existing.completedAt : autoComplete ? nowSec : null,
         })
         .where(eq(progress.id, existing.id));
     } else {
@@ -112,10 +121,10 @@ export async function POST(req: NextRequest) {
         userId,
         trackId,
         exerciseId,
-        completed: result.passed,
+        completed: autoComplete,
         bestScore: result.overallScore,
         attempts: 1,
-        completedAt: result.passed ? nowSec : null,
+        completedAt: autoComplete ? nowSec : null,
       });
     }
 
