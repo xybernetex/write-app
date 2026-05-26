@@ -6763,6 +6763,581 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "full-essay",
+    title: "Full Essay Exercises",
+    genre: "nonfiction",
+    difficulty: "advanced",
+    description: "All the component skills — the paragraph, the turn, the argument, the voice — exist to serve the complete essay. These exercises put it all together. You write short, complete pieces: 200–500 words that move from opening to kicker without breaking. The measure isn't any single move but whether the thing works as a whole.",
+    exercises: [
+      {
+        id: "essay-1",
+        title: "The 300-Word Essay",
+        lesson: "A 300-word essay is not a paragraph and not an excuse to skip the moves. It's a real essay in miniature — it has to earn every sentence. The discipline: one position, one piece of evidence or example, one turn or complication, one kicker. Four moves. Nothing wasted.",
+        prompt: "Write a complete essay of 200–350 words on the given topic. It should have all four moves: a clear position, at least one piece of supporting evidence or example, a turn or complication, and a kicker that doesn't summarize. No hedging. No research. Your own thinking only.",
+        wordCountMin: 200,
+        wordCountMax: 350,
+        criteria: [
+          { name: "Position is clear", description: "Is there a discernible claim the essay is making — something arguable, not just a topic?", weight: 0.4 },
+          { name: "Evidence earns its place", description: "Is there at least one specific example or detail that does real work for the argument?", weight: 0.35 },
+          { name: "Essay moves", description: "Does something change between the opening and the closing — a turn, a complication, a deepening?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Position and one supporting move",
+            passThreshold: 50,
+            wordCountMin: 150,
+            wordCountMax: 300,
+            criteria: [
+              { name: "Clear position", description: "Is there a claim the writer is making — not just observing but arguing?", weight: 0.5 },
+              { name: "One concrete move", description: "Is there at least one piece of evidence, example, or specific detail?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: Why most people give advice about things they haven't done.",
+                prompt: "Write 150–300 words. State a clear position on this topic in your first sentence. Support it with at least one concrete example or detail. Doesn't need to be complete — just get the claim and one piece of support down.",
+              },
+              {
+                given: "Topic: The thing that's wrong with how people talk about work-life balance.",
+                prompt: "Write 150–300 words. Stake a position in the first sentence — not 'it's complicated' but an actual claim. Give one example or detail that supports it.",
+              },
+              {
+                given: "Topic: Why reading other people's praise makes you feel worse, not better.",
+                prompt: "Write 150–300 words. Open with your position. Support it with at least one specific observation or example from your own experience or reading.",
+              },
+              {
+                given: "Topic: The mistake people make when they try to change habits.",
+                prompt: "Write 150–300 words. Your first sentence should be a claim. Everything after it should support that claim. At least one sentence should be a specific example, not a general statement.",
+              },
+              {
+                given: "Topic: What gets lost when every conversation becomes content.",
+                prompt: "Write 150–300 words. Open by staking your position. Give one concrete detail or example that makes the argument real — something specific, not general.",
+              },
+            ],
+          },
+          {
+            label: "Add the turn",
+            passThreshold: 65,
+            wordCountMin: 200,
+            wordCountMax: 320,
+            criteria: [
+              { name: "Turn present", description: "Does something change in the essay — a complication, a reframe, a zoom-out — that isn't just repetition?", weight: 0.4 },
+              { name: "Turn earns its place", description: "Does the turn add something to the argument rather than undermining it or padding it?", weight: 0.35 },
+              { name: "Opening and closing connect", description: "Can you trace a line from the opening claim to the closing sentence — do they belong to the same essay?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: Why expertise is becoming less persuasive, not more.",
+                prompt: "Write 200–320 words. State your position. Support it with at least one concrete move. Then turn — complicate your own argument, introduce the thing that makes it harder, or zoom out to what it actually reveals. End somewhere different from where you started.",
+              },
+              {
+                given: "Topic: The problem with treating everything as a system to optimize.",
+                prompt: "Write 200–320 words with a turn. The turn should be the moment where you admit what the optimization framework misses — but don't abandon your position, sharpen it.",
+              },
+              {
+                given: "Topic: What the best writers you've read have in common that isn't style.",
+                prompt: "Write 200–320 words. State your claim. Support it. Then turn — what's the complication, the thing that makes your claim more interesting or harder? End on the harder version of your position.",
+              },
+              {
+                given: "Topic: Why the advice to 'start before you're ready' is both right and wrong.",
+                prompt: "Write 200–320 words. Don't straddle the fence — take a position first. Then earn the complication with a turn that sharpens rather than softens the claim.",
+              },
+              {
+                given: "Topic: What people misunderstand about the relationship between confidence and competence.",
+                prompt: "Write 200–320 words. Open with your claim. Use at least one specific detail. Add a turn that takes the essay somewhere the opening didn't anticipate.",
+              },
+            ],
+          },
+          {
+            label: "Complete essay — all four moves",
+            passThreshold: 75,
+            wordCountMin: 220,
+            wordCountMax: 350,
+            criteria: [
+              { name: "All four moves present", description: "Does the essay have a clear position, concrete support, a genuine turn, and a kicker that doesn't summarize?", weight: 0.4 },
+              { name: "Nothing wasted", description: "Is every sentence earning its place — is there anything that could be cut without loss?", weight: 0.35 },
+              { name: "Essay works as a whole", description: "Does the piece feel complete — does it arrive somewhere that justifies its own existence?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: The difference between being productive and doing the work that matters.",
+                prompt: "Write a complete 220–350 word essay. Four moves: position, support, turn, kicker. The kicker should not summarize — it should leave the reader with something to carry. Write fast, fix nothing.",
+              },
+              {
+                given: "Topic: Why most people never find out what they're actually good at.",
+                prompt: "Write a complete 220–350 word essay. All four moves. The turn should be the hardest sentence to write — don't skip it. End with a kicker that earns the space it takes.",
+              },
+              {
+                given: "Topic: The thing that makes advice from successful people almost useless.",
+                prompt: "Write a complete 220–350 word essay. Position, support, turn, kicker — four moves, no padding. The essay should feel complete: it began somewhere and arrived somewhere.",
+              },
+              {
+                given: "Topic: What happens to your thinking when you write it down versus when you keep it in your head.",
+                prompt: "Write a complete 220–350 word essay. All four moves. The kicker should be the thing the essay was actually building toward — not a summary, a landing.",
+              },
+              {
+                given: "Topic: Why the most important skill in most fields isn't taught.",
+                prompt: "Write a complete 220–350 word essay. Position, support, turn, kicker. Every sentence earns its place. The essay should work as a whole — the opening and the kicker should belong to each other.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "essay-2",
+        title: "The Personal Essay",
+        lesson: "The personal essay doesn't use your experience as the subject — it uses your experience as the evidence. The story is not the point; the story earns the point. Most writers get this backwards: they tell the story and then gesture at a meaning. The discipline is reversed: the argument drives the essay, and the personal material is chosen because it proves something no abstract claim could prove.",
+        prompt: "Write a personal essay on the given topic. Enter through your own experience or observation. But the experience must earn an argument — not just illustrate it. The reader should finish knowing what you think, not just what happened to you.",
+        wordCountMin: 220,
+        wordCountMax: 400,
+        criteria: [
+          { name: "Personal material is evidence", description: "Does the personal story or observation serve as evidence for an argument, not just as subject matter?", weight: 0.4 },
+          { name: "Argument is present", description: "Is there a claim the essay is making — something beyond 'this is what happened to me'?", weight: 0.35 },
+          { name: "The essay earns its ending", description: "Does the closing land somewhere the opening made possible — not summarizing but completing?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Enter through experience, make a claim",
+            passThreshold: 50,
+            wordCountMin: 200,
+            wordCountMax: 350,
+            criteria: [
+              { name: "Personal entry", description: "Does the essay begin with something specific from the writer's experience or observation?", weight: 0.5 },
+              { name: "Claim follows", description: "Does the essay land on an argument — something the personal material is pointed toward?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: A moment when you realized advice you'd received was wrong.",
+                prompt: "Enter through the specific moment — what happened, what you heard, what turned out not to be true. Then land on a claim: what does this reveal that's bigger than one wrong piece of advice? 200–350 words.",
+              },
+              {
+                given: "Topic: Something you believed about work or ambition that changed.",
+                prompt: "Enter through the specific belief — where it came from, what held it in place, when it shifted. Then argue something: what does the change reveal? Not just that you changed, but what the change means. 200–350 words.",
+              },
+              {
+                given: "Topic: A relationship where you learned something you didn't expect.",
+                prompt: "Enter through the relationship — one specific thing that happened, one specific thing you learned. Then make an argument: what does this reveal about the kind of learning that only comes through people? 200–350 words.",
+              },
+              {
+                given: "Topic: A time you were wrong in a way that mattered.",
+                prompt: "Enter through the specific mistake — what you believed, what you did, what it cost. Then argue something: not 'I learned my lesson' but what the mistake revealed about something larger. 200–350 words.",
+              },
+              {
+                given: "Topic: Something about your work that surprised you.",
+                prompt: "Enter through the specific surprise — not a general observation but a particular moment when what you thought would be true wasn't. Then argue what this means. The personal is the evidence; the claim is the essay. 200–350 words.",
+              },
+            ],
+          },
+          {
+            label: "The story earns the argument",
+            passThreshold: 65,
+            wordCountMin: 230,
+            wordCountMax: 380,
+            criteria: [
+              { name: "Story is chosen for its argument", description: "Does this specific story prove something that a different story couldn't prove as well?", weight: 0.4 },
+              { name: "Argument is stronger for the personal entry", description: "Is the argument more convincing because of the personal material — would it be weaker as pure abstraction?", weight: 0.35 },
+              { name: "Essay holds together", description: "Can you trace a clean line from the personal entry to the final claim?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: The gap between what people say they value and what they actually do.",
+                prompt: "Write a personal essay that enters through one specific example from your own life — something you said you valued but didn't act on, or the reverse. The story should prove the argument, not just illustrate it. 230–380 words.",
+              },
+              {
+                given: "Topic: How feedback actually changes you, versus how you think it will.",
+                prompt: "Enter through a specific moment of receiving feedback — what you expected to feel, what you actually felt, what actually changed. Argue something about how feedback works that this experience demonstrates. 230–380 words.",
+              },
+              {
+                given: "Topic: The thing you had to unlearn from how you were educated.",
+                prompt: "Enter through one specific thing — not education in general, but one lesson, one habit, one assumption that got in the way. Argue what had to change and why. The personal entry should be the proof, not the context. 230–380 words.",
+              },
+              {
+                given: "Topic: A moment when your instincts were right and your reasoning was wrong.",
+                prompt: "Enter through the specific situation. Argue what this reveals about the relationship between instinct and analysis — not 'trust your gut' but something more precise. 230–380 words.",
+              },
+              {
+                given: "Topic: What you misunderstood about someone until you didn't.",
+                prompt: "Enter through the specific person and the specific misunderstanding. Argue what the shift in understanding revealed — about the person, about you, or about the category they belong to. The story should be evidence, not just subject. 230–380 words.",
+              },
+            ],
+          },
+          {
+            label: "Complete personal essay",
+            passThreshold: 75,
+            wordCountMin: 260,
+            wordCountMax: 400,
+            criteria: [
+              { name: "Personal and argumentative", description: "Is the essay simultaneously personal — rooted in specific experience — and argumentative — making a claim?", weight: 0.35 },
+              { name: "The specific earns the general", description: "Does the specific experience open outward to something a stranger could care about?", weight: 0.4 },
+              { name: "Complete arc", description: "Does the essay move — from opening to close, something has happened in the reader's understanding?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: Something you got wrong for a long time about how good work happens.",
+                prompt: "Write a complete personal essay. Enter through the specific belief, show where it came from, show when it broke. Argue what you think now. The essay should be complete: an arc from opening to close. 260–400 words.",
+              },
+              {
+                given: "Topic: The role that luck played in something you're proud of.",
+                prompt: "Write a complete personal essay. Don't perform false modesty or defensive pride — argue something about luck and achievement that your specific experience demonstrates. Complete arc, 260–400 words.",
+              },
+              {
+                given: "Topic: A time when doing the right thing was harder than it should have been.",
+                prompt: "Write a complete personal essay. Enter through the specific situation. Argue what it reveals about why doing the right thing is actually hard — not just your situation, but the mechanism. Complete arc, 260–400 words.",
+              },
+              {
+                given: "Topic: What the best mentor or teacher you've had understood that others didn't.",
+                prompt: "Write a complete personal essay. Enter through one specific thing this person did or said. Argue what it reveals about what good teaching or mentorship actually is. 260–400 words.",
+              },
+              {
+                given: "Topic: The moment you realized you'd been optimizing for the wrong thing.",
+                prompt: "Write a complete personal essay. The specific moment, the specific wrong thing, the specific realization. Argue what it reveals about how this kind of mistake happens — not just for you but structurally. 260–400 words.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "essay-3",
+        title: "The Explainer Essay",
+        lesson: "The explainer isn't dumbing down — it's understanding something well enough to translate it. The test: can you explain a complicated thing to a reader who doesn't know why they should care, and make them care by the end? The discipline: explain AND argue. 'Here's how this works' is not an essay. 'Here's how this works, and here's why that changes how you see something else' — that's an essay.",
+        prompt: "Write an explainer essay on the given topic. Your job: the reader should understand something they didn't before, and they should have a take on it by the end. No jargon, no assumed knowledge. Explain it as if to someone smart who hasn't thought about this.",
+        wordCountMin: 220,
+        wordCountMax: 380,
+        criteria: [
+          { name: "Explanation is clear", description: "Would a reader who knew nothing about this topic understand it by the end — not just hear about it but actually understand?", weight: 0.4 },
+          { name: "Explanation earns an argument", description: "Does the essay arrive at a claim — something the explanation made possible that couldn't have been said without it?", weight: 0.35 },
+          { name: "Reader cares by the end", description: "Is there a reason for a stranger to have read this — stakes, implications, something that changes how they see something else?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Explain it clearly",
+            passThreshold: 50,
+            wordCountMin: 180,
+            wordCountMax: 320,
+            criteria: [
+              { name: "Explanation works", description: "Is the concept clear by the end — could someone explain it back?", weight: 0.5 },
+              { name: "No jargon barrier", description: "Is every technical term either avoided or explained?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: Why compound interest is not just a financial concept.",
+                prompt: "Explain compound interest to someone who vaguely knows what it is but has never thought about it seriously. Don't just define it — show how it works in a way that makes a reader go 'oh.' 180–320 words.",
+              },
+              {
+                given: "Topic: How incentives change what people optimize for, not just how hard they work.",
+                prompt: "Explain this concept clearly — what it means, how it actually works, with one clear example. A smart reader who has never thought about this should understand the mechanism by the end. 180–320 words.",
+              },
+              {
+                given: "Topic: What opportunity cost actually means and why most people don't use the concept.",
+                prompt: "Explain opportunity cost in a way that makes it feel like a tool, not a definition. By the end, the reader should be thinking about their own decisions differently. 180–320 words.",
+              },
+              {
+                given: "Topic: Why feedback loops can make problems harder to solve the longer they run.",
+                prompt: "Explain the mechanism clearly. Not just that feedback loops exist — show how the loop works and why it compounds the problem. Concrete example required. 180–320 words.",
+              },
+              {
+                given: "Topic: The difference between first-order and second-order effects.",
+                prompt: "Explain this distinction in a way that makes a reader immediately apply it to something they care about. The explanation should feel like a tool they just acquired. 180–320 words.",
+              },
+            ],
+          },
+          {
+            label: "Explain and argue",
+            passThreshold: 65,
+            wordCountMin: 210,
+            wordCountMax: 350,
+            criteria: [
+              { name: "Explanation is complete", description: "Does the reader understand the concept — not just that it exists but how it works?", weight: 0.35 },
+              { name: "Argument follows from explanation", description: "Is the claim the essay arrives at made possible by the explanation — not bolted on but earned?", weight: 0.4 },
+              { name: "Stakes are clear", description: "Does the reader understand why this matters — what changes if you understand this vs. if you don't?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: How status games work in professional environments.",
+                prompt: "Explain how status games actually function — not just that they exist, but the mechanism. Then argue something: what should someone who understands this do differently? 210–350 words.",
+              },
+              {
+                given: "Topic: Why most organizational change fails before it starts.",
+                prompt: "Explain the mechanism — what actually happens when organizations try to change. Then argue a claim: not 'change is hard' but something more specific about why and what follows from that. 210–350 words.",
+              },
+              {
+                given: "Topic: How attention works as a resource, and what that means for how we spend it.",
+                prompt: "Explain attention as a resource — how it works, what depletes it, what that means. Then argue something: given how attention actually works, what should change? 210–350 words.",
+              },
+              {
+                given: "Topic: Why expertise in one domain doesn't transfer the way people think it does.",
+                prompt: "Explain why expertise is domain-specific — what the research shows, what the mechanism is. Then argue a claim about what follows from this. 210–350 words.",
+              },
+              {
+                given: "Topic: How the way a question is framed determines what answers are possible.",
+                prompt: "Explain the framing effect — how the same question in a different frame produces a different answer. Then argue something about what this means for how we make decisions or have conversations. 210–350 words.",
+              },
+            ],
+          },
+          {
+            label: "Complete explainer with stakes",
+            passThreshold: 75,
+            wordCountMin: 240,
+            wordCountMax: 380,
+            criteria: [
+              { name: "Explanation is complete and clear", description: "Does the reader understand something they didn't — not just have more information but actually understand?", weight: 0.35 },
+              { name: "Argument is earned", description: "Does the essay arrive at a claim the explanation made possible — not a separate opinion but a conclusion the reader can follow?", weight: 0.35 },
+              { name: "Reader changed by the end", description: "Does the reader see something differently after reading — is there a before and after?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Topic: How systems create the behavior of individuals, even when individuals think they're deciding freely.",
+                prompt: "Write a complete explainer essay. Explain the mechanism. Argue a claim. Leave the reader with something to apply to their own life or work. 240–380 words.",
+              },
+              {
+                given: "Topic: Why most productivity advice ignores the most important variable.",
+                prompt: "Explain the variable being ignored. Argue why it matters more than what the advice focuses on. Complete explainer, stakes clear, reader changed. 240–380 words.",
+              },
+              {
+                given: "Topic: How the distinction between complicated and complex changes how you solve problems.",
+                prompt: "Explain the distinction clearly — what complicated means, what complex means, why they require different approaches. Argue what follows from understanding this. 240–380 words.",
+              },
+              {
+                given: "Topic: Why the skills that get you into a leadership role often work against you once you're there.",
+                prompt: "Explain the mechanism — what skills get rewarded on the way up and why they become liabilities. Argue something about what this means for how organizations work or how people should prepare. 240–380 words.",
+              },
+              {
+                given: "Topic: How the way we measure success ends up changing what we think success means.",
+                prompt: "Explain the mechanism — how measurement reshapes the thing being measured. Argue a claim about what this means for how we set goals. Complete essay, 240–380 words.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "essay-4",
+        title: "The Argument Essay",
+        lesson: "The argument essay is the core form of opinion writing. A claim, a case for why that claim is true, the strongest objection you can find, and an answer to it. Most writers skip the objection or treat it like a formality — something to swat away. The discipline: the objection should be strong enough to threaten your argument. If it doesn't, find a harder one.",
+        prompt: "Write an argument essay on the given topic. State your position in the first paragraph. Build the case with at least one concrete piece of evidence or example. Find the strongest objection and handle it honestly — don't strawman it. Land on a conclusion that's stronger for having faced the objection.",
+        wordCountMin: 230,
+        wordCountMax: 420,
+        criteria: [
+          { name: "Position is stated", description: "Is there a clear claim in the essay — something the writer is arguing, not just discussing?", weight: 0.35 },
+          { name: "Evidence is concrete", description: "Is there at least one specific example, detail, or piece of evidence doing real argumentative work?", weight: 0.35 },
+          { name: "Objection is honest", description: "Is the objection handled seriously — not dismissed or strawmanned?", weight: 0.3 },
+        ],
+        stages: [
+          {
+            label: "Claim and support",
+            passThreshold: 50,
+            wordCountMin: 200,
+            wordCountMax: 350,
+            criteria: [
+              { name: "Arguable claim", description: "Is the writer making an actual claim — something that could be disputed?", weight: 0.5 },
+              { name: "Concrete support", description: "Is there at least one specific thing supporting the claim — an example, an observation, a piece of evidence?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: Whether cities or suburbs produce better creative work.",
+                prompt: "Take a position. Not 'it depends' — a real position. Support it with at least one specific observation or example. 200–350 words.",
+              },
+              {
+                given: "Topic: Whether writing every day is good advice.",
+                prompt: "Take a position and argue it. At least one concrete piece of support — something specific, not general. 200–350 words.",
+              },
+              {
+                given: "Topic: Whether the college essay teaches students to write badly.",
+                prompt: "Take a position. Make the case. At least one concrete example or observation. 200–350 words.",
+              },
+              {
+                given: "Topic: Whether being a generalist or a specialist is better in the current economy.",
+                prompt: "Take a clear position and support it with something concrete. Not 'it depends on the person' — argue for one side. 200–350 words.",
+              },
+              {
+                given: "Topic: Whether most career advice is written for the wrong person.",
+                prompt: "Take a position. Support it with at least one specific observation. The claim should be arguable — someone should be able to disagree. 200–350 words.",
+              },
+            ],
+          },
+          {
+            label: "Claim, support, and objection",
+            passThreshold: 65,
+            wordCountMin: 230,
+            wordCountMax: 380,
+            criteria: [
+              { name: "Claim and support present", description: "Is there a clear position supported by something concrete?", weight: 0.3 },
+              { name: "Objection is strong", description: "Is the objection actually threatening to the argument — not a strawman?", weight: 0.4 },
+              { name: "Objection is handled", description: "Does the writer engage with the objection honestly, not just dismiss it?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Topic: Whether social media is net negative for writers.",
+                prompt: "Stake a position. Support it. Then write the strongest objection you can — the one that actually threatens your argument. Handle it honestly. 230–380 words.",
+              },
+              {
+                given: "Topic: Whether long-form writing is in permanent decline.",
+                prompt: "Take a position. Make the case. Find the strongest objection and engage with it — not 'some people say' but the hardest version of the objection. 230–380 words.",
+              },
+              {
+                given: "Topic: Whether the best writers are born, not made.",
+                prompt: "Take a position. Support it. Then find the hardest objection to your position and handle it. The objection should threaten to derail the argument — otherwise it's not hard enough. 230–380 words.",
+              },
+              {
+                given: "Topic: Whether the platform a writer publishes on shapes what they write.",
+                prompt: "Take a position and argue it with concrete support. Then handle the strongest version of the other side. The objection should be the one you'd least like to face. 230–380 words.",
+              },
+              {
+                given: "Topic: Whether editing makes writing better or just safer.",
+                prompt: "Stake a clear position. Make your case with something specific. Then confront the objection that most threatens it. Engage honestly. 230–380 words.",
+              },
+            ],
+          },
+          {
+            label: "Complete argument — position through conclusion",
+            passThreshold: 75,
+            wordCountMin: 260,
+            wordCountMax: 420,
+            criteria: [
+              { name: "Argument is complete", description: "Does the essay have all the moves: position, evidence, objection, and a conclusion that's stronger for having faced the objection?", weight: 0.4 },
+              { name: "Objection improves the argument", description: "Does handling the objection actually deepen the claim — not just survive it?", weight: 0.35 },
+              { name: "Conclusion earns its place", description: "Does the conclusion follow from the full argument — is it the right landing for everything that came before?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Topic: Whether writing about your own life is inherently self-indulgent.",
+                prompt: "Write a complete argument essay. Position, evidence, strongest objection handled honestly, conclusion that's stronger for having faced it. 260–420 words.",
+              },
+              {
+                given: "Topic: Whether most writing advice makes writers worse.",
+                prompt: "Complete argument: stake a position, support it concretely, confront the strongest objection, arrive at a conclusion. The conclusion should reflect what the objection revealed. 260–420 words.",
+              },
+              {
+                given: "Topic: Whether the Substack model is good for readers.",
+                prompt: "Complete argument essay. A real position, real support, the hardest objection, and a conclusion that earned its stance through argument. 260–420 words.",
+              },
+              {
+                given: "Topic: Whether anonymity online produces more or less honest writing.",
+                prompt: "Write the complete argument. All four moves. The conclusion should synthesize — not repeat the opening claim but say something more precise, earned by having faced the objection. 260–420 words.",
+              },
+              {
+                given: "Topic: Whether journalism or essays are better suited to explain the present moment.",
+                prompt: "Full argument: position, concrete support, strongest objection engaged honestly, conclusion that's richer for the friction. 260–420 words.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "essay-5",
+        title: "The Complete Substack Post",
+        lesson: "A Substack post has to do everything an essay does, plus land in an inbox and earn the read in three seconds. The opening has to hook. The argument has to be clear and worth sending to a friend. The ending has to leave the reader with something. And it all has to feel like a person wrote it — not a publication, not a brand, not a content machine. These exercises put it all together.",
+        prompt: "Write a complete Substack post on the given topic. Open with a hook. Develop an argument. Turn it somewhere the reader doesn't expect. End with something the reader can carry out of the piece — not a summary, a payoff.",
+        wordCountMin: 280,
+        wordCountMax: 500,
+        criteria: [
+          { name: "Hook earns the read", description: "Does the opening give the reader a reason to continue — tension, a surprising claim, a specific scene?", weight: 0.35 },
+          { name: "Argument is clear and complete", description: "Is there a real claim and does the essay make the case for it?", weight: 0.35 },
+          { name: "Ending lands", description: "Does the closing give the reader something to carry — not a summary but a payoff?", weight: 0.3 },
+        ],
+        stages: [
+          {
+            label: "Hook and argument",
+            passThreshold: 50,
+            wordCountMin: 250,
+            wordCountMax: 420,
+            criteria: [
+              { name: "Hook works", description: "Does the opening give the reader a reason to keep reading — not just introduce the topic?", weight: 0.5 },
+              { name: "Argument is present", description: "Is there a clear claim the post is making?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Topic: What the best writers you follow have that the mediocre ones don't.",
+                prompt: "Write a Substack post with a hook that earns the read. Don't open with 'In this post I will...' — open with something that pulls. Then make your argument. 250–420 words.",
+              },
+              {
+                given: "Topic: Why the thing everyone says is wrong about social media is actually right.",
+                prompt: "Write a Substack post. The hook should create tension — a claim that makes the reader disagree enough to keep reading. Then earn your argument. 250–420 words.",
+              },
+              {
+                given: "Topic: The thing about ambition that nobody admits.",
+                prompt: "Write a Substack post that opens with a hook — not a warm-up, not a definition, but a sentence that makes the reader lean in. Then make the argument the hook sets up. 250–420 words.",
+              },
+              {
+                given: "Topic: What happens when you take a break from writing and come back.",
+                prompt: "Write a Substack post. Open with something that pulls — a specific moment, a surprising claim, a question that has a real answer. Then make your argument about what the return reveals. 250–420 words.",
+              },
+              {
+                given: "Topic: Why most writers overestimate the importance of finding their niche.",
+                prompt: "Write a Substack post with a hook. The opening should make someone who's thinking about niches want to read. Then argue your position. 250–420 words.",
+              },
+            ],
+          },
+          {
+            label: "Hook, argument, and turn",
+            passThreshold: 65,
+            wordCountMin: 280,
+            wordCountMax: 460,
+            criteria: [
+              { name: "Hook earns the read", description: "Does the opening give a smart, busy reader a reason to continue?", weight: 0.3 },
+              { name: "Turn is genuine", description: "Does something change in the middle of the essay — a complication, a reframe, a deepening that wasn't in the hook?", weight: 0.4 },
+              { name: "Argument holds through the turn", description: "Does the essay's central claim survive and strengthen through the turn?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Topic: The real reason people don't finish what they start.",
+                prompt: "Write a Substack post with a hook, a clear argument, and a turn — the moment where the essay gets harder or more true than the opening promised. 280–460 words.",
+              },
+              {
+                given: "Topic: Why reading old emails or journals is uncomfortable and what that reveals.",
+                prompt: "Write a Substack post. Hook, argument, turn. The turn should be the thing that makes the essay more interesting than the hook promised — the complication you couldn't have telegraphed. 280–460 words.",
+              },
+              {
+                given: "Topic: What the advice 'be yourself' actually means when it comes from someone who's successful.",
+                prompt: "Write a Substack post with a hook that creates tension. Build your argument. Then turn — add the complication or the thing that makes the initial claim harder. 280–460 words.",
+              },
+              {
+                given: "Topic: Why the writers people describe as 'clear' are actually doing something harder than clarity.",
+                prompt: "Write a Substack post. Hook, argument, turn. The turn should complicate the opening claim in a way that deepens it rather than retreating from it. 280–460 words.",
+              },
+              {
+                given: "Topic: The thing that makes some feedback useful and most feedback noise.",
+                prompt: "Write a Substack post. Open with a hook. Build the case. Turn somewhere — a complication, a harder version of your claim, a reframe. 280–460 words.",
+              },
+            ],
+          },
+          {
+            label: "Complete Substack post — all moves",
+            passThreshold: 75,
+            wordCountMin: 300,
+            wordCountMax: 500,
+            criteria: [
+              { name: "Hook earns the read", description: "Does the opening give a reader who almost didn't open this email a reason to stay?", weight: 0.3 },
+              { name: "Argument is complete and turned", description: "Is there a real claim, real support, and a genuine turn that deepens the essay?", weight: 0.4 },
+              { name: "Ending is a payoff", description: "Does the closing leave the reader with something to carry — something they couldn't have gotten from the opening alone?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Topic: The thing about being a beginner that experienced people forget.",
+                prompt: "Write a complete Substack post — hook, argument, turn, payoff. The ending should be something a reader forwards to someone else. 300–500 words.",
+              },
+              {
+                given: "Topic: Why the people who say they don't care about metrics care more than anyone.",
+                prompt: "Write a complete Substack post. Hook that creates productive tension. Argument. Turn. A closing that lands — not a summary, a payoff. 300–500 words.",
+              },
+              {
+                given: "Topic: What you've changed your mind about in the last year and what changed it.",
+                prompt: "Write a complete Substack post. All the moves. The ending should leave the reader with something to do with or think about — not just the end of your argument but the beginning of theirs. 300–500 words.",
+              },
+              {
+                given: "Topic: The skill that matters most in the work you do, that almost nobody talks about.",
+                prompt: "Write a complete Substack post. Hook, argument, turn, payoff. Every move should earn its place. The ending should be what the whole post was building toward. 300–500 words.",
+              },
+              {
+                given: "Topic: Why most writers wait too long to say the thing they actually want to say.",
+                prompt: "Write a complete Substack post. Hook, argument, turn, payoff. Say the thing early. The ending should be something the reader didn't expect but couldn't argue with. 300–500 words.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "voice-work",
     title: "Voice Work",
     genre: "nonfiction",
