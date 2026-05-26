@@ -6763,6 +6763,591 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "opinion-development",
+    title: "Opinion Development",
+    genre: "nonfiction",
+    difficulty: "beginner",
+    description:
+      "Most writers skip from 'I feel something about this' directly to writing — without the intermediate step of developing the opinion into something actually arguable. The result is pieces that assert a vague position rather than make a case. This track drills the five moves: turning an observation into a claim, sharpening a blurry position, finding the strongest objection, holding a position while acknowledging its limits, and translating a position into the argument it requires.",
+    exercises: [
+      {
+        id: "op-1",
+        title: "Observation to Claim",
+        lesson:
+          "An observation is something you notice. A claim is something you think it means. Most writers stop at the observation — 'people seem more anxious than they used to be' — and never take the step to 'which means X about Y.' The observation gets you in the room. The claim earns your seat at the table. The test: could someone disagree with what you've said? If not, you've reported an observation, not developed a claim.",
+        prompt:
+          "Given an observation, write the claim it points toward — what you think it means, reveals, or implies. The claim should be arguable: someone could contest it. 20–60 words.",
+        wordCountMin: 15,
+        wordCountMax: 70,
+        criteria: [
+          { name: "Moves from observation to meaning", description: "The response says what the observation means — not just what it is.", weight: 0.55 },
+          { name: "Claim is arguable", description: "A thoughtful person could push back on the claim — it's not a fact or a tautology.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Make the leap",
+            passThreshold: 50,
+            wordCountMin: 15,
+            wordCountMax: 70,
+            criteria: [
+              { name: "Any claim present", description: "The writer goes beyond restating the observation — some interpretation of what it means is present.", weight: 0.55 },
+              { name: "Claim is connected to observation", description: "The claim follows from the observation — not a non-sequitur.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "Observation: The self-help section of any bookstore is the largest section by volume, and it turns over inventory faster than fiction.",
+                prompt: "Write the claim this observation points toward — what does it mean? What does it reveal? Something arguable. 20–55 words.",
+              },
+              {
+                given: "Observation: Most people, when asked what they do for work, lead with their job title rather than what they actually spend their time doing.",
+                prompt: "Write the claim this observation points toward. What does it reveal or mean? Arguable — not just 'people identify with their jobs.' 20–55 words.",
+              },
+              {
+                given: "Observation: The vocabulary of therapy — boundaries, triggers, trauma, attachment styles — has spread from clinical contexts into everyday conversation among people who have never been in therapy.",
+                prompt: "Write the claim this observation points toward. What does it mean that this language has spread? Something arguable. 20–55 words.",
+              },
+              {
+                given: "Observation: Parents today spend dramatically more time actively engaged with their children than parents of previous generations did, even though most parents report feeling like they're not doing enough.",
+                prompt: "Write the claim. What does this combination of facts reveal? Not just 'modern parenting is stressful' — what does it mean? 20–55 words.",
+              },
+              {
+                given: "Observation: The most-liked posts on professional networks are almost always about personal struggle, failure, or vulnerability — not about expertise or accomplishment.",
+                prompt: "Write the claim this observation points toward. What does it reveal about professional networks, or about what people want from them? Arguable. 20–55 words.",
+              },
+            ],
+          },
+          {
+            label: "Claim is arguable",
+            passThreshold: 65,
+            wordCountMin: 20,
+            wordCountMax: 65,
+            criteria: [
+              { name: "Claim is specific", description: "Not 'this tells us something about society' — a specific, named claim about a specific thing.", weight: 0.45 },
+              { name: "Claim is contestable", description: "A thoughtful person could push back — it's not a fact, a truism, or a vague negative.", weight: 0.4 },
+              { name: "Claim follows from observation", description: "The leap is earned — the observation genuinely points here.", weight: 0.15 },
+            ],
+            variants: [
+              {
+                given: "Observation: Advice from successful people almost always describes what they did after they'd already found the thing that worked — not the period of not knowing, trying wrong things, or getting lucky.",
+                prompt: "Write a specific, arguable claim — what does this reveal? Not 'successful people's advice is biased' (too vague). Something a thoughtful person would want to push back on. 20–60 words.",
+              },
+              {
+                given: "Observation: The genre of the 'hard conversation' — the talk where you tell someone something difficult — now has a formal structure taught in books, workshops, and management training, with named steps and prescribed language.",
+                prompt: "Write a specific, arguable claim about what the formalization of hard conversations reveals. Not 'communication has become complicated.' Something contestable and specific. 20–60 words.",
+              },
+              {
+                given: "Observation: The people most vocal about work-life balance are almost always knowledge workers with flexibility in their schedules. The people with the least flexible schedules talk about it the least.",
+                prompt: "Write a specific, arguable claim — what does this pattern reveal? Something a reader would want to contest. Not just 'the conversation is hypocritical.' 20–60 words.",
+              },
+              {
+                given: "Observation: Crowdfunding campaigns for medical expenses are now common enough to be a normal part of American financial life — something people plan for and donate to regularly.",
+                prompt: "Write a specific, arguable claim about what this normalization reveals. Something specific enough to argue with. 20–60 words.",
+              },
+              {
+                given: "Observation: The phrase 'do your own research' shifted — in roughly a decade — from being advice about intellectual independence to being associated with conspiracy thinking.",
+                prompt: "Write a specific, arguable claim about what this shift in meaning reveals. Not just 'trust in institutions has changed.' Something a thoughtful person would want to push back on. 20–60 words.",
+              },
+            ],
+          },
+          {
+            label: "Claim implies the essay",
+            passThreshold: 75,
+            wordCountMin: 25,
+            wordCountMax: 60,
+            criteria: [
+              { name: "Claim is sharp and specific", description: "The claim is exact — a reader knows precisely what they're agreeing or disagreeing with.", weight: 0.4 },
+              { name: "Claim creates an obligation", description: "The reader can predict what the essay will need to show — the claim implies the argument.", weight: 0.35 },
+              { name: "Claim is interesting", description: "The claim is worth arguing — not obvious, not merely contrarian, but worth developing.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Observation: The most successful Substack newsletters are built around a specific way of thinking, not around a topic. The writer who covers everything through the lens of incentives, or through the lens of history, or through the lens of power, builds a more loyal audience than the writer who covers a single beat.",
+                prompt: "Write a claim so specific that a reader knows exactly what the essay needs to demonstrate. Sharp, interesting, creates a clear obligation. 25–55 words.",
+              },
+              {
+                given: "Observation: Companies that talk the most about culture tend to have the most specific rules about behavior — detailed dress codes, mandatory events, enforced vocabulary. The companies that genuinely have a culture rarely need to describe it.",
+                prompt: "Write a sharp claim that implies the essay to follow. The reader should know what the piece will need to show. 25–55 words.",
+              },
+              {
+                given: "Observation: Most writing about creativity is written by people who are not blocked and directed at people who are. The writers who are genuinely stuck don't tend to write about being stuck — they write around it or not at all.",
+                prompt: "Write a claim so specific and interesting that it creates a clear obligation for the essay. Sharp, arguable, implies the argument. 25–55 words.",
+              },
+              {
+                given: "Observation: The market for books about how to be a good manager is enormous. The market for books about how to be a good employee — how to take direction, how to execute someone else's vision — barely exists.",
+                prompt: "Write a claim that is specific enough to be interesting and creates a clear obligation for the essay. The reader knows what they're signing up to read. 25–55 words.",
+              },
+              {
+                given: "Observation: The people who are most publicly confident about their opinions are rarely the people who have thought longest about the subject. Deep familiarity with a question tends to produce more hedging, more qualification, more 'it depends' — not less.",
+                prompt: "Write a sharp, specific claim that implies the argument. Interesting enough to be worth writing, specific enough to be arguable. 25–55 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "op-2",
+        title: "Sharpening the Position",
+        lesson:
+          "Most first-draft positions are blurry. 'Social media is bad for us' is not a position — it's a category. It doesn't tell you what bad means, which social media, compared to what, for whom. Blurry positions sound like opinions but function like topics: they can accommodate any argument and therefore demand none. The skill is taking a vague position and making it specific enough to argue — specific enough that you know what would prove it wrong.",
+        prompt:
+          "Given a blurry position, write a sharpened version — specific enough that a reader knows what they're agreeing or disagreeing with, and specific enough that you could imagine evidence that would prove it wrong. 20–55 words.",
+        wordCountMin: 15,
+        wordCountMax: 65,
+        criteria: [
+          { name: "More specific than the original", description: "The sharpened version names something the original didn't — a specific claim, not just the same claim rephrased.", weight: 0.55 },
+          { name: "Arguable and interesting", description: "The sharpened position is worth disagreeing with — not a truism, not merely negative.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Get more specific",
+            passThreshold: 50,
+            wordCountMin: 15,
+            wordCountMax: 65,
+            criteria: [
+              { name: "Specificity increased", description: "The response is more specific than the given position — something has been named or narrowed.", weight: 0.6 },
+              { name: "Still arguable", description: "The position can still be contested — it hasn't been narrowed into a fact.", weight: 0.4 },
+            ],
+            variants: [
+              {
+                given: "Blurry position: 'The way we hire people is broken.'",
+                prompt: "Sharpen this. What specifically is broken? For whom? Compared to what? More specific, still arguable. 15–50 words.",
+              },
+              {
+                given: "Blurry position: 'Social media has made people worse at disagreeing.'",
+                prompt: "Sharpen this. What kind of disagreeing? In what context? What specifically has changed? More specific, still arguable. 15–50 words.",
+              },
+              {
+                given: "Blurry position: 'Productivity culture is bad for creativity.'",
+                prompt: "Sharpen this. What aspect of productivity culture? What kind of creativity? What's the specific mechanism? More specific, still arguable. 15–50 words.",
+              },
+              {
+                given: "Blurry position: 'We've lost something important about how communities work.'",
+                prompt: "Sharpen this. What specifically has been lost? Which communities? What does 'important' mean here? More specific, still arguable. 15–50 words.",
+              },
+              {
+                given: "Blurry position: 'The news media is failing at its job.'",
+                prompt: "Sharpen this. Which media, what job, failing how, compared to what standard? More specific, still arguable. 15–50 words.",
+              },
+            ],
+          },
+          {
+            label: "Specific enough to argue",
+            passThreshold: 65,
+            wordCountMin: 20,
+            wordCountMax: 60,
+            criteria: [
+              { name: "Names the specific mechanism or claim", description: "The sharpened position names what, how, or why — not just more of the same vagueness.", weight: 0.45 },
+              { name: "Implies what would prove it wrong", description: "The position is specific enough that a reader could imagine evidence that would falsify it.", weight: 0.35 },
+              { name: "Interesting, not just narrower", description: "The sharpened version is worth reading about — specificity made it more interesting, not just smaller.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Blurry position: 'Remote work has changed how people think about careers.'",
+                prompt: "Sharpen until you can say what would prove you wrong. What specifically has changed, for whom, and what does that mean? 20–55 words.",
+              },
+              {
+                given: "Blurry position: 'The advice you get from successful people is usually not very useful.'",
+                prompt: "Sharpen until the position implies what would prove it wrong. Name the specific problem with the advice, and the specific mechanism. 20–55 words.",
+              },
+              {
+                given: "Blurry position: 'We're too focused on productivity and not focused enough on what we're being productive toward.'",
+                prompt: "Sharpen this. Name the specific thing that's being ignored, the specific way productivity crowds it out, and who this applies to. 20–55 words.",
+              },
+              {
+                given: "Blurry position: 'The way we talk about mental health has changed something important.'",
+                prompt: "Sharpen until you can say what would prove you wrong. What has changed, what does it affect, and what's the specific claim? 20–55 words.",
+              },
+              {
+                given: "Blurry position: 'Cities have lost something that used to make them interesting.'",
+                prompt: "Sharpen this. What specifically, which cities, lost to what, and what was the mechanism of loss? Specific enough to argue with. 20–55 words.",
+              },
+            ],
+          },
+          {
+            label: "Sharp enough to build on",
+            passThreshold: 75,
+            wordCountMin: 25,
+            wordCountMax: 55,
+            criteria: [
+              { name: "Position is a single, clean sentence", description: "One sentence, no compound hedges — a clean, fully committed claim.", weight: 0.3 },
+              { name: "Specific enough to be falsifiable", description: "A reader could name what evidence would disprove it — the position has real content.", weight: 0.4 },
+              { name: "Interesting enough to be worth writing", description: "The sharpened position is a claim someone would want to read an essay about.", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Blurry position: 'The way we educate people for work doesn't actually prepare them for work.'",
+                prompt: "Write one sharp, clean sentence. Specific enough that a reader could name what would disprove it. Interesting enough that someone would want to read the essay. 25–50 words.",
+              },
+              {
+                given: "Blurry position: 'The internet has made it harder, not easier, to know what's true.'",
+                prompt: "Write one sharp, clean sentence. Name the specific mechanism, the specific population, or the specific domain where this is most true. Falsifiable, interesting. 25–50 words.",
+              },
+              {
+                given: "Blurry position: 'Most networking is a waste of time.'",
+                prompt: "Write one sharp, clean, fully committed sentence. Specific enough to falsify. Not just narrower — actually more interesting. 25–50 words.",
+              },
+              {
+                given: "Blurry position: 'We've confused activity with progress in how we work.'",
+                prompt: "Write one clean sentence that names the specific confusion, the specific cost, or the specific context. Sharp, falsifiable, worth reading about. 25–50 words.",
+              },
+              {
+                given: "Blurry position: 'The way we talk about ambition has changed in the last decade.'",
+                prompt: "Write one sharp sentence that names what changed, for whom, and what it means. Clean, specific, interesting. 25–50 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "op-3",
+        title: "The Strongest Objection",
+        lesson:
+          "You haven't really developed your opinion until you know what the best case against it is. Most writers avoid this — they either ignore the objection or knock down a weak version of it. Steel-manning is different: you build the strongest possible version of the argument against your position, not the easiest one. The point isn't to change your mind. It's to understand your position well enough to defend what's actually true about it.",
+        prompt:
+          "Given a position, write the strongest possible objection to it. Not the most common objection — the most honest one. The objection should be strong enough that a reader thinks: they've got a point. 40–90 words.",
+        wordCountMin: 30,
+        wordCountMax: 100,
+        criteria: [
+          { name: "Objection is real, not straw", description: "The objection is a genuine challenge — not a weakened version the writer can easily dismiss.", weight: 0.55 },
+          { name: "Objection is honest", description: "The writer has actually thought about what's hard about their position — not performed difficulty.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Find a real objection",
+            passThreshold: 50,
+            wordCountMin: 30,
+            wordCountMax: 100,
+            criteria: [
+              { name: "Objection is present", description: "A genuine challenge to the position is stated — not a restatement of the position.", weight: 0.55 },
+              { name: "Not an obvious straw man", description: "The objection is something a reasonable person might actually believe.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "Position: 'Most career advice is useless because it's always written backward — by people describing what worked after they know it worked, not what to do when you don't know what will work.'",
+                prompt: "Write the strongest real objection to this position. Something a thoughtful person would actually believe. 30–80 words.",
+              },
+              {
+                given: "Position: 'Open offices were sold as collaboration tools but are primarily anxiety machines — environments designed for visibility, not for work.'",
+                prompt: "Write the strongest objection. Not 'some people like them.' The honest challenge a thoughtful person would make. 30–80 words.",
+              },
+              {
+                given: "Position: 'The advice to build a personal brand has converted professional identity into a performance, making it harder to think clearly about what you actually want.'",
+                prompt: "Write the strongest objection to this. Something a thoughtful person who has benefited from personal branding would actually say. 30–80 words.",
+              },
+              {
+                given: "Position: 'Expertise in most fields is more fragile than it looks — most experts are highly confident about a narrow set of conclusions that rest on a much shakier empirical foundation than they admit.'",
+                prompt: "Write the strongest real objection. Not 'experts have studied this more than you.' The honest challenge to this position. 30–80 words.",
+              },
+              {
+                given: "Position: 'The push to make children's entertainment educational has produced a generation of kids who are good at learning from content and bad at being bored — which is where most creativity actually lives.'",
+                prompt: "Write the strongest objection to this. Something a thoughtful parent or educator would actually believe. 30–80 words.",
+              },
+            ],
+          },
+          {
+            label: "Steel-man it",
+            passThreshold: 65,
+            wordCountMin: 40,
+            wordCountMax: 90,
+            criteria: [
+              { name: "Strongest version of the objection", description: "This is the best case against the position — not the most common one, but the most honest.", weight: 0.5 },
+              { name: "Objection has its own internal logic", description: "The objection makes a coherent positive case, not just a negation of the original position.", weight: 0.3 },
+              { name: "Objection is difficult to dismiss", description: "A reader who holds the original position would need to actually think about this.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Position: 'Remote work has primarily benefited knowledge workers with good home situations and disproportionately hurt younger employees, who lose informal mentorship, ambient learning, and the social infrastructure of early career life.'",
+                prompt: "Write the strongest version of the objection — the most honest case a thoughtful remote work advocate would make. Internal logic, difficult to dismiss. 40–85 words.",
+              },
+              {
+                given: "Position: 'The genre of the apology letter has become a performance of accountability without the substance of it — a formal act that signals contrition without requiring any of the behavioral change contrition is supposed to produce.'",
+                prompt: "Steel-man the objection. What's the strongest honest case that public apologies actually serve a real function? Coherent positive argument, not just a rebuttal. 40–85 words.",
+              },
+              {
+                given: "Position: 'Telling people to do what they love is class-coded advice — it assumes you have the financial cushion to experiment, the social capital to recover from failure, and the family background that made certain loves seem possible.'",
+                prompt: "Write the strongest version of the objection — the most honest case that do what you love is genuinely useful advice. Internal logic, difficult to dismiss. 40–85 words.",
+              },
+              {
+                given: "Position: 'Social media has made political engagement more theatrical and less effective — converting the energy that used to go into organizing, showing up, and sustained attention into posting, sharing, and the performance of concern.'",
+                prompt: "Steel-man the objection. What's the strongest honest case that social media has made political engagement more effective in some real way? Coherent, difficult to dismiss. 40–85 words.",
+              },
+              {
+                given: "Position: 'The emphasis on psychological safety in workplaces has, in some environments, made it harder to give honest feedback — replacing the discomfort of criticism with the discomfort of never knowing where you actually stand.'",
+                prompt: "Write the strongest objection — the honest case a thoughtful person who values psychological safety would make. Internal logic, not a straw man. 40–85 words.",
+              },
+            ],
+          },
+          {
+            label: "Engage with it honestly",
+            passThreshold: 75,
+            wordCountMin: 60,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Objection is fully and fairly stated", description: "The strongest version of the challenge gets real space — not a caricature.", weight: 0.35 },
+              { name: "Position survives the engagement", description: "The writer acknowledges what's true in the objection without abandoning their claim.", weight: 0.4 },
+              { name: "Both sides are taken seriously", description: "The result feels honest — not a setup for dismissal, not a capitulation.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Position: 'The meritocracy myth does the most damage not by lying about outcomes but by convincing the winners that they deserved it and the losers that they didn't — which is worse than a lie because it's partially true.'",
+                prompt: "Write the strongest objection — then engage with it honestly. Position survives. Both sides taken seriously. 60–140 words.",
+              },
+              {
+                given: "Position: 'The self-help industry has figured out that the most profitable thing it can do is never actually solve your problem — just help you feel better about having it, then generate new problems to feel better about.'",
+                prompt: "Write the strongest objection, then engage with it honestly. Don't dismiss it. Don't abandon the position. 60–140 words.",
+              },
+              {
+                given: "Position: 'Most writing advice is about eliminating friction — outlining, drafting, editing — without acknowledging that friction is where the thinking happens. The writer who removes all the friction has often removed the part where they figure out what they think.'",
+                prompt: "Write the strongest objection, then engage with it. The objection gets fair space. The position survives. 60–140 words.",
+              },
+              {
+                given: "Position: 'The 24-hour news cycle has created a journalism that is excellent at covering what happened and nearly incapable of explaining why — because why requires time, and time is the one thing the cycle has eliminated.'",
+                prompt: "Write the strongest objection, engage with it honestly. Both sides taken seriously. Position survives without dismissing the challenge. 60–140 words.",
+              },
+              {
+                given: "Position: 'The pressure to have a side — to declare allegiance, to signal affiliation — has made it almost impossible to hold nuanced positions in public, which means the positions that get expressed publicly are systematically more extreme than the positions people actually hold.'",
+                prompt: "Write the strongest objection, engage with it honestly, let the position survive. Neither a dismissal nor a capitulation. 60–140 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "op-4",
+        title: "The Nuance Move",
+        lesson:
+          "There's a difference between hedging and holding a position while acknowledging its limits. Hedging — 'but it's complicated,' 'of course there are exceptions,' 'it depends' — weakens the claim by retreating from it. The nuance move is different: 'this is true, except when X, and that exception actually sharpens what I'm claiming about the rest.' The limits you name can make the claim more precise, not less. The test: after the nuance, does the position feel stronger or weaker?",
+        prompt:
+          "Given a position, write the nuance move — state where the claim doesn't apply or what complicates it, in a way that sharpens rather than weakens the position. 35–80 words.",
+        wordCountMin: 25,
+        wordCountMax: 90,
+        criteria: [
+          { name: "Limits are named", description: "The writer acknowledges where the claim doesn't apply or what complicates it.", weight: 0.45 },
+          { name: "Position is not abandoned", description: "The nuance sharpens the claim — the position still stands, and may stand more firmly.", weight: 0.55 },
+        ],
+        stages: [
+          {
+            label: "Acknowledge the limit",
+            passThreshold: 50,
+            wordCountMin: 25,
+            wordCountMax: 90,
+            criteria: [
+              { name: "Some limit acknowledged", description: "The writer names where the claim runs into trouble or doesn't apply.", weight: 0.5 },
+              { name: "Position remains", description: "The acknowledgment doesn't undo the claim — the writer is still holding a position.", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Position: 'Most feedback is really the feedback-giver's preferences dressed up as objective assessment.'",
+                prompt: "Write the nuance move — where doesn't this apply? What complicates it? Acknowledge the limit without abandoning the claim. 25–75 words.",
+              },
+              {
+                given: "Position: 'The open office was an experiment in surveillance, not collaboration.'",
+                prompt: "Write the nuance move — where does this claim run into trouble? Acknowledge the limit without retreating from the position. 25–75 words.",
+              },
+              {
+                given: "Position: 'Credentialism — using degrees and certifications as proxies for competence — has substituted signaling for skill in most hiring.'",
+                prompt: "Write the nuance move — where doesn't credentialism function this way? What complicates the claim? Acknowledge the limit, keep the position. 25–75 words.",
+              },
+              {
+                given: "Position: 'The genre of the Ted Talk has trained speakers to perform insight rather than deliver it — to hit the emotional beats of revelation without the content.'",
+                prompt: "Write the nuance move — where does this claim run into trouble? What complicates it? Acknowledge the limit without retreating. 25–75 words.",
+              },
+              {
+                given: "Position: 'Networking events are optimized for the people who need them least — the extroverted, the already-connected, the people comfortable performing confidence in rooms full of strangers.'",
+                prompt: "Write the nuance move — where doesn't this apply? What complicates the claim? Acknowledge the limit, hold the position. 25–75 words.",
+              },
+            ],
+          },
+          {
+            label: "Limit sharpens the claim",
+            passThreshold: 65,
+            wordCountMin: 35,
+            wordCountMax: 80,
+            criteria: [
+              { name: "Limit is specific", description: "Not 'of course there are exceptions' — a named, specific case where the claim doesn't hold.", weight: 0.4 },
+              { name: "Limit clarifies what the claim is really about", description: "The exception reveals the shape of the rule — the claim is more precise after the nuance.", weight: 0.4 },
+              { name: "Position is still standing", description: "The claim is sharper, not weaker — the nuance didn't do damage.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Position: 'Most career advice is biographical — it tells you what worked for one person in one context and presents it as a transferable principle.'",
+                prompt: "Write a specific nuance move — where does this not apply? Name it. The exception should reveal what the claim is really about. 35–75 words.",
+              },
+              {
+                given: "Position: 'The language of wellness has medicalized ordinary unhappiness — turned the normal experience of being a person into a disorder to be managed.'",
+                prompt: "Write a specific nuance move. Name where the claim runs into trouble. The limit should clarify the shape of the claim, not undermine it. 35–75 words.",
+              },
+              {
+                given: "Position: 'Hustle culture is a way of outsourcing the question of what you want — if you're always building, you never have to ask what you're building toward.'",
+                prompt: "Write a specific nuance move — name the case where hustle culture isn't functioning this way. The exception should sharpen the claim. 35–75 words.",
+              },
+              {
+                given: "Position: 'The résumé has become a document that teaches applicants to translate experience into the language of accomplishment even when no accomplishment occurred.'",
+                prompt: "Write a specific nuance move. Where doesn't this apply? The named limit should reveal what the claim is actually asserting. 35–75 words.",
+              },
+              {
+                given: "Position: 'The discourse around authenticity in professional life has produced a performance of authenticity — a careful presentation of seeming unguarded.'",
+                prompt: "Write a specific nuance move — name where this doesn't apply or where the pattern breaks. The exception should clarify the claim. 35–75 words.",
+              },
+            ],
+          },
+          {
+            label: "Nuance is a sharpening tool",
+            passThreshold: 75,
+            wordCountMin: 50,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Exception is precisely named", description: "The limit is specific and real — not a vague gesture at complexity.", weight: 0.3 },
+              { name: "Claim is more precise after the nuance", description: "The reader understands exactly what the claim is and isn't asserting — the nuance did clarifying work.", weight: 0.45 },
+              { name: "Position is stronger, not weaker", description: "The piece feels more honest and more credible after the nuance — not hedged, refined.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Position: 'The best way to learn how to write is not to take a writing class but to get feedback on writing that matters to you — writing you actually need to improve.'",
+                prompt: "Write a nuance move that makes this claim more precise without weakening it. Exception specifically named. Claim stronger after. 50–120 words.",
+              },
+              {
+                given: "Position: 'Transparency in organizations is less often about information sharing and more often about managing the perception of openness — the appearance of the open door without the reality of it.'",
+                prompt: "Write a nuance move that sharpens this claim. Name the specific limit. Claim more precise after the nuance, not weaker. 50–120 words.",
+              },
+              {
+                given: "Position: 'The advice to set boundaries has replaced, for a generation, the older advice to simply tolerate things — which was bad advice, but boundaries talk has created its own problems by making every conflict about self-protection rather than negotiation.'",
+                prompt: "Write a nuance move that refines this claim. Precisely named exception. More precise after, not hedged. 50–120 words.",
+              },
+              {
+                given: "Position: 'The people who write most confidently about a subject are rarely the people who know it best — expertise produces uncertainty, and confidence is often a sign of not having gone deep enough.'",
+                prompt: "Write a nuance move that sharpens this claim. Name the specific exception. Position stronger after the refinement. 50–120 words.",
+              },
+              {
+                given: "Position: 'The market for books about productivity is maintained by people for whom reading about productivity is itself a form of productive-feeling procrastination — it gives the sensation of working without requiring any of the work.'",
+                prompt: "Write a nuance move that makes this claim more precise and more honest. Exception specifically named. Position stronger after. 50–120 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "op-5",
+        title: "From Position to Argument",
+        lesson:
+          "Holding a position is not the same as having an argument. The position is what you think. The argument is what you'd need to demonstrate to convince a skeptic. Most writers know their position but haven't thought about their argument — what they'd need to show, in what order, to take a reader who disagrees from doubt to agreement. This exercise is pre-writing: mapping the argument before you write a word of the essay.",
+        prompt:
+          "Given a position, write the argument it requires — what you'd need to demonstrate, in what sequence, to convince a thoughtful skeptic. Not the essay itself — the map of what the essay needs to show. 50–120 words.",
+        wordCountMin: 40,
+        wordCountMax: 130,
+        criteria: [
+          { name: "Argument is mapped, not just restated", description: "The response identifies what needs to be shown — not a restatement of the position in different words.", weight: 0.5 },
+          { name: "Sequence is present", description: "The argument has an order — what comes first, what it makes possible, what the payoff is.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "What needs to be shown",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 130,
+            criteria: [
+              { name: "At least one thing to demonstrate named", description: "The response identifies something that would need to be shown to support the position.", weight: 0.55 },
+              { name: "Different from restating the position", description: "The response adds something — it's not just the position again.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "Position: 'The résumé format actively rewards people who are good at self-promotion over people who are good at their jobs.'",
+                prompt: "Map what the argument needs to show. What would you need to demonstrate to convince a skeptic this is true? 40–110 words.",
+              },
+              {
+                given: "Position: 'Most management training teaches managers how to talk about problems rather than how to fix them.'",
+                prompt: "Map what this argument needs to show. What would you need to demonstrate? What would a skeptic need to see? 40–110 words.",
+              },
+              {
+                given: "Position: 'The push to measure everything in schools has made it harder to teach the things that matter most.'",
+                prompt: "Map what the argument needs to show to convince a skeptic. What needs to be demonstrated, and in what order? 40–110 words.",
+              },
+              {
+                given: "Position: 'Advice culture has shifted the burden of structural problems onto individuals — made it a personal failure to struggle in conditions that would make anyone struggle.'",
+                prompt: "Map what this argument needs to show. What would you need to demonstrate? Where does the argument begin? 40–110 words.",
+              },
+              {
+                given: "Position: 'The way we talk about creativity — as a talent you either have or don't — is the thing that most reliably prevents people from developing it.'",
+                prompt: "Map the argument. What needs to be shown? In what order? What does the skeptic need to see? 40–110 words.",
+              },
+            ],
+          },
+          {
+            label: "Argument is organized",
+            passThreshold: 65,
+            wordCountMin: 55,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Claim plus reason plus evidence type", description: "The map includes what you'd claim, why it's true, and what kind of evidence would demonstrate it.", weight: 0.45 },
+              { name: "Sequence is logical", description: "The steps are in an order that makes sense — each one makes the next possible.", weight: 0.35 },
+              { name: "Addresses the obvious objection", description: "The map accounts for the main thing a skeptic would push back on.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Position: 'The way elite universities select students optimizes for a very narrow kind of intelligence — the kind that performs well under adult supervision — and produces graduates who are good at succeeding in institutions but not necessarily good at building them.'",
+                prompt: "Write an organized argument map: claim + reasons + evidence types + how you'd handle the main objection. 55–115 words.",
+              },
+              {
+                given: "Position: 'The market for self-improvement content is sustained not by people improving but by people feeling like they're improving — which is a different product that requires a different kind of maintenance.'",
+                prompt: "Write an organized argument map. Claim, reasons, evidence types, how you'd handle the objection. Sequence that makes sense. 55–115 words.",
+              },
+              {
+                given: "Position: 'The coverage of technology companies by mainstream media has been systematically too credulous — treating products and founders as interesting because they're large, not because they're important.'",
+                prompt: "Map the argument in an organized way. What needs to be shown, in what order, with what kinds of evidence, addressing the main objection. 55–115 words.",
+              },
+              {
+                given: "Position: 'Remote-first companies have not solved the collaboration problem — they've made it invisible by moving it from the office into asynchronous tools where it's harder to see and harder to fix.'",
+                prompt: "Write an organized argument map: the claim, the reasons, the evidence types, the main objection and how you'd engage it. 55–115 words.",
+              },
+              {
+                given: "Position: 'The advice to build in public — to share your work and process as you go — primarily benefits people who already have an audience and actively disadvantages people who are still figuring things out.'",
+                prompt: "Map the argument. Claim, reasons, evidence types, how you'd handle the main objection. Logical sequence. 55–115 words.",
+              },
+            ],
+          },
+          {
+            label: "Argument is complete",
+            passThreshold: 75,
+            wordCountMin: 70,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Map could guide the essay", description: "The argument map is specific enough that a writer could follow it to draft the essay — it names what goes where.", weight: 0.4 },
+              { name: "Objection is engaged, not dismissed", description: "The hardest thing a skeptic would say is named and the map shows how the argument handles it.", weight: 0.35 },
+              { name: "Argument leads somewhere", description: "The map has a payoff — it ends somewhere, not just a list of things to cover.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Position: 'The way we've designed cities for the last fifty years — around cars, around suburbs, around private space — has made loneliness structurally inevitable for most people, regardless of how social they are.'",
+                prompt: "Write a complete argument map — specific enough to guide the essay. Main claim, supporting moves, evidence types, the hardest objection and how you'd engage it, the payoff. 70–160 words.",
+              },
+              {
+                given: "Position: 'The most important thing a writer can do to improve is not to write more but to read their own work as a stranger would — which is a skill almost nobody teaches and almost nobody practices.'",
+                prompt: "Write a complete argument map. Specific enough to follow. Main claim, supporting moves, evidence types, hardest objection engaged, clear payoff. 70–160 words.",
+              },
+              {
+                given: "Position: 'The professionalization of every creative field — the MFA, the pitch deck, the query letter — has created a class of people who are very good at getting into the room and not especially good at what they do once they're there.'",
+                prompt: "Write a complete argument map that could guide the essay. All the moves, the hardest objection handled, a clear payoff. 70–160 words.",
+              },
+              {
+                given: "Position: 'The concept of meritocracy doesn't just fail to describe how success works — it actively makes success less likely for the people who believe it most, by locating the cause of failure inside the individual rather than in the conditions.'",
+                prompt: "Write a complete argument map. Specific enough to follow. Main moves, evidence types, hardest objection engaged, clear payoff. 70–160 words.",
+              },
+              {
+                given: "Position: 'The advice to find your niche — to specialize, to become the person known for one thing — is correct as a distribution strategy and counterproductive as a thinking strategy, and most people who follow it don't distinguish between the two.'",
+                prompt: "Write a complete argument map that could guide the essay. Every move named, hardest objection handled honestly, clear payoff. 70–160 words.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "the-turn",
     title: "The Turn",
     genre: "nonfiction",
