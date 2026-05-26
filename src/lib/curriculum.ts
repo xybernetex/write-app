@@ -6763,6 +6763,548 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "evidence-and-warrant",
+    title: "Evidence & Warrant",
+    genre: "nonfiction",
+    difficulty: "intermediate",
+    description:
+      "Most writers either assert claims without supporting them, or pile up evidence without explaining why it proves anything. The missing piece is the warrant — the sentence that closes the logical gap between evidence and claim. Without it, you have assertion plus example, not argument. This track drills three moves: finding the right evidence for a specific claim, writing the warrant that connects them, and handling the counterexample without abandoning your position.",
+    exercises: [
+      {
+        id: "ev-1",
+        title: "The Right Evidence",
+        lesson:
+          "Evidence isn't interchangeable. An anecdote proves something different from a statistic. A historical precedent proves something different from an expert's testimony. A counterexample proves something different from a pattern. The wrong evidence doesn't just fail to support your claim — it actively undermines it, because readers can see the gap between what you've shown and what you're asserting. The first skill is matching the type and specificity of evidence to what the claim actually needs.",
+        prompt:
+          "Given a claim, write 1–2 sentences of specific evidence that would genuinely support it — not just any related fact, but the right kind of evidence for this specific claim. 30–80 words.",
+        wordCountMin: 25,
+        wordCountMax: 90,
+        criteria: [
+          { name: "Evidence is specific", description: "Not a vague gesture at evidence — a named fact, study, example, or instance concrete enough to picture.", weight: 0.5 },
+          { name: "Evidence supports this claim", description: "The evidence fits the claim — it supports what the claim is actually asserting, not something adjacent.", weight: 0.5 },
+        ],
+        stages: [
+          {
+            label: "Find some evidence",
+            passThreshold: 50,
+            wordCountMin: 25,
+            wordCountMax: 90,
+            criteria: [
+              { name: "Something concrete offered", description: "The response provides a specific piece of evidence — not a restatement of the claim.", weight: 0.55 },
+              { name: "Connected to the claim", description: "The evidence is clearly related to what the claim is asserting.", weight: 0.45 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'The job interview is a poor predictor of job performance.'",
+                prompt: "Write 1–2 sentences of specific evidence that support this claim. Not a restatement — actual evidence. 30–70 words.",
+              },
+              {
+                given: "Claim: 'Open-plan offices reduce productivity rather than increasing it.'",
+                prompt: "Write 1–2 sentences of specific evidence that genuinely support this. Named, concrete, real. 30–70 words.",
+              },
+              {
+                given: "Claim: 'The advice to follow your passion is primarily given by people who survived following it — which makes it systematically biased.'",
+                prompt: "Write 1–2 sentences of specific evidence that support this survivorship bias claim. 30–70 words.",
+              },
+              {
+                given: "Claim: 'Professional development training rarely transfers to actual behavioral change on the job.'",
+                prompt: "Write 1–2 sentences of specific evidence that support this. Concrete, named where possible. 30–70 words.",
+              },
+              {
+                given: "Claim: 'Busyness has become a status signal in professional culture — performing overwhelm is performing importance.'",
+                prompt: "Write 1–2 sentences of specific evidence that support this status-signal claim. 30–70 words.",
+              },
+            ],
+          },
+          {
+            label: "Right type of evidence",
+            passThreshold: 65,
+            wordCountMin: 35,
+            wordCountMax: 85,
+            criteria: [
+              { name: "Evidence type fits the claim", description: "The type of evidence chosen — anecdote, statistic, historical precedent, expert consensus — matches what this particular claim needs.", weight: 0.45 },
+              { name: "Specific enough to be compelling", description: "The evidence is named and concrete — a reader could check it or picture it.", weight: 0.35 },
+              { name: "Supports the claim directly", description: "The evidence doesn't require a large inferential leap to connect to the claim.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'The credentialing system has decoupled from competence — degrees signal completion of a process, not mastery of a skill.'",
+                prompt: "Write 1–2 sentences of evidence that fit this specific claim. The type of evidence matters — what would most credibly support this? Specific. 35–75 words.",
+              },
+              {
+                given: "Claim: 'Feedback in most workplaces is filtered through the giver's fear of conflict before it reaches the recipient — which means the recipient almost never gets the unfiltered version.'",
+                prompt: "Write 1–2 sentences of evidence that fit this claim specifically. What type of evidence best supports this? Concrete. 35–75 words.",
+              },
+              {
+                given: "Claim: 'The self-help genre's market keeps growing despite producing no measurable improvement in the lives of its readers — which suggests the product isn't improvement but the feeling of working on yourself.'",
+                prompt: "Write 1–2 sentences of evidence that support this specific claim. Type of evidence matters — what fits best? 35–75 words.",
+              },
+              {
+                given: "Claim: 'The way we talk about creativity — as innate talent rather than developed skill — actively prevents people from developing it.'",
+                prompt: "Write 1–2 sentences of evidence that fit this specific claim. What type of evidence most credibly supports this? Concrete. 35–75 words.",
+              },
+              {
+                given: "Claim: 'Remote work surfaced a management problem that offices had been hiding: most managers don't know how to evaluate output, only presence.'",
+                prompt: "Write 1–2 sentences of evidence that specifically support this claim about management. Right type, specific, direct connection. 35–75 words.",
+              },
+            ],
+          },
+          {
+            label: "Evidence is doing precise work",
+            passThreshold: 75,
+            wordCountMin: 40,
+            wordCountMax: 80,
+            criteria: [
+              { name: "Evidence supports exactly what the claim asserts", description: "No inferential gap — the evidence supports this claim, not a similar one or a broader one.", weight: 0.5 },
+              { name: "Specific and named", description: "The evidence is concrete enough to be checked — a named study, a specific case, a precise pattern.", weight: 0.3 },
+              { name: "Efficient", description: "The evidence does its work without padding — minimum words to make the support credible.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'The formats in which experts speak publicly — the op-ed, the tweet, the cable interview — reward confident assertion and penalize careful qualification, which selects for the kind of expert who performs certainty rather than practices it.'",
+                prompt: "Write evidence that supports exactly this claim — the format-shapes-expert-behavior argument. Precise, named, efficient. No gap between evidence and claim. 40–75 words.",
+              },
+              {
+                given: "Claim: 'Most New Year's resolutions are not about the goal — they're about the act of committing, which delivers a sense of agency independent of whether the resolution is kept.'",
+                prompt: "Write evidence that supports exactly this claim — that the commitment itself is the product. Precise, specific, no inferential gap. 40–75 words.",
+              },
+              {
+                given: "Claim: 'The college application essay selects for students who can perform authenticity — not students who are authentic — because polish is what's legible at scale to readers evaluating hundreds of essays.'",
+                prompt: "Write evidence that supports exactly this claim. Specific, no gap, efficient. Not evidence for a related but different claim. 40–75 words.",
+              },
+              {
+                given: "Claim: 'People who read the most content about productivity are not measurably more productive than people who read less — which suggests the genre's value is experiential, not instrumental.'",
+                prompt: "Write evidence that supports exactly this — the disconnect between productivity consumption and productivity outcomes. Precise, named, no inferential leap. 40–75 words.",
+              },
+              {
+                given: "Claim: 'Cities have made incidental contact — running into people you know without planning to — structurally impossible for most residents, which removes the mechanism through which most sustained relationships are maintained.'",
+                prompt: "Write evidence that supports exactly this claim about incidental contact and relationship maintenance. Specific, efficient, no gap. 40–75 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "ev-2",
+        title: "The Warrant",
+        lesson:
+          "The warrant is the sentence most writers forget to write. It's the 'because' that explains why the evidence supports the claim — the logical bridge between what you've shown and what you're asserting. Writers skip it because to them the connection is obvious. It is never obvious to the reader. Without the warrant, you have a claim and an example sitting next to each other. With it, you have an argument. One sentence can make the difference.",
+        prompt:
+          "Given a claim and a piece of evidence, write the warrant — the sentence that explains why this evidence supports this claim. Not a summary of the evidence. The logical connection. 20–55 words.",
+        wordCountMin: 15,
+        wordCountMax: 65,
+        criteria: [
+          { name: "Closes the logical gap", description: "The warrant explains why the evidence supports the claim — not just that it does.", weight: 0.55 },
+          { name: "Specific to this claim and evidence", description: "The warrant couldn't work for a different claim-evidence pair — it's precise to this one.", weight: 0.45 },
+        ],
+        stages: [
+          {
+            label: "Write the because",
+            passThreshold: 50,
+            wordCountMin: 15,
+            wordCountMax: 65,
+            criteria: [
+              { name: "A warrant is present", description: "The response attempts to explain why the evidence supports the claim — not just restates either one.", weight: 0.6 },
+              { name: "Connected to both", description: "The warrant references both the claim and the evidence — not a free-floating observation.", weight: 0.4 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'The job interview is a poor predictor of job performance.' Evidence: 'Research consistently shows that unstructured interviews — which make up the majority of interviews conducted — have a validity coefficient of around 0.20 for predicting job performance, barely better than chance.'",
+                prompt: "Write the warrant — the sentence that explains why this evidence supports this claim. Not a summary of the evidence. The logical connection. 15–50 words.",
+              },
+              {
+                given: "Claim: 'Busyness has become a status signal in professional culture.' Evidence: 'When researchers asked people to evaluate a professional described as having a full schedule versus one with open time, the busy one was consistently rated as higher status, more competent, and more in demand — regardless of what the schedule contained.'",
+                prompt: "Write the warrant — the logical connection between this evidence and this claim. One sentence or two. 15–50 words.",
+              },
+              {
+                given: "Claim: 'Open-plan offices function as surveillance architecture, not collaboration architecture.' Evidence: 'A Harvard Business School study found that after a company transitioned to an open office, face-to-face interaction dropped by 70% while electronic communication increased by a corresponding amount — workers found workarounds to recreate privacy rather than collaborate more.'",
+                prompt: "Write the warrant. Why does this evidence support this specific claim — surveillance rather than collaboration? 15–50 words.",
+              },
+              {
+                given: "Claim: 'The self-help genre is optimized for the feeling of working on yourself, not for actual improvement.' Evidence: 'Readers who buy self-help books have among the highest repurchase rates of any nonfiction category — the same readers who bought last year's bestseller buy this year's, despite the fact that the previous book did not produce lasting change.'",
+                prompt: "Write the warrant. Why does this repurchase pattern support the claim about what the genre is optimized for? 15–50 words.",
+              },
+              {
+                given: "Claim: 'The advice to follow your passion is systematically biased toward survivors.' Evidence: 'The books, podcasts, and commencement speeches advising people to follow their passion are almost entirely produced by people for whom it worked — there is no equivalent platform or genre for people who followed their passion and ended up broke or miserable.'",
+                prompt: "Write the warrant. Why does this platform asymmetry support the survivorship bias claim? 15–50 words.",
+              },
+            ],
+          },
+          {
+            label: "Warrant is precise",
+            passThreshold: 65,
+            wordCountMin: 20,
+            wordCountMax: 60,
+            criteria: [
+              { name: "Explains the specific logical link", description: "The warrant names the mechanism — not just 'this shows that' but why this evidence constitutes support for this claim.", weight: 0.5 },
+              { name: "Doesn't overstate the evidence", description: "The warrant claims only what the evidence can actually support — no leap beyond what was shown.", weight: 0.3 },
+              { name: "Specific to this pair", description: "This warrant couldn't serve a different claim-evidence pair — it's precise to these two.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'Professional development training rarely changes behavior because it teaches vocabulary rather than practice.' Evidence: 'In a study of managers who completed a leadership training program, 87% could accurately describe the program's core frameworks six months later. Only 23% showed measurable change in the leadership behaviors the program was designed to develop.'",
+                prompt: "Write a precise warrant — the specific logical link between this retention-without-behavior-change evidence and the vocabulary-versus-practice claim. Doesn't overstate. 20–55 words.",
+              },
+              {
+                given: "Claim: 'The college application essay selects for performed authenticity, not authenticity.' Evidence: 'The college application coaching industry, which helps students craft essays that feel personal and unpolished, now generates over $2 billion annually — with services specifically designed to make professional help invisible in the final product.'",
+                prompt: "Write a precise warrant. Why does the size and nature of this coaching industry specifically support the performed-authenticity claim? Doesn't overstate. 20–55 words.",
+              },
+              {
+                given: "Claim: 'Remote work has made management's core competency gap visible.' Evidence: 'Following the shift to remote work, surveys of knowledge workers found that the most common complaint was not isolation or collaboration difficulty — it was not knowing where they stood with their managers, whether their work was valued, or what success looked like.'",
+                prompt: "Write a precise warrant. Why does this specific complaint pattern support the claim about management's competency gap? Specific to this pair. 20–55 words.",
+              },
+              {
+                given: "Claim: 'Credentialism signals that someone survived a filtering process, not that they have the competence the credential implies.' Evidence: 'Law firms that hired graduates from top law schools based on GPA found that GPA predicted bar exam performance well and first-year performance moderately — but had no correlation with performance at year five, when the actual work of lawyering is what matters.'",
+                prompt: "Write a precise warrant for this claim-evidence pair. The specific logical link, doesn't overstate what the evidence proves. 20–55 words.",
+              },
+              {
+                given: "Claim: 'Feedback in workplaces is filtered through the giver's discomfort before it reaches the recipient.' Evidence: 'In anonymous surveys, managers consistently report believing their direct reports need to hear more critical feedback than they actually deliver. The gap between what managers believe they should say and what they do say averages 40-60% across industries.'",
+                prompt: "Write a precise warrant. Why does this intention-behavior gap specifically support the discomfort-as-filter claim? Precise, doesn't overstate. 20–55 words.",
+              },
+            ],
+          },
+          {
+            label: "Warrant does irreplaceable work",
+            passThreshold: 75,
+            wordCountMin: 22,
+            wordCountMax: 55,
+            criteria: [
+              { name: "Couldn't be cut", description: "Without this warrant, the reader would feel the gap between evidence and claim — it's load-bearing.", weight: 0.4 },
+              { name: "Names the mechanism", description: "The warrant explains why this evidence constitutes proof — the specific logical mechanism, not just a gesture at connection.", weight: 0.4 },
+              { name: "Tight and precise", description: "The warrant is efficient — it does its work without padding or restatement.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'The way expertise is communicated publicly selects for the wrong experts — the ones who perform certainty, not the ones who are right.' Evidence: 'Tetlock's research on forecasting found that television pundits — the experts most frequently quoted and most visible to the public — had forecasting accuracy indistinguishable from chance, and were consistently outperformed by careful, hedging non-experts with access to the same information.'",
+                prompt: "Write a warrant that is load-bearing — couldn't be cut, names the mechanism, tight. 22–50 words.",
+              },
+              {
+                given: "Claim: 'The single idea constraint doesn't make essays thinner — it makes them deeper, because the writer is forced to develop one thing fully instead of covering several things partially.' Evidence: 'George Orwell's most enduring essays — Politics and the English Language, Shooting an Elephant, Why I Write — each develop a single idea across their full length, while his essays that try to cover more ground are less remembered and less cited.'",
+                prompt: "Write a load-bearing warrant — couldn't be cut, names the mechanism, tight. Why does this evidence support this specific claim? 22–50 words.",
+              },
+              {
+                given: "Claim: 'Organizations say they want employees who take initiative but structurally punish it, because initiative is unauthorized risk.' Evidence: 'Research on organizational whistleblowing — one of the clearest cases of employee initiative — consistently shows that even when whistleblowers are legally protected and ultimately proven right, their career outcomes are worse than those of colleagues who raised no concerns.'",
+                prompt: "Write the warrant that is load-bearing — names the mechanism connecting unauthorized risk to punishment, tight, couldn't be cut. 22–50 words.",
+              },
+              {
+                given: "Claim: 'The market for books about cognitive bias and clear thinking hasn't produced clearer thinking — because knowing about a bias and being unaffected by it are entirely different cognitive operations.' Evidence: 'Psychologists who study cognitive bias show the same biases in their own decision-making as the general population, despite spending careers documenting them — a finding robust enough that it's sometimes called the bias blind spot of experts.'",
+                prompt: "Write the load-bearing warrant — mechanism named, tight, couldn't be cut. 22–50 words.",
+              },
+              {
+                given: "Claim: 'Ambition and satisfaction are structurally incompatible because ambition requires the belief that you don't yet have enough, and satisfaction requires the belief that you do.' Evidence: 'Studies of high achievers consistently find that reaching a major goal produces a shorter-than-expected period of satisfaction before the person redirects attention to a new, larger goal — a pattern so reliable it has its own psychological literature on the arrival fallacy.'",
+                prompt: "Write the warrant that is load-bearing, names the mechanism, tight. The specific why between this evidence and this claim. 22–50 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "ev-3",
+        title: "Evidence Type",
+        lesson:
+          "Not all evidence is equal for all claims. A statistic proves prevalence. An anecdote proves possibility. A historical precedent proves recurrence. An expert consensus proves field agreement. A counterexample proves limits. The right type of evidence depends on what the claim actually needs: a claim about frequency needs different evidence than a claim about mechanism. Most writers use whatever evidence they happen to know, rather than asking what type their claim actually requires.",
+        prompt:
+          "Given a claim, identify what type of evidence would most credibly support it, then write that evidence. Explain in one sentence why this type fits. 50–120 words.",
+        wordCountMin: 40,
+        wordCountMax: 130,
+        criteria: [
+          { name: "Evidence type is chosen intentionally", description: "The writer selected a type of evidence for a reason — not just whatever came to mind.", weight: 0.45 },
+          { name: "Type fits the claim", description: "The chosen evidence type is genuinely the best fit for what this claim is asserting.", weight: 0.35 },
+          { name: "Evidence is specific", description: "The actual evidence provided is concrete, not a placeholder.", weight: 0.2 },
+        ],
+        stages: [
+          {
+            label: "Choose a type and use it",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 130,
+            criteria: [
+              { name: "Evidence type named or implied", description: "The response uses a recognizable type of evidence — statistic, anecdote, precedent, expert view, pattern.", weight: 0.5 },
+              { name: "Evidence is specific", description: "Something concrete is offered — not just a gesture at evidence.", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'Most managers avoid giving direct critical feedback because the discomfort is theirs to bear, not the recipient's.'",
+                prompt: "Choose the type of evidence that best fits this claim. Write that evidence. One sentence explaining why this type. 40–110 words.",
+              },
+              {
+                given: "Claim: 'The credentialing system in higher education has remained largely unchanged for fifty years despite dramatic shifts in the labor market it's supposed to serve.'",
+                prompt: "Choose the type of evidence that most credibly supports this claim. Write it. One sentence on why this type. 40–110 words.",
+              },
+              {
+                given: "Claim: 'The open office design, despite evidence against it, has continued to be adopted because it serves management's interests even when it doesn't serve employees' interests.'",
+                prompt: "Choose the evidence type that best fits this claim about whose interests it serves. Write that evidence. One sentence on why this type. 40–110 words.",
+              },
+              {
+                given: "Claim: 'The advice to write every day is optimized for building a writing habit, not for building something worth saying.'",
+                prompt: "What type of evidence best fits this claim? Write it. One sentence explaining why this type, not another. 40–110 words.",
+              },
+              {
+                given: "Claim: 'The passion narrative in career advice persists because it makes success feel deserved — it converts luck into virtue.'",
+                prompt: "Choose the evidence type that best supports this claim about why the narrative persists. Write it. One sentence on the type choice. 40–110 words.",
+              },
+            ],
+          },
+          {
+            label: "Type and claim match precisely",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Type is the best fit for this claim", description: "Not just any evidence type — the one that most directly supports what this specific claim is asserting.", weight: 0.5 },
+              { name: "Explanation is specific", description: "The one-sentence explanation says why this type is right, not just what type it is.", weight: 0.3 },
+              { name: "Evidence is concrete and accurate", description: "The evidence itself is specific enough to be credible.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'Survivorship bias in success literature isn't incidental — it's structural, because the people who failed don't have publishing deals, podcast audiences, or platforms from which to warn others.'",
+                prompt: "What type of evidence best supports the structural-not-incidental part of this claim? Write it and explain precisely why this type, not a different one. 50–110 words.",
+              },
+              {
+                given: "Claim: 'A fixed mindset about creativity — believing it's an innate talent — functions as a self-fulfilling prophecy, because it prevents the deliberate practice through which creative skill actually develops.'",
+                prompt: "What evidence type most credibly supports the self-fulfilling-prophecy mechanism? Write it and explain why this type specifically. 50–110 words.",
+              },
+              {
+                given: "Claim: 'The performance review, as currently practiced, serves the organization's legal and HR compliance needs more than it serves the employee's development.'",
+                prompt: "What type of evidence best supports this 'serves whom' claim? Write it and explain precisely why this type fits. 50–110 words.",
+              },
+              {
+                given: "Claim: 'When cities invest in arts districts, they typically displace the artists who made the district worth investing in — the investment is attracted by culture and destroys the conditions that produced it.'",
+                prompt: "What evidence type best supports this pattern claim? Write it and explain why this type, not statistical or expert-opinion evidence. 50–110 words.",
+              },
+              {
+                given: "Claim: 'The most useful feedback is almost never the feedback people ask for — it's the feedback about the thing the writer couldn't see was a problem.'",
+                prompt: "What type of evidence best supports this claim about unsolicited versus solicited feedback? Write it and explain why this type fits precisely. 50–110 words.",
+              },
+            ],
+          },
+          {
+            label: "Two types compared",
+            passThreshold: 75,
+            wordCountMin: 70,
+            wordCountMax: 170,
+            criteria: [
+              { name: "Two distinct evidence types offered", description: "The writer provides two genuinely different types of evidence for the same claim.", weight: 0.3 },
+              { name: "Better type is identified and justified", description: "The writer argues which type is stronger for this specific claim and explains why.", weight: 0.45 },
+              { name: "Justification is specific to the claim", description: "The argument for which type is better references what this specific claim needs, not just generic evidence quality.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'Expertise is most trusted where it's hardest to verify, which means the accountability mechanism for experts is weakest exactly where it's most needed.'",
+                prompt: "Write two different types of evidence for this claim, then argue which is stronger for this specific claim and why. 70–155 words.",
+              },
+              {
+                given: "Claim: 'The advice to build in public — sharing your work and process as you go — benefits people who already have an audience and disadvantages people still developing their ideas.'",
+                prompt: "Write two different evidence types for this claim. Argue which is stronger for this specific claim, and why. 70–155 words.",
+              },
+              {
+                given: "Claim: 'The way we design for cars has made incidental social contact structurally rare — and most sustained relationships depend on incidental contact to survive.'",
+                prompt: "Provide two distinct evidence types, then argue which is stronger for this specific two-part claim. 70–155 words.",
+              },
+              {
+                given: "Claim: 'The gap between what a writer can produce and what they admire is the period when most writers quit — and most writing advice ignores this gap entirely.'",
+                prompt: "Write two different evidence types for this claim. Argue which is stronger for this specific claim and why. 70–155 words.",
+              },
+              {
+                given: "Claim: 'The single most important factor in whether a writer improves is the volume of feedback they receive — which means writing development in adulthood is largely a matter of luck and social capital.'",
+                prompt: "Provide two distinct evidence types, then argue which is stronger for this specific claim. Justification specific to the claim. 70–155 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "ev-4",
+        title: "The Counterexample",
+        lesson:
+          "The counterexample is the evidence that seems to disprove your claim. Most writers ignore it. Good writers acknowledge it and explain why it doesn't invalidate the claim — and the best writers use it to sharpen the claim. A counterexample usually doesn't disprove a claim; it reveals the claim's scope. 'Passion advice works for some people' doesn't refute 'passion advice is systematically biased toward survivors' — it just tells you where the claim applies and where it doesn't. The counterexample, handled well, makes the argument more credible, not less.",
+        prompt:
+          "Given a claim and a counterexample, write the response that acknowledges the counterexample honestly without abandoning the claim. 50–110 words.",
+        wordCountMin: 40,
+        wordCountMax: 120,
+        criteria: [
+          { name: "Counterexample is acknowledged", description: "The response doesn't dismiss or minimize the counterexample — it's taken seriously.", weight: 0.45 },
+          { name: "Claim is not abandoned", description: "After acknowledging the counterexample, the claim still stands — the position survives.", weight: 0.55 },
+        ],
+        stages: [
+          {
+            label: "Acknowledge without surrendering",
+            passThreshold: 50,
+            wordCountMin: 40,
+            wordCountMax: 120,
+            criteria: [
+              { name: "Counterexample acknowledged", description: "The response takes the counterexample seriously — doesn't just dismiss it.", weight: 0.5 },
+              { name: "Claim still standing", description: "The position survives — the counterexample didn't collapse the argument.", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'The job interview is a poor predictor of job performance.' Counterexample: 'Many successful companies — including some of the most talent-competitive in the world — rely heavily on intensive multi-round interview processes and cite them as central to their hiring quality.'",
+                prompt: "Acknowledge this counterexample honestly. Hold the claim. 40–100 words.",
+              },
+              {
+                given: "Claim: 'Productivity culture is a way of avoiding the question of what you actually want.' Counterexample: 'Many people report that productivity systems genuinely helped them accomplish goals that mattered to them — finish a book, launch a project, complete a degree — that they hadn't been able to complete without the system.'",
+                prompt: "Acknowledge this counterexample honestly. Hold the claim. 40–100 words.",
+              },
+              {
+                given: "Claim: 'The advice to follow your passion is biased toward survivors and rarely useful.' Counterexample: 'There are well-documented cases of people who ignored practical advice, followed a passion in an economically unpromising direction, and built meaningful and financially successful careers doing exactly what they loved.'",
+                prompt: "Acknowledge this counterexample honestly without abandoning the survivorship bias claim. 40–100 words.",
+              },
+              {
+                given: "Claim: 'Open offices primarily function as surveillance spaces, not collaboration spaces.' Counterexample: 'Some teams — particularly in early-stage startups and certain creative environments — report that open spaces genuinely improve collaboration, spontaneous idea-sharing, and team cohesion.'",
+                prompt: "Acknowledge this counterexample honestly. Hold the claim about the primary function. 40–100 words.",
+              },
+              {
+                given: "Claim: 'Self-help books don't produce lasting change — their product is the feeling of working on yourself.' Counterexample: 'There are well-documented cases of people who credit a specific book with a genuine life change — a habit formed, a career redirected, a relationship improved — that they maintained long-term.'",
+                prompt: "Acknowledge this counterexample honestly. Hold the claim about what the genre is optimized for. 40–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Counterexample handled with precision",
+            passThreshold: 65,
+            wordCountMin: 50,
+            wordCountMax: 110,
+            criteria: [
+              { name: "Explains why the counterexample doesn't invalidate the claim", description: "Not just 'yes but' — explains the specific reason why the counterexample is compatible with the claim.", weight: 0.45 },
+              { name: "Counterexample is taken seriously", description: "The response doesn't minimize or dismiss — the counterexample is genuinely engaged.", weight: 0.3 },
+              { name: "Claim is clarified, not just defended", description: "Engaging the counterexample reveals the claim's scope more precisely.", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'The way cities design for cars makes community structurally impossible.' Counterexample: 'Many car-centric suburbs have tight-knit communities — neighbors who know each other, active local organizations, strong social bonds — suggesting that car infrastructure doesn't preclude community.'",
+                prompt: "Handle this counterexample with precision — explain why it's compatible with the claim, take it seriously, clarify the claim's scope. 50–100 words.",
+              },
+              {
+                given: "Claim: 'The feedback sandwich makes honest feedback impossible because recipients learn to discount the compliments and wait for the criticism.' Counterexample: 'Experienced managers report using something like the feedback sandwich effectively — framing criticism between genuine positive observations — with strong results in certain contexts.'",
+                prompt: "Handle this precisely — why is this compatible with the claim? Take it seriously. Clarify scope. 50–100 words.",
+              },
+              {
+                given: "Claim: 'Credentialism has decoupled from competence — degrees signal survival of a process, not mastery.' Counterexample: 'In technical fields like medicine and engineering, licensing exams and credentials do appear to track competence reasonably well — a licensed surgeon is meaningfully different from an unlicensed one.'",
+                prompt: "Handle this counterexample precisely. Why is it compatible with the claim? Explain, don't dismiss. Scope clarified. 50–100 words.",
+              },
+              {
+                given: "Claim: 'The single idea constraint makes essays stronger — depth over breadth, one thing fully developed.' Counterexample: 'Some of the most celebrated long-form essays — by writers like David Foster Wallace or Joan Didion — are known precisely for their associative range, following multiple threads and ideas simultaneously.'",
+                prompt: "Handle this counterexample with precision — why is associative range compatible with the single idea claim? Serious engagement, scope clarified. 50–100 words.",
+              },
+              {
+                given: "Claim: 'Remote work made management's core competency gap visible — most managers can evaluate presence but not output.' Counterexample: 'Many managers report that remote work forced them to develop clearer output expectations and better feedback systems — that the constraint improved their management, not exposed a deficit.'",
+                prompt: "Handle this precisely — why is improvement-under-constraint compatible with the exposed-deficit claim? Serious engagement. Scope clarified. 50–100 words.",
+              },
+            ],
+          },
+          {
+            label: "Counterexample sharpens the claim",
+            passThreshold: 75,
+            wordCountMin: 60,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Counterexample improves the argument", description: "Engaging the counterexample makes the claim more precise, more credible, or more interesting — not just defended.", weight: 0.45 },
+              { name: "Claim is stronger after the engagement", description: "The reader trusts the argument more because the writer didn't flinch from the hard case.", weight: 0.35 },
+              { name: "Scope is made visible", description: "The counterexample reveals exactly where the claim applies and where it doesn't — which makes the claim more useful.", weight: 0.2 },
+            ],
+            variants: [
+              {
+                given: "Claim: 'Expertise is most trusted where it's hardest to verify — which means accountability is weakest exactly where it's most needed.' Counterexample: 'In some high-stakes domains — aviation, nuclear power — expert accountability is extremely strong, with rigorous incident review and career consequences for failure, suggesting the claim about accountability gaps isn't universal.'",
+                prompt: "Use this counterexample to sharpen the claim — make it more precise, more credible, more useful. The argument should be stronger after the engagement. 60–145 words.",
+              },
+              {
+                given: "Claim: 'The passion narrative converts luck into virtue — it makes success feel deserved rather than contingent.' Counterexample: 'Some people who attribute their success to following their passion are genuinely correct — they had a rare combination of passion and aptitude that made the path less risky than it would be for others, and passion was a real signal of that fit.'",
+                prompt: "Use this counterexample to sharpen the claim. Make the scope visible. Argument stronger after. 60–145 words.",
+              },
+              {
+                given: "Claim: 'The writing-every-day advice is optimized for habit, not for having something to say.' Counterexample: 'Many writers report that daily writing is exactly how they developed something to say — the act of writing regularly created the thinking, not the other way around.'",
+                prompt: "Use this counterexample to sharpen the claim — reveal its scope, make the argument more precise and credible. Stronger after. 60–145 words.",
+              },
+              {
+                given: "Claim: 'Busyness as a status signal makes organizations unable to redistribute work because admitting capacity feels like admitting low status.' Counterexample: 'Some organizations — particularly in creative and academic environments — have developed cultures where busyness is stigmatized, where having time to think is the status signal, and these organizations seem to redistribute work more effectively.'",
+                prompt: "Use this counterexample to sharpen the claim — make the scope visible, make the argument more precise. Stronger after engagement. 60–145 words.",
+              },
+              {
+                given: "Claim: 'The gap between what a writer can produce and what they admire is the period when most writers quit — and closing this gap requires practice, not inspiration.' Counterexample: 'Some writers report that inspiration — sudden clarity about what they wanted to say — was precisely what allowed them to close the gap, not slow accumulation of practice.'",
+                prompt: "Use this counterexample to sharpen the claim. Make scope visible. Argument more precise and credible after. 60–145 words.",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "ev-5",
+        title: "Full Argument Unit",
+        lesson:
+          "A complete argument unit has three parts working together: a claim (what you're asserting), evidence (what makes it credible), and a warrant (the logical bridge between them). Most writers have two of the three. They assert without evidence, or present evidence without the warrant, or — rarest of all — write a warrant for a claim they haven't fully stated. When all three parts are present and connected, you have an argument. One paragraph that does this is more persuasive than three pages that don't.",
+        prompt:
+          "Write a complete argument unit: a claim, evidence that supports it, and a warrant that explains why the evidence constitutes support. All three parts, clearly connected. 80–160 words.",
+        wordCountMin: 70,
+        wordCountMax: 175,
+        criteria: [
+          { name: "All three parts present", description: "Claim, evidence, and warrant are all identifiable in the response.", weight: 0.4 },
+          { name: "Parts are connected", description: "The evidence follows from the claim, and the warrant closes the gap — the unit is logically complete.", weight: 0.6 },
+        ],
+        stages: [
+          {
+            label: "All three parts present",
+            passThreshold: 50,
+            wordCountMin: 70,
+            wordCountMax: 175,
+            criteria: [
+              { name: "Claim is present", description: "An arguable position is stated.", weight: 0.35 },
+              { name: "Evidence is present", description: "Something concrete that supports the claim is offered.", weight: 0.35 },
+              { name: "Warrant is present", description: "Some attempt to connect evidence to claim is made.", weight: 0.3 },
+            ],
+            variants: [
+              { prompt: "Write a complete argument unit — claim, evidence, warrant — about why feedback in professional environments rarely reaches the person who needs it. All three parts present. 80–150 words." },
+              { prompt: "Write a complete argument unit about why the job interview has persisted despite evidence it doesn't predict performance. Claim, evidence, warrant — all three connected. 80–150 words." },
+              { prompt: "Write a complete argument unit about the relationship between credentials and competence in one specific field. All three parts present. 80–150 words." },
+              { prompt: "Write a complete argument unit about why the single idea constraint makes essays stronger, not thinner. Claim, evidence, warrant. 80–150 words." },
+              { prompt: "Write a complete argument unit about the gap between what people read about and what they actually do. All three parts, present and connected. 80–150 words." },
+            ],
+          },
+          {
+            label: "Parts are properly connected",
+            passThreshold: 65,
+            wordCountMin: 85,
+            wordCountMax: 165,
+            criteria: [
+              { name: "Evidence supports this specific claim", description: "Not evidence for a related claim — evidence that directly addresses what this claim is asserting.", weight: 0.35 },
+              { name: "Warrant closes the specific gap", description: "The warrant explains why this evidence supports this claim — not a generic connection.", weight: 0.4 },
+              { name: "Unit reads as one argument", description: "The three parts feel like a continuous argument, not three separate observations.", weight: 0.25 },
+            ],
+            variants: [
+              { prompt: "Write a tightly connected argument unit about why the people giving passion advice are systematically unrepresentative of the outcomes passion following produces. Evidence supports this specific claim. Warrant closes the specific gap. One argument. 85–155 words." },
+              { prompt: "Write a tightly connected argument unit about how the open office's surveillance function was disguised by the collaboration framing. Evidence specific to this claim. Warrant closes the specific gap. 85–155 words." },
+              { prompt: "Write a tightly connected argument unit about the mechanism by which ambition and satisfaction are structurally incompatible. Properly connected parts — one argument, not three observations. 85–155 words." },
+              { prompt: "Write a tightly connected argument unit about why expertise is hardest to evaluate in the domains where it matters most. Evidence and warrant connected to this specific claim. 85–155 words." },
+              { prompt: "Write a tightly connected argument unit about how busyness became a proxy for importance and what it cost once it did. Parts properly connected. One argument. 85–155 words." },
+            ],
+          },
+          {
+            label: "Argument unit is complete and tight",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 160,
+            criteria: [
+              { name: "Nothing missing", description: "All three parts are present, connected, and doing their work — the argument doesn't require the reader to fill in gaps.", weight: 0.35 },
+              { name: "Nothing extra", description: "No padding, no tangents, no second argument beginning — the unit is tight.", weight: 0.35 },
+              { name: "Argument could stand alone", description: "This paragraph is a complete argument — a reader who encountered it without context would find it persuasive.", weight: 0.3 },
+            ],
+            variants: [
+              { prompt: "Write a complete, tight argument unit about why writing advice is almost always retrospective — constructed after the writer knows what worked — and what this means for its usefulness. Nothing missing, nothing extra. Could stand alone. 90–155 words." },
+              { prompt: "Write a complete, tight argument unit about how the formatting demands of social media have changed the kind of thinking that gets expressed publicly. Nothing missing, nothing extra. Complete. 90–155 words." },
+              { prompt: "Write a complete, tight argument unit about the specific way the taste-skill gap prevents writers from developing — not that it does, but the mechanism. Tight, complete, nothing missing or extra. 90–155 words." },
+              { prompt: "Write a complete, tight argument unit about how survivorship bias in success literature isn't incidental but structural. Nothing missing, nothing extra, could stand alone. 90–155 words." },
+              { prompt: "Write a complete, tight argument unit about why the warrant — the logical bridge between evidence and claim — is the sentence most writers forget. Nothing missing, nothing extra, complete argument. 90–155 words." },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "the-single-idea",
     title: "The Single Idea",
     genre: "nonfiction",
