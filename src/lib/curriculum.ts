@@ -6763,6 +6763,581 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "book-proposal",
+    title: "Book Proposal",
+    genre: "nonfiction",
+    difficulty: "advanced",
+    description: "A book proposal is not a description of a book — it's an argument for why this book should exist. It has to answer four questions simultaneously: What is the argument? Who is it for? Why now? And can this writer write it? The exercises here drill each element of the proposal: the one-paragraph pitch, the overview, the chapter outline, the sample pages, and the full pitch that contains the whole book in one readable page.",
+    exercises: [
+      {
+        id: "prop-1",
+        title: "The Book's Argument",
+        lesson: "Before you write a proposal, you have to be able to say what the book argues in one clear sentence. Not what it's about — what it claims. 'This book is about expertise' is a topic. 'This book argues that expertise makes it structurally impossible to teach what you know' is a claim. The discipline: find the claim. If you can't say it in one sentence, the book doesn't know what it is yet.",
+        prompt: "For the given book scenario, write the book's central argument in one precise sentence. Then write the extended version — two or three sentences that say what the claim is, why it's counterintuitive, and what it changes for the reader who accepts it.",
+        wordCountMin: 80,
+        wordCountMax: 200,
+        criteria: [
+          { name: "Claim is one sentence", description: "Is the central argument stated in a single sentence — not a topic, not a theme, but a specific arguable claim?", weight: 0.4 },
+          { name: "Claim is arguable", description: "Could someone disagree with the claim — is it specific enough to be contested?", weight: 0.35 },
+          { name: "Extended version adds value", description: "Do the additional sentences add what the one-sentence version couldn't — counterintuitive angle, reader implication?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "State the argument in one sentence",
+            passThreshold: 50,
+            wordCountMin: 60,
+            wordCountMax: 160,
+            criteria: [
+              { name: "One sentence claim", description: "Is the argument stated in a single, complete sentence?", weight: 0.5 },
+              { name: "Claim not topic", description: "Does the sentence argue something rather than describe a subject?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book idea: A book about why ambitious people often end up less happy than people who are less driven, even after achieving their goals.",
+                prompt: "State the book's central argument in one sentence. Not what the book is about — what it claims. Then extend it to 2-3 sentences.",
+              },
+              {
+                given: "Book idea: A book about the relationship between reading slowly and thinking clearly — arguing that the way most people read now is actively damaging their capacity for sustained thought.",
+                prompt: "Write the book's argument in one sentence. Then extend to 2-3 sentences that include the counterintuitive angle and what changes for the reader who accepts it.",
+              },
+              {
+                given: "Book idea: A book about how people choose their careers — arguing that most people don't choose careers so much as drift into them through a series of small decisions that feel chosen but aren't.",
+                prompt: "State the argument in one sentence. Extend it: what's counterintuitive about it? What does the reader do differently if they accept it?",
+              },
+              {
+                given: "Book idea: A book about why feedback in organizations is so often useless, arguing that the problem is structural rather than about individual skill or willingness.",
+                prompt: "Write the book's central argument in one sentence — a claim, not a topic. Then extend it in 2-3 sentences.",
+              },
+              {
+                given: "Book idea: A book arguing that the way we teach writing in school actively makes people worse writers by training them to perform intelligence rather than communicate thought.",
+                prompt: "State the book's argument in one precise sentence. Then extend: what's counterintuitive about it, what it changes for someone who accepts it.",
+              },
+            ],
+          },
+          {
+            label: "State the argument and its implications",
+            passThreshold: 65,
+            wordCountMin: 80,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Argument is precise", description: "Is the claim specific enough that a different book could argue the opposite?", weight: 0.35 },
+              { name: "Counterintuitive angle named", description: "Did the writer name what's surprising or non-obvious about the claim?", weight: 0.4 },
+              { name: "Reader implication stated", description: "Did the writer say what changes for the reader who accepts this argument?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book idea: A book about creativity arguing that the most important creative skill is not generating ideas but knowing which ideas to abandon — that the creative people who produce the best work are distinguished by what they don't pursue.",
+                prompt: "State the argument precisely. Name the counterintuitive angle — what does this claim that most people would initially reject? Say what changes for the reader who accepts it.",
+              },
+              {
+                given: "Book idea: A book about expertise arguing that genuine expertise in a field correlates with decreased confidence, not increased confidence — that the more you know, the more you know you don't know, and that apparent confidence in experts is usually a sign of shallower knowledge.",
+                prompt: "Write the one-sentence argument. Name what's counterintuitive about it. Say what the reader does differently if they accept it.",
+              },
+              {
+                given: "Book idea: A book about rest arguing that the way most people rest doesn't actually restore the specific cognitive capacities that knowledge work depletes, and that 'scrolling' is the worst form of rest for people who do thinking work.",
+                prompt: "State the argument in one sentence. Name the counterintuitive angle. State the reader implication — what specifically changes for someone who accepts this claim?",
+              },
+              {
+                given: "Book idea: A book about community arguing that the peer group you're in sets the ceiling for your ambition more than any individual factor, and that most people's sense of what's possible is bounded by what the people around them are attempting.",
+                prompt: "Write the precise argument. Name what's counterintuitive. State the implication for the reader who accepts it.",
+              },
+              {
+                given: "Book idea: A book about parenting advice arguing that almost all of it is written for a specific socioeconomic and cultural context and that applying advice outside that context is not just unhelpful but actively harmful because it makes parents feel inadequate for not matching conditions they don't have.",
+                prompt: "State the one-sentence argument. Name the counterintuitive angle. Say what changes for the reader who accepts this.",
+              },
+            ],
+          },
+          {
+            label: "Write the argument that sells the book",
+            passThreshold: 75,
+            wordCountMin: 90,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Argument is the sharpest version", description: "Is this the sharpest version of the claim — not the safest, not the broadest, the most precise?", weight: 0.4 },
+              { name: "Reader wants to know if it's true", description: "After reading the argument statement, would a reader want to read the book to find out if the claim holds up?", weight: 0.35 },
+              { name: "Stakes are clear", description: "Is it clear what changes if the argument is right — what it costs the reader to not know this?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book idea: A book about how organizations respond to failure — arguing that most organizational responses to failure are designed to assign blame rather than prevent recurrence, and that this is not a cultural failure but a rational response to incentive structures.",
+                prompt: "Write the sharpest version of this argument — not the most diplomatic, the most precise. The reader should finish reading your statement wanting to know if you're right. State the stakes: what changes if this argument is correct?",
+              },
+              {
+                given: "Book idea: A book about writing and thinking arguing that writing is not how you communicate what you think but how you find out what you think — and that most people's reluctance to write is a reluctance to discover that their thoughts are less formed than they appear in their own head.",
+                prompt: "Write the argument in its sharpest form. A reader should finish with a specific question: 'Is that actually true about me?' Name the stakes clearly.",
+              },
+              {
+                given: "Book idea: A book about ambition arguing that most ambitious people are not pursuing what they actually want but what they've been trained to want — and that the achievement of conventional ambitions is one of the most reliable triggers of depression and identity crisis in high-achieving people.",
+                prompt: "Write the sharpest version of this argument. It should be specific enough that someone could disagree, and compelling enough that someone might want to read 300 pages to see if it's true. State the stakes.",
+              },
+              {
+                given: "Book idea: A book about feedback arguing that most of what passes for feedback in organizations is actually evaluation — and that evaluation and feedback require opposite conditions: evaluation requires hierarchy, feedback requires safety — so most organizational feedback systems are designed to do both and accomplish neither.",
+                prompt: "Write the sharpest, most precise version of this argument. The reader should want to know if it's right. Name the stakes — what changes for someone who accepts this?",
+              },
+              {
+                given: "Book idea: A book about the attention economy arguing that the problem is not that it makes us distracted but that it changes what we're able to want — that sustained exposure to short-form content doesn't just shorten attention spans but makes long-term goals feel less real and worth pursuing.",
+                prompt: "Write the sharpest version of this argument. Specific, arguable, stakes clear. The reader should finish your statement wanting to know if you can prove it.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "prop-2",
+        title: "The Overview",
+        lesson: "The overview is the first thing an agent or editor reads after the title and the author's name. In 200–400 words it has to answer: What is this book? Who is it for? Why does it need to exist now? And why is this writer the one to write it? Most proposals fail in the overview because they describe the book without arguing for it. The discipline: every sentence in the overview is making the case for why this book should exist.",
+        prompt: "Write an overview for the given book. Every sentence should be doing something: establishing the claim, naming the audience, building the case for why now, and positioning the writer. 200-350 words.",
+        wordCountMin: 180,
+        wordCountMax: 350,
+        criteria: [
+          { name: "Book is argued, not described", description: "Does the overview argue for the book's existence rather than describing what it contains?", weight: 0.4 },
+          { name: "Audience and urgency clear", description: "Is it clear who this book is for and why this moment needs it?", weight: 0.35 },
+          { name: "Writer positioned", description: "Is there a reason why this specific writer should write this book?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Write an overview that describes and argues",
+            passThreshold: 50,
+            wordCountMin: 170,
+            wordCountMax: 320,
+            criteria: [
+              { name: "Book described", description: "Does the overview give a clear sense of what the book is?", weight: 0.5 },
+              { name: "Argument for existence", description: "Is there at least one sentence that argues why this book should exist — why it's needed?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book: a nonfiction argument that most productivity advice actively makes people less effective by training them to optimize the wrong things — time, tasks, systems — while ignoring the variables that actually drive output: motivation, energy, and the clarity of the goal.",
+                prompt: "Write an overview of 170-320 words. Describe the book and argue for its existence. Who is it for? Why does it need to exist?",
+              },
+              {
+                given: "Book: a nonfiction book about what happens to ambitious people after they achieve their goals — the identity crisis, the emptiness, and the process of finding new meaning — arguing that high achievement without self-knowledge is a reliable path to unhappiness.",
+                prompt: "Write an overview, 170-320 words. Describe the book. Argue for why it should exist. Name the audience and the moment.",
+              },
+              {
+                given: "Book: a nonfiction argument that the way we teach writing in school produces people who can produce text but not think on the page — and that this is a cognitive problem, not a communication problem, with consequences for decision-making, persuasion, and self-understanding.",
+                prompt: "Write an overview of 170-320 words. What is this book? Who is it for? Why does it need to exist now?",
+              },
+              {
+                given: "Book: a nonfiction exploration of creative blocks arguing that blocks are not a failure of inspiration but a function of the gap between taste and ability — and that understanding this gap is the most useful thing a creative person can do.",
+                prompt: "Write an overview, 170-320 words. Argue for this book's existence. Describe it. Name the audience. Make the case.",
+              },
+              {
+                given: "Book: a nonfiction argument that the communities we belong to set the ceiling on our ambition more than any individual factor — and that deliberately choosing peer groups is the highest-leverage change most people can make to their trajectory.",
+                prompt: "Write an overview of 170-320 words. Describe the book, argue for its existence, name the audience and the urgency.",
+              },
+            ],
+          },
+          {
+            label: "Write every sentence earning its place",
+            passThreshold: 65,
+            wordCountMin: 190,
+            wordCountMax: 330,
+            criteria: [
+              { name: "Every sentence does work", description: "Is every sentence in the overview earning its place — no filler, no repetition, no warm-up?", weight: 0.4 },
+              { name: "Why now is answered", description: "Is there a specific reason why this book needs to exist at this moment — not just 'it would be useful' but why now specifically?", weight: 0.35 },
+              { name: "Audience is specific", description: "Is the audience named specifically enough — not 'anyone interested in X' but a specific person with specific needs?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book: a nonfiction argument that rest is not what most knowledge workers think it is — that most forms of 'rest' (scrolling, TV, podcasts) don't restore the specific cognitive capacities that thinking work depletes, and that the rest deficit in most professionals is a hidden cause of chronic underperformance.",
+                prompt: "Write an overview, 190-330 words, where every sentence earns its place. Answer why now specifically — not 'this is always relevant' but why this moment. Name the specific reader.",
+              },
+              {
+                given: "Book: a nonfiction argument that the feedback loops built into most careers make it structurally difficult to identify whether you're growing or just getting more comfortable — and that the people who keep growing have deliberately built feedback systems that most professionals never think to create.",
+                prompt: "Write an overview where every sentence is working. Why now? Who specifically? Every sentence earning its place in the case for this book's existence.",
+              },
+              {
+                given: "Book: a nonfiction argument that the relationship between writing and thinking is bidirectional — that writing shapes what you're able to think, not just records what you've already thought — and that this has underappreciated implications for how people should approach their most important decisions.",
+                prompt: "Write an overview, 190-330 words. Every sentence earning its place. Specific audience. Specific moment. Argument that this book should exist now.",
+              },
+              {
+                given: "Book: a nonfiction exploration of how people leave things — careers, relationships, cities, beliefs — arguing that the decision to leave and the process of leaving are among the least discussed and most important experiences in adult life, and that there's a hidden structure to them that most people navigate blind.",
+                prompt: "Write an overview where nothing is wasted. Who is this for specifically? Why now? Every sentence making the case.",
+              },
+              {
+                given: "Book: a nonfiction argument that expertise in any domain comes packaged with systematic blind spots — specific things experts can't see because of what they know — and that this is not a flaw in how experts are trained but an inevitable consequence of depth, with implications for how we should weight expert judgment.",
+                prompt: "Write an overview, 190-330 words. Every sentence working. Why this book? Why now? Who specifically? Make the case in every sentence.",
+              },
+            ],
+          },
+          {
+            label: "Write the overview that sells the book",
+            passThreshold: 75,
+            wordCountMin: 200,
+            wordCountMax: 350,
+            criteria: [
+              { name: "Book is sold, not described", description: "Does the overview make a reader want this book — not just understand what it is, but want to read it?", weight: 0.4 },
+              { name: "Argument is complete", description: "Does the overview answer all four questions: what is it, who is it for, why now, why this writer?", weight: 0.35 },
+              { name: "Voice is compelling", description: "Is the overview written in a voice that makes the reader trust the writer — confident, specific, not hedged?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book: a nonfiction argument that the most important creative decisions are made not when choosing what to do but when choosing what to stop — that creative people who produce consistently excellent work are distinguished more by what they abandon than by what they pursue.",
+                prompt: "Write an overview that sells the book — not describes it. An editor who reads this should want to know the writer. Every element answered: what, who, why now, why this writer. 200-350 words.",
+              },
+              {
+                given: "Book: a nonfiction argument about ambition — that most people's ambitions are not chosen but inherited from their environment, that this makes achievement a poor path to satisfaction, and that the work of understanding what you actually want is the most consequential work most people never do.",
+                prompt: "Write the overview that sells this book. Not a description. A case. Compelling voice. All four questions answered. 200-350 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that the peer group you inhabit is the most powerful determinant of what you attempt, what you believe is possible, and what counts as success — more powerful than individual mindset, individual effort, or individual luck.",
+                prompt: "Write the overview that makes an editor lean forward. All four questions. Confident, specific voice. The book sold, not summarized. 200-350 words.",
+              },
+              {
+                given: "Book: a nonfiction argument about feedback — that the conditions required for useful feedback (psychological safety, trust, specific behavioral focus) are the opposite of the conditions in most organizations where feedback is given (evaluation context, hierarchy, performance review framing) — and that this mismatch is why most feedback fails.",
+                prompt: "Write the overview that sells. Compelling voice. All four questions answered. The reader should finish wanting to know how the book proves this. 200-350 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that the most important thing you can do to improve your writing is to change what you read — specifically, to read more writing that does something you can't do yet, more slowly, more analytically, and with a notebook.",
+                prompt: "Write the overview that sells this book to an editor. Confident, specific, no hedging. All four questions. The book argued for, not described. 200-350 words.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "prop-3",
+        title: "The Chapter Outline",
+        lesson: "The chapter outline in a proposal is not a table of contents with a paragraph under each entry. It's a condensed argument — each chapter description should show how the argument builds, what each chapter does for the whole, and what kind of material is in it. An editor reading the outline should be able to see the book. Most outlines summarize content. The discipline: each entry should make the editor want to read that chapter.",
+        prompt: "Write chapter descriptions for the given book. Each description should name the chapter's job, hint at the evidence or examples, and make the reader want to know how it resolves. 50-80 words per chapter.",
+        wordCountMin: 150,
+        wordCountMax: 320,
+        criteria: [
+          { name: "Jobs named, not topics", description: "Does each description name what the chapter does for the argument — not just what it covers?", weight: 0.4 },
+          { name: "Evidence hinted", description: "Does each description give the reader a sense of what the chapter is built from — what kind of examples or evidence it uses?", weight: 0.35 },
+          { name: "Reader wants to know how it resolves", description: "After reading each description, does the reader want to read the chapter?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Write chapter descriptions that name the job",
+            passThreshold: 50,
+            wordCountMin: 140,
+            wordCountMax: 280,
+            criteria: [
+              { name: "Job named in each entry", description: "Does each chapter description name what the chapter does — not just its topic?", weight: 0.5 },
+              { name: "Descriptions are distinct", description: "Do the descriptions feel like different chapters doing different things — not a list of similar-length summaries?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book about: why ambitious people often end up less happy than less ambitious people, even after achieving their goals. Chapters: 1. The happiness gap. 2. What ambition is actually measuring. 3. The achievement trap. 4. The identity problem. 5. What actually produces satisfaction.",
+                prompt: "Write a chapter description for each chapter — 50-80 words each. Name the job of each chapter. Make the reader want to read it.",
+              },
+              {
+                given: "Book about: how reading slowly and analytically produces better thinking. Chapters: 1. The reading problem. 2. What slow reading does. 3. The notebook as cognitive tool. 4. What to read. 5. Building the practice.",
+                prompt: "Write chapter descriptions. Each one should name the chapter's job, hint at what it's built from, and make the editor want to read it. 50-80 words each.",
+              },
+              {
+                given: "Book about: why most organizational feedback fails. Chapters: 1. The feedback illusion. 2. What evaluation is and why it's not feedback. 3. The conditions feedback requires. 4. Why organizations can't create those conditions. 5. What actually works.",
+                prompt: "Write chapter descriptions, 50-80 words each. Name the job, hint at the evidence, make the editor want to read on.",
+              },
+              {
+                given: "Book about: creativity and the importance of abandonment. Chapters: 1. The finishing problem. 2. How taste gets ahead of ability. 3. What abandonment costs creatively. 4. When abandonment is the right choice. 5. Building a practice that survives the gap.",
+                prompt: "Write 50-80 word descriptions for each chapter. Job named. Evidence hinted. Reader wants to read it.",
+              },
+              {
+                given: "Book about: peer groups and ambition. Chapters: 1. How your comparison set sets your ceiling. 2. The invisible transmission of what's possible. 3. Why individual mindset is overrated. 4. Choosing your peer group deliberately. 5. What to do when you can't change your environment.",
+                prompt: "Write chapter descriptions, 50-80 words each. Name what each chapter does for the argument. Hint at what it's built from. Make the reader want to read it.",
+              },
+            ],
+          },
+          {
+            label: "Write descriptions that hint at the evidence",
+            passThreshold: 65,
+            wordCountMin: 160,
+            wordCountMax: 295,
+            criteria: [
+              { name: "Evidence is specific", description: "Does each description hint at specific evidence — a study, a type of example, a person or case?", weight: 0.4 },
+              { name: "Job is precise", description: "Is the chapter's job named precisely enough that an editor could see why this chapter is necessary?", weight: 0.35 },
+              { name: "Descriptions build", description: "Does reading the descriptions in sequence give the sense of an argument developing?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book about: the hidden costs of expertise. Chapters: 1. The forgetting curve (how expertise makes the basic invisible). 2. The explanation gap (why experts explain badly). 3. The confidence paradox (why knowing more produces less certainty). 4. What expertise can't see. 5. Staying porous — how the best experts maintain beginner's mind.",
+                prompt: "Write descriptions that hint at specific evidence in each chapter. What kind of research, examples, or cases does the chapter draw on? 50-80 words each, job clear, evidence hinted, reader wants to read it.",
+              },
+              {
+                given: "Book about: rest and cognitive performance. Chapters: 1. The rest deficit (why most knowledge workers are chronically underrestored). 2. What depletion actually is (the specific cognitive resources that thinking work uses). 3. What doesn't restore them (why most 'rest' is actually not rest). 4. What does restore them. 5. Building recovery into a professional practice.",
+                prompt: "Write chapter descriptions that hint at specific evidence — the kinds of studies, examples, and cases each chapter draws on. 50-80 words. Job clear, evidence hinted.",
+              },
+              {
+                given: "Book about: the relationship between community and creative ambition. Chapters: 1. The comparison set problem (how peer groups determine what counts as success). 2. The transmission mechanism (how ambition spreads through proximity). 3. The research on social influence in creative fields. 4. Case studies of deliberate community-building among creative people. 5. The practical guide to choosing your peers.",
+                prompt: "Write descriptions that hint at what each chapter is built from. Job named, evidence hinted, reader pulled forward. 50-80 words each.",
+              },
+              {
+                given: "Book about: why people leave things (careers, relationships, beliefs). Chapters: 1. The hidden structure of leaving (how the decision unfolds across time). 2. The sunk cost problem. 3. The identity barrier. 4. The window and why it closes. 5. What helps people leave when they need to.",
+                prompt: "Write chapter descriptions with specific hints at evidence. What does each chapter use to make its argument — interview data, research, cases, the writer's own experience? 50-80 words, job clear, evidence hinted.",
+              },
+              {
+                given: "Book about: how writing shapes thinking (not just records it). Chapters: 1. The discovery model of writing. 2. What research shows about writing and cognition. 3. The notebook as thinking tool — historical and contemporary examples. 4. Writing for clarity vs. writing for an audience. 5. Building a writing practice as a thinking practice.",
+                prompt: "Write descriptions that make the editor want to read the chapters. Specific evidence hinted. Jobs named. Descriptions build across the sequence. 50-80 words each.",
+              },
+            ],
+          },
+          {
+            label: "Write descriptions that make the editor want to read",
+            passThreshold: 75,
+            wordCountMin: 170,
+            wordCountMax: 320,
+            criteria: [
+              { name: "Editor wants to read each chapter", description: "After reading each description, does the reader want to read the chapter — is there something unresolved that the chapter will resolve?", weight: 0.4 },
+              { name: "Descriptions are complete", description: "Does each description give the editor enough to see the chapter — without being so detailed that reading the book would add nothing?", weight: 0.35 },
+              { name: "Sequence tells a story", description: "Do the descriptions in sequence tell the story of the book's argument — can you trace the argument through the descriptions alone?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book about: ambition and its internal costs. Chapters: 1. The ambition gap (what ambitious people say they want vs. what drives them). 2. Borrowed ambition (how we inherit goals from environments we didn't choose). 3. The achievement trap (why getting what you wanted doesn't feel like you thought it would). 4. The identity crisis that follows achievement. 5. Chosen ambition — the harder and more durable version.",
+                prompt: "Write chapter descriptions that make an editor want to read each chapter. Job named. Evidence hinted. Something unresolved that the chapter will answer. Sequence tells the book's story. 50-80 words each.",
+              },
+              {
+                given: "Book about: organizational resistance to good ideas. Chapters: 1. The death of good ideas (what actually happens to them in organizations). 2. Why good ideas look like bad ideas at first. 3. The incentive problem (why individuals rationally resist ideas that benefit the organization). 4. The information problem (why leaders don't know what's actually happening). 5. What works — the rare conditions under which organizations change.",
+                prompt: "Write descriptions that pull the editor forward through each chapter. Each description should name the job, hint at the evidence, and leave something unresolved. The sequence should tell the book's argument. 50-80 words each.",
+              },
+              {
+                given: "Book about: creative practice and the long middle. Chapters: 1. The gap (how taste gets ahead of ability and what this feels like). 2. The inner critic (where it comes from and what it's doing). 3. The unfinished pile (how abandoned work accumulates and blocks new work). 4. Working through the middle (what the long-producing creatives actually do). 5. The practice that survives the gap.",
+                prompt: "Write descriptions that make the editor want the book. Job named, evidence hinted, something unresolved in each, sequence tells the argument. 50-80 words each.",
+              },
+              {
+                given: "Book about: feedback in organizations. Chapters: 1. The feedback illusion (what most organizations call feedback and why it's something else). 2. The conditions feedback requires (and why organizations systematically don't create them). 3. What evaluation does and doesn't do. 4. The manager who figured it out — case studies of genuine feedback cultures. 5. What to do if you're not in one.",
+                prompt: "Write descriptions that sell each chapter. Job named. Evidence hinted. Something unresolved. Sequence tells the argument. 50-80 words each.",
+              },
+              {
+                given: "Book about: reading and thinking. Chapters: 1. The passive reading trap (how most people read in a way that leaves nothing behind). 2. What understanding actually requires. 3. The notebook method — reading that produces thinking. 4. Choosing what to read when the goal is understanding, not information. 5. What a life of reading for understanding produces.",
+                prompt: "Write descriptions that pull the editor through the book. Each description names the job, hints at what the chapter is built from, leaves something to be resolved. The sequence tells the book's argument. 50-80 words each.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "prop-4",
+        title: "The Sample Pages",
+        lesson: "The sample pages in a proposal are the most important thing in it. Everything else — the overview, the outline, the market analysis — can be corrected and improved in editing. The sample pages show what the book actually is, in the writer's actual voice, doing the actual work. The discipline: the opening of your book should make the rest of the proposal seem modest. The sample pages should be the best writing in the document.",
+        prompt: "Write the opening of the given book — the first 250-400 words. This is the sample pages. The reader should finish knowing what kind of book this is, trusting the writer's voice, and wanting to read more.",
+        wordCountMin: 230,
+        wordCountMax: 420,
+        criteria: [
+          { name: "Voice is present", description: "Does the sample have a distinct voice — is it clearly written by a specific person with a specific perspective?", weight: 0.35 },
+          { name: "Book's nature is clear", description: "After reading the sample, does the reader know what kind of book this is — its register, its approach, its claim?", weight: 0.35 },
+          { name: "Reader wants to continue", description: "Does the sample pull — is there something unresolved that the rest of the book will resolve?", weight: 0.3 },
+        ],
+        stages: [
+          {
+            label: "Write the opening that shows the book",
+            passThreshold: 50,
+            wordCountMin: 220,
+            wordCountMax: 380,
+            criteria: [
+              { name: "Book's nature visible", description: "After reading this opening, can the reader tell what kind of book this is?", weight: 0.5 },
+              { name: "Something to continue toward", description: "Is there a reason to keep reading — a claim that needs to be proven, a tension that needs to be resolved?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book: a nonfiction argument that ambitious people are less happy than they expect after achieving their goals, and that the problem is structural rather than individual.",
+                prompt: "Write the first 220-380 words of this book. The opening should make the reader trust your voice and want to keep reading. Don't start with a statistic or a story about someone else. Start with the thing.",
+              },
+              {
+                given: "Book: a nonfiction argument that how you read determines what you're able to think — and that most people's reading habits are actively degrading their capacity for sustained, original thought.",
+                prompt: "Write the opening 220-380 words of this book. The reader should know what kind of book this is and want to continue. Start with the argument, not the context for the argument.",
+              },
+              {
+                given: "Book: a nonfiction argument that the peer group you're embedded in is the most powerful determinant of your ambition — more than individual effort, individual mindset, or individual luck.",
+                prompt: "Write the first 220-380 words. Show the book in its opening. Voice, claim, pull. Don't warm up. Start where the argument starts.",
+              },
+              {
+                given: "Book: a nonfiction argument that expertise comes packaged with systematic blind spots — specific things you can't see because of what you know — and that this has implications for how much we should trust expert judgment.",
+                prompt: "Write the opening of this book. 220-380 words. Voice present, book's nature clear, reader wants to continue. Don't write toward the argument — start in it.",
+              },
+              {
+                given: "Book: a nonfiction argument that creative people who produce consistently excellent work are distinguished more by what they choose to abandon than by what they complete.",
+                prompt: "Write the first 220-380 words of this book. Voice. Claim. Pull. The reader should know what they're in for and want to be in for it.",
+              },
+            ],
+          },
+          {
+            label: "Write the opening at full voice",
+            passThreshold: 65,
+            wordCountMin: 240,
+            wordCountMax: 400,
+            criteria: [
+              { name: "Voice is specific", description: "Does the voice feel like a specific person — not 'good nonfiction writing' in general, but this writer's way of seeing?", weight: 0.4 },
+              { name: "Claim is embedded in the prose", description: "Is the book's argument present in the opening — not announced but embedded in the writing?", weight: 0.35 },
+              { name: "Pull is strong", description: "Would a reader who got this in their inbox put down what they were doing and read the whole thing?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book: a nonfiction argument about rest — that most knowledge workers are chronically underrestored because what they do to 'rest' doesn't actually restore the specific cognitive resources that thinking work depletes.",
+                prompt: "Write the opening at full voice — specific, direct, person-to-person. The claim should be embedded in the prose, not announced. The reader should feel the pull. 240-400 words.",
+              },
+              {
+                given: "Book: a nonfiction argument about writing and thinking — that writing is how you find out what you think, not how you record what you've already thought, and that this distinction changes everything about how you should approach writing.",
+                prompt: "Write the opening in a voice that is specifically yours. The claim should be present without being announced. The reader should want to continue. 240-400 words.",
+              },
+              {
+                given: "Book: a nonfiction argument about leaving — that there is a hidden structure to how people leave things (careers, relationships, beliefs) and that understanding this structure would help most people make better decisions about when and how to leave.",
+                prompt: "Write the opening at full voice. Voice specific. Claim embedded. Pull strong. 240-400 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that the most important creative skill is not generating ideas but evaluating which ones are worth pursuing — and that this is a learnable skill that most creative education ignores.",
+                prompt: "Write the opening in a voice that would make an editor lean forward. Specific, direct, the claim embedded rather than announced. 240-400 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that most organizational change fails before it starts because it tries to change behavior without changing the incentive structures that produce behavior — and that this is not a management failure but a structural inevitability.",
+                prompt: "Write the opening at full voice. The claim should be present in how the prose moves, not just in what it says. Pull strong. 240-400 words.",
+              },
+            ],
+          },
+          {
+            label: "Write the opening that makes the rest of the proposal seem modest",
+            passThreshold: 75,
+            wordCountMin: 260,
+            wordCountMax: 420,
+            criteria: [
+              { name: "Opening is the best writing in the proposal", description: "Is this opening better than the overview — does it make the overview seem like a rough sketch of something that now exists fully?", weight: 0.4 },
+              { name: "Every sentence earns its place", description: "Is there any sentence in the opening that could be cut — or is every sentence doing necessary work?", weight: 0.35 },
+              { name: "The book is real on the page", description: "Does this opening make the book feel real — does the reader believe this writer can deliver what the proposal promises?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book: a nonfiction argument about ambition — that most people are pursuing goals they inherited from their environment rather than chose, and that achieving these goals is one of the most reliable triggers of the identity crises and depression that high achievers are statistically more likely to experience.",
+                prompt: "Write the opening that makes the rest of the proposal seem modest. Every sentence earning its place. The book real on the page. An editor who reads this should believe you can write the whole thing. 260-420 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that the way we're taught to receive and give feedback in organizations is almost perfectly designed to produce the opposite of what feedback is supposed to do — and that fixing this requires understanding the distinction between evaluation and feedback, which most organizations refuse to make.",
+                prompt: "Write the opening that is the best writing in the proposal — so good it makes the overview seem like scaffolding. Every sentence necessary. The book real. 260-420 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that reading shapes what you're able to think — not just what you know but the forms of thought available to you — and that the decline in sustained reading is not a cultural inconvenience but a cognitive crisis.",
+                prompt: "Write the opening at full strength. Every sentence earning its place. The claim embedded in the prose. The book real on the page. An editor should believe this is a book that needs to exist. 260-420 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that creative people who sustain excellent work over long careers are distinguished by a particular relationship with failure — not resilience or grit, but a specific cognitive practice of learning from failure without being defined by it.",
+                prompt: "Write the opening that makes the proposal's promises seem like understatements. Best writing in the document. Every sentence necessary. The book real. 260-420 words.",
+              },
+              {
+                given: "Book: a nonfiction argument that expertise and authority are being decoupled in a way that is genuinely dangerous — and that the answer is not to restore deference to experts but to understand what kind of expertise, presented in what way, actually earns trust in the current moment.",
+                prompt: "Write the opening at full power. Every sentence earning its place. Voice specific. Claim embedded. The book real on the page. Make the rest of the proposal seem like it was written about something that now obviously exists. 260-420 words.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "prop-5",
+        title: "The Full Pitch",
+        lesson: "The one-page pitch is the most compressed form of the book proposal — it contains everything in one readable page: the claim, the audience, the urgency, the arc, and the writer's position. It's what you send when someone asks 'what's your book about?' and you have two minutes. Most pitches describe. The discipline: a pitch argues. Every sentence should be making the case for why this book should exist and why you're the one to write it.",
+        prompt: "Write a complete one-page pitch for the given book. It should contain the book's argument, its intended reader, why it's needed now, a one-sentence description of each chapter, and why this writer is the right person to write it. Every sentence should be working.",
+        wordCountMin: 280,
+        wordCountMax: 480,
+        criteria: [
+          { name: "All elements present", description: "Does the pitch contain the argument, the audience, the urgency, the arc, and the writer's position?", weight: 0.35 },
+          { name: "Every sentence working", description: "Is every sentence in the pitch earning its place — no filler, no repetition, no throat-clearing?", weight: 0.4 },
+          { name: "Pitch argues, not describes", description: "Does the pitch make a case for why this book should exist — not just explain what it is?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Write a pitch with all elements",
+            passThreshold: 50,
+            wordCountMin: 260,
+            wordCountMax: 440,
+            criteria: [
+              { name: "All elements present", description: "Does the pitch have all five elements: argument, audience, urgency, arc, writer position?", weight: 0.5 },
+              { name: "Pitch holds together", description: "Does the pitch feel like a coherent document — not a checklist of elements but a readable pitch?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Book: an argument that ambitious people are structurally set up for unhappiness, and that the solution is understanding the difference between inherited ambition and chosen ambition.",
+                prompt: "Write a complete one-page pitch for this book. All five elements: argument, audience, urgency, arc (one sentence per chapter), writer position. Everything working. 260-440 words.",
+              },
+              {
+                given: "Book: an argument that most organizational feedback is structured to produce the opposite of what feedback is supposed to do, and that the fix requires understanding the distinction between evaluation and feedback.",
+                prompt: "Write a one-page pitch. Five elements, all present. The pitch should hold together as a readable document, not a list. 260-440 words.",
+              },
+              {
+                given: "Book: an argument that reading shapes what you're able to think — not just what you know — and that the decline in sustained reading is a cognitive crisis with real consequences.",
+                prompt: "Write a complete pitch. All five elements. Coherent, not checklist. 260-440 words.",
+              },
+              {
+                given: "Book: an argument that the peer group you're embedded in is the most powerful determinant of what you attempt, and that deliberately choosing your peers is the highest-leverage change most people can make.",
+                prompt: "Write a one-page pitch. All five elements present. The pitch should be a document someone would actually read, not a form filled out. 260-440 words.",
+              },
+              {
+                given: "Book: an argument that the way we teach writing in schools trains people to perform intelligence on the page rather than think on the page — and that this is a cognitive problem, not a communication problem.",
+                prompt: "Write a complete one-page pitch. All five elements. Holds together as a document. 260-440 words.",
+              },
+            ],
+          },
+          {
+            label: "Every sentence working",
+            passThreshold: 65,
+            wordCountMin: 270,
+            wordCountMax: 455,
+            criteria: [
+              { name: "No sentence is filler", description: "Is every sentence in the pitch earning its place — could any sentence be cut without loss?", weight: 0.4 },
+              { name: "Elements flow", description: "Does the pitch move naturally from element to element — or does it feel like sections bolted together?", weight: 0.35 },
+              { name: "Pitch creates urgency", description: "After reading the pitch, does the reader feel that this book needs to exist now?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book: an argument about expertise — that deep knowledge in a field creates systematic blind spots, and that this has underappreciated implications for how much we should trust expert judgment in different domains.",
+                prompt: "Write a one-page pitch where every sentence earns its place. No filler, no throat-clearing, no sentences that could be cut. The pitch should flow — not feel like a checklist. 270-455 words.",
+              },
+              {
+                given: "Book: an argument about rest — that knowledge workers are chronically underrestored because what they do to rest doesn't restore what thinking work depletes, and that this is a hidden cause of chronic underperformance.",
+                prompt: "Write a pitch where every sentence works. The elements should flow into each other. Urgency should be felt. 270-455 words.",
+              },
+              {
+                given: "Book: an argument about creative practice — that the creative people who produce excellent work over long careers are distinguished by how they handle failure, specifically by a cognitive practice of learning without being defined.",
+                prompt: "Write a one-page pitch. Every sentence earning its place. Flow, not checklist. Urgency. 270-455 words.",
+              },
+              {
+                given: "Book: an argument about leaving — that there is a hidden structure to how people leave careers, relationships, and beliefs, and that understanding this structure would help most people make better decisions about when and how to leave.",
+                prompt: "Write the pitch. Every sentence working. Flows. Creates urgency. All elements present but not announced. 270-455 words.",
+              },
+              {
+                given: "Book: an argument about community and ambition — that the comparison set you're embedded in determines more about what you attempt than any individual quality, and that deliberately choosing your peer group is the highest-leverage action most ambitious people never take.",
+                prompt: "Write a one-page pitch where every sentence earns its place. No filler. Flow. Urgency. 270-455 words.",
+              },
+            ],
+          },
+          {
+            label: "Write the pitch that gets the meeting",
+            passThreshold: 75,
+            wordCountMin: 290,
+            wordCountMax: 480,
+            criteria: [
+              { name: "Pitch gets the meeting", description: "Would an agent or editor who read this want to meet with the writer — does the pitch make the book and the writer irresistible?", weight: 0.4 },
+              { name: "Book and writer inseparable", description: "Is it clear why this specific writer is the right person for this specific book — not in a biographical way but in a way that's evident in the writing itself?", weight: 0.35 },
+              { name: "Pitch is a piece of writing", description: "Is the pitch itself well-written — does it demonstrate the qualities the book will require?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Book: an argument that writing shapes what you're able to think — that the act of writing determines the structure and quality of the thoughts available to you, not just records thoughts already formed — with implications for how people should approach their most important decisions and creative work.",
+                prompt: "Write the pitch that gets the meeting. The agent should finish reading and want to know this writer. The book and the writer should feel inseparable. The pitch itself should demonstrate what the book will be capable of. 290-480 words.",
+              },
+              {
+                given: "Book: an argument that ambitious people are structurally set up for unhappiness not by individual failure but by the nature of conventional ambition — and that the path to durable satisfaction runs through understanding the difference between goals you inherited and goals you chose.",
+                prompt: "Write the pitch that makes an agent pick up the phone. Book and writer inseparable. Pitch is itself a piece of writing. Gets the meeting. 290-480 words.",
+              },
+              {
+                given: "Book: an argument about organizational feedback — that most of what organizations call feedback is actually evaluation delivered in feedback's clothing, and that this confusion produces the worst outcomes of both: evaluation that doesn't improve performance and feedback that doesn't feel safe.",
+                prompt: "Write the pitch that gets the meeting. The pitch itself should demonstrate why this writer is the right writer for this book. The agent should want to meet immediately. 290-480 words.",
+              },
+              {
+                given: "Book: an argument that the peer group you inhabit is more powerful than any individual quality in determining what you attempt — and that most people's sense of what's possible is bounded by the ceiling of the most ambitious person in their immediate environment.",
+                prompt: "Write the pitch that gets the meeting. Book and writer inseparable. Pitch demonstrates what the book will be. Agent wants to know you when they finish. 290-480 words.",
+              },
+              {
+                given: "Book: an argument about expertise and its costs — that getting very good at something produces systematic blind spots that are indistinguishable from genuine expertise from the inside, with implications for how experts should govern themselves and how the rest of us should weigh their judgment.",
+                prompt: "Write the pitch that gets the meeting. This is the document that starts the conversation that produces the book contract. Every sentence at full strength. Book and writer inseparable. 290-480 words.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "chapter-architecture",
     title: "Chapter Architecture",
     genre: "nonfiction",
