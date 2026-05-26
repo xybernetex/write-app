@@ -6763,6 +6763,581 @@ export const tracks: Track[] = [
   },
 
   {
+    id: "reading-like-a-writer",
+    title: "Reading Like a Writer",
+    genre: "nonfiction",
+    difficulty: "intermediate",
+    description: "Reading like a reader is passive — you receive the effect. Reading like a writer is active: you notice the moves, reverse-engineer the structure, find the craft choice that made it work, and steal what you can use. These exercises train the second kind of reading. Every passage is a lesson if you know what to look for.",
+    exercises: [
+      {
+        id: "reader-1",
+        title: "Notice the Move",
+        lesson: "Most readers receive the effect of good writing without naming what caused it. A sentence lands and they keep reading, not knowing why it landed. The writer's job is to be the reader who stops and asks: what did this writer actually do? Not what did they say — what did they do? Name the technique, not the content.",
+        prompt: "Read the given passage and name at least two specific things the writer did — moves, choices, techniques. Don't describe what the passage is about. Describe what the writer did to make it work. Then say which move you want to steal.",
+        wordCountMin: 80,
+        wordCountMax: 200,
+        criteria: [
+          { name: "Moves named, not content", description: "Did the writer name techniques and choices — not summarize the passage's argument?", weight: 0.4 },
+          { name: "Specific and nameable", description: "Are the moves specific enough to be replicated — could a writer use this description to make the same choice?", weight: 0.35 },
+          { name: "Steal identified", description: "Did the writer identify which move they want to apply to their own writing?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Name what the writer did",
+            passThreshold: 50,
+            wordCountMin: 70,
+            wordCountMax: 170,
+            criteria: [
+              { name: "Technique named", description: "Did the writer name something the author did — a structural choice, a sentence move, a rhetorical technique?", weight: 0.5 },
+              { name: "Not summary", description: "Did the writer avoid simply describing what the passage is about?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "We are not built for the pace we keep. This is not a complaint — it's a design specification. The human nervous system was calibrated for a world that no longer exists, which means every time you feel overwhelmed, you are experiencing a system working exactly as intended. The problem is not you. The problem is the mismatch.",
+                prompt: "Name two things the writer did in this passage — not what it's about, but what they did. Name each move. Then say which one you'd steal.",
+              },
+              {
+                given: "The advice everyone gives about failure is wrong. Not harmlessly wrong — wrong in a way that makes failure harder. 'Failure is just feedback' sounds useful until you actually fail, at which point it functions mainly as a way to make you feel stupid for feeling bad. Failure hurts because it's supposed to. That's information too.",
+                prompt: "Name two writer moves in this passage. Be specific about what each one does — what effect does it create, and how does the writer achieve it?",
+              },
+              {
+                given: "Cities are essays in density. Everything a city does — the zoning, the transit, the building heights — is an argument about how close people should be to each other and what happens when they are. You can read a city's values in its infrastructure the way you can read a person's values in how they spend their Friday nights.",
+                prompt: "Name at least two specific things the writer did here. Not what the passage argues — what techniques are being used? Which would you steal and why?",
+              },
+              {
+                given: "Most meetings are held to avoid a decision. Someone in the organization has the authority to decide, and they're afraid to use it, so they call a meeting. The meeting produces discussion, which produces a document, which gets scheduled for a follow-up meeting. The decision, meanwhile, makes itself — through inaction, through default, through whatever happens when no one chooses.",
+                prompt: "Name two writer moves. What did the writer do structurally, rhetorically, or at the sentence level to make this work? Which move would you steal?",
+              },
+              {
+                given: "There is a kind of confidence that comes from having been through something and not been destroyed by it. It looks like arrogance from the outside — the person who doesn't panic, who seems to expect to come out the other side. But it is not arrogance. It is evidence. They have their own data.",
+                prompt: "Name what the writer did in this passage — at least two distinct choices. Don't describe the content. Describe the craft. Which would you use?",
+              },
+            ],
+          },
+          {
+            label: "Name the move precisely enough to steal it",
+            passThreshold: 65,
+            wordCountMin: 90,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Move named precisely", description: "Is the move named specifically enough that a different writer could replicate it?", weight: 0.4 },
+              { name: "Why it works", description: "Did the writer explain what effect the move creates and why it works?", weight: 0.35 },
+              { name: "Steal is specific", description: "Is the move the writer wants to steal specific enough to actually apply?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The best thing you can do for your writing is read it aloud. Not skim it — read it, out loud, to the empty room. The places where you stumble are the places where the prose is lying. The sentence that trips you is confessing that it doesn't know what it means.",
+                prompt: "Name two moves with precision. Not 'short sentences' but what specifically the short sentences are doing. Not 'the metaphor' but what the metaphor is achieving and how. Name the move, name the effect, name the mechanism.",
+              },
+              {
+                given: "Nobody tells you that the hardest part of becoming good at something is not the skill itself — it's the period when you're good enough to know you're not good yet. Bad beginners are blissfully incompetent. Advanced beginners are in hell. They can see the gap between what they're doing and what's possible, and the gap is enormous.",
+                prompt: "Name two moves precisely. What is the writer doing structurally to set up the final sentence? Name the move, the mechanism, and the effect. Then name what you'd steal and how you'd apply it.",
+              },
+              {
+                given: "The news is not what happened. The news is what someone decided was important enough to tell you about what happened. This is not a conspiracy — it's a selection problem. Every news organization, every journalist, every tweet is selecting from a nearly infinite set of events and presenting a slice as the whole. The selection is the argument.",
+                prompt: "Name two techniques with enough precision to replicate. What structure is the writer using? What sentence-level choice appears more than once and why? Name the move, explain the mechanism, identify your steal.",
+              },
+              {
+                given: "Expertise is a tax on beginners. The expert has forgotten what it was like not to know. They can't feel the confusion that a novice feels, can't remember what it was like to not have the map. This is not their fault. It is the cost of competence. The only cure is to deliberately go back to being bad at something.",
+                prompt: "Name two writer moves with precision. For each: what is the writer doing, why does it work, and what effect does it create for the reader? Name your steal and how you'd use it.",
+              },
+              {
+                given: "Vulnerability is not a strategy. The people who perform vulnerability — who share their struggles on cue, in the right format, to the right audience — are not being vulnerable. They are managing an image. Real vulnerability is not chosen for its effect. It has a cost you didn't budget for.",
+                prompt: "Name two moves precisely. One should be at the sentence level, one at the structural level. For each: name it, explain the mechanism, say what it creates. Name your steal.",
+              },
+            ],
+          },
+          {
+            label: "Name and demonstrate the steal",
+            passThreshold: 75,
+            wordCountMin: 100,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Moves named precisely", description: "Are the techniques named specifically and correctly?", weight: 0.3 },
+              { name: "Steal applied", description: "Did the writer demonstrate the stolen move by using it in their own 2-3 sentences?", weight: 0.4 },
+              { name: "Stolen move recognizable", description: "Can you see the influence of the original passage in the writer's demonstration?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "Procrastination is not laziness. Laziness is comfortable. Procrastination is agony — you know what you're not doing, you can feel the gap between where you are and where you should be, and you do something else anyway. The gap is the point. Procrastinators are often people with very high standards and very low tolerance for their own imperfection.",
+                prompt: "Name two moves. Steal one of them and demonstrate it: write 2-3 sentences on any topic using the move you identified. Show the move working in your own prose.",
+              },
+              {
+                given: "Every organization has a theory of how decisions should be made, and then a practice. The theory is documented somewhere — in a charter, an org chart, a stated values document. The practice is what you'd see if you watched what actually happens. The gap between the two is where most organizational dysfunction lives.",
+                prompt: "Name two writer moves. Steal the more structural one. Write 2-3 sentences using that structure on a different topic. The move should be visible in your demonstration.",
+              },
+              {
+                given: "There's a version of caring what people think that is useful: it makes you accurate, it corrects your blind spots, it builds the social awareness that makes relationships work. Then there's the version that is not useful: the one that edits you before you speak, that makes you perform rather than be. The first is feedback. The second is a prison.",
+                prompt: "Name two moves. Steal the one that structures the argument — the way the passage builds toward a final distinction. Write 2-3 sentences using that structure. Show the move in action.",
+              },
+              {
+                given: "Learning a new skill as an adult is humbling in a way that children never experience. Children expect not to know. Adults have to choose not to know — they have to walk into a room where they're the worst and stay there, resisting the pull toward competence that makes us avoid the things we're bad at.",
+                prompt: "Name two writer moves precisely. Steal one and demonstrate it in 2-3 sentences on a different topic. The stolen move should be recognizable.",
+              },
+              {
+                given: "The problem with 'authenticity' as a value is that it's self-undermining. The moment you try to be authentic, you're performing authenticity — you're checking whether your behavior matches some internal standard, which is already a kind of distance from the spontaneous self the word is supposed to evoke. Real authenticity is what happens when you forget to check.",
+                prompt: "Name two moves. Steal the one that creates the 'turns against itself' structure. Demonstrate it in 2-3 sentences using a different concept. Show the move working.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "reader-2",
+        title: "Reverse-Engineer the Structure",
+        lesson: "Good essays feel inevitable — like they couldn't have been organized any other way. That's the illusion. Every essay is a series of structural choices: where the argument opens, how the pivot happens, why the ending is here and not there. Reverse-engineering means pulling the structure back out — making visible the skeleton the prose is hiding. Once you see it, you can use it.",
+        prompt: "Read the given passage and map its structure. Name each structural move — opening, development, turn, close — and explain why each is where it is. Then identify the move you'd most want to use.",
+        wordCountMin: 90,
+        wordCountMax: 210,
+        criteria: [
+          { name: "Structure mapped", description: "Did the writer identify the distinct structural moves — not just list topics but name what each section is doing?", weight: 0.4 },
+          { name: "Why each move is there", description: "Did the writer explain why each section is in that position — what it enables for the section that follows?", weight: 0.35 },
+          { name: "Steal identified", description: "Did the writer name a structural move they could apply to their own work?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Name the sections and what they do",
+            passThreshold: 50,
+            wordCountMin: 80,
+            wordCountMax: 180,
+            criteria: [
+              { name: "Sections identified", description: "Did the writer identify the distinct sections or moves in the passage?", weight: 0.5 },
+              { name: "Each section named by function", description: "Did the writer name what each section is doing, not just what it's about?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "The word 'hustle' used to belong to pool sharks and con men. It was a word about deception — the hustle was what you did to someone. Now it belongs to productivity culture, where it means working more than you are required to. The word carried the con inside it the whole time. We just didn't notice.",
+                prompt: "Map the structure of this passage. Name each section — how many moves does it make, and what is each one doing? Don't describe the content. Name the structural function.",
+              },
+              {
+                given: "Good feedback has a shape. It starts where the work is strong, because a writer who feels attacked will stop listening. Then it moves to the specific thing that isn't working — not everything that isn't working, the main thing. Then it offers a direction, not a solution. The direction is the gift. The solution is the editor's job, not the writer's.",
+                prompt: "Identify the structure of this passage. How many moves does it make? What is each move doing? Name the function, not the content.",
+              },
+              {
+                given: "We tell ourselves we're too busy to read. What we mean is that reading loses the competition for our attention against things that are easier and more stimulating. Books are slow. They demand patience. They don't reward you for continuing the way a feed does. Saying 'I'm too busy' is more dignified than saying 'I prefer the easier thing,' so we say that instead.",
+                prompt: "Map this passage structurally. Name each move — where does the argument start, where does it pivot, where does it land? What is each section doing for the argument?",
+              },
+              {
+                given: "Every tool shapes the thinking of the person using it. The hammer-wielder looks for nails. The spreadsheet user looks for quantifiable variables. The journalist looks for the story in the data. This is not a problem to be solved — it's the nature of tools. The question is whether you know which tool you're holding.",
+                prompt: "Identify the structure. How does it open? What does the middle do? How does it close? Name the function of each section.",
+              },
+              {
+                given: "The first sentence of anything is a promise. It tells the reader what kind of thing this is going to be, sets the register, establishes the pace. A broken first sentence is hard to recover from — not because readers are unforgiving, but because the promise is set so early that everything that follows is measured against it. First sentences are not introductions. They are contracts.",
+                prompt: "Map the structure. Name each move by its function in the argument. What does the opening do that the middle needs? What does the middle do that the close needs?",
+              },
+            ],
+          },
+          {
+            label: "Name why each section is where it is",
+            passThreshold: 65,
+            wordCountMin: 90,
+            wordCountMax: 195,
+            criteria: [
+              { name: "Position explained", description: "Did the writer explain why each section is in its position — what it sets up, what it depends on?", weight: 0.4 },
+              { name: "Structure understood", description: "Does the writer show they understand the logic of the structure — why this order and not another?", weight: 0.35 },
+              { name: "Steal named", description: "Did the writer name a structural move they could use in their own essay?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Status is relative, so it can't be accumulated — only maintained. Every gain is temporary because everyone else is also trying to gain. This makes status-seeking a treadmill: the position you achieved last year is just the baseline for this year's anxiety. The only people who escape this are the ones who stop playing the game, or the ones who define the game so that only they can win.",
+                prompt: "Name each structural move and explain why it's where it is. Not just 'section 1 does X' — why must section 1 come before section 2? What does each section enable for the next?",
+              },
+              {
+                given: "The purpose of an editor is not to fix the writing. It's to read the writing as the writer can't — as a stranger, without knowing what the writer intended, seeing only what's on the page. The editor's value is in the distance. The moment an editor gets too close to the work, too invested in making it what they'd have written, the distance closes and the value goes with it.",
+                prompt: "Map the structure and explain the logic. Why is the complication where it is? Why is the closing sentence the closing sentence and not an earlier one? Name the structural logic.",
+              },
+              {
+                given: "Most rules for writing are really rules for reading — things that the reader needs, reframed as demands on the writer. 'Be specific' is a reader's need. 'Show, don't tell' is a reader's preference. Understanding this changes how you hold the rules. They're not commandments. They're descriptions of what readers can and can't do.",
+                prompt: "Explain why each section is where it is. What does the opening's frame enable? What does the middle depend on from the opening? Why is the final sentence a reframe rather than a conclusion?",
+              },
+              {
+                given: "Boredom is a skill. The ability to sit with nothing — no input, no stimulation, no forward progress — is what allows ideas to connect. The brain doesn't generate insights on demand. It generates them in the spaces between demands. Which means the most productive thing you can sometimes do is nothing, and the reason this is hard is that we've trained ourselves to experience nothing as failure.",
+                prompt: "Name each structural move and explain the logic of its position. Why does the argument open where it opens? Why does the complication come third, not second? What does the closing sentence need from everything before it?",
+              },
+              {
+                given: "The difference between persuasion and manipulation is consent. Persuasion offers the reader a reason and lets them decide. Manipulation removes the decision — through urgency, through flattery, through the design of a choice architecture that makes one option feel inevitable. The line matters because one works with the reader's intelligence and the other works around it.",
+                prompt: "Map the structure and explain the logic. Why is the definition first? Why is the distinction last? What does each section require from the one before it?",
+              },
+            ],
+          },
+          {
+            label: "Diagram and steal the structure",
+            passThreshold: 75,
+            wordCountMin: 110,
+            wordCountMax: 210,
+            criteria: [
+              { name: "Structure fully mapped", description: "Is every structural move in the passage named and its function explained?", weight: 0.3 },
+              { name: "Logic of structure clear", description: "Does the writer demonstrate they understand why the structure works — not just what it does?", weight: 0.35 },
+              { name: "Steal demonstrated", description: "Did the writer apply the structure to their own topic in a sentence or two, showing they can use it?", weight: 0.35 },
+            ],
+            variants: [
+              {
+                given: "Confidence is not the absence of doubt. It's the decision to act despite doubt. This distinction matters because the popular model of confidence — as a feeling that comes before action — makes it a prerequisite: you feel ready, then you go. The actual model works in reverse: you go, and the readiness accumulates. Waiting to feel confident is a way of never going.",
+                prompt: "Map the structure completely. Name every move and explain its logic. Then steal the structure: apply it to a different argument in 2-3 sentences. Show you can use it.",
+              },
+              {
+                given: "The thing people get wrong about minimalism is the direction of causality. They assume: fewer possessions → clearer thinking → better life. The actual direction, for the people who find minimalism useful, is: clarify what you value → notice that most possessions don't serve those values → own less as a consequence. One starts with objects. The other starts with a question.",
+                prompt: "Fully map the structure — every move, every function, every logical dependency. Then steal it: apply the same structure to a different misconception. Two to three sentences is enough.",
+              },
+              {
+                given: "Writers get blocked for two reasons, and they're opposite problems. The first is not knowing what to say — you haven't thought enough about the topic to have a real position. The second is knowing too well — you've thought so much that every sentence feels like a commitment you might regret, so you edit before you write. The cure for the first is more thinking. The cure for the second is less.",
+                prompt: "Map every structural move. Explain why each is necessary in its position. Steal the structure: apply it to two opposite failure modes in a field you know well. Show the structure working.",
+              },
+              {
+                given: "Every organizational culture has an official story and an unofficial story. The official story lives in the values document, the all-hands decks, the CEO's LinkedIn posts. The unofficial story lives in what happens when no one senior is watching, in how conflicts actually get resolved, in who gets promoted for what. The gap between them is not hypocrisy — it's data. It tells you what the organization actually optimizes for.",
+                prompt: "Complete structural map — every move, every function, every logical requirement. Then steal the official/unofficial structure: apply it to a different institution or system in 2-3 sentences. Show the structure working in your own writing.",
+              },
+              {
+                given: "The reason most people don't know what they want is not lack of self-knowledge. It's that wanting requires choosing, and choosing requires giving up the alternatives. It's more comfortable to stay in possibility — to keep all options open, to maintain the fiction that everything is still available. Knowing what you want closes doors. Not knowing keeps them open. This is not wisdom. It's fear of commitment dressed as curiosity.",
+                prompt: "Map every structural move completely. Name the logic of each position. Steal the structure: apply it to a different phenomenon where 'not knowing' is really serving a function. Demonstrate in 2-3 sentences.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "reader-3",
+        title: "The Craft Choice",
+        lesson: "Every passage that works has at least one decision that made the difference — a specific word that couldn't be anything else, a structural choice that opened up the whole argument, a rhythm shift that made the reader feel something they didn't expect. Most readers don't find it. Writers have to. The drill: find the single most important craft choice in the passage and explain what would be lost without it.",
+        prompt: "Find the single most important craft choice in the given passage. Name it precisely. Explain what it does and what would be lost if the writer had made a different choice. Then explain what the choice teaches you.",
+        wordCountMin: 90,
+        wordCountMax: 200,
+        criteria: [
+          { name: "Choice identified precisely", description: "Is the craft choice named specifically — a particular word, phrase, structure, or technique — not a general description?", weight: 0.4 },
+          { name: "What would be lost", description: "Did the writer explain concretely what the passage would lose without this choice?", weight: 0.35 },
+          { name: "What it teaches", description: "Did the writer articulate a lesson from the choice — something they could apply to their own work?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Find and name the most important choice",
+            passThreshold: 50,
+            wordCountMin: 80,
+            wordCountMax: 170,
+            criteria: [
+              { name: "Choice named", description: "Did the writer identify a specific craft choice — not a theme or topic but a writing decision?", weight: 0.5 },
+              { name: "Why it matters", description: "Did the writer say why this choice matters to the passage?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Nobody talks about the cost of winning. There are books about losing — how to recover, how to learn, how to get back up. But winning has a cost too: the relationships that couldn't survive the success, the version of yourself you had to stop being, the goals you'd organized your life around that are now behind you. What do you want when you've gotten what you wanted?",
+                prompt: "Find the single most important craft choice in this passage. Name it precisely. Say why it matters — what does it do for the passage that no other choice would do?",
+              },
+              {
+                given: "The lie that perfectionists tell themselves is that the standard is the problem. If they could just lower their standards, they'd finish things. But the standard is not the problem. The problem is that perfectionism is not about standards — it's about fear. Lower the standard and the fear finds a new home. The work still doesn't get done.",
+                prompt: "Identify the most important craft choice in this passage. Name it specifically. What does it accomplish that a different choice would not?",
+              },
+              {
+                given: "Every system that rewards honesty eventually selects for the performance of honesty. The mechanism is simple: once people understand that honesty is valued, they get better at appearing honest. The original signal degrades. This is not cynicism — it's Goodhart's Law. Any measure that becomes a target ceases to be a good measure.",
+                prompt: "Find the most important craft choice. Name it. Explain what it does and why it's the right choice for this passage.",
+              },
+              {
+                given: "Writing teachers say 'show, don't tell.' What they mean is: do not explain the emotion. Put the reader in the situation that produces the emotion and let the emotion arise. The emotion you explain is felt by the writer. The emotion you evoke is felt by the reader. One is a report. The other is an experience.",
+                prompt: "Identify the single craft choice that does the most work in this passage. Name it exactly. What would this passage lose without it?",
+              },
+              {
+                given: "You can tell a bad manager by what they say in the first five minutes of a one-on-one. The good ones ask questions. They want to know what you're working on, what's stuck, what you need. The bad ones tell you things — updates, priorities, context they assume you lack. The direction of information is the relationship.",
+                prompt: "Find the most important craft choice. Name it precisely. Why is this choice the one the passage couldn't do without?",
+              },
+            ],
+          },
+          {
+            label: "Explain what would be lost",
+            passThreshold: 65,
+            wordCountMin: 90,
+            wordCountMax: 185,
+            criteria: [
+              { name: "Choice named precisely", description: "Is the craft choice named specifically enough that someone could find it in the text?", weight: 0.35 },
+              { name: "Loss is concrete", description: "Is the explanation of what would be lost specific — not 'it would be weaker' but what exactly would be missing?", weight: 0.4 },
+              { name: "Lesson articulated", description: "Did the writer name what this teaches — a principle they could apply?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The most dangerous thing you can believe about yourself is that you are not the kind of person who does that. Not the kind of person who cheats. Not the kind of person who lies. Not the kind of person who stays when they should leave. The belief protects you from the evidence until the evidence is overwhelming, and then it protects you from the memory.",
+                prompt: "Name the most important craft choice. Then explain specifically what would be lost without it — not that it would be 'less effective,' but what specific thing would disappear. Then name the lesson.",
+              },
+              {
+                given: "Generosity is not a virtue for people who have enough. It is a practice that changes the practitioner. The person who gives when it costs them something learns something the comfortable giver doesn't: that they can. That the loss was survivable. That the wanting-to-give is not dependent on the having-enough.",
+                prompt: "Find the most important craft choice and name it precisely. Explain concretely what would be lost without it. Then articulate what it teaches about that kind of writing.",
+              },
+              {
+                given: "The thing about growth is that it is indistinguishable from loss while it's happening. Every expansion of what you are capable of requires leaving behind something you used to need. The chrysalis metaphor exists for a reason. The caterpillar does not know it's becoming a butterfly. It knows only that it is dissolving.",
+                prompt: "Identify the craft choice doing the most work. Name it exactly. Say what would be concretely missing without it. Name the lesson for your own writing.",
+              },
+              {
+                given: "Most people know more than they are willing to say in public. The gap between private belief and public statement is not hypocrisy — it's the ordinary cost of living in a social world. The question is whether the gap is closing or growing. When it grows, something is lost — not just courage, but the practice of knowing what you actually think.",
+                prompt: "Name the most important craft choice. Explain what the passage would concretely lose without it. What does this choice teach about how to make an argument?",
+              },
+              {
+                given: "There's a version of self-improvement that is really self-punishment in a productivity costume. You are not improving yourself when you wake up at 5am and feel terrible about it but do it anyway because that's what successful people do. You're not improving yourself when you track every meal and hate yourself for every deviation. That's not discipline. That's a relationship with yourself that you would advise a friend to leave.",
+                prompt: "Find the most important craft choice in this passage. Name it precisely. Explain specifically what would be lost without it. Name what it teaches.",
+              },
+            ],
+          },
+          {
+            label: "Name the choice, the loss, and how to use it",
+            passThreshold: 75,
+            wordCountMin: 100,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Choice is the right one", description: "Is the craft choice identified actually the most important one — not the most obvious but the one doing the most work?", weight: 0.35 },
+              { name: "Loss is specific and complete", description: "Is the explanation of loss specific, concrete, and complete — does it capture everything that would be gone?", weight: 0.35 },
+              { name: "Demonstrated application", description: "Did the writer show how they'd apply the lesson — either by naming a specific situation or writing a demonstration sentence?", weight: 0.3 },
+            ],
+            variants: [
+              {
+                given: "The opposite of addiction is not sobriety. It's connection. People use substances to fill a space that something else should fill. When the connection is there — real community, real purpose, real intimacy — the substance loses most of its pull. This is why treating addiction as a moral failure misses the mechanism. The drug is a solution to a problem. The problem is the loneliness.",
+                prompt: "Name the most important craft choice — not the most obvious one, the most important one. Explain concretely what would be lost. Then show how you'd apply the lesson: write one sentence using the same choice on a different topic.",
+              },
+              {
+                given: "Time is the only resource you cannot recover. Money lost can be earned again. Health lost can sometimes be recovered. Relationships broken can sometimes be repaired. But an hour spent is gone. This is the beginning of time management — not the apps, not the systems, not the productivity hacks. The beginning is this fact, held clearly, without flinching.",
+                prompt: "Find the craft choice doing the most important work. Name it precisely. Explain what would concretely be lost without it. Then demonstrate how you'd use the same choice in your own writing.",
+              },
+              {
+                given: "Envy is information. It tells you what you want that you're not letting yourself say you want. The things that make us envious are not random — they're not triggered by everything other people have, only by the things we'd want for ourselves. Pay attention to envy. Don't perform the wanting. Just notice what the feeling is pointing at.",
+                prompt: "Name the most important craft choice and why it's the most important one (not just a notable one). Explain the specific loss without it. Demonstrate the lesson by writing one sentence using the choice on a different topic.",
+              },
+              {
+                given: "Every long relationship has a turning point where you decide — usually without knowing you're deciding — whether this is a person you're going to grow with or grow away from. The decision is made in small moments: the patience you offer or withhold, the curiosity you sustain or let drop, the version of the person you choose to see. By the time you know what decision you made, it's been made for years.",
+                prompt: "Name the craft choice doing the most work. Explain specifically and completely what would be lost without it. Show how you'd apply the lesson: write 1-2 sentences using the same choice.",
+              },
+              {
+                given: "The person who is wrong loudly is easier to work with than the person who is right quietly. The loud one's position is visible; you know what you're dealing with. The quiet one's position is hidden — you discover it only when the project is already committed, already funded, already launched. Silence is not modesty. In organizations, it's a choice about when to deploy your leverage.",
+                prompt: "Find the most important craft choice — not the most prominent, the most essential. Name it precisely, explain the specific loss, and demonstrate the lesson in 1-2 sentences using the same choice.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "reader-4",
+        title: "Steal a Move",
+        lesson: "The point of reading like a writer is to steal. Every writer you admire has a set of moves you don't have yet — structural choices, sentence patterns, argument techniques that work in their hands. The discipline: identify a specific move, understand why it works, and apply it to your own material. This is not plagiarism. This is apprenticeship.",
+        prompt: "Read the given passage and identify one move worth stealing. Name it precisely. Then apply it to your own writing: write 3-5 sentences on a topic from your own work using the stolen move. The move should be visible in your version.",
+        wordCountMin: 100,
+        wordCountMax: 220,
+        criteria: [
+          { name: "Move named precisely", description: "Is the stolen move named specifically enough that someone could identify it in both the original and the application?", weight: 0.35 },
+          { name: "Move applied correctly", description: "Is the move used in the writer's version the same move — not just inspired by the passage but actually using the same technique?", weight: 0.4 },
+          { name: "Applied to own material", description: "Is the writer's version using their own ideas and content — not echoing the original's subject?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Name and attempt the steal",
+            passThreshold: 50,
+            wordCountMin: 90,
+            wordCountMax: 190,
+            criteria: [
+              { name: "Move named", description: "Did the writer name a specific move from the passage?", weight: 0.5 },
+              { name: "Steal attempted", description: "Did the writer write their own sentences attempting to use the move?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "Most of what we call thinking is actually remembering. We encounter a new situation and match it to a pattern from the past. This is usually fast and usually right. But it fails exactly when newness matters most — when the situation is genuinely unlike anything we've faced, and the old pattern doesn't fit, and we apply it anyway because it's what we have.",
+                prompt: "Name one move from this passage worth stealing. Name it. Then write 3-4 sentences on any topic from your own life or work using that move.",
+              },
+              {
+                given: "The thing about comparison is that it only runs in one direction. You compare your ordinary to someone else's highlight. Your Monday morning to their Saturday afternoon. Your raw draft to their published version. The game is rigged from the start, and the only way to win is to stop playing.",
+                prompt: "Identify the move. Name it. Steal it: write 3-4 sentences on a different topic using the same move. The move should be visible in your version.",
+              },
+              {
+                given: "Attention is not a thing you have or don't have. It's a thing you train. The person who can read a 400-page book has trained that capacity. The person who can't has let it atrophy, usually in exchange for the dopamine loops of shorter content. Neither is permanent. Both are choices, usually made without knowing they're choices.",
+                prompt: "Name one move worth stealing from this passage. Apply it: write 3-4 sentences on any topic using that move. Name the move before you write.",
+              },
+              {
+                given: "The most honest thing you can say about a decision you made is that you made it with the information you had, in the state you were in, with the values you held at the time. That's all any decision is. The mistake is judging it with information that wasn't available, in a calmer state, with values that came later. Hindsight is not a tool for judgment. It's a tool for learning.",
+                prompt: "Identify a move worth stealing. Name it. Write 3-5 sentences on a different topic using that move. The move should be recognizable in your version.",
+              },
+              {
+                given: "Criticism is easier than creation, and we know this, and we do it anyway. Not because we're lazy — because criticism offers something creation doesn't: safety. You can criticize a thing without committing to an alternative. You can be wrong about what would be better without having made anything that demonstrates you're wrong.",
+                prompt: "Name the move. Steal it. Write 3-4 sentences using the same move on a topic from your own experience or work.",
+              },
+            ],
+          },
+          {
+            label: "Apply the move to your own material",
+            passThreshold: 65,
+            wordCountMin: 100,
+            wordCountMax: 200,
+            criteria: [
+              { name: "Move recognizable in application", description: "Is the stolen move identifiable in the writer's version — would someone who read the original recognize the technique?", weight: 0.4 },
+              { name: "Applied to own content", description: "Is the content of the writer's version genuinely their own — not echoing the original's topic or examples?", weight: 0.35 },
+              { name: "Move serves the content", description: "Does the stolen move work in the new context — does it make the writer's sentences better?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Kindness is not the same as niceness. Niceness avoids friction. Kindness sometimes creates it — because the kind thing and the comfortable thing are not always the same, and when they're not, kindness requires choosing the discomfort. Most of what passes for kindness in professional environments is niceness: the smoothed-over feedback, the avoided conversation, the performance of support without the substance of it.",
+                prompt: "Name the most useful move from this passage. Apply it to your own material — write 3-5 sentences using the move on a topic you actually care about. The move should be the structure, not just the style.",
+              },
+              {
+                given: "The people most worth arguing with are the ones who change their minds when they're wrong. The people least worth arguing with are the ones who argue to win. The problem is that they look identical from the outside — both are engaged, confident, articulate. You can only tell them apart by what they do with a good counterargument. One takes it seriously. The other dismisses it faster.",
+                prompt: "Name a move worth stealing. Write 3-5 sentences using it on a topic from your own writing. The move should be visible and functional — doing work for your argument, not just borrowed style.",
+              },
+              {
+                given: "Every skill has a stage where you know just enough to be dangerous — to yourself. You've learned the rules and haven't yet learned when to break them. You apply the technique when the technique is wrong for the situation. You're more confident than you should be and less flexible than you need to be. This is not a flaw in the learning process. It is the learning process.",
+                prompt: "Identify a move. Name it with enough precision to replicate it. Apply it to your own material — 3-5 sentences on a topic you actually write about. Show the move working.",
+              },
+              {
+                given: "We overestimate what we can do in a day and underestimate what we can do in a decade. The daily estimate fails because we imagine our best-case energy and attention. The decade estimate fails because we can't feel the compounding — we imagine doing the same thing for ten years rather than the cumulative result of ten years of doing things.",
+                prompt: "Name a move. Steal it for your own material — 3-5 sentences using the same technique on a different topic. The move should do the same kind of work in your version.",
+              },
+              {
+                given: "The hardest edit is the one that takes something good and cuts it anyway — because it's good in isolation but wrong in the piece. It pulls the reader's attention from what matters. It signals something the essay can't deliver. It's too clever for what surrounds it. Cutting something good when you know it's good is one of the last skills writers develop. It requires caring more about the essay than about the sentence.",
+                prompt: "Name a move worth stealing. Apply it to your own writing — 3-5 sentences on a topic from your experience with writing, work, or learning. Show the move in action.",
+              },
+            ],
+          },
+          {
+            label: "Steal the deepest move",
+            passThreshold: 75,
+            wordCountMin: 110,
+            wordCountMax: 220,
+            criteria: [
+              { name: "Deepest move identified", description: "Did the writer find the structural or argumentative move, not just a surface stylistic choice?", weight: 0.35 },
+              { name: "Move fully applied", description: "Does the writer's version use the move at the same level of the argument — not just the phrasing but the underlying structure?", weight: 0.4 },
+              { name: "Version stands alone", description: "Does the writer's version work as its own piece — would you know it was borrowed from somewhere if you read it cold?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "There are two ways to handle a problem you can't solve. The first is to work harder on the solution. The second is to redefine what counts as a solution. Most people default to the first. The most interesting careers and most interesting ideas usually involve someone who tried the second — not giving up, but questioning the framing of what winning looks like.",
+                prompt: "Name the deepest move — the one that's structural, not stylistic. Apply it to your own content: write 4-5 sentences using the same move on a topic you care about. The version should stand alone.",
+              },
+              {
+                given: "Originality is not doing something that has never been done. It's doing something in a way that is so fully yours that no one else would have done it in exactly that way. The distinction matters because 'never been done' is mostly territory that's empty for a reason. 'Fully yours' is achievable and useful and what audiences actually respond to.",
+                prompt: "Find the deepest move — the argumentative technique, not the prose style. Apply it to your own material in 4-5 sentences. It should be invisible to someone who hasn't read the original.",
+              },
+              {
+                given: "The opposite of a bad habit is not a good habit. It's an understanding of what the bad habit is doing for you. Habits persist because they're solving something — stress, boredom, loneliness, avoidance. Replace the habit without replacing the solution and the habit comes back or finds a new form. The replacement has to do the same job.",
+                prompt: "Identify the deepest move — the logical structure, not the sentences. Steal it completely: write 4-5 sentences using the same logical structure on a completely different topic. The move should be invisible.",
+              },
+              {
+                given: "Most career advice mistakes the map for the territory. The advice describes a path that worked for someone — the specific sequence of decisions, relationships, and circumstances that produced a particular outcome — and abstracts it into a principle. The principle is not wrong. It just leaves out everything that made it work: the luck, the context, the person.",
+                prompt: "Name the deepest structural move in this argument. Apply it to a different critique — career advice, writing advice, life advice, parenting advice. Write 4-5 sentences. The version should stand alone.",
+              },
+              {
+                given: "The question isn't whether you have enough time. It's whether the thing you're saying you don't have time for is something you actually want. Time is not a fixed resource that runs out — it's an allocation that reflects what you've decided matters. 'I don't have time' almost always means 'this is not the priority I'm willing to admit it isn't.'",
+                prompt: "Name the deepest move — the rhetorical technique at the center of the argument, not the surface style. Apply it fully to a different subject. Write 4-5 sentences that stand alone as a piece of writing.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "reader-5",
+        title: "The Close Read",
+        lesson: "A close read is not a summary and not a review. It's a line-by-line accounting of what a piece of writing is doing — every word choice, every sentence structure, every move the writer makes. Most readers never do this. Writers who do it regularly develop a kind of x-ray vision: they see the craft inside the prose. The drill: one paragraph, read with maximum attention.",
+        prompt: "Close-read the given paragraph. Go sentence by sentence. For each sentence, name what the writer chose and why that choice matters. Don't describe the content — describe the craft. What is each sentence doing and how is the writer doing it?",
+        wordCountMin: 110,
+        wordCountMax: 240,
+        criteria: [
+          { name: "Every sentence addressed", description: "Did the writer address each sentence in the passage, not just the most interesting ones?", weight: 0.35 },
+          { name: "Craft named, not content", description: "Did the writer name what the writer is doing — choices, techniques, effects — not just describe what the sentences say?", weight: 0.4 },
+          { name: "Reading is close", description: "Is the level of attention genuinely close — are word-level choices noticed, not just paragraph-level moves?", weight: 0.25 },
+        ],
+        stages: [
+          {
+            label: "Name what each sentence does",
+            passThreshold: 50,
+            wordCountMin: 100,
+            wordCountMax: 210,
+            criteria: [
+              { name: "Each sentence named", description: "Did the writer address each sentence individually?", weight: 0.5 },
+              { name: "Function named", description: "Did the writer name the function of each sentence — what job it's doing for the passage?", weight: 0.5 },
+            ],
+            variants: [
+              {
+                given: "The most important skill in any knowledge work is knowing what to ignore. Everything is available. Not everything is relevant. The people who are most effective are not the ones with the most information — they're the ones with the best filters. The filter is the skill.",
+                prompt: "Name what each sentence is doing. Not what it says — what job is it performing for the passage? Go sentence by sentence.",
+              },
+              {
+                given: "Trust is built in small moments, not grand ones. The grand gesture — the apology, the commitment, the declaration — is not where trust lives. Trust lives in whether you showed up when it wasn't required, whether you said the uncomfortable thing before it became a problem, whether you kept the small promises that no one was tracking.",
+                prompt: "Close-read this paragraph sentence by sentence. For each: name what the sentence is doing. Function, not content.",
+              },
+              {
+                given: "There is no such thing as an original idea. Every idea comes from somewhere — a conversation, a book, a misremembering of something you read ten years ago. The question is not whether your idea is original. The question is whether you've done something with it that wouldn't have happened without you.",
+                prompt: "Go sentence by sentence. Name what each sentence is doing for the paragraph — its function, its job, its role in the argument. Not what it says. What it does.",
+              },
+              {
+                given: "The best writing you'll do is the writing that scares you a little. Not the reckless kind of scare — the kind where you've said something true that you weren't sure you were allowed to say. The writing that felt like a risk. That's the writing that lands.",
+                prompt: "Close-read sentence by sentence. Name what each sentence is doing. What job does each one perform? Why is it where it is?",
+              },
+              {
+                given: "Most people are not bad at receiving feedback. They're bad at receiving unsolicited feedback. Ask someone to help you improve something and they will. Tell someone what's wrong with something they didn't ask about, and watch the walls go up. The container matters more than the content.",
+                prompt: "Name what each sentence is doing. Go sentence by sentence. Focus on function — what role does each sentence play in building the argument?",
+              },
+            ],
+          },
+          {
+            label: "Name the choice behind the function",
+            passThreshold: 65,
+            wordCountMin: 110,
+            wordCountMax: 220,
+            criteria: [
+              { name: "Choices named, not just functions", description: "Did the writer name the specific craft choices — word-level, syntax-level — not just what the sentences accomplish?", weight: 0.4 },
+              { name: "Why each choice", description: "Did the writer explain why the writer made each choice — what alternative was rejected and why this choice is better?", weight: 0.35 },
+              { name: "Reading is specific", description: "Are the observations specific to this passage — not generic comments that would apply to any good writing?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "Clarity is not the same as simplicity. Simple means few parts. Clear means the parts relate to each other in a way the reader can follow. You can be simple and unclear — a list of unconnected statements. You can be complex and clear — a long argument where every step is visible. The goal is not to reduce. The goal is to be followable.",
+                prompt: "Go sentence by sentence. For each sentence: name the choice the writer made and why that choice is the right one. What alternative did they reject? Why does the chosen version work better?",
+              },
+              {
+                given: "People are not afraid of failure. They are afraid of the specific kind of failure that confirms their worst fear about themselves. Missing a flight is not that scary. Submitting work that reveals you're not as good as you claimed — that's the one people avoid. The fear is always specific, even when it presents itself as general.",
+                prompt: "Close-read: sentence by sentence, name the craft choice and explain why it was made. Not what the sentence does — what the writer chose to do and why.",
+              },
+              {
+                given: "The test of a good mentor is what they do when you're failing. Anyone can be supportive when you're succeeding. Succeeding people need only the reflection of their own good work. Failing people need someone who stays honest without disappearing — who says the hard thing without saying it in a way that makes you feel alone.",
+                prompt: "Name the craft choice in each sentence. For each: what specifically did the writer choose, and what does that choice accomplish that a different choice wouldn't? Be specific to this passage.",
+              },
+              {
+                given: "Writing is not transcription. You are not recording your thoughts — you are discovering them. The difference matters because it changes how you approach the blank page. Transcription requires knowing what you think. Writing requires only showing up and following where the thinking goes. Most blocks are really a confusion of these two activities.",
+                prompt: "Sentence by sentence: name the specific choice and explain why it was made. What alternative existed? Why is this version better?",
+              },
+              {
+                given: "The purpose of a framework is to help you think, not to think for you. Frameworks that tell you what to decide are not frameworks — they're religions. The useful ones sharpen the question. They don't resolve it. If you find yourself using a framework to avoid thinking, the framework has become the problem.",
+                prompt: "Close-read every sentence. Name the craft choice. Explain why that choice and not another. Be specific — not 'this sentence is clear' but 'the writer chose X over Y because Z.'",
+              },
+            ],
+          },
+          {
+            label: "Full close read — every choice accounted for",
+            passThreshold: 75,
+            wordCountMin: 130,
+            wordCountMax: 240,
+            criteria: [
+              { name: "Every choice accounted for", description: "Did the writer account for every significant craft choice in the passage — word-level, structure-level, argument-level?", weight: 0.35 },
+              { name: "Reading is genuinely close", description: "Is the attention at the word and phrase level — not just paragraph-level moves but specific choices within sentences?", weight: 0.4 },
+              { name: "Reading is instructive", description: "Could someone use this close read to learn how to make the same choices — is it specific enough to teach?", weight: 0.25 },
+            ],
+            variants: [
+              {
+                given: "The reason most meetings are useless is not that they're too long. It's that they start without a question. A meeting organized around an update is an information-delivery system that could be an email. A meeting organized around a decision is an entirely different thing. The question at the center of a meeting determines everything: who needs to be there, how long it should run, and whether anything happens after.",
+                prompt: "Full close read — every significant craft choice in every sentence. Word-level choices, sentence structure choices, argument choices. Specific enough that someone could use this to learn how to make the same choices.",
+              },
+              {
+                given: "The people who are good at receiving bad news are not the people who are unemotional about it. They're the people who have made space for bad news in advance — who don't treat difficulty as a deviation from the plan, but as part of it. This makes them faster to absorb the news and faster to act on it. They grieve less because they expected loss.",
+                prompt: "Full close read: every sentence, every significant choice. Word level and structural level. Why did the writer use 'in advance' there? Why is 'grieve less' the final phrase? Account for everything.",
+              },
+              {
+                given: "The error isn't in the ambition. The error is in believing that ambition is something you feel rather than something you do. The feeling comes and goes — it's unreliable, weather-dependent, tied to your mood and your last meal. The doing is the stable thing. The discipline of showing up regardless of the feeling is what the ambition actually is.",
+                prompt: "Full close read. Every craft choice — the repetition of 'ambition,' the structure of the second sentence, the logic of 'last meal,' the final declaration. Account for every significant choice and why it was made.",
+              },
+              {
+                given: "Most productivity is performative. The long hours that are visible to others. The early morning posts about your 5am routine. The public calendar with nothing on it blocked for 'deep work.' Real productivity is invisible — it looks like someone who is gone a lot, hard to reach, and producing things with no apparent relationship to the time they're putting in.",
+                prompt: "Full close read: every significant word choice, sentence structure, and argumentative move. Why 'visible to others' specifically? Why the list? Why 'gone a lot' and not something else? Account for every choice.",
+              },
+              {
+                given: "Criticism directed at a person's character is almost never useful. It tells them what you think of them, which they can't do anything with. Criticism directed at a person's behavior — specific, recent, observable — is almost always useful. It tells them what happened, which they can do something with. The goal of feedback is change. Character critique doesn't produce change. Behavior critique can.",
+                prompt: "Full close read. Every sentence, every significant choice. Why 'almost never' and 'almost always' — why not 'never' and 'always'? Why is 'recent, observable' a list? What does the parallelism in the last three sentences accomplish? Account for everything.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     id: "revision",
     title: "Revision",
     genre: "nonfiction",
