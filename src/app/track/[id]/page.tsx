@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getTrack } from "@/lib/curriculum";
 import { scoreTier, TIER_LABEL } from "@/lib/tiers";
+import { TRACK_PHASE, PHASE_META } from "@/lib/phases";
 
 type ProgressRow = {
   exerciseId: string;
@@ -42,6 +43,18 @@ export default function TrackPage() {
       .catch(() => {});
   }, [trackId]);
 
+  const [phaseUnlocked, setPhaseUnlocked] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    fetch("/api/phase-status")
+      .then((r) => r.json())
+      .then((data: Record<number, boolean>) => {
+        const phaseNum = TRACK_PHASE[trackId] ?? 1;
+        setPhaseUnlocked(data[phaseNum] ?? true);
+      })
+      .catch(() => setPhaseUnlocked(true));
+  }, [trackId]);
+
   if (!track) {
     return (
       <main className="min-h-screen bg-zinc-950 text-zinc-100 flex items-center justify-center">
@@ -53,6 +66,35 @@ export default function TrackPage() {
   const completedCount = Object.values(progressMap).filter((p) => p.completed).length;
   const pct = Math.round((completedCount / track.exercises.length) * 100);
   const gradient = GENRE_COLOR[track.genre] ?? "from-zinc-500 to-zinc-400";
+  const phaseNum = TRACK_PHASE[track.id] ?? 1;
+  const phaseMeta = PHASE_META[phaseNum - 1];
+
+  // Locked state
+  if (phaseUnlocked === false) {
+    const prevPhaseMeta = PHASE_META[phaseNum - 2];
+    return (
+      <main className="min-h-screen bg-zinc-950 text-zinc-100">
+        <div className="max-w-2xl mx-auto px-8 py-14">
+          <div className="mb-6">
+            <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">← Home</Link>
+          </div>
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-10 text-center">
+            <div className="text-4xl mb-4">🔒</div>
+            <h1 className="text-xl font-bold text-zinc-200 mb-2">{track.title}</h1>
+            <p className="text-sm text-zinc-500 mb-6">
+              This track is in <strong className="text-zinc-300">Phase {phaseNum}: {phaseMeta?.title}</strong>.
+            </p>
+            <p className="text-sm text-zinc-500">
+              Complete {prevPhaseMeta?.gateCount} tracks in Phase {phaseNum - 1} to unlock this phase.
+            </p>
+            <Link href="/" className="inline-block mt-8 px-5 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-sm font-medium text-zinc-200 transition-colors">
+              ← Back to tracks
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
