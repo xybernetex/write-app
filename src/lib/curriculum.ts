@@ -2102,8 +2102,8 @@ export const tracks: Track[] = [
             weight: 0.5,
           },
           {
-            name: "Sounds like a person, not a performance",
-            description: "Look for any ONE of these: a sentence fragment, a rhetorical question, an em-dash interruption, a casual or slangy word, a parenthetical aside, or a direct personal opinion stated bluntly. If any single one of these appears anywhere in the response, this criterion passes. One instance is enough.",
+            name: "Stays in the room",
+            description: "The response mentions at least one thing the writer can currently see, hear, or physically feel in their environment — it stays grounded in the present moment rather than shifting entirely into abstract statements about writing or productivity.",
             weight: 0.5,
           },
         ],
@@ -2490,8 +2490,8 @@ export const tracks: Track[] = [
         wordCountMin: 90,
         wordCountMax: 220,
         criteria: [
-          { name: "Sounds like a person, not a writer", description: "Check for any ONE of: a sentence fragment, a rhetorical question, a casual or slangy word, a mid-thought start (no formal introduction), a direct aside, or a blunt personal opinion. If any single one exists anywhere in the response, this criterion passes. One is enough.", weight: 0.5 },
-          { name: "No performance", description: "The response contains no filler throat-clearing ('As we know,' 'It goes without saying,' 'In conclusion') — it gets to the point directly.", weight: 0.5 },
+          { name: "Written in first person", description: "The response uses 'I,' 'me,' 'my,' or 'mine' at least once — the writer is present in the explanation, not observing from the outside.", weight: 0.5 },
+          { name: "No formal preamble", description: "The response does not open with a thesis announcement, a definition, or a framing sentence like 'In this piece,' 'It is important to understand,' or 'One of the most...' — it starts in the middle of the thought.", weight: 0.5 },
         ],
       },
       {
