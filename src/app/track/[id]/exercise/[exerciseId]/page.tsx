@@ -867,8 +867,28 @@ export default function ExercisePage() {
                 Try again
               </button>
 
+              {/* ── NON-STAGED exercises: advance directly when server says passed ── */}
+              {!stages && feedback.passed && nextExercise && (
+                <button
+                  onClick={() => router.push(`/track/${trackId}/exercise/${nextExercise.id}`)}
+                  className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-zinc-100 text-zinc-950 hover:bg-white transition-colors"
+                >
+                  Next exercise →
+                </button>
+              )}
+              {!stages && feedback.passed && !nextExercise && (
+                <button
+                  onClick={() => router.push(`/track/${trackId}`)}
+                  className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-emerald-500 text-white hover:bg-emerald-400 transition-colors"
+                >
+                  Track complete! →
+                </button>
+              )}
+
+              {/* ── STAGED exercises: variant / stage / exercise advancement ── */}
+
               {/* Passed this variant, stage not yet complete — advance to next prompt */}
-              {variantPassed && !alreadyMarked && !stageComplete && (
+              {stages && variantPassed && !alreadyMarked && !stageComplete && (
                 <button
                   onClick={markPassedAndAdvance}
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-zinc-100 text-zinc-950 hover:bg-white transition-colors"
@@ -878,7 +898,7 @@ export default function ExercisePage() {
               )}
 
               {/* Passed this variant AND it completes the stage — advance to next round */}
-              {variantPassed && !alreadyMarked && stageComplete && !isLastStage && (
+              {stages && variantPassed && !alreadyMarked && stageComplete && !isLastStage && (
                 <button
                   onClick={advanceToNextStage}
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-zinc-100 text-zinc-950 hover:bg-white transition-colors"
@@ -888,7 +908,7 @@ export default function ExercisePage() {
               )}
 
               {/* Completed final round of final stage */}
-              {variantPassed && !alreadyMarked && stageComplete && isLastStage && nextExercise && (
+              {stages && variantPassed && !alreadyMarked && stageComplete && isLastStage && nextExercise && (
                 <button
                   onClick={async () => {
                     await markExerciseComplete();
@@ -899,7 +919,7 @@ export default function ExercisePage() {
                   Next exercise →
                 </button>
               )}
-              {variantPassed && !alreadyMarked && stageComplete && isLastStage && !nextExercise && (
+              {stages && variantPassed && !alreadyMarked && stageComplete && isLastStage && !nextExercise && (
                 <button
                   onClick={async () => {
                     await markExerciseComplete();
